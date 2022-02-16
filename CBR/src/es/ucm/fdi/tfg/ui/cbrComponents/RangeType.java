@@ -1,4 +1,4 @@
-package es.ucm.gdv.TFG.REST_API;
+package es.ucm.fdi.tfg.ui.cbrComponents;
 
 public enum RangeType {
 	discrete,

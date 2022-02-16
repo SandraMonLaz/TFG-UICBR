@@ -2,6 +2,15 @@ package es.ucm.fdi.tfg.ui.cbrComponents;
 
 //Clase que representa a un item como solucion en el CBR
 public class ItemSol {
+	
+	public ItemSol(ScreenPos screenPosition, Scale itemScale, String image, ItemId id) {
+		super();
+		this.screenPosition = screenPosition;
+		this.itemScale = itemScale;
+		this.image = image;
+		this.id = id;
+	}
+
 	public enum ScreenPos {
 		TOP_LEFT,
 		TOP_CENTER,
@@ -22,10 +31,11 @@ public class ItemSol {
 		VERY_BIG
 	}
 	
+
 	private ScreenPos screenPosition;
 	private Scale itemScale;
 	private String image;
-	private String id;
+	private ItemId id;
 	
 	public String getImage() {
 		return image;
@@ -35,11 +45,11 @@ public class ItemSol {
 		this.image = image;
 	}
 
-	public String getId() {
+	public ItemId getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(ItemId id) {
 		this.id = id;
 	}
 	

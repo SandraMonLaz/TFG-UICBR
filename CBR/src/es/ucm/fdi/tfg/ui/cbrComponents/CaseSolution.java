@@ -24,4 +24,8 @@ public class CaseSolution implements CaseComponent {
 	public void setSolutionItems(ItemSol[] solutionItems) {
 		this.solutionItems = solutionItems;
 	}
+	
+	public void setSolItem(ItemSol solutionItem, ItemId id) {
+		this.solutionItems[id.ordinal()] = solutionItem;
+	}
 }
