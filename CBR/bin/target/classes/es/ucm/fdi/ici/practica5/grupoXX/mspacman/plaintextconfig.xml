@@ -1,12 +1,16 @@
 <TextFileConfiguration>
 	<FilePath>not used</FilePath>
 	<Delimiters>,</Delimiters>
-	<DescriptionClassName>es.ucm.fdi.tfg.ui.cbrComponents.CaseDescription</DescriptionClassName>
+	<DescriptionClassName>es.ucm.fdi.ici.practica5.grupoXX.mspacman.MsPacManDescription</DescriptionClassName>
 	<DescriptionMappings>
-		<Map>id</Map><Map>health</Map>
-				
+		<Map>id</Map>
+		<Map>score</Map>
+		<Map>time</Map>
+		<Map>nearestPPill</Map>		
+		<Map>nearestGhost</Map>		
+		<Map>edibleGhost</Map>		
 	</DescriptionMappings>
-	<SolutionClassName>es.ucm.fdi.tfg.ui.cbrComponents.CaseSolution</SolutionClassName>
+	<SolutionClassName>es.ucm.fdi.ici.practica5.grupoXX.mspacman.MsPacManSolution</SolutionClassName>
 	<SolutionMappings>
 		<Map>id</Map>
 		<Map>action</Map>

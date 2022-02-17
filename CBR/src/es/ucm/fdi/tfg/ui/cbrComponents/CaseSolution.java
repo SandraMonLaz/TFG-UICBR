@@ -5,27 +5,40 @@ import es.ucm.fdi.gaia.jcolibri.cbrcore.CaseComponent;
 
 public class CaseSolution implements CaseComponent {
 
-	private ItemSol[] solutionItems;
+	private ItemSolArray solutionItems;
+	Integer id;
 	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	public CaseSolution() {
-		solutionItems = new ItemSol[ItemId.MAX_ITEMS.ordinal()];
+		solutionItems = new ItemSolArray(ItemId.MAX_ITEMS.ordinal());
 	}
 
 	@Override
 	public Attribute getIdAttribute() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Attribute("id", CaseSolution.class);
 	}
 	
-	public ItemSol[] getSolutionItems() {
+	public ItemSolArray getSolutionItems() {
 		return solutionItems;
 	}
 
-	public void setSolutionItems(ItemSol[] solutionItems) {
+	public void setSolutionItems(ItemSolArray solutionItems) {
 		this.solutionItems = solutionItems;
 	}
 	
 	public void setSolItem(ItemSol solutionItem, ItemId id) {
-		this.solutionItems[id.ordinal()] = solutionItem;
+		this.solutionItems.getValues()[id.ordinal()] = solutionItem;
+	}
+	
+	@Override
+	public String toString() {
+		return "CaseSolution [id=" + id + ", solutionItems=" + solutionItems.toString() +  "]";
 	}
 }

@@ -7,7 +7,9 @@ import es.ucm.fdi.gaia.jcolibri.cbraplications.StandardCBRApplication;
 import es.ucm.fdi.gaia.jcolibri.cbrcore.CBRCase;
 import es.ucm.fdi.gaia.jcolibri.cbrcore.CBRCaseBase;
 import es.ucm.fdi.gaia.jcolibri.cbrcore.CBRQuery;
+import es.ucm.fdi.gaia.jcolibri.cbrcore.CaseComponent;
 import es.ucm.fdi.gaia.jcolibri.exception.ExecutionException;
+import es.ucm.fdi.gaia.jcolibri.method.retain.StoreCasesMethod;
 import es.ucm.fdi.gaia.jcolibri.method.retrieve.RetrievalResult;
 import es.ucm.fdi.gaia.jcolibri.method.retrieve.NNretrieval.NNConfig;
 import es.ucm.fdi.gaia.jcolibri.method.retrieve.NNretrieval.NNScoringMethod;
@@ -19,16 +21,18 @@ import es.ucm.fdi.tfg.ui.cbrComponents.CaseDescription;
 import es.ucm.fdi.tfg.ui.cbrComponents.CaseSolution;
 import es.ucm.fdi.tfg.ui.cbrComponents.ItemId;
 import es.ucm.fdi.tfg.ui.cbrComponents.ItemSol;
-import es.ucm.fdi.tfg.ui.cbrComponents.RangeType;
 import es.ucm.fdi.tfg.ui.cbrComponents.ItemSol.Scale;
 import es.ucm.fdi.tfg.ui.cbrComponents.ItemSol.ScreenPos;
+import es.ucm.fdi.tfg.ui.cbrComponents.RangeType;
 
 public class CBREngine implements StandardCBRApplication  {
 
 	CustomPlainTextConnector connector;
 	CBRCaseBase caseBase;
 	NNConfig simConfig;
+	
 	CaseSolution solution;
+	SolCBR solCBR;
 	
 	final static String CONNECTOR_FILE_PATH = "es/ucm/fdi/tfg/ui/cbrEngine/plaintextconfig.xml";
 	final static String CASE_BASE_PATH = "cbrdata"+File.separator+File.separator;
@@ -63,19 +67,23 @@ public class CBREngine implements StandardCBRApplication  {
 
 		//Compute retrieve
 		Collection<RetrievalResult> eval = NNScoringMethod.evaluateSimilarity(caseBase.getCases(), query, simConfig);
-		//Compute reuse
-		solution = reuse(eval);
-		
-		SolCBR solCBR = adapt((CaseDescription)query.getDescription());
-		//Compute revise & retain
-		/*CBRCase newCase = createNewCase(query);
-		this.storageManager.reviseAndRetain(newCase);*/
-		
+		//Compute reuse and adapt
+		solution = reuse(eval);	
+		solCBR = adapt((CaseDescription)query.getDescription());
+		//Compute revise and Retain
+		reviseAndRetain(query.getDescription());	
 	}
-
+	
+	private void reviseAndRetain(CaseComponent queryDescription) {
+		CBRCase _case = new CBRCase();
+		_case.setSolution(solution);
+		_case.setDescription(queryDescription);
+		StoreCasesMethod.storeCase(caseBase, _case);
+	}
+	
 	private SolCBR adapt(CaseDescription queryDescription) {
 		//Se modifica la solucion del caso
-		ItemSol sol = solution.getSolutionItems()[ItemId.HEALTH.ordinal()];
+		ItemSol sol = solution.getSolutionItems().getValues()[ItemId.HEALTH.ordinal()];
 		if(sol == null && queryDescription.getHealth() != null) {
 			sol = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "vidaContinua", ItemId.HEALTH);
 		}
@@ -95,12 +103,12 @@ public class CBREngine implements StandardCBRApplication  {
 		}
 		
 		// Se usa la solucion modificada para crear la solucion del CBR		
-		SolCBR solCBR = new SolCBR();
+		SolCBR CBR = new SolCBR();
 		CombinedItem combinedItem = new CombinedItem();
 		combinedItem.getItems().add(sol);
-		solCBR.getSol().add(combinedItem);
+		CBR.getSol().add(combinedItem);
 		
-		return solCBR;		
+		return CBR;		
 	}
 	
 	private CaseSolution reuse(Collection<RetrievalResult> eval)

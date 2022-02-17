@@ -68,4 +68,17 @@ public class ItemSol {
 	public void setItemScale(Scale itemScale) {
 		this.itemScale = itemScale;
 	}
+	
+	public void fromString(String content) {
+		String[] splited = content.split("-");
+		id = ItemId.valueOf(splited[0]);
+		this.screenPosition = ScreenPos.valueOf(splited[1]);
+		this.itemScale = Scale.valueOf(splited[2]);
+		this.image = splited[3];
+	}
+	
+	@Override
+	public String toString() {
+		return id + "-" + screenPosition + "-" + itemScale + "-" + image + "-";
+	}
 }
