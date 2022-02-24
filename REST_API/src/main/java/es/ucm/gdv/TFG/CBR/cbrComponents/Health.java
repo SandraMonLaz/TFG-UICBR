@@ -1,7 +1,5 @@
 package es.ucm.gdv.TFG.CBR.cbrComponents;
 
-import es.ucm.gdv.TFG.CBR.cbrComponents.Item.Importance;
-
 public class Health extends Item {
 	RangeType type;
 
@@ -17,11 +15,12 @@ public class Health extends Item {
 	public void fromString(String content) throws Exception {
 		String[] splited = content.split("\\|");
 		super.fromString(splited[0]);
-		this.importance = Importance.valueOf(content);		
+		this.type = RangeType.valueOf(splited[1]);		
 	}
+	
 	@Override
 	public String toString() {
 		String s = super.toString();
-		return s + "|" + this.importance.toString();
+		return s + "|" + this.type.toString();
 	}
 }

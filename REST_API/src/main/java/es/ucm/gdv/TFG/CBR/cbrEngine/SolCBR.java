@@ -4,6 +4,10 @@ import java.util.ArrayList;
 
 public class SolCBR {
 	ArrayList<CombinedItem> sol;
+	
+	public SolCBR() {
+		sol = new ArrayList<CombinedItem>();
+	}
 
 	public ArrayList<CombinedItem> getSol() {
 		return sol;

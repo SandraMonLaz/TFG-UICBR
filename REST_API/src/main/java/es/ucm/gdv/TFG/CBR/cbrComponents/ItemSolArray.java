@@ -1,6 +1,5 @@
 package es.ucm.gdv.TFG.CBR.cbrComponents;
 
-
 import es.ucm.fdi.gaia.jcolibri.connector.TypeAdaptor;
 
 public class ItemSolArray implements TypeAdaptor {
@@ -40,6 +39,7 @@ public class ItemSolArray implements TypeAdaptor {
 		
 		return aux;
 	}
+	
 	@Override
 	public void fromString(String content) throws Exception {
 		//Los componentes estan separados por As

@@ -3,9 +3,6 @@ package es.ucm.gdv.TFG.CBR.cbrEngine;
 import java.io.File;
 import java.util.Collection;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import es.ucm.fdi.gaia.jcolibri.cbraplications.StandardCBRApplication;
 import es.ucm.fdi.gaia.jcolibri.cbrcore.CBRCase;
 import es.ucm.fdi.gaia.jcolibri.cbrcore.CBRCaseBase;
@@ -17,16 +14,18 @@ import es.ucm.fdi.gaia.jcolibri.method.retrieve.RetrievalResult;
 import es.ucm.fdi.gaia.jcolibri.method.retrieve.NNretrieval.NNConfig;
 import es.ucm.fdi.gaia.jcolibri.method.retrieve.NNretrieval.NNScoringMethod;
 import es.ucm.fdi.gaia.jcolibri.method.retrieve.NNretrieval.similarity.global.Average;
-import es.ucm.fdi.gaia.jcolibri.method.retrieve.NNretrieval.similarity.local.Interval;
 import es.ucm.fdi.gaia.jcolibri.method.retrieve.selection.SelectCases;
 import es.ucm.fdi.gaia.jcolibri.util.FileIO;
+import es.ucm.gdv.TFG.CBR.cbrComparators.HealthComparator;
 import es.ucm.gdv.TFG.CBR.cbrComponents.CaseDescription;
 import es.ucm.gdv.TFG.CBR.cbrComponents.CaseSolution;
+import es.ucm.gdv.TFG.CBR.cbrComponents.Health;
+import es.ucm.gdv.TFG.CBR.cbrComponents.Item.Importance;
 import es.ucm.gdv.TFG.CBR.cbrComponents.ItemId;
 import es.ucm.gdv.TFG.CBR.cbrComponents.ItemSol;
 import es.ucm.gdv.TFG.CBR.cbrComponents.ItemSol.Scale;
 import es.ucm.gdv.TFG.CBR.cbrComponents.ItemSol.ScreenPos;
-import es.ucm.gdv.TFG.REST_API.PreloaderRestApi;
+import es.ucm.gdv.TFG.CBR.cbrComponents.ItemSolArray;
 import es.ucm.gdv.TFG.CBR.cbrComponents.RangeType;
 
 public class CBREngine implements StandardCBRApplication  {
@@ -40,7 +39,7 @@ public class CBREngine implements StandardCBRApplication  {
 	SolCBR solCBR;
 	
 	final static String CONNECTOR_FILE_PATH = "es/ucm/gdv/TFG/CBR/cbrEngine/plaintextconfig.xml";
-	final static String CASE_BASE_PATH = "cbrdata"+File.separator+File.separator;
+	final static String CASE_BASE_PATH = "cbrdata"+File.separator;
 	
 	
 	public void init(){
@@ -65,12 +64,30 @@ public class CBREngine implements StandardCBRApplication  {
 		
 		simConfig = new NNConfig();
 		simConfig.setDescriptionSimFunction(new Average());
-		simConfig.addMapping(new Attribute("health",CaseDescription.class), new Interval(15000));	
+		simConfig.addMapping(new Attribute("health",CaseDescription.class), new HealthComparator());	
 	}
 
 	@Override
 	public CBRCaseBase preCycle() throws ExecutionException {
 		caseBase.init(connector);
+		
+		CBRCase _case = new CBRCase();
+		CaseSolution sol = new CaseSolution();
+		ItemSol health = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "vidaDiscreta", ItemId.HEALTH);
+		sol.setSolItem(health, ItemId.HEALTH);
+		
+		_case.setSolution(sol);
+		
+		CaseDescription des = new CaseDescription();
+		Health h = new Health();
+		h.setImportance(Importance.high);
+		h.setType(RangeType.continuous);
+		des.setHealth(h);
+		
+		_case.setDescription(des);
+		
+		StoreCasesMethod.storeCase(caseBase, _case);
+		
 		return caseBase;
 	}
 
@@ -137,8 +154,10 @@ public class CBREngine implements StandardCBRApplication  {
 		
 		return solution;
 	}
+	
 	@Override
 	public void postCycle() throws ExecutionException {
+		this.caseBase.close();
 		System.out.println("Cerrando cbr");
 	}
 

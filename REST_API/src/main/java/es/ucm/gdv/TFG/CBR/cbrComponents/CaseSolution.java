@@ -5,8 +5,12 @@ import es.ucm.fdi.gaia.jcolibri.cbrcore.CaseComponent;
 
 public class CaseSolution implements CaseComponent {
 
-	private ItemSolArray solutionItems;
 	Integer id;
+	ItemSolArray solutionItems;
+	
+	public CaseSolution() {
+		solutionItems = new ItemSolArray(ItemId.MAX_ITEMS.ordinal());
+	}
 	
 	public Integer getId() {
 		return id;
@@ -14,10 +18,6 @@ public class CaseSolution implements CaseComponent {
 
 	public void setId(Integer id) {
 		this.id = id;
-	}
-
-	public CaseSolution() {
-		solutionItems = new ItemSolArray(ItemId.MAX_ITEMS.ordinal());
 	}
 
 	@Override

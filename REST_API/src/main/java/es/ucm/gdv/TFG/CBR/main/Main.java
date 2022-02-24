@@ -15,17 +15,11 @@ public class Main {
 	 
 	 public static void main(String[] args) {
 		 cbrEngine = new CBREngine();
-		 try {
-			cbrEngine.configure();
-			cbrEngine.preCycle();
-		} catch (ExecutionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		 cbrEngine.init();
 		 
 		 Health health = new Health();
 		 health.setImportance(Importance.high);
-		 health.setType(RangeType.continuous);
+		 health.setType(RangeType.discrete);
 
 		 CaseDescription caseDes = new CaseDescription();
 		 caseDes.setId(0);
@@ -34,12 +28,20 @@ public class Main {
 		 CBRQuery query = new CBRQuery();
 		 query.setDescription(caseDes);
 		 
+		 /*
 		 try {
 			cbrEngine.cycle(query);
 		} catch (ExecutionException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
+		 
+		 try {
+			 cbrEngine.postCycle();			 
+		 }
+		 catch (ExecutionException e) {
+			 e.printStackTrace();
+		 }
 		 
 	 }
 }

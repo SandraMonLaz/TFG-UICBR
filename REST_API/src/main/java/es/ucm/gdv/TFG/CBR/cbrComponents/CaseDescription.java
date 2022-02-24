@@ -8,7 +8,7 @@ public class CaseDescription implements CaseComponent {
 	Integer id;
 
 	Health health;
-	
+
 	public Integer getId() {
 		return id;
 	}
