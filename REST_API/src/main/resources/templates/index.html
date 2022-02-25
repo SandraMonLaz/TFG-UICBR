@@ -5,9 +5,73 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/custom.css" rel="stylesheet">
 
 </head>
-<body>
- Holiwiw babababababa
+<body style="background-color:rgb(88, 150, 158);">
+    <div class="container ">
+        <div class="separador"></div>
+        <div class = "hijo-descripcion">
+            <h1>Herramienta Inteligente para creacion de UI</h1> <br>
+            Con el fin de saber que nivel de importancia se que quiere dar a cada item dentro de la interfaz se dan 5 niveles
+            de importancia donde Muy poca es que no se le da nada o casi nada y Muy importante mucha.  
+        </div>
+        <div class = "hijo-formulario ">
+            <!-- Tipo de juego-->
+            <div>
+                <h6>Tipo de Juego</h6> 
+                <div>
+                    <input type="radio" id="tipo-juego-plat" name="tipo-juego" checked>
+                    <label>Plataforma 2D</label>
+                </div>
+                <div>
+                    <input type="radio" id="tipo-juego-shoot" name="tipo-juego">
+                    <label>First Person Shooter 3D</label>
+                </div>
+            </div>
+            <!-- Vida-->
+            <div class="contenedor-item">
+                <!-- Chech Box-->
+                <div class="propiedad-item">
+                    <label><input type="checkbox" id="opcion-vida" name="opcion-vida"> Vida</label>
+                </div>
+                
+                <!-- Atributos de la vida-->
+                <div class="propiedad-item" name="imp-vida">
+                    <div class="contenedor-importancia-item">
+                        <div class="importancia-item">
+                            <input type="radio" id="imp-mp-vida" name="imp-vida" checked>
+                            <label>Muy poca</label>
+                        </div>
+                        <div class="importancia-item">
+                            <input type="radio" id="imp-p-vida" name="imp-vida" checked>
+                            <label>Poca importancia</label>
+                        </div>
+                        <div class="importancia-item">
+                            <input type="radio" id="imp-x-vida" name="imp-vida" checked>
+                            <label>Media importancia</label>
+                        </div>
+                        <div class="importancia-item">
+                            <input type="radio" id="imp-m-vida" name="imp-vida" checked>
+                            <label>Mucha importancia</label>
+                        </div>
+                        <div class="importancia-item">
+                            <input type="radio" id="imp-mm-vida" name="imp-vida" checked>
+                            <label>Muy importancia</label>
+                        </div>
+                    </div>
+                </div>     
+                <div class="propiedad-item">
+                    <select name="rango-vida" id="rango-vida">
+                        <option value="Discreto">Discreto</option>
+                        <option value="Continuo">Continuo</option>
+                    </select>
+                    <small>Valor que tiene la vida en el juego</small>
+                </div>         
+            </div>
+
+        </div>
+
+    </div>
 </body>
 </html>
