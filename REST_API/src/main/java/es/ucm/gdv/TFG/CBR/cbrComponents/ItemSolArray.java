@@ -7,21 +7,29 @@ public class ItemSolArray implements TypeAdaptor {
 	private ItemSol[] values;
 	private int size;
 	
-	public ItemSol[] getValues() {
-		return values;
-	}
-
-	public void setValues(ItemSol[] values) {
-		this.values = values;
-	}
-	
 	/**
 	 * Contructor
 	 * @param size tama�o para inicializar el array de valores
 	 */
-	public ItemSolArray(int size) {
-		this.size = size;
-		values = new ItemSol[size];
+	public ItemSolArray() {
+		this.size = ItemId.MAX_ITEMS.ordinal();
+		values = new ItemSol[this.size];
+	}
+	
+	/**
+	 * Getter de los items de la solucion
+	 * @return items de la solucion
+	 */
+	public ItemSol[] getValues() {
+		return values;
+	}
+
+	/**
+	 * Setter de los valores
+	 * @param values valores
+	 */
+	public void setValues(ItemSol[] values) {
+		this.values = values;
 	}
 	
     /**
@@ -33,8 +41,12 @@ public class ItemSolArray implements TypeAdaptor {
 		
 		//concatenamos cada caracter seguido del separador si no es el ultimo
 		for(int i=0; i<size; i++) {
-			aux+= this.values[i].toString();
-			if(i<size-1) aux +=  "|";//Cada componente se separa con una A
+			//Si el componente no se encuentra en la solucion se indica con "null"
+			if(this.values[i] == null) aux += "null";
+			else {
+				aux += this.values[i].toString();
+				if(i<size-1) aux +=  "|";	//Cada componente se separa con una A				
+			}
 		}
 		
 		return aux;
@@ -49,8 +61,12 @@ public class ItemSolArray implements TypeAdaptor {
 		values = new ItemSol[size];
 		
 		//Inicializamos cada valor
-		for(int i=0; i<size; i++)
-			this.values[i].fromString(splited[i]);
+		for(int i=0; i<size; i++) {
+			if(splited[i] != "null") {
+				this.values[i] = new ItemSol();
+				this.values[i].fromString(splited[i]);				
+			}
+		}
 		
 	}
 }
