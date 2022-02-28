@@ -71,22 +71,24 @@ public class CBREngine implements StandardCBRApplication  {
 	public CBRCaseBase preCycle() throws ExecutionException {
 		caseBase.init(connector);
 		
+		//----------------------- CASO DE PRUEBA -----------------------------
 		CBRCase _case = new CBRCase();
-		CaseSolution sol = new CaseSolution();
-		ItemSol health = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "vidaDiscreta", ItemId.HEALTH);
-		sol.setSolItem(health, ItemId.HEALTH);
-		
-		_case.setSolution(sol);
 		
 		CaseDescription des = new CaseDescription();
 		Health h = new Health();
 		h.setImportance(Importance.high);
 		h.setType(RangeType.continuous);
 		des.setHealth(h);
-		
 		_case.setDescription(des);
 		
+		CaseSolution sol = new CaseSolution();
+		ItemSol health = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "vidaDiscreta", ItemId.HEALTH);
+		sol.setSolItem(health, ItemId.HEALTH);
+		_case.setSolution(sol);
+		
 		StoreCasesMethod.storeCase(caseBase, _case);
+		
+		//---------------------------------------------------------------------
 		
 		return caseBase;
 	}
@@ -116,6 +118,7 @@ public class CBREngine implements StandardCBRApplication  {
 	private SolCBR adapt(CaseDescription queryDescription) {
 		//Se modifica la solucion del caso
 		ItemSol sol = solution.getSolutionItems().getValues()[ItemId.HEALTH.ordinal()];
+		
 		if(sol == null && queryDescription.getHealth() != null) {
 			sol = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "vidaContinua", ItemId.HEALTH);
 		}

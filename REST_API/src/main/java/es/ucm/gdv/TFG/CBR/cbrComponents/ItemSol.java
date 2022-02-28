@@ -4,6 +4,10 @@ package es.ucm.gdv.TFG.CBR.cbrComponents;
 //Clase que representa a un item como solucion en el CBR
 public class ItemSol {
 	
+	public ItemSol() {
+		super();
+	}
+	
 	public ItemSol(ScreenPos screenPosition, Scale itemScale, String image, ItemId id) {
 		super();
 		this.screenPosition = screenPosition;

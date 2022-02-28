@@ -7,9 +7,9 @@ public class CaseSolution implements CaseComponent {
 
 	Integer id;
 	ItemSolArray solutionItems;
-	
+
 	public CaseSolution() {
-		solutionItems = new ItemSolArray(ItemId.MAX_ITEMS.ordinal());
+		solutionItems = new ItemSolArray();
 	}
 	
 	public Integer getId() {
