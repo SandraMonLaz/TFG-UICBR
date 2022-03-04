@@ -9,353 +9,428 @@
 
 </head>
 <body style="background-color:rgb(94, 127, 177);">
-    <div class="container ">
-        <div class="separador"></div>
-        <div class = "hijo-descripcion">
-            <h1>Herramienta Inteligente para creacion de UI</h1> <br>
-            Con el fin de saber que nivel de importancia se que quiere dar a cada item dentro de la interfaz se dan 5 niveles
-            de importancia donde Muy poca es que no se le da nada o casi nada y Muy importante mucha.  
-        </div>
-        <div class = "hijo-formulario ">
-            <!-- Tipo de juego-->
-            <div>
-                <h6>Tipo de Juego</h6> 
+    <form>
+        <div class="container ">
+            <div class="separador"></div>
+            <div class = "hijo-descripcion">
+                <h1>Herramienta Inteligente para creacion de UI</h1> <br>
+                Con el fin de saber que nivel de importancia se que quiere dar a cada item dentro de la interfaz se dan 5 niveles
+                de importancia donde Muy poca es que no se le da nada o casi nada y Muy importante mucha.  
+            </div>
+            <div class = "hijo-formulario ">
+                <!-- Tipo de juego-->
                 <div>
-                    <input type="radio" id="tipo-juego-plat" name="tipo-juego" checked>
-                    <label>Plataforma 2D</label>
+                    <h6>Tipo de Juego</h6> 
+                    <div>
+                        <input type="radio" id="tipo-juego-plat" name="tipo-juego" checked>
+                        <label>Plataforma 2D</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="tipo-juego-shoot" name="tipo-juego">
+                        <label>First Person Shooter 3D</label>
+                    </div>
                 </div>
-                <div>
-                    <input type="radio" id="tipo-juego-shoot" name="tipo-juego">
-                    <label>First Person Shooter 3D</label>
+                <!-- Vida-->
+                <div class="contenedor-item">
+                    <!-- Chech Box-->
+                    <div class="propiedad-item">
+                        <label><input type="checkbox" id="opcion-vida" name="opcion-vida"> Vida</label>
+                    </div>
+                    
+                    <!-- Atributos de la vida-->
+                    <div class="propiedad-item" name="imp-vida">
+                        <div class="contenedor-importancia-item">
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-mp-vida" name="imp-vida" value="muy poca">
+                                <label>Muy poca</label>
+                            </div>
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-p-vida" name="imp-vida" value="poca">
+                                <label>Poca importancia</label>
+                            </div>
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-x-vida" name="imp-vida" value="media"checked>
+                                <label>Media importancia</label>
+                            </div>
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-m-vida" name="imp-vida" value="mucha">
+                                <label>Mucha importancia</label>
+                            </div>
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-mm-vida" name="imp-vida" value="muy importente">
+                                <label>Muy importante</label>
+                            </div>
+                        </div>
+                    </div>   
+                    <!-- Valor de la vida-->  
+                    <div class="propiedad-item">
+                        <select name="rango-vida" id="rango-vida">
+                            <option value="Discreto">Discreto</option>
+                            <option value="Continuo">Continuo</option>
+                        </select>
+                        <small>Valor que tiene la vida en el juego</small>
+                    </div>         
+                </div>
+                <!--Tiempo-->
+                <div class="contenedor-item">
+                    <!-- Chech Box-->
+                    <div class="propiedad-item">
+                        <label><input type="checkbox" id="opcion-tiempo" name="opcion-tiempo"> Tiempo</label>
+                    </div>
+                    
+                    <!-- Atributos de la tiempo-->
+                    <div class="propiedad-item" name="imp-tiempo">
+                        <div class="contenedor-importancia-item">
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-mp-tiempo" name="imp-tiempo" value="muy poca">
+                                <label>Muy poca</label>
+                            </div>
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-p-tiempo" name="imp-tiempo" value="poca">
+                                <label>Poca importancia</label>
+                            </div>
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-x-tiempo" name="imp-tiempo" value="media"checked>
+                                <label>Media importancia</label>
+                            </div>
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-m-tiempo" name="imp-tiempo" value="mucha">
+                                <label>Mucha importancia</label>
+                            </div>
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-mm-tiempo" name="imp-tiempo" value="muy importente">
+                                <label>Muy importante</label>
+                            </div>
+                        </div>
+                    </div>   
+                    <!-- Valor de la vida-->  
+                    <div class="propiedad-item">
+                        <select name="tipo-tiempo" id="tipo-tiempo">
+                            <option value="Cronometro">Cronometro</option>
+                            <option value="Cuenta Atrás">Cuenta Atrás</option>
+                        </select>
+                        <small>Uso del tiempo en el juego</small>
+                    </div>         
+                </div>
+                <!--Porcentaje del nivel-->
+                <div class="contenedor-item">
+                    <!-- Chech Box-->
+                    <div class="propiedad-item">
+                        <label><input type="checkbox" id="opcion-porcentaje-lvl" name="opcion-porcentaje-lvl"> Porcentaje de Nivel</label>
+                    </div>
+                    
+                    <!-- Importancia del porcentaje-lvl-->
+                    <div class="propiedad-item" name="imp-porcentaje-lvl">
+                        <div class="contenedor-importancia-item">
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-mp-porcentaje-lvl" name="imp-porcentaje-lvl" value="muy poca">
+                                <label>Muy poca</label>
+                            </div>
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-p-porcentaje-lvl" name="imp-porcentaje-lvl" value="poca">
+                                <label>Poca importancia</label>
+                            </div>
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-x-porcentaje-lvl" name="imp-porcentaje-lvl" value="media"checked>
+                                <label>Media importancia</label>
+                            </div>
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-m-porcentaje-lvl" name="imp-porcentaje-lvl" value="mucha">
+                                <label>Mucha importancia</label>
+                            </div>
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-mm-porcentaje-lvl" name="imp-porcentaje-lvl" value="muy importente">
+                                <label>Muy importante</label>
+                            </div>
+                        </div>
+                    </div>   
+                    <!--Rango del porcentaje de nivel-->
+                    <div class="propiedad-item">
+                        <select name="rango-porcentaje-lvl" id="rango-porcentaje-lvl">
+                            <option value="Discreto">Discreto</option>
+                            <option value="Continuo">Continuo</option>
+                        </select>
+                        <small>Valor que tiene la el porcentaje en el juego</small>
+                    </div>  
+                    <!-- Valor del porcentaje-lvl-->  
+                    <div class="propiedad-item">
+                        <select name="tipo-tiempo" id="tipo-tiempo">
+                            <option value="Porcentaje Restante">Porcentaje Restante</option>
+                            <option value="Porcentaje Superado">Porcentaje Superado</option>
+                        </select>
+                        <small>Forma de visualizar el porcentaje del nivel en el juego</small>
+                    </div>         
+                </div>
+                <!-- Coleccionable-->
+                <div class="contenedor-item">
+                    <!-- Chech Box-->
+                    <div class="propiedad-item">
+                        <label><input type="checkbox" id="opcion-coleccionable" name="opcion-coleccionable"> Coleccionable</label>
+                    </div>           
+                    <!-- Atributos de la Coleccionable-->
+                    <div class="propiedad-item" name="imp-coleccionable">
+                        <div class="contenedor-importancia-item">
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-mp-coleccionable" name="imp-coleccionable" value="muy poca">
+                                <label>Muy poca</label>
+                            </div>
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-p-coleccionable" name="imp-coleccionable" value="poca">
+                                <label>Poca importancia</label>
+                            </div>
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-x-coleccionable" name="imp-coleccionable" value="media"checked>
+                                <label>Media importancia</label>
+                            </div>
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-m-coleccionable" name="imp-coleccionable" value="mucha">
+                                <label>Mucha importancia</label>
+                            </div>
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-mm-coleccionable" name="imp-coleccionable" value="muy importente">
+                                <label>Muy importante</label>
+                            </div>
+                        </div>
+                    </div>   
+                </div>
+                <!-- Puntuación-->
+                <div class="contenedor-item">
+                    <!-- Chech Box-->
+                    <div class="propiedad-item">
+                        <label><input type="checkbox" id="opcion-puntuacion" name="opcion-puntuacion"> Puntuacion</label>
+                    </div>           
+                    <!-- Atributos de la puntuacion-->
+                    <div class="propiedad-item" name="imp-puntuacion">
+                        <div class="contenedor-importancia-item">
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-mp-puntuacion" name="imp-puntuacion" value="muy poca">
+                                <label>Muy poca</label>
+                            </div>
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-p-puntuacion" name="imp-puntuacion" value="poca">
+                                <label>Poca importancia</label>
+                            </div>
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-x-puntuacion" name="imp-puntuacion" value="media"checked>
+                                <label>Media importancia</label>
+                            </div>
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-m-puntuacion" name="imp-puntuacion" value="mucha">
+                                <label>Mucha importancia</label>
+                            </div>
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-mm-puntuacion" name="imp-puntuacion" value="muy importente">
+                                <label>Muy importante</label>
+                            </div>
+                        </div>
+                    </div>          
+                </div>
+                <!-- Informacion Personaje-->
+                <div class="contenedor-item">
+                    <!-- Chech Box-->
+                    <div class="propiedad-item">
+                        <label><input type="checkbox" id="opcion-personajeInfo" name="opcion-personajeInfo"> Información del Personaje</label>
+                    </div>           
+                    <!-- Atributos de la personajeInfo-->
+                    <div class="propiedad-item" name="imp-personajeInfo">
+                        <div class="contenedor-importancia-item">
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-mp-personajeInfo" name="imp-personajeInfo" value="muy poca">
+                                <label>Muy poca</label>
+                            </div>
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-p-personajeInfo" name="imp-personajeInfo" value="poca">
+                                <label>Poca importancia</label>
+                            </div>
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-x-personajeInfo" name="imp-personajeInfo" value="media"checked>
+                                <label>Media importancia</label>
+                            </div>
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-m-personajeInfo" name="imp-personajeInfo" value="mucha">
+                                <label>Mucha importancia</label>
+                            </div>
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-mm-personajeInfo" name="imp-personajeInfo" value="muy importente">
+                                <label>Muy importante</label>
+                            </div>
+                        </div>
+                    </div>             
+                </div>
+                <!-- Progreso/Nivel Personaje-->
+                <div class="contenedor-item">
+                    <!-- Chech Box-->
+                    <div class="propiedad-item">
+                        <label><input type="checkbox" id="opcion-progresoPersonaje" name="opcion-progresoPersonaje"> Progreso del Personaje</label>
+                    </div>           
+                    <!-- Atributos de la progresoPersonaje-->
+                    <div class="propiedad-item" name="imp-progresoPersonaje">
+                        <div class="contenedor-importancia-item">
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-mp-progresoPersonaje" name="imp-progresoPersonaje" value="muy poca">
+                                <label>Muy poca</label>
+                            </div>
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-p-progresoPersonaje" name="imp-progresoPersonaje" value="poca">
+                                <label>Poca importancia</label>
+                            </div>
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-x-progresoPersonaje" name="imp-progresoPersonaje" value="media"checked>
+                                <label>Media importancia</label>
+                            </div>
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-m-progresoPersonaje" name="imp-progresoPersonaje" value="mucha">
+                                <label>Mucha importancia</label>
+                            </div>
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-mm-progresoPersonaje" name="imp-progresoPersonaje" value="muy importente">
+                                <label>Muy importante</label>
+                            </div>
+                        </div>
+                    </div>           
+                    <!-- Valor del progreso del personaje-->  
+                    <div class="propiedad-item">
+                        <select name="rango-vida" id="rango-vida">
+                            <option value="Discreto">Discreto</option>
+                            <option value="Continuo">Continuo</option>
+                        </select>
+                        <small>Valor que tiene el progreso del personaje en el juego</small>
+                    </div>     
+                </div>
+                <!-- Armas-->
+                <div class="contenedor-item">
+                    <!-- Chech Box-->
+                    <div class="propiedad-item">
+                        <label><input type="checkbox" id="opcion-armas" name="opcion-armas"> Armas</label>
+                    </div>           
+                    <!-- Atributos de la armas-->
+                    <div class="propiedad-item" name="imp-armas">
+                        <div class="contenedor-importancia-item">
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-mp-armas" name="imp-armas" value="muy poca">
+                                <label>Muy poca</label>
+                            </div>
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-p-armas" name="imp-armas" value="poca">
+                                <label>Poca importancia</label>
+                            </div>
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-x-armas" name="imp-armas" value="media"checked>
+                                <label>Media importancia</label>
+                            </div>
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-m-armas" name="imp-armas" value="mucha">
+                                <label>Mucha importancia</label>
+                            </div>
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-mm-armas" name="imp-armas" value="muy importente">
+                                <label>Muy importante</label>
+                            </div>
+                        </div>
+                    </div>   
+                    <!-- Municion limitada7infinita-->  
+                    <div class="propiedad-item">
+                        <select name="uso-arma" id="uso-arma">
+                            <option value="Limitado">Limitado</option>
+                            <option value="Infinito">Infinito</option>
+                        </select>
+                        <small>Si la munición del arma es infinita o limitada</small>
+                    </div>    
+                    <div class="propiedad-item">
+                        Numero de Armas <input type="text" id="numero-armas" name="numero-armas">
+                    </div>  
+                    
+                </div>
+                <!-- Habilidades-->
+                <div class="contenedor-item">
+                    <!-- Chech Box-->
+                    <div class="propiedad-item">
+                        <label><input type="checkbox" id="opcion-habilidades" name="opcion-habilidades"> Habilidades</label>
+                    </div>           
+                    <!-- Atributos de la habilidades-->
+                    <div class="propiedad-item" name="imp-habilidades">
+                        <div class="contenedor-importancia-item">
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-mp-habilidades" name="imp-habilidades" value="muy poca">
+                                <label>Muy poca</label>
+                            </div>
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-p-habilidades" name="imp-habilidades" value="poca">
+                                <label>Poca importancia</label>
+                            </div>
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-x-habilidades" name="imp-habilidades" value="media"checked>
+                                <label>Media importancia</label>
+                            </div>
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-m-habilidades" name="imp-habilidades" value="mucha">
+                                <label>Mucha importancia</label>
+                            </div>
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-mm-habilidades" name="imp-habilidades" value="muy importente">
+                                <label>Muy importante</label>
+                            </div>
+                        </div>
+                    </div>   
+                    <!-- Municion limitada /infinita-->  
+                    <div class="propiedad-item">
+                        <select name="uso-arma" id="uso-habilidad">
+                            <option value="Limitado">Limitado</option>
+                            <option value="Infinito">Infinito</option>
+                        </select>
+                        <small>Numero de veces que se puede usar la habilidad</small>
+                    </div>    
+                    <div class="propiedad-item">
+                        Numero de Habilidades <input type="text" id="numero-habilidad" name="numero-habilidad">
+                    </div>      
+                </div>
+                <!-- Escudos-->
+                <div class="contenedor-item">
+                    <!-- Chech Box-->
+                    <div class="propiedad-item">
+                        <label><input type="checkbox" id="opcion-escudo" name="opcion-escudo"> Escudo</label>
+                    </div>           
+                    <!-- Atributos de la escudo-->
+                    <div class="propiedad-item" name="imp-escudo">
+                        <div class="contenedor-importancia-item">
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-mp-escudo" name="imp-escudo" value="muy poca">
+                                <label>Muy poca</label>
+                            </div>
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-p-escudo" name="imp-escudo" value="poca">
+                                <label>Poca importancia</label>
+                            </div>
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-x-escudo" name="imp-escudo" value="media"checked>
+                                <label>Media importancia</label>
+                            </div>
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-m-escudo" name="imp-escudo" value="mucha">
+                                <label>Mucha importancia</label>
+                            </div>
+                            <div class="importancia-item">
+                                <input type="radio" id="imp-mm-escudo" name="imp-escudo" value="muy importente">
+                                <label>Muy importante</label>
+                            </div>
+                        </div>
+                    </div>   
+                    <!-- Valor de la vida-->  
+                    <div class="propiedad-item">
+                        <select name="rango-escudo" id="rango-escudo">
+                            <option value="Discreto">Discreto</option>
+                            <option value="Continuo">Continuo</option>
+                        </select>
+                        <small>Valor que tienen los escudos en el juego</small>
+                    </div>       
                 </div>
             </div>
-            <!-- Vida-->
-            <div class="contenedor-item">
-                <!-- Chech Box-->
-                <div class="propiedad-item">
-                    <label><input type="checkbox" id="opcion-vida" name="opcion-vida"> Vida</label>
-                </div>
-                
-                <!-- Atributos de la vida-->
-                <div class="propiedad-item" name="imp-vida">
-                    <div class="contenedor-importancia-item">
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-mp-vida" name="imp-vida" checked>
-                            <label>Muy poca</label>
-                        </div>
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-p-vida" name="imp-vida" checked>
-                            <label>Poca importancia</label>
-                        </div>
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-x-vida" name="imp-vida" checked>
-                            <label>Media importancia</label>
-                        </div>
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-m-vida" name="imp-vida" checked>
-                            <label>Mucha importancia</label>
-                        </div>
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-mm-vida" name="imp-vida" checked>
-                            <label>Muy importancia</label>
-                        </div>
-                    </div>
-                </div>   
-                <!-- Valor de la vida-->  
-                <div class="propiedad-item">
-                    <select name="rango-vida" id="rango-vida">
-                        <option value="Discreto">Discreto</option>
-                        <option value="Continuo">Continuo</option>
-                    </select>
-                    <small>Valor que tiene la vida en el juego</small>
-                </div>         
-            </div>
-            <!--Tiempo-->
-            <div class="contenedor-item">
-                <!-- Chech Box-->
-                <div class="propiedad-item">
-                    <label><input type="checkbox" id="opcion-tiempo" name="opcion-tiempo"> Tiempo</label>
-                </div>
-                
-                <!-- Atributos de la tiempo-->
-                <div class="propiedad-item" name="imp-tiempo">
-                    <div class="contenedor-importancia-item">
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-mp-tiempo" name="imp-tiempo" checked>
-                            <label>Muy poca</label>
-                        </div>
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-p-tiempo" name="imp-tiempo" checked>
-                            <label>Poca importancia</label>
-                        </div>
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-x-tiempo" name="imp-tiempo" checked>
-                            <label>Media importancia</label>
-                        </div>
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-m-tiempo" name="imp-tiempo" checked>
-                            <label>Mucha importancia</label>
-                        </div>
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-mm-tiempo" name="imp-tiempo" checked>
-                            <label>Muy importancia</label>
-                        </div>
-                    </div>
-                </div>   
-                <!-- Valor de la vida-->  
-                <div class="propiedad-item">
-                    <select name="tipo-tiempo" id="tipo-tiempo">
-                        <option value="Cronometro">Cronometro</option>
-                        <option value="Cuenta Atrás">Cuenta Atrás</option>
-                    </select>
-                    <small>Uso del tiempo en el juego</small>
-                </div>         
-            </div>
-            <!--Porcentaje del nivel-->
-            <div class="contenedor-item">
-                <!-- Chech Box-->
-                <div class="propiedad-item">
-                    <label><input type="checkbox" id="opcion-porcentaje-lvl" name="opcion-porcentaje-lvl"> Porcentaje de Nivel</label>
-                </div>
-                
-                <!-- Importancia del porcentaje-lvl-->
-                <div class="propiedad-item" name="imp-porcentaje-lvl">
-                    <div class="contenedor-importancia-item">
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-mp-porcentaje-lvl" name="imp-porcentaje-lvl" checked>
-                            <label>Muy poca</label>
-                        </div>
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-p-porcentaje-lvl" name="imp-porcentaje-lvl" checked>
-                            <label>Poca importancia</label>
-                        </div>
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-x-porcentaje-lvl" name="imp-porcentaje-lvl" checked>
-                            <label>Media importancia</label>
-                        </div>
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-m-porcentaje-lvl" name="imp-porcentaje-lvl" checked>
-                            <label>Mucha importancia</label>
-                        </div>
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-mm-porcentaje-lvl" name="imp-porcentaje-lvl" checked>
-                            <label>Muy importancia</label>
-                        </div>
-                    </div>
-                </div>   
-                <!--Rango del porcentaje de nivel-->
-                <div class="propiedad-item">
-                    <select name="rango-porcentaje-lvl" id="rango-porcentaje-lvl">
-                        <option value="Discreto">Discreto</option>
-                        <option value="Continuo">Continuo</option>
-                    </select>
-                    <small>Valor que tiene la el porcentaje en el juego</small>
-                </div>  
-                <!-- Valor del porcentaje-lvl-->  
-                <div class="propiedad-item">
-                    <select name="tipo-tiempo" id="tipo-tiempo">
-                        <option value="Porcentaje Restante">Porcentaje Restante</option>
-                        <option value="Porcentaje Superado">Porcentaje Superado</option>
-                    </select>
-                    <small>Forma de visualizar el porcentaje del nivel en el juego</small>
-                </div>         
-            </div>
-            <!-- Coleccionable-->
-            <div class="contenedor-item">
-                <!-- Chech Box-->
-                <div class="propiedad-item">
-                    <label><input type="checkbox" id="opcion-coleccionable" name="opcion-coleccionable"> Coleccionable</label>
-                </div>           
-                <!-- Atributos de la Coleccionable-->
-                <div class="propiedad-item" name="imp-coleccionable">
-                    <div class="contenedor-importancia-item">
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-mp-coleccionable" name="imp-coleccionable" checked>
-                            <label>Muy poca</label>
-                        </div>
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-p-coleccionable" name="imp-coleccionable" checked>
-                            <label>Poca importancia</label>
-                        </div>
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-x-coleccionable" name="imp-coleccionable" checked>
-                            <label>Media importancia</label>
-                        </div>
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-m-coleccionable" name="imp-coleccionable" checked>
-                            <label>Mucha importancia</label>
-                        </div>
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-mm-coleccionable" name="imp-coleccionable" checked>
-                            <label>Muy importancia</label>
-                        </div>
-                    </div>
-                </div>         
-            </div>
-            <!-- Puntuación-->
-            <div class="contenedor-item">
-                <!-- Chech Box-->
-                <div class="propiedad-item">
-                    <label><input type="checkbox" id="opcion-puntuacion" name="opcion-puntuacion"> Puntuacion</label>
-                </div>           
-                <!-- Atributos de la puntuacion-->
-                <div class="propiedad-item" name="imp-puntuacion">
-                    <div class="contenedor-importancia-item">
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-mp-puntuacion" name="imp-puntuacion" checked>
-                            <label>Muy poca</label>
-                        </div>
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-p-puntuacion" name="imp-puntuacion" checked>
-                            <label>Poca importancia</label>
-                        </div>
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-x-puntuacion" name="imp-puntuacion" checked>
-                            <label>Media importancia</label>
-                        </div>
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-m-puntuacion" name="imp-puntuacion" checked>
-                            <label>Mucha importancia</label>
-                        </div>
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-mm-puntuacion" name="imp-puntuacion" checked>
-                            <label>Muy importancia</label>
-                        </div>
-                    </div>
-                </div>         
-            </div>
-            <!-- Personaje-->
-            <div class="contenedor-item">
-                <!-- Chech Box-->
-                <div class="propiedad-item">
-                    <label><input type="checkbox" id="opcion-personaje" name="opcion-personaje"> Personaje</label>
-                </div>           
-                <!-- Atributos de la personaje-->
-                <div class="propiedad-item" name="imp-personaje">
-                    <div class="contenedor-importancia-item">
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-mp-personaje" name="imp-personaje" checked>
-                            <label>Muy poca</label>
-                        </div>
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-p-personaje" name="imp-personaje" checked>
-                            <label>Poca importancia</label>
-                        </div>
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-x-personaje" name="imp-personaje" checked>
-                            <label>Media importancia</label>
-                        </div>
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-m-personaje" name="imp-personaje" checked>
-                            <label>Mucha importancia</label>
-                        </div>
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-mm-personaje" name="imp-personaje" checked>
-                            <label>Muy importancia</label>
-                        </div>
-                    </div>
-                </div>         
-            </div>
-            <!-- Armas-->
-            <div class="contenedor-item">
-                <!-- Chech Box-->
-                <div class="propiedad-item">
-                    <label><input type="checkbox" id="opcion-armas" name="opcion-armas"> Armas</label>
-                </div>           
-                <!-- Atributos de la armas-->
-                <div class="propiedad-item" name="imp-armas">
-                    <div class="contenedor-importancia-item">
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-mp-armas" name="imp-armas" checked>
-                            <label>Muy poca</label>
-                        </div>
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-p-armas" name="imp-armas" checked>
-                            <label>Poca importancia</label>
-                        </div>
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-x-armas" name="imp-armas" checked>
-                            <label>Media importancia</label>
-                        </div>
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-m-armas" name="imp-armas" checked>
-                            <label>Mucha importancia</label>
-                        </div>
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-mm-armas" name="imp-armas" checked>
-                            <label>Muy importancia</label>
-                        </div>
-                    </div>
-                </div>         
-            </div>
-            <!-- Habilidades-->
-            <div class="contenedor-item">
-                <!-- Chech Box-->
-                <div class="propiedad-item">
-                    <label><input type="checkbox" id="opcion-habilidades" name="opcion-habilidades"> Habilidades</label>
-                </div>           
-                <!-- Atributos de la habilidades-->
-                <div class="propiedad-item" name="imp-habilidades">
-                    <div class="contenedor-importancia-item">
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-mp-habilidades" name="imp-habilidades" checked>
-                            <label>Muy poca</label>
-                        </div>
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-p-habilidades" name="imp-habilidades" checked>
-                            <label>Poca importancia</label>
-                        </div>
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-x-habilidades" name="imp-habilidades" checked>
-                            <label>Media importancia</label>
-                        </div>
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-m-habilidades" name="imp-habilidades" checked>
-                            <label>Mucha importancia</label>
-                        </div>
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-mm-habilidades" name="imp-habilidades" checked>
-                            <label>Muy importancia</label>
-                        </div>
-                    </div>
-                </div>         
-            </div>
-            <!-- Escudos-->
-            <div class="contenedor-item">
-                <!-- Chech Box-->
-                <div class="propiedad-item">
-                    <label><input type="checkbox" id="opcion-escudo" name="opcion-escudo"> Escudo</label>
-                </div>           
-                <!-- Atributos de la escudo-->
-                <div class="propiedad-item" name="imp-escudo">
-                    <div class="contenedor-importancia-item">
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-mp-escudo" name="imp-escudo" checked>
-                            <label>Muy poca</label>
-                        </div>
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-p-escudo" name="imp-escudo" checked>
-                            <label>Poca importancia</label>
-                        </div>
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-x-escudo" name="imp-escudo" checked>
-                            <label>Media importancia</label>
-                        </div>
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-m-escudo" name="imp-escudo" checked>
-                            <label>Mucha importancia</label>
-                        </div>
-                        <div class="importancia-item">
-                            <input type="radio" id="imp-mm-escudo" name="imp-escudo" checked>
-                            <label>Muy importancia</label>
-                        </div>
-                    </div>
-                </div>         
-            </div>
+            <div class="separador"></div>
+            <!--///////////////////////////////////////// Preguntar  a Guille si hacerlo como formulario con  <input type="submit" value="Submit"> o con boton-->
+            <!--<input class = "myButton" type="button" value="Enviar" onclick="EnviarFormulario()">-->
+            <input class = "myButton" type="submit" value="Enviar">
+            <div class="separador"></div>
         </div>
-        <div class="separador"></div>
-        <input class = "myButton" type="button" value="Enviar" onclick="EnviarFormulario()">
-        <div class="separador"></div>
-    </div>
+    </form>
 </body>
 </html>
