@@ -3,6 +3,7 @@ package es.ucm.gdv.TFG.REST_API;
 import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,7 +19,7 @@ public class GreetingController {
 		return new Greeting(counter.incrementAndGet(), String.format(template, name));
 	}*/
 	
-	@GetMapping("/prueba")
+	@PostMapping("/prueba")
 	public Greeting prueba(@RequestBody Greeting input) {
 		//return new Greeting(1, "a");
 		return new Greeting(input.getId(), input.getContent(), input.getPrueba());

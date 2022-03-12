@@ -6,10 +6,13 @@
 
     <link href="/css/bootstrap.css" rel="stylesheet">
     <link href="/css/custom.css" rel="stylesheet">
+    <!-- link a js-->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="/js/query.js"></script>
 
 </head>
 <body style="background-color:rgb(94, 127, 177);">
-    <form>
+    <form id = "myFormElement">
         <div class="container ">
             <div class="separador"></div>
             <div class = "hijo-descripcion">
@@ -427,8 +430,8 @@
             </div>
             <div class="separador"></div>
             <!--///////////////////////////////////////// Preguntar  a Guille si hacerlo como formulario con  <input type="submit" value="Submit"> o con boton-->
-            <!--<input class = "myButton" type="button" value="Enviar" onclick="EnviarFormulario()">-->
-            <input class = "myButton" type="submit" value="Enviar">
+            <input class = "myButton" type="button" value="Enviar" onclick="EnviarFormulario()">
+            <!--<input class = "myButton" type="submit" value="Enviar">-->
             <div class="separador"></div>
         </div>
     </form>
