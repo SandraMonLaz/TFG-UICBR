@@ -19,6 +19,7 @@ import es.ucm.fdi.gaia.jcolibri.util.FileIO;
 import es.ucm.gdv.TFG.CBR.cbrComparators.HealthComparator;
 import es.ucm.gdv.TFG.CBR.cbrComponents.CaseDescription;
 import es.ucm.gdv.TFG.CBR.cbrComponents.CaseSolution;
+import es.ucm.gdv.TFG.CBR.cbrComponents.Health;
 import es.ucm.gdv.TFG.CBR.cbrComponents.Item.Importance;
 import es.ucm.gdv.TFG.CBR.cbrComponents.ItemId;
 import es.ucm.gdv.TFG.CBR.cbrComponents.ItemSol;
@@ -71,7 +72,7 @@ public class CBREngine implements StandardCBRApplication  {
 		caseBase.init(connector);
 		
 		//----------------------- CASO DE PRUEBA -----------------------------
-		/*CBRCase _case = new CBRCase();
+		CBRCase _case = new CBRCase();
 		
 		CaseDescription des = new CaseDescription();
 		Health h = new Health();
@@ -86,7 +87,7 @@ public class CBREngine implements StandardCBRApplication  {
 		_case.setSolution(sol);
 		
 		StoreCasesMethod.storeCase(caseBase, _case);
-		*/
+		
 		//---------------------------------------------------------------------
 		
 		return caseBase;
@@ -118,7 +119,6 @@ public class CBREngine implements StandardCBRApplication  {
 		//Se modifica la solucion del caso
 		ItemSol sol = solution.getSolutionItems().getValues()[ItemId.HEALTH.ordinal()];
 		
-		/*
 		if(sol == null && queryDescription.getHealth() != null) {
 			sol = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "vidaContinua", ItemId.HEALTH);
 		}
@@ -138,11 +138,11 @@ public class CBREngine implements StandardCBRApplication  {
 		}
 		
 		// Se usa la solucion modificada para crear la solucion del CBR		
-		*/
 		SolCBR CBR = new SolCBR();
 		CombinedItem combinedItem = new CombinedItem();
 		combinedItem.getItems().add(sol);
 		CBR.getSol().add(combinedItem);
+		
 		return CBR;		
 	}
 	

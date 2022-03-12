@@ -7,12 +7,22 @@ public class CaseDescription implements CaseComponent {
 
 	Integer id;
 
+	Health health;
+
 	public Integer getId() {
 		return id;
 	}
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public Health getHealth() {
+		return health;
+	}
+
+	public void setHealth(Health health) {
+		this.health = health;
 	}
 
 	@Override
@@ -22,7 +32,7 @@ public class CaseDescription implements CaseComponent {
 	
 	@Override
 	public String toString() {
-		return "CaseDescription [id=" + id + "]";
+		return "CaseDescription [id=" + id + ", health=" + health +  "]";
 	}
 	
 }
