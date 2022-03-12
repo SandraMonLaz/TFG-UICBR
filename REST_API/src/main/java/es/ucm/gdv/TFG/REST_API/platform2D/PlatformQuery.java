@@ -18,7 +18,6 @@ public class PlatformQuery {
 		this.weapons = weapons;
 	}
 	
-	
 	public CharacterInfo getCharacterinfo() {
 		return characterinfo;
 	}
