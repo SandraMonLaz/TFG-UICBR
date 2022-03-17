@@ -1,10 +1,12 @@
 package es.ucm.gdv.TFG.CBR.main;
 
+import com.google.gson.Gson;
+
 import es.ucm.fdi.gaia.jcolibri.cbrcore.CBRQuery;
 import es.ucm.fdi.gaia.jcolibri.exception.ExecutionException;
 import es.ucm.gdv.TFG.CBR.cbrComponents.CaseDescription;
-import es.ucm.gdv.TFG.CBR.cbrComponents.Health;
-import es.ucm.gdv.TFG.CBR.cbrComponents.Item.Importance;
+import es.ucm.gdv.TFG.CBR.cbrComponents.items.Health;
+import es.ucm.gdv.TFG.CBR.cbrComponents.items.Item.Importance;
 import es.ucm.gdv.TFG.CBR.cbrComponents.RangeType;
 import es.ucm.gdv.TFG.CBR.cbrEngine.CBREngine;
 
@@ -20,7 +22,7 @@ public class Main {
 		 Health health = new Health();
 		 health.setImportance(Importance.high);
 		 health.setType(RangeType.discrete);
-
+	
 		 CaseDescription caseDes = new CaseDescription();
 		 caseDes.setId(0);
 		 caseDes.setHealth(health);
@@ -28,13 +30,16 @@ public class Main {
 		 CBRQuery query = new CBRQuery();
 		 query.setDescription(caseDes);
 		 
-		 /*
+		 
 		 try {
 			cbrEngine.cycle(query);
-		} catch (ExecutionException e) {
+		 } catch (ExecutionException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		 }
+		 
+		 cbrEngine.getSolution();
+		 
 		 
 		 try {
 			 cbrEngine.postCycle();			 

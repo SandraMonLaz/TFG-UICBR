@@ -1,6 +1,7 @@
 package es.ucm.gdv.TFG.CBR.cbrComponents;
 
 import es.ucm.fdi.gaia.jcolibri.connector.TypeAdaptor;
+import es.ucm.gdv.TFG.CBR.cbrComponents.items.ItemId;
 
 public class ItemSolArray implements TypeAdaptor {
 	

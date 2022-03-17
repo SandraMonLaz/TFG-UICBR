@@ -3,6 +3,9 @@ package es.ucm.gdv.TFG.CBR.cbrEngine;
 import java.io.File;
 import java.util.Collection;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import es.ucm.fdi.gaia.jcolibri.cbraplications.StandardCBRApplication;
 import es.ucm.fdi.gaia.jcolibri.cbrcore.CBRCase;
 import es.ucm.fdi.gaia.jcolibri.cbrcore.CBRCaseBase;
@@ -19,12 +22,13 @@ import es.ucm.fdi.gaia.jcolibri.util.FileIO;
 import es.ucm.gdv.TFG.CBR.cbrComparators.HealthComparator;
 import es.ucm.gdv.TFG.CBR.cbrComponents.CaseDescription;
 import es.ucm.gdv.TFG.CBR.cbrComponents.CaseSolution;
-import es.ucm.gdv.TFG.CBR.cbrComponents.Health;
-import es.ucm.gdv.TFG.CBR.cbrComponents.Item.Importance;
-import es.ucm.gdv.TFG.CBR.cbrComponents.ItemId;
 import es.ucm.gdv.TFG.CBR.cbrComponents.ItemSol;
 import es.ucm.gdv.TFG.CBR.cbrComponents.ItemSol.Scale;
 import es.ucm.gdv.TFG.CBR.cbrComponents.ItemSol.ScreenPos;
+import es.ucm.gdv.TFG.CBR.cbrComponents.items.Health;
+import es.ucm.gdv.TFG.CBR.cbrComponents.items.Item;
+import es.ucm.gdv.TFG.CBR.cbrComponents.items.ItemId;
+import es.ucm.gdv.TFG.CBR.cbrComponents.items.Item.Importance;
 import es.ucm.gdv.TFG.CBR.cbrComponents.ItemSolArray;
 import es.ucm.gdv.TFG.CBR.cbrComponents.RangeType;
 
@@ -72,7 +76,7 @@ public class CBREngine implements StandardCBRApplication  {
 		caseBase.init(connector);
 		
 		//----------------------- CASO DE PRUEBA -----------------------------
-		CBRCase _case = new CBRCase();
+		/*CBRCase _case = new CBRCase();
 		
 		CaseDescription des = new CaseDescription();
 		Health h = new Health();
@@ -86,7 +90,7 @@ public class CBREngine implements StandardCBRApplication  {
 		sol.setSolItem(health, ItemId.HEALTH);
 		_case.setSolution(sol);
 		
-		StoreCasesMethod.storeCase(caseBase, _case);
+		StoreCasesMethod.storeCase(caseBase, _case);*/
 		
 		//---------------------------------------------------------------------
 		
@@ -105,7 +109,7 @@ public class CBREngine implements StandardCBRApplication  {
 		solution = reuse(eval);	
 		solCBR = adapt((CaseDescription)query.getDescription());
 		//Compute revise and Retain
-		reviseAndRetain(query.getDescription());	
+		reviseAndRetain(query.getDescription());
 	}
 	
 	private void reviseAndRetain(CaseComponent queryDescription) {
@@ -117,31 +121,71 @@ public class CBREngine implements StandardCBRApplication  {
 	
 	private SolCBR adapt(CaseDescription queryDescription) {
 		//Se modifica la solucion del caso
-		ItemSol sol = solution.getSolutionItems().getValues()[ItemId.HEALTH.ordinal()];
+		ItemSol health = solution.getSolutionItems().getValues()[ItemId.HEALTH.ordinal()];
+		ItemSol score = solution.getSolutionItems().getValues()[ItemId.SCORE.ordinal()];
 		
-		if(sol == null && queryDescription.getHealth() != null) {
-			sol = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "vidaContinua", ItemId.HEALTH);
-		}
-			
-		if(sol != null) {
-				
-			if(queryDescription.getHealth().getType() == RangeType.discrete &&
-			    sol.getImage() == "vidaContinua") {
-				sol.setImage("vidaDiscreta");
-				solution.setSolItem(sol, ItemId.HEALTH);
-			}
-			else if(queryDescription.getHealth().getType() == RangeType.continuous &&
-				    sol.getImage() == "vidaDiscreta") {
-					sol.setImage("vidaContinua");
-					solution.setSolItem(sol, ItemId.HEALTH);
-				}
-		}
+		//Llamamos a las funciones de adaptación
+		Item item;
+		item = queryDescription.getHealth();
+		if(item != null)	item.adapt(health, solution);
+		
+		item = queryDescription.getScore();
+		if(item != null)	item.adapt(score, solution); 
 		
 		// Se usa la solucion modificada para crear la solucion del CBR		
 		SolCBR CBR = new SolCBR();
-		CombinedItem combinedItem = new CombinedItem();
-		combinedItem.getItems().add(sol);
-		CBR.getSol().add(combinedItem);
+		CombinedItem combinedTL = new CombinedItem();
+		combinedTL.setScreenPosition(ScreenPos.TOP_LEFT);
+		combinedTL.setItemScale(Scale.MEDIUM);
+		CombinedItem combinedTC = new CombinedItem();
+		combinedTC.setScreenPosition(ScreenPos.TOP_CENTER);
+		combinedTC.setItemScale(Scale.MEDIUM);
+		CombinedItem combinedTR = new CombinedItem();
+		combinedTR.setScreenPosition(ScreenPos.TOP_RIGHT);
+		combinedTR.setItemScale(Scale.MEDIUM);
+		CombinedItem combinedCL = new CombinedItem();
+		combinedCL.setScreenPosition(ScreenPos.MIDDLE_LEFT);
+		combinedCL.setItemScale(Scale.MEDIUM);
+		CombinedItem combinedCC = new CombinedItem();
+		combinedCC.setScreenPosition(ScreenPos.MIDDLE_CENTER);
+		combinedCC.setItemScale(Scale.MEDIUM);
+		CombinedItem combinedCR = new CombinedItem();
+		combinedCR.setScreenPosition(ScreenPos.MIDDLE_RIGHT);
+		combinedCR.setItemScale(Scale.MEDIUM);
+		CombinedItem combinedBL= new CombinedItem();
+		combinedBL.setScreenPosition(ScreenPos.BOTTOM_LEFT);
+		combinedBL.setItemScale(Scale.MEDIUM);
+		CombinedItem combinedBC= new CombinedItem();
+		combinedBC.setScreenPosition(ScreenPos.BOTTOM_CENTER);
+		combinedBC.setItemScale(Scale.MEDIUM);
+		CombinedItem combinedBR= new CombinedItem();
+		combinedBR.setScreenPosition(ScreenPos.BOTTOM_RIGHT);
+		combinedBR.setItemScale(Scale.MEDIUM);
+		
+		for(ItemSol itemSol: solution.getSolutionItems().getValues()) {
+			switch(itemSol.getScreenPosition()) {
+			case TOP_LEFT:		combinedTL.getItems().add(itemSol); break;
+			case TOP_CENTER:	combinedTC.getItems().add(itemSol);	break;
+			case TOP_RIGHT: 	combinedTR.getItems().add(itemSol); break;
+			case MIDDLE_LEFT:	combinedCL.getItems().add(itemSol); break;
+			case MIDDLE_CENTER:	combinedCC.getItems().add(itemSol); break;
+			case MIDDLE_RIGHT:	combinedCR.getItems().add(itemSol); break;
+			case BOTTOM_LEFT:	combinedBL.getItems().add(itemSol); break;
+			case BOTTOM_CENTER:	combinedBC.getItems().add(itemSol); break;
+			case BOTTOM_RIGHT:	combinedBR.getItems().add(itemSol); break;
+				
+			}
+		}
+			
+		CBR.getSol().add(combinedTL);
+		CBR.getSol().add(combinedTC);
+		CBR.getSol().add(combinedTR);
+		CBR.getSol().add(combinedCL);
+		CBR.getSol().add(combinedCC);
+		CBR.getSol().add(combinedCR);
+		CBR.getSol().add(combinedBL);
+		CBR.getSol().add(combinedBC);
+		CBR.getSol().add(combinedBR);
 		
 		return CBR;		
 	}
@@ -162,6 +206,14 @@ public class CBREngine implements StandardCBRApplication  {
 	public void postCycle() throws ExecutionException {
 		this.caseBase.close();
 		System.out.println("Cerrando cbr");
+	}
+	
+	public String getSolution() {
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		String json = gson.toJson(this.solCBR);
+		
+		System.out.print(json);
+		return json;
 	}
 
 }

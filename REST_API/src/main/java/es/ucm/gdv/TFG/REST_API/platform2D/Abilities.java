@@ -2,9 +2,9 @@ package es.ucm.gdv.TFG.REST_API.platform2D;
 
 import es.ucm.gdv.TFG.REST_API.Importance;
 
-public class Habilities {
+public class Abilities {
 	
-	public Habilities(Importance importance, int nWeapons, UseType use) {
+	public Abilities(Importance importance, int nWeapons, UseType use) {
 		super();
 		this.importance = importance;
 		this.nWeapons = nWeapons;

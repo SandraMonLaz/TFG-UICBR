@@ -2,10 +2,11 @@ package es.ucm.gdv.TFG.CBR.cbrComponents;
 
 import es.ucm.fdi.gaia.jcolibri.cbrcore.Attribute;
 import es.ucm.fdi.gaia.jcolibri.cbrcore.CaseComponent;
+import es.ucm.gdv.TFG.CBR.cbrComponents.items.ItemId;
 
 public class CaseSolution implements CaseComponent {
 
-	Integer id;
+	Integer id = 1;
 	ItemSolArray solutionItems;
 
 	public CaseSolution() {

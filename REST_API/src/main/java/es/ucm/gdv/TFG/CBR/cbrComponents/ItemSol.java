@@ -1,5 +1,6 @@
 package es.ucm.gdv.TFG.CBR.cbrComponents;
 
+import es.ucm.gdv.TFG.CBR.cbrComponents.items.ItemId;
 
 //Clase que representa a un item como solucion en el CBR
 public class ItemSol {

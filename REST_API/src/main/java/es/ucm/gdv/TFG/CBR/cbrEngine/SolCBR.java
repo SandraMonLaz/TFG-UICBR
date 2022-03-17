@@ -16,4 +16,5 @@ public class SolCBR {
 	public void setSol(ArrayList<CombinedItem> sol) {
 		this.sol = sol;
 	}
+	
 }
