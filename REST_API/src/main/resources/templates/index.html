@@ -25,11 +25,11 @@
                 <div>
                     <h6>Tipo de Juego</h6> 
                     <div>
-                        <input type="radio" id="tipo-juego-plat" name="tipo-juego" checked>
+                        <input type="radio" id="tipo-juego-plat" name="tipo-juego" value = "platform" checked>
                         <label>Plataforma 2D</label>
                     </div>
                     <div>
-                        <input type="radio" id="tipo-juego-shoot" name="tipo-juego">
+                        <input type="radio" id="tipo-juego-shoot" value = "shooter" name="tipo-juego">
                         <label>First Person Shooter 3D</label>
                     </div>
                 </div>
@@ -39,28 +39,27 @@
                     <div class="propiedad-item">
                         <label><input type="checkbox" id="opcion-vida" name="opcion-vida"> Vida</label>
                     </div>
-                    
                     <!-- Atributos de la vida-->
                     <div class="propiedad-item" name="imp-vida">
                         <div class="contenedor-importancia-item">
                             <div class="importancia-item">
-                                <input type="radio" id="imp-mp-vida" name="imp-vida" value="muy poca">
+                                <input type="radio" id="imp-mp-vida" name="imp-vida" value="veryLow">
                                 <label>Muy poca</label>
                             </div>
                             <div class="importancia-item">
-                                <input type="radio" id="imp-p-vida" name="imp-vida" value="poca">
+                                <input type="radio" id="imp-p-vida" name="imp-vida" value="low">
                                 <label>Poca importancia</label>
                             </div>
                             <div class="importancia-item">
-                                <input type="radio" id="imp-x-vida" name="imp-vida" value="media"checked>
+                                <input type="radio" id="imp-x-vida" name="imp-vida" value="medium"checked>
                                 <label>Media importancia</label>
                             </div>
                             <div class="importancia-item">
-                                <input type="radio" id="imp-m-vida" name="imp-vida" value="mucha">
+                                <input type="radio" id="imp-m-vida" name="imp-vida" value="high">
                                 <label>Mucha importancia</label>
                             </div>
                             <div class="importancia-item">
-                                <input type="radio" id="imp-mm-vida" name="imp-vida" value="muy importente">
+                                <input type="radio" id="imp-mm-vida" name="imp-vida" value="veryHigh">
                                 <label>Muy importante</label>
                             </div>
                         </div>
@@ -68,8 +67,8 @@
                     <!-- Valor de la vida-->  
                     <div class="propiedad-item">
                         <select name="rango-vida" id="rango-vida">
-                            <option value="Discreto">Discreto</option>
-                            <option value="Continuo">Continuo</option>
+                            <option value="discrete">Discreto</option>
+                            <option value="continuous">Continuo</option>
                         </select>
                         <small>Valor que tiene la vida en el juego</small>
                     </div>         
@@ -85,23 +84,23 @@
                     <div class="propiedad-item" name="imp-tiempo">
                         <div class="contenedor-importancia-item">
                             <div class="importancia-item">
-                                <input type="radio" id="imp-mp-tiempo" name="imp-tiempo" value="muy poca">
+                                <input type="radio" id="imp-mp-tiempo" name="imp-tiempo" value="veryLow">
                                 <label>Muy poca</label>
                             </div>
                             <div class="importancia-item">
-                                <input type="radio" id="imp-p-tiempo" name="imp-tiempo" value="poca">
+                                <input type="radio" id="imp-p-tiempo" name="imp-tiempo" value="low">
                                 <label>Poca importancia</label>
                             </div>
                             <div class="importancia-item">
-                                <input type="radio" id="imp-x-tiempo" name="imp-tiempo" value="media"checked>
+                                <input type="radio" id="imp-x-tiempo" name="imp-tiempo" value="medium"checked>
                                 <label>Media importancia</label>
                             </div>
                             <div class="importancia-item">
-                                <input type="radio" id="imp-m-tiempo" name="imp-tiempo" value="mucha">
+                                <input type="radio" id="imp-m-tiempo" name="imp-tiempo" value="high">
                                 <label>Mucha importancia</label>
                             </div>
                             <div class="importancia-item">
-                                <input type="radio" id="imp-mm-tiempo" name="imp-tiempo" value="muy importente">
+                                <input type="radio" id="imp-mm-tiempo" name="imp-tiempo" value="veryHigh">
                                 <label>Muy importante</label>
                             </div>
                         </div>
@@ -109,8 +108,8 @@
                     <!-- Valor de la vida-->  
                     <div class="propiedad-item">
                         <select name="tipo-tiempo" id="tipo-tiempo">
-                            <option value="Cronometro">Cronometro</option>
-                            <option value="Cuenta Atrás">Cuenta Atrás</option>
+                            <option value="chrono">Cronometro</option>
+                            <option value="countdown">Cuenta Atrás</option>
                         </select>
                         <small>Uso del tiempo en el juego</small>
                     </div>         
@@ -126,23 +125,23 @@
                     <div class="propiedad-item" name="imp-porcentaje-lvl">
                         <div class="contenedor-importancia-item">
                             <div class="importancia-item">
-                                <input type="radio" id="imp-mp-porcentaje-lvl" name="imp-porcentaje-lvl" value="muy poca">
+                                <input type="radio" id="imp-mp-porcentaje-lvl" name="imp-porcentaje-lvl" value="veryLow">
                                 <label>Muy poca</label>
                             </div>
                             <div class="importancia-item">
-                                <input type="radio" id="imp-p-porcentaje-lvl" name="imp-porcentaje-lvl" value="poca">
+                                <input type="radio" id="imp-p-porcentaje-lvl" name="imp-porcentaje-lvl" value="low">
                                 <label>Poca importancia</label>
                             </div>
                             <div class="importancia-item">
-                                <input type="radio" id="imp-x-porcentaje-lvl" name="imp-porcentaje-lvl" value="media"checked>
+                                <input type="radio" id="imp-x-porcentaje-lvl" name="imp-porcentaje-lvl" value="medium"checked>
                                 <label>Media importancia</label>
                             </div>
                             <div class="importancia-item">
-                                <input type="radio" id="imp-m-porcentaje-lvl" name="imp-porcentaje-lvl" value="mucha">
+                                <input type="radio" id="imp-m-porcentaje-lvl" name="imp-porcentaje-lvl" value="high">
                                 <label>Mucha importancia</label>
                             </div>
                             <div class="importancia-item">
-                                <input type="radio" id="imp-mm-porcentaje-lvl" name="imp-porcentaje-lvl" value="muy importente">
+                                <input type="radio" id="imp-mm-porcentaje-lvl" name="imp-porcentaje-lvl" value="veryHigh">
                                 <label>Muy importante</label>
                             </div>
                         </div>
@@ -150,16 +149,16 @@
                     <!--Rango del porcentaje de nivel-->
                     <div class="propiedad-item">
                         <select name="rango-porcentaje-lvl" id="rango-porcentaje-lvl">
-                            <option value="Discreto">Discreto</option>
-                            <option value="Continuo">Continuo</option>
+                            <option value="discrete">Discreto</option>
+                            <option value="continuous">Continuo</option>
                         </select>
                         <small>Valor que tiene la el porcentaje en el juego</small>
                     </div>  
                     <!-- Valor del porcentaje-lvl-->  
                     <div class="propiedad-item">
                         <select name="tipo-tiempo" id="tipo-tiempo">
-                            <option value="Porcentaje Restante">Porcentaje Restante</option>
-                            <option value="Porcentaje Superado">Porcentaje Superado</option>
+                            <option value="progressLeft">Porcentaje Restante</option>
+                            <option value="progressDone">Porcentaje Superado</option>
                         </select>
                         <small>Forma de visualizar el porcentaje del nivel en el juego</small>
                     </div>         
@@ -174,23 +173,23 @@
                     <div class="propiedad-item" name="imp-coleccionable">
                         <div class="contenedor-importancia-item">
                             <div class="importancia-item">
-                                <input type="radio" id="imp-mp-coleccionable" name="imp-coleccionable" value="muy poca">
+                                <input type="radio" id="imp-mp-coleccionable" name="imp-coleccionable" value="veryLow">
                                 <label>Muy poca</label>
                             </div>
                             <div class="importancia-item">
-                                <input type="radio" id="imp-p-coleccionable" name="imp-coleccionable" value="poca">
+                                <input type="radio" id="imp-p-coleccionable" name="imp-coleccionable" value="low">
                                 <label>Poca importancia</label>
                             </div>
                             <div class="importancia-item">
-                                <input type="radio" id="imp-x-coleccionable" name="imp-coleccionable" value="media"checked>
+                                <input type="radio" id="imp-x-coleccionable" name="imp-coleccionable" value="medium"checked>
                                 <label>Media importancia</label>
                             </div>
                             <div class="importancia-item">
-                                <input type="radio" id="imp-m-coleccionable" name="imp-coleccionable" value="mucha">
+                                <input type="radio" id="imp-m-coleccionable" name="imp-coleccionable" value="high">
                                 <label>Mucha importancia</label>
                             </div>
                             <div class="importancia-item">
-                                <input type="radio" id="imp-mm-coleccionable" name="imp-coleccionable" value="muy importente">
+                                <input type="radio" id="imp-mm-coleccionable" name="imp-coleccionable" value="veryHigh">
                                 <label>Muy importante</label>
                             </div>
                         </div>
@@ -206,23 +205,23 @@
                     <div class="propiedad-item" name="imp-puntuacion">
                         <div class="contenedor-importancia-item">
                             <div class="importancia-item">
-                                <input type="radio" id="imp-mp-puntuacion" name="imp-puntuacion" value="muy poca">
+                                <input type="radio" id="imp-mp-puntuacion" name="imp-puntuacion" value="veryLow">
                                 <label>Muy poca</label>
                             </div>
                             <div class="importancia-item">
-                                <input type="radio" id="imp-p-puntuacion" name="imp-puntuacion" value="poca">
+                                <input type="radio" id="imp-p-puntuacion" name="imp-puntuacion" value="low">
                                 <label>Poca importancia</label>
                             </div>
                             <div class="importancia-item">
-                                <input type="radio" id="imp-x-puntuacion" name="imp-puntuacion" value="media"checked>
+                                <input type="radio" id="imp-x-puntuacion" name="imp-puntuacion" value="medium"checked>
                                 <label>Media importancia</label>
                             </div>
                             <div class="importancia-item">
-                                <input type="radio" id="imp-m-puntuacion" name="imp-puntuacion" value="mucha">
+                                <input type="radio" id="imp-m-puntuacion" name="imp-puntuacion" value="high">
                                 <label>Mucha importancia</label>
                             </div>
                             <div class="importancia-item">
-                                <input type="radio" id="imp-mm-puntuacion" name="imp-puntuacion" value="muy importente">
+                                <input type="radio" id="imp-mm-puntuacion" name="imp-puntuacion" value="veryHigh">
                                 <label>Muy importante</label>
                             </div>
                         </div>
@@ -238,23 +237,23 @@
                     <div class="propiedad-item" name="imp-personajeInfo">
                         <div class="contenedor-importancia-item">
                             <div class="importancia-item">
-                                <input type="radio" id="imp-mp-personajeInfo" name="imp-personajeInfo" value="muy poca">
+                                <input type="radio" id="imp-mp-personajeInfo" name="imp-personajeInfo" value="veryLow">
                                 <label>Muy poca</label>
                             </div>
                             <div class="importancia-item">
-                                <input type="radio" id="imp-p-personajeInfo" name="imp-personajeInfo" value="poca">
+                                <input type="radio" id="imp-p-personajeInfo" name="imp-personajeInfo" value="low">
                                 <label>Poca importancia</label>
                             </div>
                             <div class="importancia-item">
-                                <input type="radio" id="imp-x-personajeInfo" name="imp-personajeInfo" value="media"checked>
+                                <input type="radio" id="imp-x-personajeInfo" name="imp-personajeInfo" value="medium"checked>
                                 <label>Media importancia</label>
                             </div>
                             <div class="importancia-item">
-                                <input type="radio" id="imp-m-personajeInfo" name="imp-personajeInfo" value="mucha">
+                                <input type="radio" id="imp-m-personajeInfo" name="imp-personajeInfo" value="high">
                                 <label>Mucha importancia</label>
                             </div>
                             <div class="importancia-item">
-                                <input type="radio" id="imp-mm-personajeInfo" name="imp-personajeInfo" value="muy importente">
+                                <input type="radio" id="imp-mm-personajeInfo" name="imp-personajeInfo" value="veryHigh">
                                 <label>Muy importante</label>
                             </div>
                         </div>
@@ -270,32 +269,32 @@
                     <div class="propiedad-item" name="imp-progresoPersonaje">
                         <div class="contenedor-importancia-item">
                             <div class="importancia-item">
-                                <input type="radio" id="imp-mp-progresoPersonaje" name="imp-progresoPersonaje" value="muy poca">
+                                <input type="radio" id="imp-mp-progresoPersonaje" name="imp-progresoPersonaje" value="veryLow">
                                 <label>Muy poca</label>
                             </div>
                             <div class="importancia-item">
-                                <input type="radio" id="imp-p-progresoPersonaje" name="imp-progresoPersonaje" value="poca">
+                                <input type="radio" id="imp-p-progresoPersonaje" name="imp-progresoPersonaje" value="low">
                                 <label>Poca importancia</label>
                             </div>
                             <div class="importancia-item">
-                                <input type="radio" id="imp-x-progresoPersonaje" name="imp-progresoPersonaje" value="media"checked>
+                                <input type="radio" id="imp-x-progresoPersonaje" name="imp-progresoPersonaje" value="medium"checked>
                                 <label>Media importancia</label>
                             </div>
                             <div class="importancia-item">
-                                <input type="radio" id="imp-m-progresoPersonaje" name="imp-progresoPersonaje" value="mucha">
+                                <input type="radio" id="imp-m-progresoPersonaje" name="imp-progresoPersonaje" value="high">
                                 <label>Mucha importancia</label>
                             </div>
                             <div class="importancia-item">
-                                <input type="radio" id="imp-mm-progresoPersonaje" name="imp-progresoPersonaje" value="muy importente">
+                                <input type="radio" id="imp-mm-progresoPersonaje" name="imp-progresoPersonaje" value="veryHigh">
                                 <label>Muy importante</label>
                             </div>
                         </div>
                     </div>           
                     <!-- Valor del progreso del personaje-->  
                     <div class="propiedad-item">
-                        <select name="rango-vida" id="rango-vida">
-                            <option value="Discreto">Discreto</option>
-                            <option value="Continuo">Continuo</option>
+                        <select name="rango-progresoPersonaje" id="rango-progresoPersonaje">
+                            <option value="discrete">Discreto</option>
+                            <option value="continuous">Continuo</option>
                         </select>
                         <small>Valor que tiene el progreso del personaje en el juego</small>
                     </div>     
@@ -310,23 +309,23 @@
                     <div class="propiedad-item" name="imp-armas">
                         <div class="contenedor-importancia-item">
                             <div class="importancia-item">
-                                <input type="radio" id="imp-mp-armas" name="imp-armas" value="muy poca">
+                                <input type="radio" id="imp-mp-armas" name="imp-armas" value="veryLow">
                                 <label>Muy poca</label>
                             </div>
                             <div class="importancia-item">
-                                <input type="radio" id="imp-p-armas" name="imp-armas" value="poca">
+                                <input type="radio" id="imp-p-armas" name="imp-armas" value="low">
                                 <label>Poca importancia</label>
                             </div>
                             <div class="importancia-item">
-                                <input type="radio" id="imp-x-armas" name="imp-armas" value="media"checked>
+                                <input type="radio" id="imp-x-armas" name="imp-armas" value="medium"checked>
                                 <label>Media importancia</label>
                             </div>
                             <div class="importancia-item">
-                                <input type="radio" id="imp-m-armas" name="imp-armas" value="mucha">
+                                <input type="radio" id="imp-m-armas" name="imp-armas" value="high">
                                 <label>Mucha importancia</label>
                             </div>
                             <div class="importancia-item">
-                                <input type="radio" id="imp-mm-armas" name="imp-armas" value="muy importente">
+                                <input type="radio" id="imp-mm-armas" name="imp-armas" value="veryHigh">
                                 <label>Muy importante</label>
                             </div>
                         </div>
@@ -334,8 +333,8 @@
                     <!-- Municion limitada7infinita-->  
                     <div class="propiedad-item">
                         <select name="uso-arma" id="uso-arma">
-                            <option value="Limitado">Limitado</option>
-                            <option value="Infinito">Infinito</option>
+                            <option value="limited">Limitado</option>
+                            <option value="infinite">Infinito</option>
                         </select>
                         <small>Si la munición del arma es infinita o limitada</small>
                     </div>    
@@ -354,37 +353,37 @@
                     <div class="propiedad-item" name="imp-habilidades">
                         <div class="contenedor-importancia-item">
                             <div class="importancia-item">
-                                <input type="radio" id="imp-mp-habilidades" name="imp-habilidades" value="muy poca">
+                                <input type="radio" id="imp-mp-habilidades" name="imp-habilidades" value="veryLow">
                                 <label>Muy poca</label>
                             </div>
                             <div class="importancia-item">
-                                <input type="radio" id="imp-p-habilidades" name="imp-habilidades" value="poca">
+                                <input type="radio" id="imp-p-habilidades" name="imp-habilidades" value="low">
                                 <label>Poca importancia</label>
                             </div>
                             <div class="importancia-item">
-                                <input type="radio" id="imp-x-habilidades" name="imp-habilidades" value="media"checked>
+                                <input type="radio" id="imp-x-habilidades" name="imp-habilidades" value="medium"checked>
                                 <label>Media importancia</label>
                             </div>
                             <div class="importancia-item">
-                                <input type="radio" id="imp-m-habilidades" name="imp-habilidades" value="mucha">
+                                <input type="radio" id="imp-m-habilidades" name="imp-habilidades" value="high">
                                 <label>Mucha importancia</label>
                             </div>
                             <div class="importancia-item">
-                                <input type="radio" id="imp-mm-habilidades" name="imp-habilidades" value="muy importente">
+                                <input type="radio" id="imp-mm-habilidades" name="imp-habilidades" value="veryHigh">
                                 <label>Muy importante</label>
                             </div>
                         </div>
                     </div>   
                     <!-- Municion limitada /infinita-->  
                     <div class="propiedad-item">
-                        <select name="uso-arma" id="uso-habilidad">
-                            <option value="Limitado">Limitado</option>
-                            <option value="Infinito">Infinito</option>
+                        <select name="uso-arma" id="uso-habilidades">
+                            <option value="limited">Limitado</option>
+                            <option value="infinite">Infinito</option>
                         </select>
                         <small>Numero de veces que se puede usar la habilidad</small>
                     </div>    
                     <div class="propiedad-item">
-                        Numero de Habilidades <input type="text" id="numero-habilidad" name="numero-habilidad">
+                        Numero de Habilidades <input type="text" id="numero-habilidad" name="numero-habilidades">
                     </div>      
                 </div>
                 <!-- Escudos-->
@@ -397,23 +396,23 @@
                     <div class="propiedad-item" name="imp-escudo">
                         <div class="contenedor-importancia-item">
                             <div class="importancia-item">
-                                <input type="radio" id="imp-mp-escudo" name="imp-escudo" value="muy poca">
+                                <input type="radio" id="imp-mp-escudo" name="imp-escudo" value="veryLow">
                                 <label>Muy poca</label>
                             </div>
                             <div class="importancia-item">
-                                <input type="radio" id="imp-p-escudo" name="imp-escudo" value="poca">
+                                <input type="radio" id="imp-p-escudo" name="imp-escudo" value="low">
                                 <label>Poca importancia</label>
                             </div>
                             <div class="importancia-item">
-                                <input type="radio" id="imp-x-escudo" name="imp-escudo" value="media"checked>
+                                <input type="radio" id="imp-x-escudo" name="imp-escudo" value="medium"checked>
                                 <label>Media importancia</label>
                             </div>
                             <div class="importancia-item">
-                                <input type="radio" id="imp-m-escudo" name="imp-escudo" value="mucha">
+                                <input type="radio" id="imp-m-escudo" name="imp-escudo" value="high">
                                 <label>Mucha importancia</label>
                             </div>
                             <div class="importancia-item">
-                                <input type="radio" id="imp-mm-escudo" name="imp-escudo" value="muy importente">
+                                <input type="radio" id="imp-mm-escudo" name="imp-escudo" value="veryHigh">
                                 <label>Muy importante</label>
                             </div>
                         </div>
@@ -421,8 +420,8 @@
                     <!-- Valor de la vida-->  
                     <div class="propiedad-item">
                         <select name="rango-escudo" id="rango-escudo">
-                            <option value="Discreto">Discreto</option>
-                            <option value="Continuo">Continuo</option>
+                            <option value="discrete">Discreto</option>
+                            <option value="continuous">Continuo</option>
                         </select>
                         <small>Valor que tienen los escudos en el juego</small>
                     </div>       

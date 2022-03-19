@@ -1,27 +1,19 @@
 package es.ucm.gdv.TFG.REST_API;
 
-import java.util.concurrent.atomic.AtomicLong;
-
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import es.ucm.gdv.TFG.REST_API.platform2D.PlatformQuery;
 
 @RestController
 public class GreetingController {
 
-	private static final String template = "Hello, %s!";
-	private final AtomicLong counter = new AtomicLong();
 
-	/*@GetMapping("/greeting")
-	public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
-		return new Greeting(counter.incrementAndGet(), String.format(template, name));
-	}*/
-	
-	@PostMapping("/prueba")
-	public Greeting prueba(@RequestBody Greeting input) {
+	@PostMapping("/platform")
+	public PlatformQuery prueba(@RequestBody PlatformQuery i) {
 		//return new Greeting(1, "a");
-		return new Greeting(input.getId(), input.getContent(), input.getPrueba());
+		return new PlatformQuery(i.getCharacterinfo(),i.getCharacterProgress(),i.getCollectable(),
+				i.getHabilities(),i.getHealth(),i.getLevelProgress(),i.getScore(),i.getShields(),i.getTime(),i.getWeapons());
 	}
 }
