@@ -36,13 +36,12 @@ public class Health extends Item {
 		if(health == null) {
 			health = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "vidaContinua", ItemId.HEALTH);
 		}
-		else {			
-			if(this.type == RangeType.discrete && health.getImage() == "vidaContinua") {
-				health.setImage("vidaDiscreta");
-			}
-			else if(this.type == RangeType.continuous &&  health.getImage() == "vidaDiscreta") {
-					health.setImage("vidaContinua");
-				}
+		
+		if(this.type == RangeType.discrete && health.getImage() == "vidaContinua") {
+			health.setImage("vidaDiscreta");
+		}
+		else if(this.type == RangeType.continuous &&  health.getImage() == "vidaDiscreta") {
+				health.setImage("vidaContinua");
 		}
 		
 		if(this.importance.ordinal() >= Importance.high.ordinal()) {

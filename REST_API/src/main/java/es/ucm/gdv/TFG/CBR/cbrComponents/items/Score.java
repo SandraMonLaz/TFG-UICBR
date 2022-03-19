@@ -2,16 +2,14 @@ package es.ucm.gdv.TFG.CBR.cbrComponents.items;
 
 import es.ucm.gdv.TFG.CBR.cbrComponents.CaseSolution;
 import es.ucm.gdv.TFG.CBR.cbrComponents.ItemSol;
-import es.ucm.gdv.TFG.CBR.cbrComponents.RangeType;
 import es.ucm.gdv.TFG.CBR.cbrComponents.ItemSol.Scale;
 import es.ucm.gdv.TFG.CBR.cbrComponents.ItemSol.ScreenPos;
-import es.ucm.gdv.TFG.CBR.cbrComponents.items.Item.Importance;
 
 public class Score extends Item {
 
 	@Override
 	public ItemSol adapt(ItemSol score, CaseSolution solution) {
-		//Si la solucion que nos ofrece no tiene HEALTH lo creamos
+		//Si la solucion que nos ofrece no tiene SCORE lo creamos
 		if(score == null) {
 			score = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "puntos", ItemId.SCORE);
 		}

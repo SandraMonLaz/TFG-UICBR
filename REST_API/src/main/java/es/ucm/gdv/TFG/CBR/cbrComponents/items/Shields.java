@@ -36,14 +36,14 @@ public class Shields extends Item {
 		if(shields == null) {
 			shields = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "escudosContinuos", ItemId.HEALTH);
 		}
-		else {			
-			if(this.type == RangeType.discrete && shields.getImage() == "escudosContinuos") {
-				shields.setImage("escudosDiscretos");
-			}
-			else if(this.type == RangeType.continuous &&  shields.getImage() == "escudosDiscretos") {
-				shields.setImage("escudosContinuos");
-			}
+		
+		if(this.type == RangeType.discrete && shields.getImage() == "escudosContinuos") {
+			shields.setImage("escudosDiscretos");
 		}
+		else if(this.type == RangeType.continuous &&  shields.getImage() == "escudosDiscretos") {
+			shields.setImage("escudosContinuos");
+		}
+
 		
 		if(this.importance.ordinal() >= Importance.high.ordinal()) {
 			shields.setScreenPosition(ScreenPos.TOP_LEFT); //Habría que hacer que coincida con la vida

@@ -10,5 +10,6 @@ public enum ItemId {
 	ABILITIES,
 	TIME,
 	LEVEL_PROGRESS,
+	CHARACTER_INFO,
 	MAX_ITEMS
 }
