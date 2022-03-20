@@ -26,6 +26,7 @@ public class Collectable extends Item {
 		}
 		
 		//TODO : Hacer que coincida lo menos posible con otros elementos?
+		solutionCollectable.setScreenPosition(ScreenPos.TOP_RIGHT);
 		
 		if(this.importance.ordinal() >= Importance.high.ordinal()) {
 			solutionCollectable.setItemScale(Scale.MEDIUM);

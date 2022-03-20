@@ -32,18 +32,13 @@ public class Shields extends Item {
 	
 	@Override
 	public ItemSol adapt(ItemSol shields, CaseSolution solution) {
-		//Si la solucion que nos ofrece no tiene HEALTH lo creamos
+		//Si la solucion que nos ofrece no tiene shields lo creamos
 		if(shields == null) {
-			shields = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "escudosContinuos", ItemId.HEALTH);
+			shields = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "escudosContinuos", ItemId.SHIELDS);
 		}
 		
-		if(this.type == RangeType.discrete && shields.getImage() == "escudosContinuos") {
-			shields.setImage("escudosDiscretos");
-		}
-		else if(this.type == RangeType.continuous &&  shields.getImage() == "escudosDiscretos") {
-			shields.setImage("escudosContinuos");
-		}
-
+		if(this.type == RangeType.discrete) 		shields.setImage("escudosDiscretos");
+		else if(this.type == RangeType.continuous)	shields.setImage("escudosContinuos");
 		
 		if(this.importance.ordinal() >= Importance.high.ordinal()) {
 			shields.setScreenPosition(ScreenPos.TOP_LEFT); //Habría que hacer que coincida con la vida

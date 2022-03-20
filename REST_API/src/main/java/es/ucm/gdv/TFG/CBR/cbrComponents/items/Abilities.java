@@ -2,11 +2,9 @@ package es.ucm.gdv.TFG.CBR.cbrComponents.items;
 
 import es.ucm.gdv.TFG.CBR.cbrComponents.CaseSolution;
 import es.ucm.gdv.TFG.CBR.cbrComponents.ItemSol;
-import es.ucm.gdv.TFG.CBR.cbrComponents.RangeType;
 import es.ucm.gdv.TFG.REST_API.platform2D.Abilities.UseType;
 import es.ucm.gdv.TFG.CBR.cbrComponents.ItemSol.Scale;
 import es.ucm.gdv.TFG.CBR.cbrComponents.ItemSol.ScreenPos;
-import es.ucm.gdv.TFG.CBR.cbrComponents.items.Item.Importance;
 
 public class Abilities extends Item {
 	UseType useType;
@@ -49,12 +47,8 @@ public class Abilities extends Item {
 			solutionAbilities = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "habilidadInfinita", ItemId.ABILITIES);
 		}
 		
-		if(this.useType == UseType.infinite && solutionAbilities.getImage() != "habilidadInfinita") {
-			solutionAbilities.setImage("habilidadInfinita");
-		}
-		else if(this.useType == UseType.limited && solutionAbilities.getImage() != "habilidadLimitada") {
-			solutionAbilities.setImage("habilidadLimitada");
-		}
+		if(this.useType == UseType.infinite)		solutionAbilities.setImage("habilidadInfinita");
+		else if(this.useType == UseType.limited) 	solutionAbilities.setImage("habilidadLimitada");
 		
 		ItemSol health = solution.getSolutionItems().getValues()[ItemId.HEALTH.ordinal()];
 		

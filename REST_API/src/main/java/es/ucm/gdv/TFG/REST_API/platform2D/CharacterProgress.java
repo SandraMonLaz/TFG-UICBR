@@ -15,6 +15,10 @@ public class CharacterProgress {
 		return importance;
 	}
 
+	public RangeType getRangeType() {
+		return rangeType;
+	}
+
 	private final Importance importance;
 	private final RangeType rangeType;
 }
