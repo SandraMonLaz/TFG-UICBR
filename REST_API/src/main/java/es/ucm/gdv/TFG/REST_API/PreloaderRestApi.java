@@ -8,6 +8,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import es.ucm.fdi.gaia.jcolibri.exception.ExecutionException;
+import es.ucm.gdv.TFG.CBR.cbrEngine.CBREngine;
+
 
 @Configuration
 public class PreloaderRestApi {

@@ -46,6 +46,13 @@ public class CBREngine implements StandardCBRApplication  {
 	final static String CONNECTOR_FILE_PATH = "es/ucm/gdv/TFG/CBR/cbrEngine/plaintextconfig.xml";
 	final static String CASE_BASE_PATH = "cbrdata"+File.separator;
 	
+	private static CBREngine instance = null;
+	
+	public static CBREngine getInstance() {
+		if(instance == null)
+			instance = new CBREngine();
+		return instance;
+	}
 	
 	public void init(){
 		try {
@@ -78,9 +85,9 @@ public class CBREngine implements StandardCBRApplication  {
 		caseBase.init(connector);
 		
 		//----------------------- CASO DE PRUEBA -----------------------------
-		/*CBRCase _case = new CBRCase();
+		CBRCase _case = new CBRCase();
 		
-		CaseDescription des = new CaseDescription();
+		/*CaseDescription des = new CaseDescription();
 		Health h = new Health();
 		h.setImportance(Importance.high);
 		h.setType(RangeType.continuous);

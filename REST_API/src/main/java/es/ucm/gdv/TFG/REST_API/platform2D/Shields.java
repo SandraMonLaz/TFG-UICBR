@@ -11,6 +11,11 @@ public class Shields {
 		this.rangeType = rangeType;
 	}
 	
+	public Shields() {
+		this.importance = null;
+		this.rangeType = null;		
+	}
+	
 	public Importance getImportance() {
 		return importance;
 	}

@@ -8,6 +8,10 @@ public class Collectable {
 		this.importance = importance;
 	}
 	
+	public Collectable() {
+		this.importance = null;	
+	}
+	
 	public Importance getImportance() {
 		return importance;
 	}

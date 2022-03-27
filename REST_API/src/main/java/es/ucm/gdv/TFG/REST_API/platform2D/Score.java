@@ -7,7 +7,9 @@ public class Score {
 		super();
 		this.importance = importance;
 	}
-	
+	public Score() {
+		importance = null;
+	}
 	public Importance getImportance() {
 		return importance;
 	}

@@ -13,6 +13,11 @@ public class Time {
 		this.use = use;
 	}
 	
+	public Time() {
+		this.importance = null;
+		this.use = null;		
+	}
+	
 	public Importance getImportance() {
 		return importance;
 	}

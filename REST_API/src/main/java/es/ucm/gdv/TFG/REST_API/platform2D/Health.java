@@ -10,7 +10,10 @@ public class Health {
 		this.importance = importance;
 		this.rangeType = rangeType;
 	}
-	
+	public Health() {
+		this.importance = null;
+		this.rangeType = null;	
+	}
 	public Importance getImportance() {
 		return importance;
 	}

@@ -23,12 +23,11 @@ import es.ucm.gdv.TFG.REST_API.platform2D.PlatformQuery;
 
 @RestController
 public class GreetingController {
-	private static CBREngine cbr;
 	private static int id = 0;
 	
 	@PostMapping("/platform")
 	public String prueba(@RequestBody PlatformQuery i) {
-		/*CaseDescription caseDes = new CaseDescription();
+		CaseDescription caseDes = new CaseDescription();
 		caseDes.setId(id);
 		
 		Health health  = null;
@@ -110,17 +109,16 @@ public class GreetingController {
 		}
 		caseDes.setAbilities(abilities);*/
 		
-		/*CBRQuery query = new CBRQuery();
+		CBRQuery query = new CBRQuery();
 		query.setDescription(caseDes);
 		try {
-			cbr.cycle(query);
+			CBREngine.getInstance().cycle(query);
 		} catch (ExecutionException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		id++;
-		return cbr.getSolution();*/
-		return "patata";
+		return CBREngine.getInstance().getSolution();
 	}
 }

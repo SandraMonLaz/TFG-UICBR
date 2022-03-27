@@ -36,7 +36,7 @@ function checkPlatfrom(){
         porcentajeNivel = {
             importance: formData.get("imp-porcentaje-lvl"),
             rangeType:  formData.get("rango-porcentaje-lvl"),
-            progressType: formData.get("tipo-tiempo")
+            progressType: formData.get("tipo-porcentaje-lvl")
         }   
     }
     //-------Coleccionable-------

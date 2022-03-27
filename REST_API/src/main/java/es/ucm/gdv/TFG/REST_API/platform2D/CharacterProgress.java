@@ -10,7 +10,10 @@ public class CharacterProgress {
 		this.importance = importance;
 		this.rangeType = rangeType;
 	}
-	
+	public CharacterProgress() {
+		this.importance = null;
+		this.rangeType = null;		
+	}
 	public Importance getImportance() {
 		return importance;
 	}

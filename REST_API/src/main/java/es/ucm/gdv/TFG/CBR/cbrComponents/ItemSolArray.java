@@ -46,8 +46,8 @@ public class ItemSolArray implements TypeAdaptor {
 			if(this.values[i] == null) aux += "null";
 			else {
 				aux += this.values[i].toString();
-				if(i<size-1) aux +=  "|";	//Cada componente se separa con una A				
 			}
+			if(i<size-1) aux +=  "|";	//Cada componente se separa con una A				
 		}
 		
 		return aux;

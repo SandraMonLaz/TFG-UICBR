@@ -7,7 +7,9 @@ public class CharacterInfo {
 		super();
 		this.importance = importance;
 	}
-	
+	public CharacterInfo() {
+		importance = null;
+	}
 	public Importance getImportance() {
 		return importance;
 	}

@@ -12,6 +12,12 @@ public class Abilities {
 		this.use = use;
 	}
 	
+	public Abilities() {
+		this.importance = null;
+		this.nWeapons = 0;
+		this.use = null;	
+	}
+	
 	public Importance getImportance() {
 		return importance;
 	}

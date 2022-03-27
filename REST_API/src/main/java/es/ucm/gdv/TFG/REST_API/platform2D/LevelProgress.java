@@ -12,6 +12,12 @@ public class LevelProgress {
 		this.progressType = p;
 	}
 	
+	public LevelProgress() {
+		this.importance = null;
+		this.rangeType = null;
+		this.progressType = null;		
+	}
+	
 	public enum ProgressType {
 		progressLeft,
 		progressDone

@@ -8,19 +8,18 @@ import es.ucm.gdv.TFG.CBR.cbrEngine.CBREngine;
 
 public class CbrPreLoader {
 	
-	private static CBREngine cbr;
 	private static final Logger log = LoggerFactory.getLogger(PreloaderRestApi.class);
 	
 	public CBREngine initCbr() {
-		cbr = new CBREngine();		
+		CBREngine.getInstance().init();	
 		log.info("Inicializando cbr");
-        return cbr;
+        return CBREngine.getInstance();
     }
 	
 	public void closeCbr() {
 		
 		try {
-			cbr.postCycle();
+			CBREngine.getInstance().postCycle();
 			log.info("Cerrando cbr");
 		} catch (ExecutionException e) {
 			// TODO Auto-generated catch block
