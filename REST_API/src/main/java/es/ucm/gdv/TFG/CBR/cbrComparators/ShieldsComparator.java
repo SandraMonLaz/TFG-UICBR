@@ -4,23 +4,24 @@ import es.ucm.fdi.gaia.jcolibri.exception.NoApplicableSimilarityFunctionExceptio
 import es.ucm.fdi.gaia.jcolibri.method.retrieve.NNretrieval.similarity.LocalSimilarityFunction;
 import es.ucm.fdi.gaia.jcolibri.method.retrieve.NNretrieval.similarity.local.Equal;
 import es.ucm.fdi.gaia.jcolibri.method.retrieve.NNretrieval.similarity.local.Interval;
-import es.ucm.gdv.TFG.CBR.cbrComponents.items.Health;
+import es.ucm.gdv.TFG.CBR.cbrComponents.items.Shields;
 import es.ucm.gdv.TFG.REST_API.Importance;
 import es.ucm.gdv.TFG.REST_API.RangeType;
-public class HealthComparator implements LocalSimilarityFunction {
+
+public class ShieldsComparator implements LocalSimilarityFunction {
 
 	@Override
 	public double compute(Object o1, Object o2) throws NoApplicableSimilarityFunctionException {
 		if ((o1 == null) || (o2 == null))
 			return 0;
-		if (!(o1 instanceof Health))
+		if (!(o1 instanceof Shields))
 			throw new NoApplicableSimilarityFunctionException(this.getClass(), o1.getClass());
-		if (!(o2 instanceof Health))
+		if (!(o2 instanceof Shields))
 			throw new NoApplicableSimilarityFunctionException(this.getClass(), o2.getClass());
 
 
-		Health i1 = (Health) o1;
-		Health i2 = (Health) o2;
+		Shields i1 = (Shields) o1;
+		Shields i2 = (Shields) o2;
 		
 		Importance imp1 = i1.getImportance();
 		Importance imp2 = i2.getImportance();
@@ -41,11 +42,11 @@ public class HealthComparator implements LocalSimilarityFunction {
 		if((o1==null)&&(o2==null))
 			return true;
 		else if(o1==null)
-			return o2 instanceof Health;
+			return o2 instanceof Shields;
 		else if(o2==null)
-			return o1 instanceof Health;
+			return o1 instanceof Shields;
 		else
-			return (o1 instanceof Health)&&(o2 instanceof Health);
+			return (o1 instanceof Shields)&&(o2 instanceof Shields);
 	}
 
 }

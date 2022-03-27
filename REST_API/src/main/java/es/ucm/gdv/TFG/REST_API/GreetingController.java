@@ -44,8 +44,8 @@ public class GreetingController {
 		if(i.getScore() != null){			
 			score = new Score();
 			score.setImportance(i.getScore().getImportance());
-			caseDes.setScore(score);
 		}
+		caseDes.setScore(score);
 		
 		/*Shields shield = null;
 		if(i.getShields() != null){

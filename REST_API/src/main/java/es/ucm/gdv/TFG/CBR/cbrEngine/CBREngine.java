@@ -25,12 +25,8 @@ import es.ucm.gdv.TFG.CBR.cbrComponents.CaseSolution;
 import es.ucm.gdv.TFG.CBR.cbrComponents.ItemSol;
 import es.ucm.gdv.TFG.CBR.cbrComponents.ItemSol.Scale;
 import es.ucm.gdv.TFG.CBR.cbrComponents.ItemSol.ScreenPos;
-import es.ucm.gdv.TFG.CBR.cbrComponents.items.Health;
 import es.ucm.gdv.TFG.CBR.cbrComponents.items.Item;
 import es.ucm.gdv.TFG.CBR.cbrComponents.items.ItemId;
-import es.ucm.gdv.TFG.CBR.cbrComponents.items.Item.Importance;
-import es.ucm.gdv.TFG.CBR.cbrComponents.ItemSolArray;
-import es.ucm.gdv.TFG.CBR.cbrComponents.RangeType;
 
 public class CBREngine implements StandardCBRApplication  {
 

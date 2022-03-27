@@ -1,14 +1,12 @@
 package es.ucm.gdv.TFG.CBR.main;
 
-import com.google.gson.Gson;
-
 import es.ucm.fdi.gaia.jcolibri.cbrcore.CBRQuery;
 import es.ucm.fdi.gaia.jcolibri.exception.ExecutionException;
 import es.ucm.gdv.TFG.CBR.cbrComponents.CaseDescription;
 import es.ucm.gdv.TFG.CBR.cbrComponents.items.Health;
-import es.ucm.gdv.TFG.CBR.cbrComponents.items.Item.Importance;
-import es.ucm.gdv.TFG.CBR.cbrComponents.RangeType;
 import es.ucm.gdv.TFG.CBR.cbrEngine.CBREngine;
+import es.ucm.gdv.TFG.REST_API.Importance;
+import es.ucm.gdv.TFG.REST_API.RangeType;
 
 public class Main {
 
