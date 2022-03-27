@@ -20,13 +20,18 @@ import es.ucm.fdi.gaia.jcolibri.method.retrieve.NNretrieval.similarity.global.Av
 import es.ucm.fdi.gaia.jcolibri.method.retrieve.selection.SelectCases;
 import es.ucm.fdi.gaia.jcolibri.util.FileIO;
 import es.ucm.gdv.TFG.CBR.cbrComparators.HealthComparator;
+import es.ucm.gdv.TFG.CBR.cbrComparators.ScoreComparator;
 import es.ucm.gdv.TFG.CBR.cbrComponents.CaseDescription;
 import es.ucm.gdv.TFG.CBR.cbrComponents.CaseSolution;
 import es.ucm.gdv.TFG.CBR.cbrComponents.ItemSol;
 import es.ucm.gdv.TFG.CBR.cbrComponents.ItemSol.Scale;
 import es.ucm.gdv.TFG.CBR.cbrComponents.ItemSol.ScreenPos;
+import es.ucm.gdv.TFG.CBR.cbrComponents.items.Health;
 import es.ucm.gdv.TFG.CBR.cbrComponents.items.Item;
 import es.ucm.gdv.TFG.CBR.cbrComponents.items.ItemId;
+import es.ucm.gdv.TFG.CBR.cbrComponents.items.Score;
+import es.ucm.gdv.TFG.REST_API.Importance;
+import es.ucm.gdv.TFG.REST_API.RangeType;
 
 public class CBREngine implements StandardCBRApplication  {
 
@@ -65,6 +70,7 @@ public class CBREngine implements StandardCBRApplication  {
 		simConfig = new NNConfig();
 		simConfig.setDescriptionSimFunction(new Average());
 		simConfig.addMapping(new Attribute("health",CaseDescription.class), new HealthComparator());	
+		simConfig.addMapping(new Attribute("score",CaseDescription.class), new ScoreComparator());
 	}
 
 	@Override
@@ -79,6 +85,9 @@ public class CBREngine implements StandardCBRApplication  {
 		h.setImportance(Importance.high);
 		h.setType(RangeType.continuous);
 		des.setHealth(h);
+		Score s = new Score();
+		s.setImportance(Importance.veryLow);
+		des.setScore(s);
 		_case.setDescription(des);
 		
 		CaseSolution sol = new CaseSolution();
@@ -87,7 +96,7 @@ public class CBREngine implements StandardCBRApplication  {
 		_case.setSolution(sol);
 		
 		StoreCasesMethod.storeCase(caseBase, _case);*/
-		
+			
 		//---------------------------------------------------------------------
 		
 		return caseBase;
@@ -159,17 +168,18 @@ public class CBREngine implements StandardCBRApplication  {
 		combinedBR.setItemScale(Scale.MEDIUM);
 		
 		for(ItemSol itemSol: solution.getSolutionItems().getValues()) {
-			switch(itemSol.getScreenPosition()) {
-			case TOP_LEFT:		combinedTL.getItems().add(itemSol); break;
-			case TOP_CENTER:	combinedTC.getItems().add(itemSol);	break;
-			case TOP_RIGHT: 	combinedTR.getItems().add(itemSol); break;
-			case MIDDLE_LEFT:	combinedCL.getItems().add(itemSol); break;
-			case MIDDLE_CENTER:	combinedCC.getItems().add(itemSol); break;
-			case MIDDLE_RIGHT:	combinedCR.getItems().add(itemSol); break;
-			case BOTTOM_LEFT:	combinedBL.getItems().add(itemSol); break;
-			case BOTTOM_CENTER:	combinedBC.getItems().add(itemSol); break;
-			case BOTTOM_RIGHT:	combinedBR.getItems().add(itemSol); break;
-				
+			if(itemSol != null) {
+				switch(itemSol.getScreenPosition()) {
+				case TOP_LEFT:		combinedTL.getItems().add(itemSol); break;
+				case TOP_CENTER:	combinedTC.getItems().add(itemSol);	break;
+				case TOP_RIGHT: 	combinedTR.getItems().add(itemSol); break;
+				case MIDDLE_LEFT:	combinedCL.getItems().add(itemSol); break;
+				case MIDDLE_CENTER:	combinedCC.getItems().add(itemSol); break;
+				case MIDDLE_RIGHT:	combinedCR.getItems().add(itemSol); break;
+				case BOTTOM_LEFT:	combinedBL.getItems().add(itemSol); break;
+				case BOTTOM_CENTER:	combinedBC.getItems().add(itemSol); break;
+				case BOTTOM_RIGHT:	combinedBR.getItems().add(itemSol); break;
+				}			
 			}
 		}
 			

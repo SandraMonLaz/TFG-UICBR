@@ -28,7 +28,7 @@ public class GreetingController {
 	
 	@PostMapping("/platform")
 	public String prueba(@RequestBody PlatformQuery i) {
-		CaseDescription caseDes = new CaseDescription();
+		/*CaseDescription caseDes = new CaseDescription();
 		caseDes.setId(id);
 		
 		Health health  = null;
@@ -110,7 +110,7 @@ public class GreetingController {
 		}
 		caseDes.setAbilities(abilities);*/
 		
-		CBRQuery query = new CBRQuery();
+		/*CBRQuery query = new CBRQuery();
 		query.setDescription(caseDes);
 		try {
 			cbr.cycle(query);
@@ -120,6 +120,7 @@ public class GreetingController {
 		}
 		
 		id++;
-		return cbr.getSolution();
+		return cbr.getSolution();*/
+		return "patata";
 	}
 }

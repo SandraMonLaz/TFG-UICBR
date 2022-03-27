@@ -4,6 +4,7 @@
 	<DescriptionClassName>es.ucm.gdv.TFG.CBR.cbrComponents.CaseDescription</DescriptionClassName>
 	<DescriptionMappings>
 		<Map>id</Map><Map>health</Map>
+		<Map>score</Map>
 
 	</DescriptionMappings>
 	<SolutionClassName>es.ucm.gdv.TFG.CBR.cbrComponents.CaseSolution</SolutionClassName>

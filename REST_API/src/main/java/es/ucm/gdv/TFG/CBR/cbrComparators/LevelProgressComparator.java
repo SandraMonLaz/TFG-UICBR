@@ -34,7 +34,7 @@ public class LevelProgressComparator implements LocalSimilarityFunction{
 		
 		Equal equal = new Equal();
 		
-		return 0.3 * interval.compute(i1, i2) + 0.3 * equal.compute(r1, r2) + 0.4 * equal.compute(t1, t2);
+		return 0.3 * interval.compute(i1.ordinal(), i2.ordinal()) + 0.3 * equal.compute(r1.ordinal(), r2.ordinal()) + 0.4 * equal.compute(t1.ordinal(), t2.ordinal());
 	}
 
 	@Override

@@ -24,7 +24,7 @@ public class CharacterInfoComparator implements LocalSimilarityFunction {
 		Importance i2 = c2.getImportance();
 		Interval interval = new Interval(Importance.values().length);
 		
-		return interval.compute(i1, i2);
+		return interval.compute(i1.ordinal(), i2.ordinal());
 	}
 
 	@Override

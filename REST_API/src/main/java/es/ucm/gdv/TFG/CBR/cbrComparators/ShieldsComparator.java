@@ -34,7 +34,7 @@ public class ShieldsComparator implements LocalSimilarityFunction {
 		
 		Equal eq = new Equal();
 		
-		return 0.5*interval.compute(imp1, imp2) + 0.5*eq.compute(v1, v2);
+		return 0.5*interval.compute(imp1.ordinal(), imp2.ordinal()) + 0.5*eq.compute(v1.ordinal(), v2.ordinal());
 	}
 
 	@Override

@@ -30,7 +30,7 @@ public class TimeComparator implements LocalSimilarityFunction{
 		TimeUse t2 = c2.getTimeUse();
 		Equal equal = new Equal();
 		
-		return 0.5 * interval.compute(i1, i2) + 0.5 * equal.compute(t1, t2);
+		return 0.5 * interval.compute(i1.ordinal(), i2.ordinal()) + 0.5 * equal.compute(t1.ordinal(), t2.ordinal());
 	}
 
 	@Override

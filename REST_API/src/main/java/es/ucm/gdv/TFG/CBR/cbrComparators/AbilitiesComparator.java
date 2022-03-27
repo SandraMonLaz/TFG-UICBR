@@ -36,7 +36,7 @@ public class AbilitiesComparator implements LocalSimilarityFunction {
 		int n2 = i2.getnWeapons();
 		NumComparator numComp = new NumComparator(Math.max(n1, n2));
 		
-		return 0.33*interval.compute(imp1, imp2) + 0.33*eq.compute(v1, v2) + 0.34*numComp.compute(n1, n2);
+		return 0.33*interval.compute(imp1.ordinal(), imp2.ordinal()) + 0.33*eq.compute(v1.ordinal(), v2.ordinal()) + 0.34*numComp.compute(n1, n2);
 	}
 
 	@Override

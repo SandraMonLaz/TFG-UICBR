@@ -57,7 +57,7 @@ public class ItemSolArray implements TypeAdaptor {
 	public void fromString(String content) throws Exception {
 		//Los componentes estan separados por As
 		String[] splited = content.split("\\|");
-		size = splited.length;//Inicializamos el size
+		size = ItemId.MAX_ITEMS.ordinal();//Inicializamos el size
 		
 		values = new ItemSol[size];
 		
