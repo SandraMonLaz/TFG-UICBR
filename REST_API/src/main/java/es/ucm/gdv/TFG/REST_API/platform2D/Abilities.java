@@ -1,6 +1,7 @@
 package es.ucm.gdv.TFG.REST_API.platform2D;
 
 import es.ucm.gdv.TFG.REST_API.Importance;
+import es.ucm.gdv.TFG.REST_API.UseType;
 
 public class Abilities {
 	
@@ -11,11 +12,6 @@ public class Abilities {
 		this.use = use;
 	}
 	
-	public enum UseType{
-		limited,
-		infinite
-	}
-
 	public Importance getImportance() {
 		return importance;
 	}

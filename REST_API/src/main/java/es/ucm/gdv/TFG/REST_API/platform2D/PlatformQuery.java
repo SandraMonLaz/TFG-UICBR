@@ -3,13 +3,13 @@ package es.ucm.gdv.TFG.REST_API.platform2D;
 public class PlatformQuery {
 	
 	public PlatformQuery(CharacterInfo characterinfo, CharacterProgress characterProgress, Collectable collectable,
-			Abilities habilities, Health health, LevelProgress levelProgress, Score score, Shields shields, Time time,
+			Abilities abilities, Health health, LevelProgress levelProgress, Score score, Shields shields, Time time,
 			Weapons weapons) {
 		super();
 		this.characterinfo = characterinfo;
 		this.characterProgress = characterProgress;
 		this.collectable = collectable;
-		this.habilities = habilities;
+		this.abilities = abilities;
 		this.health = health;
 		this.levelProgress = levelProgress;
 		this.score = score;
@@ -37,11 +37,11 @@ public class PlatformQuery {
 	public void setCollectable(Collectable collectable) {
 		this.collectable = collectable;
 	}
-	public Abilities getHabilities() {
-		return habilities;
+	public Abilities getAbilities() {
+		return abilities;
 	}
-	public void setHabilities(Abilities habilities) {
-		this.habilities = habilities;
+	public void setAbilities(Abilities abilities) {
+		this.abilities = abilities;
 	}
 	public Health getHealth() {
 		return health;
@@ -84,7 +84,7 @@ public class PlatformQuery {
 	CharacterInfo characterinfo;
 	CharacterProgress characterProgress;
 	Collectable collectable;
-	Abilities habilities;
+	Abilities abilities;
 	Health health;
 	LevelProgress levelProgress;
 	Score score;

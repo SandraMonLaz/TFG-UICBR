@@ -4,43 +4,45 @@ import es.ucm.gdv.TFG.CBR.cbrComponents.CaseSolution;
 import es.ucm.gdv.TFG.CBR.cbrComponents.ItemSol;
 import es.ucm.gdv.TFG.CBR.cbrComponents.ItemSol.Scale;
 import es.ucm.gdv.TFG.CBR.cbrComponents.ItemSol.ScreenPos;
+import es.ucm.gdv.TFG.REST_API.Importance;
 import es.ucm.gdv.TFG.REST_API.RangeType;
+import es.ucm.gdv.TFG.REST_API.platform2D.Time.TimeUse;
 
 public class Time extends Item {
-private RangeType rangeType;
+	private TimeUse timeUse;
 	
-	public RangeType getRangeType() {
-		return rangeType;
+	public TimeUse getTimeUse() {
+		return timeUse;
 	}
 
-	public void setRangeType(RangeType rangeType) {
-		this.rangeType = rangeType;
+	public void setTimeUse(TimeUse timeUse) {
+		this.timeUse = timeUse;
 	}
 
 	@Override
 	public void fromString(String content) throws Exception {
 		String[] splited = content.split("\\|");
 		super.fromString(splited[0]);	
-		this.rangeType = RangeType.valueOf(splited[1]);
+		this.timeUse = TimeUse.valueOf(splited[1]);
 	}
 	
 	@Override
 	public String toString() {
 		String s = super.toString();
-		return s + "|" + this.rangeType.toString();
+		return s + "|" + this.timeUse.toString();
 	}
 	
 	@Override
 	public ItemSol adapt(ItemSol solutionTime, CaseSolution solution) {
 		//Si la solucion que nos ofrece no tiene CHARACTER_PROGRESS lo creamos
 		if(solutionTime == null) {
-			solutionTime = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "tiempoContinuo", ItemId.TIME);
+			solutionTime = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "tiempoChrono", ItemId.TIME);
 		}
 		
 		solutionTime.setScreenPosition(ScreenPos.TOP_CENTER);
 		
-		if(this.rangeType == RangeType.continuous) solutionTime.setImage("tiempoContinuo");
-		else solutionTime.setImage("tiempoDiscreto");
+		if(this.timeUse == TimeUse.countdown) solutionTime.setImage("tiempoCountdown");
+		else solutionTime.setImage("tiempoChrono");
 		
 		if(this.importance.ordinal() >= Importance.high.ordinal()) {
 			solutionTime.setItemScale(Scale.MEDIUM);

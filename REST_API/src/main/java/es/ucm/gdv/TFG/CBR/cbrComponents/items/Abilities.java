@@ -2,7 +2,8 @@ package es.ucm.gdv.TFG.CBR.cbrComponents.items;
 
 import es.ucm.gdv.TFG.CBR.cbrComponents.CaseSolution;
 import es.ucm.gdv.TFG.CBR.cbrComponents.ItemSol;
-import es.ucm.gdv.TFG.REST_API.platform2D.Abilities.UseType;
+import es.ucm.gdv.TFG.REST_API.Importance;
+import es.ucm.gdv.TFG.REST_API.UseType;
 import es.ucm.gdv.TFG.CBR.cbrComponents.ItemSol.Scale;
 import es.ucm.gdv.TFG.CBR.cbrComponents.ItemSol.ScreenPos;
 
@@ -50,22 +51,22 @@ public class Abilities extends Item {
 		if(this.useType == UseType.infinite)		solutionAbilities.setImage("habilidadInfinita");
 		else if(this.useType == UseType.limited) 	solutionAbilities.setImage("habilidadLimitada");
 		
-		ItemSol health = solution.getSolutionItems().getValues()[ItemId.HEALTH.ordinal()];
+		ItemSol abilities = solution.getSolutionItems().getValues()[ItemId.ABILITIES.ordinal()];
 		
 		//Dependiendo de donde se encuentra la vida se colocan las habilidades
-		if(health == null) {
+		if(abilities == null) {
 			solutionAbilities.setScreenPosition(ScreenPos.TOP_RIGHT);
 		}
 		else {
-			if(health.getScreenPosition() == ScreenPos.TOP_LEFT 
-			|| health.getScreenPosition() == ScreenPos.BOTTOM_LEFT
-			|| health.getScreenPosition() == ScreenPos.MIDDLE_LEFT) 
+			if(abilities.getScreenPosition() == ScreenPos.TOP_LEFT 
+			|| abilities.getScreenPosition() == ScreenPos.BOTTOM_LEFT
+			|| abilities.getScreenPosition() == ScreenPos.MIDDLE_LEFT) 
 			{
 				solutionAbilities.setScreenPosition(ScreenPos.TOP_RIGHT);
 			}
-			else if(health.getScreenPosition() == ScreenPos.TOP_RIGHT
-				 || health.getScreenPosition() == ScreenPos.BOTTOM_RIGHT
-				 || health.getScreenPosition() == ScreenPos.MIDDLE_RIGHT) 
+			else if(abilities.getScreenPosition() == ScreenPos.TOP_RIGHT
+				 || abilities.getScreenPosition() == ScreenPos.BOTTOM_RIGHT
+				 || abilities.getScreenPosition() == ScreenPos.MIDDLE_RIGHT) 
 			{
 				solutionAbilities.setScreenPosition(ScreenPos.TOP_LEFT);
 			}

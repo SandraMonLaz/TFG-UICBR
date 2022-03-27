@@ -1,6 +1,7 @@
 package es.ucm.gdv.TFG.REST_API.platform2D;
 
 import es.ucm.gdv.TFG.REST_API.Importance;
+import es.ucm.gdv.TFG.REST_API.UseType;
 
 public class Weapons {
 	
@@ -11,11 +12,6 @@ public class Weapons {
 		this.use = use;
 	}
 	
-	public enum UseType{
-		limited,
-		infinite
-	}
-
 	public Importance getImportance() {
 		return importance;
 	}
@@ -26,8 +22,6 @@ public class Weapons {
 	public UseType getUse() {
 		return use;
 	}
-
-
 
 	private final Importance importance;
 	private final int nWeapons;
