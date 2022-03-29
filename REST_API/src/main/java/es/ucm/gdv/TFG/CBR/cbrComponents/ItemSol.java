@@ -9,6 +9,14 @@ public class ItemSol {
 		super();
 	}
 	
+	public ItemSol(ItemSol other) {
+		super();
+		this.screenPosition = other.screenPosition;
+		this.itemScale = other.itemScale;
+		this.image = other.image;
+		this.id = other.id;
+	}
+	
 	public ItemSol(ScreenPos screenPosition, Scale itemScale, String image, ItemId id) {
 		super();
 		this.screenPosition = screenPosition;

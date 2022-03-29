@@ -18,4 +18,3 @@
 0,0,high|continuous,high,,1,HEALTH-TOP_LEFT-BIG-vidaContinua-|SCORE-TOP_RIGHT-BIG-puntos-|null|null|null|null|null|null|null|null
 0,0,low|continuous,high,,1,HEALTH-TOP_LEFT-SMALL-vidaContinua-|SCORE-TOP_RIGHT-BIG-puntos-|null|null|null|null|null|null|null|null
 0,0,low|continuous,low,,1,HEALTH-TOP_LEFT-SMALL-vidaContinua-|SCORE-TOP_RIGHT-SMALL-puntos-|null|null|null|null|null|null|null|null
-0,0,high|discrete,veryHigh,,1,HEALTH-TOP_LEFT-VERY_BIG-vidaContinua-|SCORE-TOP_RIGHT-MEDIUM-puntos-|null|null|null|null|null|null|null|null

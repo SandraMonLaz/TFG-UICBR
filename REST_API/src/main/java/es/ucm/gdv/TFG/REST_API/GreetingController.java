@@ -19,6 +19,7 @@ import es.ucm.gdv.TFG.CBR.cbrComponents.items.Shields;
 import es.ucm.gdv.TFG.CBR.cbrComponents.items.Time;
 import es.ucm.gdv.TFG.CBR.cbrComponents.items.Weapons;
 import es.ucm.gdv.TFG.CBR.cbrEngine.CBREngine;
+import es.ucm.gdv.TFG.CBR.cbrEngine.SolCBR;
 import es.ucm.gdv.TFG.REST_API.platform2D.PlatformQuery;
 
 @RestController
@@ -26,7 +27,7 @@ public class GreetingController {
 	private static int id = 0;
 	
 	@PostMapping("/platform")
-	public String prueba(@RequestBody PlatformQuery i) {
+	public SolCBR prueba(@RequestBody PlatformQuery i) {
 		CaseDescription caseDes = new CaseDescription();
 		caseDes.setId(id);
 		
@@ -113,6 +114,7 @@ public class GreetingController {
 		query.setDescription(caseDes);
 		try {
 			CBREngine.getInstance().cycle(query);
+			CBREngine.getInstance().postCycle();			 
 		} catch (ExecutionException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

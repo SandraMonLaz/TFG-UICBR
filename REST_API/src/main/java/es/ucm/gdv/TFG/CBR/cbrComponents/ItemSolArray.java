@@ -17,6 +17,15 @@ public class ItemSolArray implements TypeAdaptor {
 		values = new ItemSol[this.size];
 	}
 	
+	public ItemSolArray(ItemSolArray other) {
+		this.size = other.size;
+		values = new ItemSol[this.size];
+		for(int i=0; i<size; i++) {
+			if(other.values[i] != null)
+				values[i] = new ItemSol(other.values[i]);
+		}
+	}
+	
 	/**
 	 * Getter de los items de la solucion
 	 * @return items de la solucion
@@ -63,7 +72,7 @@ public class ItemSolArray implements TypeAdaptor {
 		
 		//Inicializamos cada valor
 		for(int i=0; i<size; i++) {
-			if(splited[i] != "null") {
+			if(!splited[i].equals("null")) {
 				this.values[i] = new ItemSol();
 				this.values[i].fromString(splited[i]);				
 			}

@@ -13,6 +13,11 @@ public class CaseSolution implements CaseComponent {
 		solutionItems = new ItemSolArray();
 	}
 	
+	public CaseSolution(CaseSolution other) {
+		this.id = other.id;
+		solutionItems = new ItemSolArray(other.solutionItems);
+	}
+	
 	public Integer getId() {
 		return id;
 	}

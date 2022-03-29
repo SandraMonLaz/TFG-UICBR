@@ -3,9 +3,6 @@ package es.ucm.gdv.TFG.CBR.cbrEngine;
 import java.io.File;
 import java.util.Collection;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
 import es.ucm.fdi.gaia.jcolibri.cbraplications.StandardCBRApplication;
 import es.ucm.fdi.gaia.jcolibri.cbrcore.CBRCase;
 import es.ucm.fdi.gaia.jcolibri.cbrcore.CBRCaseBase;
@@ -85,21 +82,23 @@ public class CBREngine implements StandardCBRApplication  {
 		caseBase.init(connector);
 		
 		//----------------------- CASO DE PRUEBA -----------------------------
-		CBRCase _case = new CBRCase();
+		/*CBRCase _case = new CBRCase();
 		
-		/*CaseDescription des = new CaseDescription();
+		CaseDescription des = new CaseDescription();
 		Health h = new Health();
-		h.setImportance(Importance.high);
+		h.setImportance(Importance.low);
 		h.setType(RangeType.continuous);
 		des.setHealth(h);
 		Score s = new Score();
-		s.setImportance(Importance.veryLow);
+		s.setImportance(Importance.low);
 		des.setScore(s);
 		_case.setDescription(des);
 		
 		CaseSolution sol = new CaseSolution();
-		ItemSol health = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "vidaDiscreta", ItemId.HEALTH);
+		ItemSol health = new ItemSol(ScreenPos.TOP_LEFT, Scale.SMALL, "vidaContinua", ItemId.HEALTH);
 		sol.setSolItem(health, ItemId.HEALTH);
+		ItemSol score = new ItemSol(ScreenPos.TOP_RIGHT, Scale.SMALL, "puntos", ItemId.SCORE);
+		sol.setSolItem(score, ItemId.SCORE);
 		_case.setSolution(sol);
 		
 		StoreCasesMethod.storeCase(caseBase, _case);*/
@@ -121,14 +120,17 @@ public class CBREngine implements StandardCBRApplication  {
 		solution = reuse(eval);	
 		solCBR = adapt((CaseDescription)query.getDescription());
 		//Compute revise and Retain
-		reviseAndRetain(query.getDescription());
+		reviseAndRetain(query.getDescription(), eval);
 	}
 	
-	private void reviseAndRetain(CaseComponent queryDescription) {
+	private void reviseAndRetain(CaseComponent queryDescription, Collection<RetrievalResult> eval) {
 		CBRCase _case = new CBRCase();
 		_case.setSolution(solution);
 		_case.setDescription(queryDescription);
-		StoreCasesMethod.storeCase(caseBase, _case);
+
+		RetrievalResult first = SelectCases.selectTopKRR(eval, 1).iterator().next();
+		if(first.getEval() < 0.8)
+			StoreCasesMethod.storeCase(caseBase, _case);
 	}
 	
 	private SolCBR adapt(CaseDescription queryDescription) {
@@ -210,9 +212,10 @@ public class CBREngine implements StandardCBRApplication  {
 		RetrievalResult first = SelectCases.selectTopKRR(eval, 1).iterator().next();
 		CBRCase mostSimilarCase = first.get_case();
 
-		CaseSolution solution = (CaseSolution) mostSimilarCase.getSolution();
+		CaseSolution mostSimilarCaseSol = (CaseSolution) mostSimilarCase.getSolution();
+		CaseSolution sol = new CaseSolution(mostSimilarCaseSol);
 		
-		return solution;
+		return sol;
 	}
 	
 	@Override
@@ -221,12 +224,8 @@ public class CBREngine implements StandardCBRApplication  {
 		System.out.println("Cerrando cbr");
 	}
 	
-	public String getSolution() {
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		String json = gson.toJson(this.solCBR);
-		
-		System.out.print(json);
-		return json;
+	public SolCBR getSolution() {
+		return this.solCBR;
 	}
 
 }
