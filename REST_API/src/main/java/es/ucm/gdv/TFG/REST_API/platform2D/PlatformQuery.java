@@ -18,6 +18,19 @@ public class PlatformQuery {
 		this.weapons = weapons;
 	}
 	
+	public PlatformQuery(){
+		super();
+		this.characterinfo = null;
+		this.characterProgress = null;
+		this.collectable = null;
+		this.abilities = null;
+		this.health = null;
+		this.levelProgress = null;
+		this.score = null;
+		this.shields = null;
+		this.time = null;
+		this.weapons = null;
+	}
 	
 	public CharacterInfo getCharacterinfo() {
 		return characterinfo;

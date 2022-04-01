@@ -45,7 +45,7 @@ public class Health extends Item {
 				health.setImage("vidaContinua");
 		}
 		
-		if(this.importance.ordinal() >= Importance.high.ordinal()) {
+		if(this.importance.ordinal() >= Importance.medium.ordinal()) {
 			health.setScreenPosition(ScreenPos.TOP_LEFT);
 			health.setItemScale(Scale.VERY_BIG);
 		}
