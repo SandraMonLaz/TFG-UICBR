@@ -134,75 +134,8 @@ public class CBREngine implements StandardCBRApplication  {
 	}
 	
 	private SolCBR adapt(CaseDescription queryDescription) {
-		//Se modifica la solucion del caso
-		ItemSol health = solution.getSolutionItems().getValues()[ItemId.HEALTH.ordinal()];
-		ItemSol score = solution.getSolutionItems().getValues()[ItemId.SCORE.ordinal()];
-		
-		//Llamamos a las funciones de adaptación
-		Item item;
-		item = queryDescription.getHealth();
-		if(item != null)	item.adapt(health, solution);
-		
-		item = queryDescription.getScore();
-		if(item != null)	item.adapt(score, solution); 
-		
-		// Se usa la solucion modificada para crear la solucion del CBR		
-		SolCBR CBR = new SolCBR();
-		CombinedItem combinedTL = new CombinedItem();
-		combinedTL.setScreenPosition(ScreenPos.TOP_LEFT);
-		combinedTL.setItemScale(Scale.MEDIUM);
-		CombinedItem combinedTC = new CombinedItem();
-		combinedTC.setScreenPosition(ScreenPos.TOP_CENTER);
-		combinedTC.setItemScale(Scale.MEDIUM);
-		CombinedItem combinedTR = new CombinedItem();
-		combinedTR.setScreenPosition(ScreenPos.TOP_RIGHT);
-		combinedTR.setItemScale(Scale.MEDIUM);
-		CombinedItem combinedCL = new CombinedItem();
-		combinedCL.setScreenPosition(ScreenPos.MIDDLE_LEFT);
-		combinedCL.setItemScale(Scale.MEDIUM);
-		CombinedItem combinedCC = new CombinedItem();
-		combinedCC.setScreenPosition(ScreenPos.MIDDLE_CENTER);
-		combinedCC.setItemScale(Scale.MEDIUM);
-		CombinedItem combinedCR = new CombinedItem();
-		combinedCR.setScreenPosition(ScreenPos.MIDDLE_RIGHT);
-		combinedCR.setItemScale(Scale.MEDIUM);
-		CombinedItem combinedBL= new CombinedItem();
-		combinedBL.setScreenPosition(ScreenPos.BOTTOM_LEFT);
-		combinedBL.setItemScale(Scale.MEDIUM);
-		CombinedItem combinedBC= new CombinedItem();
-		combinedBC.setScreenPosition(ScreenPos.BOTTOM_CENTER);
-		combinedBC.setItemScale(Scale.MEDIUM);
-		CombinedItem combinedBR= new CombinedItem();
-		combinedBR.setScreenPosition(ScreenPos.BOTTOM_RIGHT);
-		combinedBR.setItemScale(Scale.MEDIUM);
-		
-		for(ItemSol itemSol: solution.getSolutionItems().getValues()) {
-			if(itemSol != null) {
-				switch(itemSol.getScreenPosition()) {
-				case TOP_LEFT:		combinedTL.getItems().add(itemSol); break;
-				case TOP_CENTER:	combinedTC.getItems().add(itemSol);	break;
-				case TOP_RIGHT: 	combinedTR.getItems().add(itemSol); break;
-				case MIDDLE_LEFT:	combinedCL.getItems().add(itemSol); break;
-				case MIDDLE_CENTER:	combinedCC.getItems().add(itemSol); break;
-				case MIDDLE_RIGHT:	combinedCR.getItems().add(itemSol); break;
-				case BOTTOM_LEFT:	combinedBL.getItems().add(itemSol); break;
-				case BOTTOM_CENTER:	combinedBC.getItems().add(itemSol); break;
-				case BOTTOM_RIGHT:	combinedBR.getItems().add(itemSol); break;
-				}			
-			}
-		}
-			
-		CBR.getSol().add(combinedTL);
-		CBR.getSol().add(combinedTC);
-		CBR.getSol().add(combinedTR);
-		CBR.getSol().add(combinedCL);
-		CBR.getSol().add(combinedCC);
-		CBR.getSol().add(combinedCR);
-		CBR.getSol().add(combinedBL);
-		CBR.getSol().add(combinedBC);
-		CBR.getSol().add(combinedBR);
-		
-		return CBR;		
+		PlatformAdaptation adapt = new PlatformAdaptation();
+		return adapt.adapt(solution, queryDescription);		
 	}
 	
 	private CaseSolution reuse(Collection<RetrievalResult> eval)
