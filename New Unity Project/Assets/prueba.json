@@ -1,0 +1,62 @@
+{
+    "sol": [
+      {
+        "items": [],
+        "screenPosition": "TOP_LEFT",
+        "itemScale": "MEDIUM"
+      },
+      {
+        "items": [],
+        "screenPosition": "TOP_CENTER",
+        "itemScale": "MEDIUM"
+      },
+      {
+        "items": [],
+        "screenPosition": "TOP_RIGHT",
+        "itemScale": "MEDIUM"
+      },
+      {
+        "items": [],
+        "screenPosition": "MIDDLE_LEFT",
+        "itemScale": "MEDIUM"
+      },
+      {
+        "items": [],
+        "screenPosition": "MIDDLE_CENTER",
+        "itemScale": "MEDIUM"
+      },
+      {
+        "items": [],
+        "screenPosition": "MIDDLE_RIGHT",
+        "itemScale": "MEDIUM"
+      },
+      {
+        "items": [],
+        "screenPosition": "BOTTOM_LEFT",
+        "itemScale": "MEDIUM"
+      },
+      {
+        "items": [
+          {
+            "screenPosition": "BOTTOM_CENTER",
+            "itemScale": "SMALL",
+            "image": "vidaContinua",
+            "id": "HEALTH"
+          },
+          {
+            "screenPosition": "BOTTOM_CENTER",
+            "itemScale": "SMALL",
+            "image": "puntos",
+            "id": "SCORE"
+          }
+        ],
+        "screenPosition": "BOTTOM_CENTER",
+        "itemScale": "MEDIUM"
+      },
+      {
+        "items": [],
+        "screenPosition": "BOTTOM_RIGHT",
+        "itemScale": "MEDIUM"
+      }
+    ]
+}
