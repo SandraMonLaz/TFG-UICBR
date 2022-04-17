@@ -22,5 +22,5 @@ public class ItemSol
     public string screenPosition;
     public string itemScale;
     public string image;
-    public string itemId;
+    public string id;
 }

@@ -31,25 +31,25 @@
         "itemScale": "MEDIUM"
       },
       {
-        "items": [],
-        "screenPosition": "BOTTOM_LEFT",
-        "itemScale": "MEDIUM"
-      },
-      {
         "items": [
           {
-            "screenPosition": "BOTTOM_CENTER",
+            "screenPosition": "BOTTOM_LEFT",
             "itemScale": "SMALL",
             "image": "vidaContinua",
             "id": "HEALTH"
           },
           {
-            "screenPosition": "BOTTOM_CENTER",
+            "screenPosition": "BOTTOM_LEFT",
             "itemScale": "SMALL",
             "image": "puntos",
             "id": "SCORE"
           }
         ],
+        "screenPosition": "BOTTOM_LEFT",
+        "itemScale": "MEDIUM"
+      },
+      {
+        "items": [],
         "screenPosition": "BOTTOM_CENTER",
         "itemScale": "MEDIUM"
       },

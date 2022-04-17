@@ -50,6 +50,19 @@ public class ItemSolution
         screenPosition = (ScreenPos)Enum.Parse(typeof(ScreenPos), item.screenPosition);
         itemScale = (Scale)Enum.Parse(typeof(Scale), item.itemScale);
         image = null; //TODO
-        itemId = (ItemId)Enum.Parse(typeof(ItemId), item.itemId);
+        itemId = (ItemId)Enum.Parse(typeof(ItemId), item.id);
     }
+    
+    public class ItemSolutionComparer : Comparer<ItemSolution>
+    {
+        public override int Compare(ItemSolution x, ItemSolution y)
+        {
+            int a = (int)x.itemScale;
+            int b = (int)y.itemScale;
+
+            if (a == b) return 0;
+            if (a < b) return -1;
+            else return 1;
+        }
+    };
 }

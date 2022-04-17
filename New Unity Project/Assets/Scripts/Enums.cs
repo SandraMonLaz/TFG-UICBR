@@ -29,7 +29,7 @@ public enum ScreenPos
 
 public enum Scale
 {
-	VERY_SMALL,
+	VERY_SMALL = 1,
 	SMALL,
 	MEDIUM,
 	BIG,
