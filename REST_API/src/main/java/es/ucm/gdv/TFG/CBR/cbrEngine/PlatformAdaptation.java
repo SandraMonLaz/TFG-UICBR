@@ -5,8 +5,15 @@ import es.ucm.gdv.TFG.CBR.cbrComponents.CaseSolution;
 import es.ucm.gdv.TFG.CBR.cbrComponents.ItemSol;
 import es.ucm.gdv.TFG.CBR.cbrComponents.ItemSol.Scale;
 import es.ucm.gdv.TFG.CBR.cbrComponents.ItemSol.ScreenPos;
+import es.ucm.gdv.TFG.CBR.cbrComponents.items.CharacterInfo;
+import es.ucm.gdv.TFG.CBR.cbrComponents.items.CharacterProgress;
+import es.ucm.gdv.TFG.CBR.cbrComponents.items.Collectable;
 import es.ucm.gdv.TFG.CBR.cbrComponents.items.Item;
 import es.ucm.gdv.TFG.CBR.cbrComponents.items.ItemId;
+import es.ucm.gdv.TFG.CBR.cbrComponents.items.LevelProgress;
+import es.ucm.gdv.TFG.CBR.cbrComponents.items.Shields;
+import es.ucm.gdv.TFG.CBR.cbrComponents.items.Time;
+import es.ucm.gdv.TFG.CBR.cbrComponents.items.Weapons;
 
 public class PlatformAdaptation {
 
@@ -41,6 +48,7 @@ public class PlatformAdaptation {
 		//Miramos para cada item como interfiere en pantalla con el resto
 		for(ItemSol itemSol: solution.getSolutionItems().getValues()) {	
 			for(ItemSol other: solution.getSolutionItems().getValues()) {
+				if(itemSol == null || other  == null) continue;
 				if(similarityTable[itemSol.getId().ordinal()][other.getId().ordinal()] >= 0.75f &&	//si el item tiene similaridad con el otro
 					itemSol.getScreenPosition() != other.getScreenPosition()){						//y su posicion no es la misma
 					//si el item tiene mayor importancia/tamaño que el otro
@@ -76,6 +84,14 @@ public class PlatformAdaptation {
 		//Se modifica la solucion del caso
 		ItemSol health = solution.getSolutionItems().getValues()[ItemId.HEALTH.ordinal()];
 		ItemSol score = solution.getSolutionItems().getValues()[ItemId.SCORE.ordinal()];
+		ItemSol abilities = solution.getSolutionItems().getValues()[ItemId.ABILITIES.ordinal()];
+		ItemSol characterinfo = solution.getSolutionItems().getValues()[ItemId.CHARACTER_INFO.ordinal()];
+		ItemSol characterProgress = solution.getSolutionItems().getValues()[ItemId.CHARACTER_PROGRESS.ordinal()];
+		ItemSol collectable = solution.getSolutionItems().getValues()[ItemId.COLLECTABLE.ordinal()];
+		ItemSol levelProgress = solution.getSolutionItems().getValues()[ItemId.LEVEL_PROGRESS.ordinal()];
+		ItemSol shields = solution.getSolutionItems().getValues()[ItemId.SHIELDS.ordinal()];
+		ItemSol time = solution.getSolutionItems().getValues()[ItemId.TIME.ordinal()];
+		ItemSol weapons = solution.getSolutionItems().getValues()[ItemId.WEAPONS.ordinal()];
 		
 		//Llamamos a las funciones de adaptación
 		Item item;
@@ -84,6 +100,33 @@ public class PlatformAdaptation {
 		
 		item = queryDescription.getScore();
 		if(item != null)	item.adapt(score, solution); 
+		
+		item = queryDescription.getAbilities();
+		if(item != null)	item.adapt(abilities, solution);
+		
+		item = queryDescription.getAbilities();
+		if(item != null)	item.adapt(abilities, solution);
+		
+		item = queryDescription.getCharacterinfo();
+		if(item != null)	item.adapt(characterinfo, solution);
+		
+		item = queryDescription.getCharacterProgress();
+		if(item != null)	item.adapt(characterProgress, solution);
+		
+		item = queryDescription.getCollectable();
+		if(item != null)	item.adapt(collectable, solution);
+		
+		item = queryDescription.getLevelProgress();
+		if(item != null)	item.adapt(levelProgress, solution);
+		
+		item = queryDescription.getShields();
+		if(item != null)	item.adapt(shields, solution);
+		
+		item = queryDescription.getTime();
+		if(item != null)	item.adapt(time, solution);
+		
+		item = queryDescription.getWeapons();
+		if(item != null)	item.adapt(weapons, solution);
 	}
 	
 	/*

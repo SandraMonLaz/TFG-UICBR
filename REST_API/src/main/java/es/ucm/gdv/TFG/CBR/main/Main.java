@@ -22,13 +22,11 @@ public class Main {
 		 health.setImportance(Importance.high);
 		 health.setType(RangeType.discrete);
 		 
-		 Score score = new Score();
-		 score.setImportance(Importance.low);
-	
+			
 		 CaseDescription caseDes = new CaseDescription();
 		 caseDes.setId(0);
 		 caseDes.setHealth(health);
-		 caseDes.setScore(score);
+		// caseDes.setScore(score);
 		 CBRQuery query = new CBRQuery();
 		 query.setDescription(caseDes);
 		 

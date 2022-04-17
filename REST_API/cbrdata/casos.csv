@@ -1,21 +1,4 @@
 
-0,0,veryLow|discrete,null,,1,HEALTH-BOTTOM_CENTER-SMALL-vidaDiscreta-|null|null|null|null|null|null|null|null|null
-0,0,low|discrete,null,,1,HEALTH-BOTTOM_CENTER-MEDIUM-vidaDiscreta-|null|null|null|null|null|null|null|null|null
-0,0,medium|discrete,null,,1,HEALTH-TOP_LEFT-MEDIUM-vidaDiscreta-|null|null|null|null|null|null|null|null|null
-0,0,high|discrete,null,,1,HEALTH-TOP_LEFT-BIG-vidaDiscreta-|null|null|null|null|null|null|null|null|null
-0,0,veryHigh|discrete,null,,1,HEALTH-TOP_LEFT-VERY_BIG-vidaDiscreta-|null|null|null|null|null|null|null|null|null
-0,0,veryLow|continuous,null,,1,HEALTH-BOTTOM_CENTER-SMALL-vidaContinua-|null|null|null|null|null|null|null|null|null
-0,0,low|continuous,null,,1,HEALTH-BOTTOM_CENTER-MEDIUM-vidaContinua-|null|null|null|null|null|null|null|null|null
-0,0,medium|continuous,null,,1,HEALTH-TOP_LEFT-MEDIUM-vidaContinua-|null|null|null|null|null|null|null|null|null
-0,0,high|continuous,null,,1,HEALTH-TOP_LEFT-BIG-vidaContinua-|null|null|null|null|null|null|null|null|null
-0,0,veryHigh|continuous,null,,1,HEALTH-TOP_LEFT-VERY_BIG-vidaContinua-|null|null|null|null|null|null|null|null|null
-0,0,null,veryLow,,1,null|SCORE-TOP_CENTER-VERY_SMALL-puntos-|null|null|null|null|null|null|null|null
-0,0,null,low,,1,null|SCORE-TOP_CENTER-SMALL-puntos-|null|null|null|null|null|null|null|null
-0,0,null,medium,,1,null|SCORE-TOP_RIGHT-MEDIUM-puntos-|null|null|null|null|null|null|null|null
-0,0,null,high,,1,null|SCORE-TOP_RIGHT-BIG-puntos-|null|null|null|null|null|null|null|null
-0,0,null,veryHigh,,1,null|SCORE-TOP_RIGHT-VERY_BIG-puntos-|null|null|null|null|null|null|null|null
-0,0,high|continuous,low,,1,HEALTH-TOP_LEFT-BIG-vidaContinua-|SCORE-TOP_RIGHT-MEDIUM-puntos-|null|null|null|null|null|null|null|null
-0,0,high|continuous,high,,1,HEALTH-TOP_LEFT-BIG-vidaContinua-|SCORE-TOP_RIGHT-BIG-puntos-|null|null|null|null|null|null|null|null
-0,0,low|continuous,high,,1,HEALTH-TOP_LEFT-SMALL-vidaContinua-|SCORE-TOP_RIGHT-BIG-puntos-|null|null|null|null|null|null|null|null
-0,0,low|continuous,low,,1,HEALTH-TOP_LEFT-SMALL-vidaContinua-|SCORE-TOP_RIGHT-SMALL-puntos-|null|null|null|null|null|null|null|null
-0,0,high|discrete,veryHigh,,1,HEALTH-TOP_LEFT-VERY_BIG-vidaContinua-|SCORE-TOP_RIGHT-MEDIUM-puntos-|null|null|null|null|null|null|null|null
+
+0,0,low|continuous,null,null,null,null,null,null,null,null,null,,1,HEALTH-TOP_LEFT-SMALL-vidaContinua-|null|null|null|null|null|null|null|null|null
+0,0,high|discrete,null,null,null,null,null,null,null,null,null,,1,HEALTH-TOP_LEFT-VERY_BIG-vidaDiscreta-|null|null|null|null|null|null|null|null|null

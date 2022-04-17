@@ -45,11 +45,11 @@ public class Weapons extends Item {
 	public ItemSol adapt(ItemSol solutionWeapons, CaseSolution solution) {
 		//Si la solucion que nos ofrece no tiene habilidades lo creamos
 		if(solutionWeapons == null) {
-			solutionWeapons = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "habilidadInfinita", ItemId.WEAPONS);
+			solutionWeapons = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "armaInfinita", ItemId.WEAPONS);
 		}
 		
-		if(this.useType == UseType.infinite)		solutionWeapons.setImage("habilidadInfinita");
-		else if(this.useType == UseType.limited) 	solutionWeapons.setImage("habilidadLimitada");
+		if(this.useType == UseType.infinite)		solutionWeapons.setImage("armaInfinita");
+		else if(this.useType == UseType.limited) 	solutionWeapons.setImage("armaLimitada");
 		
 		ItemSol weapons = solution.getSolutionItems().getValues()[ItemId.WEAPONS.ordinal()];
 		

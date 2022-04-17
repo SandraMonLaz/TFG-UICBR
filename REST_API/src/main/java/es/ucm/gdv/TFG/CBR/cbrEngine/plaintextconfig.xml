@@ -4,9 +4,17 @@
 	<DescriptionClassName>es.ucm.gdv.TFG.CBR.cbrComponents.CaseDescription</DescriptionClassName>
 	<DescriptionMappings>
 		<Map>id</Map><Map>health</Map>
+		
 		<Map>score</Map>
 
-	</DescriptionMappings>
+	<Map>abilities</Map>
+	<Map>characterinfo</Map>
+	<Map>characterProgress</Map>
+	<Map>collectable</Map>
+	<Map>levelProgress</Map>
+	<Map>shields</Map>
+	<Map>time</Map>
+	<Map>weapons</Map></DescriptionMappings>
 	<SolutionClassName>es.ucm.gdv.TFG.CBR.cbrComponents.CaseSolution</SolutionClassName>
 	<SolutionMappings>
 		<Map>id</Map>

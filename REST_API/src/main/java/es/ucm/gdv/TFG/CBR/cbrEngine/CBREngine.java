@@ -82,26 +82,31 @@ public class CBREngine implements StandardCBRApplication  {
 		caseBase.init(connector);
 		
 		//----------------------- CASO DE PRUEBA -----------------------------
-		/*CBRCase _case = new CBRCase();
+		CBRCase _case = new CBRCase();
 		
 		CaseDescription des = new CaseDescription();
 		Health h = new Health();
 		h.setImportance(Importance.low);
 		h.setType(RangeType.continuous);
 		des.setHealth(h);
-		Score s = new Score();
+		
+		/*Score s = new Score();
 		s.setImportance(Importance.low);
-		des.setScore(s);
+		des.setScore(s);*/
+		
 		_case.setDescription(des);
 		
 		CaseSolution sol = new CaseSolution();
+		
 		ItemSol health = new ItemSol(ScreenPos.TOP_LEFT, Scale.SMALL, "vidaContinua", ItemId.HEALTH);
 		sol.setSolItem(health, ItemId.HEALTH);
-		ItemSol score = new ItemSol(ScreenPos.TOP_RIGHT, Scale.SMALL, "puntos", ItemId.SCORE);
-		sol.setSolItem(score, ItemId.SCORE);
+		
+		/*ItemSol score = new ItemSol(ScreenPos.TOP_RIGHT, Scale.SMALL, "puntos", ItemId.SCORE);
+		sol.setSolItem(score, ItemId.SCORE);*/
+		
 		_case.setSolution(sol);
 		
-		StoreCasesMethod.storeCase(caseBase, _case);*/
+		StoreCasesMethod.storeCase(caseBase, _case);
 			
 		//---------------------------------------------------------------------
 		
