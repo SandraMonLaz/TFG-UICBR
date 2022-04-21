@@ -10,6 +10,10 @@ public class UIGenerator : MonoBehaviour
     private SolCBRParser solCBR;
     private Vector2 resolution = new Vector2(1920, 1080);
 
+    //Prefabs
+    [SerializeField]
+    private GameObject _UIItemPrefab;
+
     //Imágenes
     public Sprite vidaDiscreta;
     public Sprite vidaContinua;
@@ -31,61 +35,101 @@ public class UIGenerator : MonoBehaviour
         {
             if (combined.items.Length > 0)
             {
-                float minX, maxX, minY, maxY;
-                float maxItemX, maxItemY;
-                float scaleFactor = (float)combined.itemScale / (float)Scale.VERY_BIG;
-
-                bool[] colocados = new bool[combined.items.Length];
-                for (int i = 0; i < colocados.Length; i++) colocados[i] = false;
-                bool todosColocados = false;
-
-                Scale maxScale = combined.items[0].itemScale;
-
                 switch (combined.screenPosition)
                 {
                     case ScreenPos.TOP_LEFT:
-
-                        break;
-                    case ScreenPos.TOP_CENTER:
-                        break;
                     case ScreenPos.TOP_RIGHT:
-                        break;
-
-                    case ScreenPos.MIDDLE_LEFT:
-                        break;
-                    case ScreenPos.MIDDLE_CENTER:
-                        break;
-                    case ScreenPos.MIDDLE_RIGHT:
-                        break;
-
                     case ScreenPos.BOTTOM_LEFT:
-
-                        minX = 0 * scaleFactor; 
-                        minY = 0 * scaleFactor;
-                        maxX = (resolution.x / 3.0f) * scaleFactor;
-                        maxY = (resolution.y / 3.0f) * scaleFactor;
-
-                        maxItemX = (maxX - minX) / (float)combined.items.Length;
-                        maxItemY = (maxY - minY) / (float)combined.items.Length;
-
-                        while (!todosColocados)
-                        {
-                            todosColocados = true;
-                            for(int j=0; j< combined.items.Length; j++)
-                            {
-                                if (colocados[j] == false) todosColocados = false;
-
-                            }
-                        }
-
+                    case ScreenPos.BOTTOM_RIGHT:
+                        BuildCornerCombined(combined, combined.screenPosition, canvas);
                         break;
+                    //Extremos vertical
+                    case ScreenPos.TOP_CENTER:
                     case ScreenPos.BOTTOM_CENTER:
                         break;
-                    case ScreenPos.BOTTOM_RIGHT:
+                    //Extremos horizontal
+                    case ScreenPos.MIDDLE_LEFT:
+                    case ScreenPos.MIDDLE_RIGHT:
+                        break;
+                    //--------------------------
+                    case ScreenPos.MIDDLE_CENTER:
                         break;
                 }
 
             }
         }
+    }
+
+    private void BuildCornerCombined(Combined combined, ScreenPos screenPos, Canvas canvas)
+    {
+        float minX, maxX, minY, maxY;
+        float combinedWidth, combinedHeight;
+
+        float scaleFactor = (float)combined.itemScale / (float)Scale.VERY_BIG;
+
+        minX = 0;
+        minY = 0;
+        maxX = (resolution.x / 3.0f) * scaleFactor;
+        maxY = (resolution.y / 3.0f) * scaleFactor;
+
+        //Instanciamos el pivote en la esquina inferior izquierda del canvas
+        GameObject pivot = Instantiate(_UIItemPrefab, canvas.transform);
+        RectTransform pivotRect = pivot.GetComponent<RectTransform>();
+        pivotRect.anchoredPosition = new Vector2(0, 0);
+        pivotRect.pivot = new Vector2(0, 0);
+        pivotRect.position = new Vector3(0f, 0f, 0f);
+
+        //Ordenar el array de items y quedarse con la mayor escala
+        System.Array.Sort(combined.items);
+        Scale maxScale = combined.items[0].itemScale;
+
+        //Instanciar cada objeto del combined entrante
+        //Comenzamos por el primero de todos(mas prioritario)
+        ItemSolution item = combined.items[0];
+        GameObject UIItem = Instantiate(_UIItemPrefab, pivot.transform);
+
+        RectTransform itemRect = UIItem.GetComponent<RectTransform>();
+        itemRect.anchoredPosition = new Vector2(0, 0);
+        itemRect.pivot = new Vector2(0, 0);
+        itemRect.position = new Vector3(0f, 0f, 0f);
+
+        UIItem.AddComponent<CanvasRenderer>();
+
+        Image image = UIItem.AddComponent<Image>();
+        //image.sprite = * CONSULTA DICCIONARIO STRING -> IMAGE *;
+        combinedWidth = image.sprite.rect.width;
+        combinedHeight = image.sprite.rect.height;
+
+        //Resto de items
+        for(int i = 1; i < combined.items.Length; ++i)
+        {
+            item = combined.items[i];
+            UIItem = Instantiate(_UIItemPrefab, pivot.transform);
+
+            itemRect = UIItem.GetComponent<RectTransform>();
+            itemRect.anchoredPosition = new Vector2(0, 0);
+            itemRect.pivot = new Vector2(0, 0);
+
+            UIItem.AddComponent<CanvasRenderer>();
+
+            image = UIItem.AddComponent<Image>();
+            //image.sprite = * CONSULTA DICCIONARIO STRING -> IMAGE *;
+            
+            //Colocarlo horizontalmente
+            if(Mathf.Abs(image.sprite.rect.width - combinedWidth) > Mathf.Abs(image.sprite.rect.height - combinedHeight))
+            {
+                itemRect.position = new Vector3(combinedWidth, 0f, 0f);
+                combinedWidth += image.sprite.rect.width;
+            }
+            //Colocarlo verticalmente
+            else
+            {
+                itemRect.position = new Vector3(0f, combinedHeight, 0f);
+                combinedHeight += image.sprite.rect.height;
+            }
+        }
+
+        //Aplicar escala 
+
     }
 }
