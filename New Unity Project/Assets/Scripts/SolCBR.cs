@@ -42,14 +42,14 @@ public class ItemSolution
 {
     public ScreenPos screenPosition;
     public Scale itemScale;
-    public Image image;
+    public string image;
     public ItemId itemId;
 
     public ItemSolution(ItemSol item)
     {
         screenPosition = (ScreenPos)Enum.Parse(typeof(ScreenPos), item.screenPosition);
         itemScale = (Scale)Enum.Parse(typeof(Scale), item.itemScale);
-        image = null; //TODO
+        image = item.image;
         itemId = (ItemId)Enum.Parse(typeof(ItemId), item.id);
     }
     

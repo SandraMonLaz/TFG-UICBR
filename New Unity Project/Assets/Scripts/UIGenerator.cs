@@ -18,13 +18,26 @@ public class UIGenerator : MonoBehaviour
     public Sprite vidaDiscreta;
     public Sprite vidaContinua;
     public Sprite puntuacion;
+    private Dictionary<string, Sprite> imgs;
 
     public void generateUI()
     {
+        imgs = new Dictionary<string, Sprite>
+        {
+            {"vidaContinua", vidaContinua},
+            {"vidaDiscreta", vidaDiscreta},
+            {"puntos", puntuacion}
+        };
+
         //Canvas
-        Canvas canvas = this.gameObject.AddComponent<Canvas>();
+        CanvasScaler scaler = this.gameObject.GetComponent<CanvasScaler>();
+        if (scaler != null) DestroyImmediate(scaler);
+        Canvas canvas = this.gameObject.GetComponent<Canvas>();
+        if (canvas != null) DestroyImmediate(canvas);
+
+        canvas = this.gameObject.AddComponent<Canvas>();
         canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-        CanvasScaler scaler = this.gameObject.AddComponent<CanvasScaler>();
+        scaler = this.gameObject.AddComponent<CanvasScaler>();
         scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
         scaler.referenceResolution = resolution;
         scaler.screenMatchMode = CanvasScaler.ScreenMatchMode.Expand;
@@ -38,17 +51,22 @@ public class UIGenerator : MonoBehaviour
                 switch (combined.screenPosition)
                 {
                     case ScreenPos.TOP_LEFT:
+                        break;
                     case ScreenPos.TOP_RIGHT:
+                        break;
                     case ScreenPos.BOTTOM_LEFT:
-                    case ScreenPos.BOTTOM_RIGHT:
                         BuildCornerCombined(combined, combined.screenPosition, canvas);
+                        break;
+                    case ScreenPos.BOTTOM_RIGHT:
                         break;
                     //Extremos vertical
                     case ScreenPos.TOP_CENTER:
+                        break;
                     case ScreenPos.BOTTOM_CENTER:
                         break;
                     //Extremos horizontal
                     case ScreenPos.MIDDLE_LEFT:
+                        break;
                     case ScreenPos.MIDDLE_RIGHT:
                         break;
                     //--------------------------
@@ -72,6 +90,9 @@ public class UIGenerator : MonoBehaviour
         maxX = (resolution.x / 3.0f) * scaleFactor;
         maxY = (resolution.y / 3.0f) * scaleFactor;
 
+        float maxItemWidth = (maxX - minX) / (float)combined.items.Length;
+        float maxItemHeight = (maxY - minY) / (float)combined.items.Length;
+
         //Instanciamos el pivote en la esquina inferior izquierda del canvas
         GameObject pivot = Instantiate(_UIItemPrefab, canvas.transform);
         RectTransform pivotRect = pivot.GetComponent<RectTransform>();
@@ -80,7 +101,7 @@ public class UIGenerator : MonoBehaviour
         pivotRect.position = new Vector3(0f, 0f, 0f);
 
         //Ordenar el array de items y quedarse con la mayor escala
-        System.Array.Sort(combined.items);
+        System.Array.Sort(combined.items, new ItemSolution.ItemSolutionComparer());
         Scale maxScale = combined.items[0].itemScale;
 
         //Instanciar cada objeto del combined entrante
@@ -96,9 +117,29 @@ public class UIGenerator : MonoBehaviour
         UIItem.AddComponent<CanvasRenderer>();
 
         Image image = UIItem.AddComponent<Image>();
-        //image.sprite = * CONSULTA DICCIONARIO STRING -> IMAGE *;
-        combinedWidth = image.sprite.rect.width;
-        combinedHeight = image.sprite.rect.height;
+        image.sprite = imgs[item.image];
+
+        //Tamaño del item (esta repetido abajo)
+        //TODO: Llevar a un metodo?
+        float itemScaleFactor = (float)item.itemScale / (float)Scale.VERY_BIG;
+        int imageWidth = image.sprite.texture.width;
+        int imageHeight = image.sprite.texture.height;
+        RectTransform rectTr = UIItem.GetComponent<RectTransform>();
+        float width = 0;
+        float height = 0;
+        if(imageWidth > imageHeight)
+        {
+            width = maxItemWidth * itemScaleFactor;
+            height = width * ((float)imageHeight / (float)imageWidth);
+        }
+        else
+        {
+            height = maxItemHeight * itemScaleFactor;
+            width = height * ((float)imageWidth / (float)imageHeight);
+        }
+        rectTr.sizeDelta = new Vector2(width, height);
+        combinedWidth = width;
+        combinedHeight = height;
 
         //Resto de items
         for(int i = 1; i < combined.items.Length; ++i)
@@ -113,19 +154,39 @@ public class UIGenerator : MonoBehaviour
             UIItem.AddComponent<CanvasRenderer>();
 
             image = UIItem.AddComponent<Image>();
-            //image.sprite = * CONSULTA DICCIONARIO STRING -> IMAGE *;
-            
+            image.sprite = imgs[item.image];
+
+            //Tamaño del item (esta repetido abajo)
+            //TODO: Llevar a un metodo?
+            itemScaleFactor = (float)item.itemScale / (float)Scale.VERY_BIG;
+            imageWidth = image.sprite.texture.width;
+            imageHeight = image.sprite.texture.height;
+            rectTr = UIItem.GetComponent<RectTransform>();
+            width = 0;
+            height = 0;
+            if (imageWidth > imageHeight)
+            {
+                width = maxItemWidth * itemScaleFactor;
+                height = width * ((float)imageHeight / (float)imageWidth);
+            }
+            else
+            {
+                height = maxItemHeight * itemScaleFactor;
+                width = height * ((float)imageWidth / (float)imageHeight);
+            }
+            rectTr.sizeDelta = new Vector2(width, height);
+
             //Colocarlo horizontalmente
-            if(Mathf.Abs(image.sprite.rect.width - combinedWidth) > Mathf.Abs(image.sprite.rect.height - combinedHeight))
+            if (Mathf.Abs(image.sprite.rect.width - combinedWidth) > Mathf.Abs(image.sprite.rect.height - combinedHeight))
             {
                 itemRect.position = new Vector3(combinedWidth, 0f, 0f);
-                combinedWidth += image.sprite.rect.width;
+                combinedWidth += width;
             }
             //Colocarlo verticalmente
             else
             {
                 itemRect.position = new Vector3(0f, combinedHeight, 0f);
-                combinedHeight += image.sprite.rect.height;
+                combinedHeight += height;
             }
         }
 
