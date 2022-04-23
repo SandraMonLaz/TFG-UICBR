@@ -34,13 +34,13 @@
         "items": [
           {
             "screenPosition": "BOTTOM_LEFT",
-            "itemScale": "SMALL",
+            "itemScale": "BIG",
             "image": "vidaContinua",
             "id": "HEALTH"
           },
           {
             "screenPosition": "BOTTOM_LEFT",
-            "itemScale": "SMALL",
+            "itemScale": "VERY_BIG",
             "image": "puntos",
             "id": "SCORE"
           }

@@ -52,17 +52,27 @@ public class ItemSolution
         image = item.image;
         itemId = (ItemId)Enum.Parse(typeof(ItemId), item.id);
     }
-    
-    public class ItemSolutionComparer : Comparer<ItemSolution>
-    {
-        public override int Compare(ItemSolution x, ItemSolution y)
-        {
-            int a = (int)x.itemScale;
-            int b = (int)y.itemScale;
-
-            if (a == b) return 0;
-            if (a < b) return -1;
-            else return 1;
-        }
-    };
 }
+
+public class HashItemSolutionComparer : Comparer<HashSet<ItemSolution>>
+{
+    public override int Compare(HashSet<ItemSolution> x, HashSet<ItemSolution> y)
+    {
+        int a = 0;
+        foreach(ItemSolution item in x)
+        {
+            if((int)item.itemScale > a)
+                a = (int)item.itemScale;
+        }
+        int b = 0;
+        foreach (ItemSolution item in y)
+        {
+            if ((int)item.itemScale > b)
+                b = (int)item.itemScale;
+        }
+
+        if (a == b) return 0;
+        if (a < b) return -1;
+        else return 1;
+    }
+};

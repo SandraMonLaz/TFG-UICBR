@@ -7,12 +7,16 @@ using UnityEngine.UI;
 public class UIGenerator : MonoBehaviour
 {
     public TextAsset jsonFile;
+    public int elementOffset = 20;
     private SolCBRParser solCBR;
     private Vector2 resolution = new Vector2(1920, 1080);
 
     //Prefabs
     [SerializeField]
-    private GameObject _UIItemPrefab;
+    private GameObject _UIParent;
+
+    [SerializeField]
+    private GameObject _UIImage;
 
     //Imágenes
     public Sprite vidaDiscreta;
@@ -48,86 +52,250 @@ public class UIGenerator : MonoBehaviour
         {
             if (combined.items.Length > 0)
             {
-                switch (combined.screenPosition)
+                //Esquinas
+                if(combined.screenPosition == ScreenPos.TOP_LEFT || combined.screenPosition == ScreenPos.TOP_RIGHT ||
+                   combined.screenPosition == ScreenPos.BOTTOM_LEFT || combined.screenPosition == ScreenPos.BOTTOM_RIGHT)
                 {
-                    case ScreenPos.TOP_LEFT:
-                        break;
-                    case ScreenPos.TOP_RIGHT:
-                        break;
-                    case ScreenPos.BOTTOM_LEFT:
-                        BuildCornerCombined(combined, combined.screenPosition, canvas);
-                        break;
-                    case ScreenPos.BOTTOM_RIGHT:
-                        break;
-                    //Extremos vertical
-                    case ScreenPos.TOP_CENTER:
-                        break;
-                    case ScreenPos.BOTTOM_CENTER:
-                        break;
-                    //Extremos horizontal
-                    case ScreenPos.MIDDLE_LEFT:
-                        break;
-                    case ScreenPos.MIDDLE_RIGHT:
-                        break;
-                    //--------------------------
-                    case ScreenPos.MIDDLE_CENTER:
-                        break;
-                }
+                    BuildCornerCombined(combined, combined.screenPosition, canvas);
 
+                    switch (combined.screenPosition)
+                    {
+
+                    }
+                }
+                //Forzar alineacion horizontal
+                else if(combined.screenPosition == ScreenPos.MIDDLE_LEFT || combined.screenPosition == ScreenPos.MIDDLE_RIGHT)
+                {
+
+                }
+                //Forzar alineacion vertical
+                else
+                {
+
+                }
             }
         }
     }
 
     private void BuildCornerCombined(Combined combined, ScreenPos screenPos, Canvas canvas)
     {
-        float minX, maxX, minY, maxY;
-        float combinedWidth, combinedHeight;
-
-        float scaleFactor = (float)combined.itemScale / (float)Scale.VERY_BIG;
-
-        minX = 0;
-        minY = 0;
-        maxX = (resolution.x / 3.0f) * scaleFactor;
-        maxY = (resolution.y / 3.0f) * scaleFactor;
-
-        float maxItemWidth = (maxX - minX) / (float)combined.items.Length;
-        float maxItemHeight = (maxY - minY) / (float)combined.items.Length;
+        float maxItemWidth = (resolution.x / 3.0f);
+        float maxItemHeight = (resolution.y / 3.0f);
 
         //Instanciamos el pivote en la esquina inferior izquierda del canvas
-        GameObject pivot = Instantiate(_UIItemPrefab, canvas.transform);
-        RectTransform pivotRect = pivot.GetComponent<RectTransform>();
-        pivotRect.anchoredPosition = new Vector2(0, 0);
-        pivotRect.pivot = new Vector2(0, 0);
-        pivotRect.position = new Vector3(0f, 0f, 0f);
+        GameObject pivot = Instantiate(_UIParent, canvas.transform);
 
-        //Ordenar el array de items y quedarse con la mayor escala
-        System.Array.Sort(combined.items, new ItemSolution.ItemSolutionComparer());
-        Scale maxScale = combined.items[0].itemScale;
+        //Creamos  una lista de conjuntos para los items y la ordenamos por importancia
+        List<HashSet<ItemSolution>> hashList = Adaptation(ref combined);
+        hashList.Sort(new HashItemSolutionComparer());
 
-        //Instanciar cada objeto del combined entrante
-        //Comenzamos por el primero de todos(mas prioritario)
-        ItemSolution item = combined.items[0];
-        GameObject UIItem = Instantiate(_UIItemPrefab, pivot.transform);
+        //Para cada conjunto creamos los combinados asignandoles la informacion necesaria
+        List<CombinedObject> combinedObjects = CreateCombinedObjects(ref hashList, maxItemWidth, maxItemHeight);
 
-        RectTransform itemRect = UIItem.GetComponent<RectTransform>();
-        itemRect.anchoredPosition = new Vector2(0, 0);
-        itemRect.pivot = new Vector2(0, 0);
-        itemRect.position = new Vector3(0f, 0f, 0f);
+        //Asignamos al primero el padre
+        combinedObjects[0].gameObject.transform.SetParent(pivot.transform);
 
-        UIItem.AddComponent<CanvasRenderer>();
+        float total_width = combinedObjects[0].w + elementOffset;
+        float total_height = combinedObjects[0].h + elementOffset;
+        for (int i = 1; i < combinedObjects.Count; ++i){
+            CombinedObject obj = combinedObjects[i];
 
-        Image image = UIItem.AddComponent<Image>();
-        image.sprite = imgs[item.image];
+            obj.gameObject.transform.SetParent(pivot.transform);
+            RectTransform rect = obj.gameObject.GetComponent<RectTransform>();
 
-        //Tamaño del item (esta repetido abajo)
-        //TODO: Llevar a un metodo?
+            if(total_width > total_height)
+            {
+                rect.position = new Vector3(0, total_height, 0);
+                total_height += obj.h + elementOffset;
+            }
+            else
+            {
+                rect.position = new Vector3(total_width, 0, 0);
+                total_width += obj.w + elementOffset;
+            }
+        }
+        float scaleFactor = (float)combined.itemScale / (float)Scale.VERY_BIG;
+        float combinedSizeX = maxItemWidth * scaleFactor;
+        float combinedSizeY = maxItemHeight * scaleFactor;
+
+        RectTransform rectCombain = pivot.GetComponent<RectTransform>();
+        rectCombain.localScale = new Vector3(0.7f, 0.7f,0);
+
+    }
+    /// <summary>
+    /// Crea una lista de conjuntos donde cada conjunto contiene items con similaridad.
+    /// </summary>
+    /// <param name="combined"></param>
+    /// <returns></returns>
+    private List<HashSet<ItemSolution>> Adaptation(ref Combined combined)
+    {
+        List<HashSet<ItemSolution>> combinedGroup = new List<HashSet<ItemSolution>>();
+
+        //Se recorre cada item comparandolo con el resto
+        foreach(ItemSolution item in combined.items)
+        {
+            foreach (ItemSolution otherItem in combined.items)
+            {
+                //En caso de ser muy similares se añaden a un hash
+                if (SimilarityTable.getInstance().GetTable()[(int)item.itemId, (int)otherItem.itemId] >= 0.8f && 
+                    item.itemId != otherItem.itemId)
+                {
+                    //Buscamos si alguno de los dos se encuentra en otro hash
+                    HashSet<ItemSolution> set = SearchHash(ref combinedGroup, item, otherItem);
+                    //Los añadimos
+                    if(!set.Contains(item))
+                        set.Add(item);
+                    if (!set.Contains(otherItem))
+                        set.Add(otherItem);
+                     
+                    if(!combinedGroup.Contains(set))
+                        combinedGroup.Add(set);
+                }
+            }
+        }
+        //Añadimos los items que no estén en ningun hash para no perderlos
+        foreach(ItemSolution item in combined.items)
+        {
+            HashSet<ItemSolution> hash = SearchHash(ref combinedGroup, item);
+            if(hash == null)
+            {
+                hash = new HashSet<ItemSolution>();
+                hash.Add(item);
+                combinedGroup.Add(hash);
+            }
+        }
+
+        return combinedGroup;
+    }
+
+    /// <summary>
+    /// Devuelve el hash asignado a alguno de los dos items entrantes, en caso de no haberlo se devuelve un hash vacio
+    /// </summary>
+    /// <param name="combinedGroup"></param>
+    /// <param name="item"></param>
+    /// <param name="other"></param>
+    /// <returns></returns>
+    private HashSet<ItemSolution> SearchHash(ref List<HashSet<ItemSolution>> combinedGroup, ItemSolution item, ItemSolution other)
+    {
+        foreach(HashSet<ItemSolution> hash in combinedGroup)
+        {
+            if((hash.Contains(item)) || hash.Contains(other))
+                return hash;
+        }
+
+        return new HashSet<ItemSolution>();
+    }
+
+    /// <summary>
+    /// Devuelve el hash asignado el item, en caso de no haberlo se devuelve null
+    /// </summary>
+    /// <param name="combinedGroup"></param>
+    /// <param name="item"></param>
+    /// <param name="other"></param>
+    /// <returns></returns>
+    private HashSet<ItemSolution> SearchHash(ref List<HashSet<ItemSolution>> combinedGroup, ItemSolution item)
+    {
+        foreach (HashSet<ItemSolution> hash in combinedGroup)
+        {
+            if ((hash.Contains(item)))
+                return hash;
+        }
+
+        return null;
+    }
+    /// <summary>
+    /// Crea una lista de objetos combinados. Estos combinados contienen items que se colocarán en
+    /// horizontal o vertical según su ancho u alto total.
+    /// </summary>
+    /// <param name="hashList"></param>
+    /// <returns></returns>
+    private List<CombinedObject> CreateCombinedObjects(ref List<HashSet<ItemSolution>> hashList, float maxItemWidth, float maxItemHeight)
+    {
+        List<CombinedObject> combinedObjects = new List<CombinedObject>();
+
+        //para cada conjunto se coje los items del mismo
+        //y se añaden a un padre verticalmente y horizontalmente
+        foreach (HashSet<ItemSolution> hash in hashList)
+        {
+            //Creamos el padre
+            CombinedObject co = new CombinedObject();
+
+            co.gameObject = Instantiate(_UIParent);
+            int w = 0;
+            int h = 0;
+            List<GameObject> children = new List<GameObject>();
+            //Hallamos la suma del ancho y alto total de los items dentro
+            //del set y ya de paso inicializamos cada item
+            foreach(ItemSolution item in hash)
+            {
+                h += imgs[item.image].texture.height;
+                w += imgs[item.image].texture.width;
+
+                GameObject g = Instantiate(_UIImage, co.gameObject.transform);
+                Image image = g.GetComponent<Image>();
+                image.sprite = imgs[item.image];
+                children.Add(g);
+            }
+
+            float acc_height = 0;
+            float acc_width = 0;
+            if(w > h)   //si el ancho total es mayor se pone en vertical
+            {
+                int i = 0;
+                //Para cada item se haya la posicion nueva en vertical y se asigna
+                foreach(ItemSolution item in hash)
+                {
+                    RectTransform rect = children[i].GetComponent<RectTransform>();
+                    rect.position = new Vector3(0f, acc_height, 0f);
+
+                    Vector2 size = GetSizeItem(item, imgs[item.image], ref rect, maxItemWidth, maxItemHeight);
+                    acc_height += size.y + elementOffset;
+
+                    rect.sizeDelta = size;
+
+                    ++i;
+
+                    if (imgs[item.image].texture.width > acc_width)
+                        acc_width = imgs[item.image].texture.width;
+                }
+            }
+            else  //sino se pone en horizontal
+            {
+                int i = 0;
+                //Para cada item se haya la posicion nueva en horizontal y se asigna
+                foreach (ItemSolution item in hash)
+                {
+                    RectTransform rect = children[i].GetComponent<RectTransform>();
+                    rect.position = new Vector3(acc_width, 0f, 0f);
+
+                    Vector2 size = GetSizeItem(item, imgs[item.image], ref rect, maxItemWidth, maxItemHeight);
+                    acc_width += size.x + elementOffset;
+
+                    ++i;
+
+                    if (imgs[item.image].texture.height > acc_height)
+                        acc_height = imgs[item.image].texture.height;
+                }
+            }
+            //asignamos el ancho y alto del padre
+            co.h = acc_height;
+            co.w = acc_width;
+            //Lo añadimos a la lista
+            combinedObjects.Add(co);
+        }
+
+        return combinedObjects;
+    }
+
+    private Vector2 GetSizeItem(ItemSolution item,  Sprite sprite, ref RectTransform rectTr, float maxItemWidth, float maxItemHeight)
+    {
         float itemScaleFactor = (float)item.itemScale / (float)Scale.VERY_BIG;
-        int imageWidth = image.sprite.texture.width;
-        int imageHeight = image.sprite.texture.height;
-        RectTransform rectTr = UIItem.GetComponent<RectTransform>();
+        int imageWidth = sprite.texture.width;
+        int imageHeight = sprite.texture.height;
+
         float width = 0;
         float height = 0;
-        if(imageWidth > imageHeight)
+        if (imageWidth > imageHeight)
         {
             width = maxItemWidth * itemScaleFactor;
             height = width * ((float)imageHeight / (float)imageWidth);
@@ -137,60 +305,7 @@ public class UIGenerator : MonoBehaviour
             height = maxItemHeight * itemScaleFactor;
             width = height * ((float)imageWidth / (float)imageHeight);
         }
-        rectTr.sizeDelta = new Vector2(width, height);
-        combinedWidth = width;
-        combinedHeight = height;
 
-        //Resto de items
-        for(int i = 1; i < combined.items.Length; ++i)
-        {
-            item = combined.items[i];
-            UIItem = Instantiate(_UIItemPrefab, pivot.transform);
-
-            itemRect = UIItem.GetComponent<RectTransform>();
-            itemRect.anchoredPosition = new Vector2(0, 0);
-            itemRect.pivot = new Vector2(0, 0);
-
-            UIItem.AddComponent<CanvasRenderer>();
-
-            image = UIItem.AddComponent<Image>();
-            image.sprite = imgs[item.image];
-
-            //Tamaño del item (esta repetido abajo)
-            //TODO: Llevar a un metodo?
-            itemScaleFactor = (float)item.itemScale / (float)Scale.VERY_BIG;
-            imageWidth = image.sprite.texture.width;
-            imageHeight = image.sprite.texture.height;
-            rectTr = UIItem.GetComponent<RectTransform>();
-            width = 0;
-            height = 0;
-            if (imageWidth > imageHeight)
-            {
-                width = maxItemWidth * itemScaleFactor;
-                height = width * ((float)imageHeight / (float)imageWidth);
-            }
-            else
-            {
-                height = maxItemHeight * itemScaleFactor;
-                width = height * ((float)imageWidth / (float)imageHeight);
-            }
-            rectTr.sizeDelta = new Vector2(width, height);
-
-            //Colocarlo horizontalmente
-            if (Mathf.Abs(image.sprite.rect.width - combinedWidth) > Mathf.Abs(image.sprite.rect.height - combinedHeight))
-            {
-                itemRect.position = new Vector3(combinedWidth, 0f, 0f);
-                combinedWidth += width;
-            }
-            //Colocarlo verticalmente
-            else
-            {
-                itemRect.position = new Vector3(0f, combinedHeight, 0f);
-                combinedHeight += height;
-            }
-        }
-
-        //Aplicar escala 
-
+        return new Vector2(width, height);
     }
 }
