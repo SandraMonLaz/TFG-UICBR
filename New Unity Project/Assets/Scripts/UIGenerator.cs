@@ -79,9 +79,6 @@ public class UIGenerator : MonoBehaviour
 
     private void BuildCornerCombined(Combined combined, ScreenPos screenPos, Canvas canvas)
     {
-        float maxItemWidth = (resolution.x / 3.0f);
-        float maxItemHeight = (resolution.y / 3.0f);
-
         //Instanciamos el pivote en la esquina inferior izquierda del canvas
         GameObject pivot = Instantiate(_UIParent, canvas.transform);
 
@@ -90,7 +87,7 @@ public class UIGenerator : MonoBehaviour
         hashList.Sort(new HashItemSolutionComparer());
 
         //Para cada conjunto creamos los combinados asignandoles la informacion necesaria
-        List<CombinedObject> combinedObjects = CreateCombinedObjects(ref hashList, maxItemWidth, maxItemHeight);
+        List<CombinedObject> combinedObjects = CreateCombinedObjects(ref hashList);
 
         //Asignamos al primero el padre
         combinedObjects[0].gameObject.transform.SetParent(pivot.transform);
@@ -114,13 +111,18 @@ public class UIGenerator : MonoBehaviour
                 total_width += obj.w + elementOffset;
             }
         }
+        float maxItemWidth = (resolution.x / 3.0f);
+        float maxItemHeight = (resolution.y / 3.0f);
+
         float scaleFactor = (float)combined.itemScale / (float)Scale.VERY_BIG;
         float combinedSizeX = maxItemWidth * scaleFactor;
         float combinedSizeY = maxItemHeight * scaleFactor;
 
         RectTransform rectCombain = pivot.GetComponent<RectTransform>();
-        rectCombain.localScale = new Vector3(0.7f, 0.7f,0);
-
+        if(total_width > total_height)
+            rectCombain.localScale = new Vector3(combinedSizeX/ total_width, combinedSizeX / total_width,0);
+        else
+            rectCombain.localScale = new Vector3(combinedSizeY / total_height, combinedSizeY / total_height, 0);
     }
     /// <summary>
     /// Crea una lista de conjuntos donde cada conjunto contiene items con similaridad.
@@ -209,7 +211,7 @@ public class UIGenerator : MonoBehaviour
     /// </summary>
     /// <param name="hashList"></param>
     /// <returns></returns>
-    private List<CombinedObject> CreateCombinedObjects(ref List<HashSet<ItemSolution>> hashList, float maxItemWidth, float maxItemHeight)
+    private List<CombinedObject> CreateCombinedObjects(ref List<HashSet<ItemSolution>> hashList)
     {
         List<CombinedObject> combinedObjects = new List<CombinedObject>();
 
@@ -248,7 +250,7 @@ public class UIGenerator : MonoBehaviour
                     RectTransform rect = children[i].GetComponent<RectTransform>();
                     rect.position = new Vector3(0f, acc_height, 0f);
 
-                    Vector2 size = GetSizeItem(item, imgs[item.image], ref rect, maxItemWidth, maxItemHeight);
+                    Vector2 size = GetSizeItem(item, imgs[item.image], ref rect);
                     acc_height += size.y + elementOffset;
 
                     rect.sizeDelta = size;
@@ -268,8 +270,10 @@ public class UIGenerator : MonoBehaviour
                     RectTransform rect = children[i].GetComponent<RectTransform>();
                     rect.position = new Vector3(acc_width, 0f, 0f);
 
-                    Vector2 size = GetSizeItem(item, imgs[item.image], ref rect, maxItemWidth, maxItemHeight);
+                    Vector2 size = GetSizeItem(item, imgs[item.image], ref rect);
                     acc_width += size.x + elementOffset;
+
+                    rect.sizeDelta = size;
 
                     ++i;
 
@@ -287,7 +291,7 @@ public class UIGenerator : MonoBehaviour
         return combinedObjects;
     }
 
-    private Vector2 GetSizeItem(ItemSolution item,  Sprite sprite, ref RectTransform rectTr, float maxItemWidth, float maxItemHeight)
+    private Vector2 GetSizeItem(ItemSolution item,  Sprite sprite, ref RectTransform rectTr)
     {
         float itemScaleFactor = (float)item.itemScale / (float)Scale.VERY_BIG;
         int imageWidth = sprite.texture.width;
@@ -297,12 +301,12 @@ public class UIGenerator : MonoBehaviour
         float height = 0;
         if (imageWidth > imageHeight)
         {
-            width = maxItemWidth * itemScaleFactor;
+            width = imageWidth * itemScaleFactor;
             height = width * ((float)imageHeight / (float)imageWidth);
         }
         else
         {
-            height = maxItemHeight * itemScaleFactor;
+            height = imageHeight * itemScaleFactor;
             width = height * ((float)imageWidth / (float)imageHeight);
         }
 

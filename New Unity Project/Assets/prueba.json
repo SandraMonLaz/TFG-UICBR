@@ -34,7 +34,7 @@
         "items": [
           {
             "screenPosition": "BOTTOM_LEFT",
-            "itemScale": "BIG",
+            "itemScale": "VERY_BIG",
             "image": "vidaContinua",
             "id": "HEALTH"
           },
@@ -46,7 +46,7 @@
           }
         ],
         "screenPosition": "BOTTOM_LEFT",
-        "itemScale": "MEDIUM"
+        "itemScale": "VERY_BIG"
       },
       {
         "items": [],
