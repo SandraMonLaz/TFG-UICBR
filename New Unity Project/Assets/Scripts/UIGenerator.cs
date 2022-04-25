@@ -41,6 +41,7 @@ public class UIGenerator : MonoBehaviour
 
         canvas = this.gameObject.AddComponent<Canvas>();
         canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+
         scaler = this.gameObject.AddComponent<CanvasScaler>();
         scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
         scaler.referenceResolution = resolution;
@@ -56,10 +57,14 @@ public class UIGenerator : MonoBehaviour
                 if(combined.screenPosition == ScreenPos.TOP_LEFT || combined.screenPosition == ScreenPos.TOP_RIGHT ||
                    combined.screenPosition == ScreenPos.BOTTOM_LEFT || combined.screenPosition == ScreenPos.BOTTOM_RIGHT)
                 {
-                    BuildCornerCombined(combined, combined.screenPosition, canvas);
+                    CombinedObject pivot = BuildCornerCombined(combined, combined.screenPosition, canvas);
+                    RectTransform rect = pivot.gameObject.GetComponent<RectTransform>();
 
                     switch (combined.screenPosition)
                     {
+                        case ScreenPos.TOP_LEFT:     rect.position = new Vector3(rect.position.x, resolution.y - pivot.h/2 - elementOffset, 0);    break;
+                        case ScreenPos.TOP_RIGHT:    rect.position = new Vector3(resolution.x - pivot.w / 2 - elementOffset, resolution.y - pivot.h / 2 - elementOffset, 0); break;
+                        case ScreenPos.BOTTOM_RIGHT: rect.position = new Vector3(resolution.x - pivot.w / 2 - elementOffset, rect.position.y, 0); break;
 
                     }
                 }
@@ -77,14 +82,17 @@ public class UIGenerator : MonoBehaviour
         }
     }
 
-    private void BuildCornerCombined(Combined combined, ScreenPos screenPos, Canvas canvas)
+    private CombinedObject BuildCornerCombined(Combined combined, ScreenPos screenPos, Canvas canvas)
     {
         //Instanciamos el pivote en la esquina inferior izquierda del canvas
         GameObject pivot = Instantiate(_UIParent, canvas.transform);
 
         //Creamos  una lista de conjuntos para los items y la ordenamos por importancia
         List<HashSet<ItemSolution>> hashList = Adaptation(ref combined);
-        hashList.Sort(new HashItemSolutionComparer());
+        if(screenPos == ScreenPos.BOTTOM_LEFT || screenPos == ScreenPos.TOP_LEFT)
+            hashList.Sort(new HashItemSolutionComparerInOrder());
+        else
+            hashList.Sort(new HashItemSolutionComparer());
 
         //Para cada conjunto creamos los combinados asignandoles la informacion necesaria
         List<CombinedObject> combinedObjects = CreateCombinedObjects(ref hashList);
@@ -118,11 +126,14 @@ public class UIGenerator : MonoBehaviour
         float combinedSizeX = maxItemWidth * scaleFactor;
         float combinedSizeY = maxItemHeight * scaleFactor;
 
+        float scaleRect = 0;
         RectTransform rectCombain = pivot.GetComponent<RectTransform>();
-        if(total_width > total_height)
-            rectCombain.localScale = new Vector3(combinedSizeX/ total_width, combinedSizeX / total_width,0);
+        if (total_width > total_height)
+            scaleRect = combinedSizeX / total_width;
         else
-            rectCombain.localScale = new Vector3(combinedSizeY / total_height, combinedSizeY / total_height, 0);
+            scaleRect = combinedSizeY / total_height;
+
+        return new CombinedObject(pivot, combinedSizeY, combinedSizeX);
     }
     /// <summary>
     /// Crea una lista de conjuntos donde cada conjunto contiene items con similaridad.

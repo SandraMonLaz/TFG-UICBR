@@ -76,3 +76,26 @@ public class HashItemSolutionComparer : Comparer<HashSet<ItemSolution>>
         else return 1;
     }
 };
+//Compara al reves que el de arriba
+public class HashItemSolutionComparerInOrder : Comparer<HashSet<ItemSolution>>
+{
+    public override int Compare(HashSet<ItemSolution> x, HashSet<ItemSolution> y)
+    {
+        int a = 0;
+        foreach (ItemSolution item in x)
+        {
+            if ((int)item.itemScale > a)
+                a = (int)item.itemScale;
+        }
+        int b = 0;
+        foreach (ItemSolution item in y)
+        {
+            if ((int)item.itemScale > b)
+                b = (int)item.itemScale;
+        }
+
+        if (a == b) return 0;
+        if (a > b) return -1;
+        else return 1;
+    }
+};
