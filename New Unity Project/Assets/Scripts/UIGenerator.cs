@@ -33,6 +33,9 @@ public class UIGenerator : MonoBehaviour
             {"puntos", puntuacion}
         };
 
+        foreach (Transform child in transform)
+            GameObject.DestroyImmediate(child.gameObject);
+
         //Canvas
         CanvasScaler scaler = this.gameObject.GetComponent<CanvasScaler>();
         if (scaler != null) DestroyImmediate(scaler);
@@ -62,7 +65,26 @@ public class UIGenerator : MonoBehaviour
 
                     switch (combined.screenPosition)
                     {
-                        case ScreenPos.TOP_LEFT:     rect.position = new Vector3(rect.position.x, resolution.y - pivot.h/2 - elementOffset, 0);    break;
+                        case ScreenPos.TOP_LEFT:     /*rect.position = new Vector3(rect.position.x, resolution.y - pivot.h/2 - elementOffset, 0);*/
+                            Vector2 anchor = new Vector2(0, 1);
+                            rect.anchorMin = rect.anchorMax = anchor;
+                            rect.anchoredPosition = Vector2.zero;
+
+                            for(int i=0; i<rect.childCount; i++)
+                            {
+                                RectTransform groupRectTr = rect.GetChild(i).GetComponent<RectTransform>();
+                                groupRectTr.anchorMin = groupRectTr.anchorMax = anchor;
+                                groupRectTr.anchoredPosition = new Vector2(groupRectTr.anchoredPosition.x, -groupRectTr.anchoredPosition.y);
+
+                                for(int j=0; j<groupRectTr.childCount; j++)
+                                {
+                                    RectTransform itemRectTr = groupRectTr.GetChild(j).GetComponent<RectTransform>();
+                                    itemRectTr.pivot = anchor;
+                                    itemRectTr.anchoredPosition = Vector2.zero;
+                                }
+                            }
+
+                            break;
                         case ScreenPos.TOP_RIGHT:    rect.position = new Vector3(resolution.x - pivot.w / 2 - elementOffset, resolution.y - pivot.h / 2 - elementOffset, 0); break;
                         case ScreenPos.BOTTOM_RIGHT: rect.position = new Vector3(resolution.x - pivot.w / 2 - elementOffset, rect.position.y, 0); break;
 
@@ -89,10 +111,8 @@ public class UIGenerator : MonoBehaviour
 
         //Creamos  una lista de conjuntos para los items y la ordenamos por importancia
         List<HashSet<ItemSolution>> hashList = Adaptation(ref combined);
-        if(screenPos == ScreenPos.BOTTOM_LEFT || screenPos == ScreenPos.TOP_LEFT)
-            hashList.Sort(new HashItemSolutionComparerInOrder());
-        else
-            hashList.Sort(new HashItemSolutionComparer());
+        hashList.Sort(new HashItemSolutionComparerInOrder());
+
 
         //Para cada conjunto creamos los combinados asignandoles la informacion necesaria
         List<CombinedObject> combinedObjects = CreateCombinedObjects(ref hashList);
