@@ -40,7 +40,15 @@ public class UIGenerator : MonoBehaviour
         CanvasScaler scaler = this.gameObject.GetComponent<CanvasScaler>();
         if (scaler != null) DestroyImmediate(scaler);
         Canvas canvas = this.gameObject.GetComponent<Canvas>();
-        if (canvas != null) DestroyImmediate(canvas);
+        if (canvas != null)
+        {
+            //Clean all childs before adding more GO
+            for(int i = 0; i < canvas.gameObject.transform.childCount; ++i)
+            {
+                Destroy(canvas.gameObject.transform.GetChild(0));
+            }
+            DestroyImmediate(canvas);
+        }
 
         canvas = this.gameObject.AddComponent<Canvas>();
         canvas.renderMode = RenderMode.ScreenSpaceOverlay;
@@ -63,32 +71,7 @@ public class UIGenerator : MonoBehaviour
                     CombinedObject pivot = BuildCornerCombined(combined, combined.screenPosition, canvas);
                     RectTransform rect = pivot.gameObject.GetComponent<RectTransform>();
 
-                    switch (combined.screenPosition)
-                    {
-                        case ScreenPos.TOP_LEFT:     /*rect.position = new Vector3(rect.position.x, resolution.y - pivot.h/2 - elementOffset, 0);*/
-                            Vector2 anchor = new Vector2(0, 1);
-                            rect.anchorMin = rect.anchorMax = anchor;
-                            rect.anchoredPosition = Vector2.zero;
-
-                            for(int i=0; i<rect.childCount; i++)
-                            {
-                                RectTransform groupRectTr = rect.GetChild(i).GetComponent<RectTransform>();
-                                groupRectTr.anchorMin = groupRectTr.anchorMax = anchor;
-                                groupRectTr.anchoredPosition = new Vector2(groupRectTr.anchoredPosition.x, -groupRectTr.anchoredPosition.y);
-
-                                for(int j=0; j<groupRectTr.childCount; j++)
-                                {
-                                    RectTransform itemRectTr = groupRectTr.GetChild(j).GetComponent<RectTransform>();
-                                    itemRectTr.pivot = anchor;
-                                    itemRectTr.anchoredPosition = Vector2.zero;
-                                }
-                            }
-
-                            break;
-                        case ScreenPos.TOP_RIGHT:    rect.position = new Vector3(resolution.x - pivot.w / 2 - elementOffset, resolution.y - pivot.h / 2 - elementOffset, 0); break;
-                        case ScreenPos.BOTTOM_RIGHT: rect.position = new Vector3(resolution.x - pivot.w / 2 - elementOffset, rect.position.y, 0); break;
-
-                    }
+                    LocateCombinedInCorner(ref rect, combined.screenPosition);
                 }
                 //Forzar alineacion horizontal
                 else if(combined.screenPosition == ScreenPos.MIDDLE_LEFT || combined.screenPosition == ScreenPos.MIDDLE_RIGHT)
@@ -342,5 +325,53 @@ public class UIGenerator : MonoBehaviour
         }
 
         return new Vector2(width, height);
+    }
+
+    /// <summary>
+    /// Desplaza un rect que representa un combined item a una de las esquinas
+    /// </summary>
+    /// <param name="rect"> Rect padre del combined item</param>
+    /// <param name="screenPosition"> Posicion de la pantalla donde hay que mover el rect </param>
+    private void LocateCombinedInCorner(ref RectTransform rect, ScreenPos screenPosition)
+    {
+        Vector2 anchor = Vector2.zero;
+        Vector2 anchoredPositionFactor = Vector2.zero;
+
+        //Se eligen los valores de anchor y anchoredPositionFactor dependiendo de a donde se va a desplazar el rect
+        switch (screenPosition)
+        {
+            case ScreenPos.TOP_LEFT:
+                anchor = new Vector2(0f, 1f);
+                anchoredPositionFactor = new Vector2(1f, -1f);
+                break;
+            case ScreenPos.TOP_RIGHT:
+                anchor = new Vector2(1f, 1f);
+                anchoredPositionFactor = new Vector2(-1f, -1f);
+                break;
+            case ScreenPos.BOTTOM_RIGHT:
+                anchoredPositionFactor = new Vector2(-1f, 1f);
+                anchor = new Vector2(1f, 0f);
+                break;
+        }
+
+        //Set del anchor del padre y su posicion a 0
+        rect.anchorMin = rect.anchorMax = anchor;
+        rect.anchoredPosition = Vector2.zero;
+
+        //Para cada hijo se asigna su posicion en x e y multiplicada por el factor correspondiente (1 o -1) determinados por la posicion de pantalla destino
+        for (int i = 0; i < rect.childCount; i++)
+        {
+            RectTransform groupRectTr = rect.GetChild(i).GetComponent<RectTransform>();
+            groupRectTr.anchorMin = groupRectTr.anchorMax = anchor;
+            groupRectTr.anchoredPosition = new Vector2(groupRectTr.anchoredPosition.x * anchoredPositionFactor.x, groupRectTr.anchoredPosition.y * anchoredPositionFactor.y);
+
+            //Set del anchor y posicion a 0 del UIImagePrefab
+            for (int j = 0; j < groupRectTr.childCount; j++)
+            {
+                RectTransform itemRectTr = groupRectTr.GetChild(j).GetComponent<RectTransform>();
+                itemRectTr.pivot = anchor;
+                itemRectTr.anchoredPosition = Vector2.zero;
+            }
+        }
     }
 }
