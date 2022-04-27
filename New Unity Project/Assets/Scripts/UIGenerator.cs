@@ -136,6 +136,7 @@ public class UIGenerator : MonoBehaviour
         else
             scaleRect = combinedSizeY / total_height;
 
+        rectCombain.localScale = new Vector3(scaleRect, scaleRect, 0f);
         return new CombinedObject(pivot, combinedSizeY, combinedSizeX);
     }
     /// <summary>
@@ -352,6 +353,8 @@ public class UIGenerator : MonoBehaviour
                 anchoredPositionFactor = new Vector2(-1f, 1f);
                 anchor = new Vector2(1f, 0f);
                 break;
+            case ScreenPos.BOTTOM_LEFT:
+                return;
         }
 
         //Set del anchor del padre y su posicion a 0
