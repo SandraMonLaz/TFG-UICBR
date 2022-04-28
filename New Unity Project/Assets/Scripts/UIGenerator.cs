@@ -68,7 +68,7 @@ public class UIGenerator : MonoBehaviour
                 if(combined.screenPosition == ScreenPos.TOP_LEFT || combined.screenPosition == ScreenPos.TOP_RIGHT ||
                    combined.screenPosition == ScreenPos.BOTTOM_LEFT || combined.screenPosition == ScreenPos.BOTTOM_RIGHT)
                 {
-                    CombinedObject pivot = BuildCornerCombined(combined, combined.screenPosition, canvas);
+                    CombinedObject pivot = BuildCornerCombined(combined, canvas);
                     RectTransform rect = pivot.gameObject.GetComponent<RectTransform>();
 
                     LocateCombinedInCorner(ref rect, combined.screenPosition);
@@ -76,18 +76,25 @@ public class UIGenerator : MonoBehaviour
                 //Forzar alineacion horizontal
                 else if(combined.screenPosition == ScreenPos.MIDDLE_LEFT || combined.screenPosition == ScreenPos.MIDDLE_RIGHT)
                 {
-
+                    //ReverseLateralCombined();
                 }
                 //Forzar alineacion vertical
                 else
                 {
-
+                    CombinedObject pivot = BuildVerticalCombined(combined, canvas);
+                    RectTransform rect = pivot.gameObject.GetComponent<RectTransform>();
+                    if(combined.screenPosition == ScreenPos.TOP_CENTER)
+                        ReverseBottomCombined(ref rect);
                 }
             }
         }
     }
 
-    private CombinedObject BuildCornerCombined(Combined combined, ScreenPos screenPos, Canvas canvas)
+    /// <summary>
+    /// Construye un combined de clase esquina
+    /// </summary>
+    /// <returns></returns>
+    private CombinedObject BuildCornerCombined(Combined combined, Canvas canvas)
     {
         //Instanciamos el pivote en la esquina inferior izquierda del canvas
         GameObject pivot = Instantiate(_UIParent, canvas.transform);
@@ -98,7 +105,7 @@ public class UIGenerator : MonoBehaviour
 
 
         //Para cada conjunto creamos los combinados asignandoles la informacion necesaria
-        List<CombinedObject> combinedObjects = CreateCombinedObjects(ref hashList);
+        List<CombinedObject> combinedObjects = CreateCombinedObjects(ref hashList, Vector2.zero);
 
         //Asignamos al primero el padre
         combinedObjects[0].gameObject.transform.SetParent(pivot.transform);
@@ -139,6 +146,56 @@ public class UIGenerator : MonoBehaviour
         rectCombain.localScale = new Vector3(scaleRect, scaleRect, 0f);
         return new CombinedObject(pivot, combinedSizeY, combinedSizeX);
     }
+
+    /// <summary>
+    /// Crea un combinado de modo vertical (posiciones superior e inferior central de la pantalla)
+    /// </summary>
+    private CombinedObject BuildVerticalCombined(Combined combined, Canvas canvas)
+    {
+        //Instanciamos el pivote en la parte inferior central del canvas
+        GameObject pivot = Instantiate(_UIParent, canvas.transform);
+        RectTransform pivotRect = pivot.GetComponent<RectTransform>();
+        pivotRect.anchorMin = pivotRect.anchorMax = new Vector2(0.5f, 0f);
+        pivotRect.anchoredPosition = Vector2.zero;
+
+        //Creamos  una lista de conjuntos para los items y la ordenamos por importancia
+        List<HashSet<ItemSolution>> hashList = Adaptation(ref combined);
+        hashList.Sort(new HashItemSolutionComparerInOrder());
+
+        //Para cada conjunto creamos los combinados asignandoles la informacion necesaria
+        List<CombinedObject> combinedObjects = CreateCombinedObjects(ref hashList, new Vector2(0.5f, 0f));
+
+        //Asignamos al primero el padre
+        combinedObjects[0].gameObject.transform.SetParent(pivot.transform);
+        combinedObjects[0].gameObject.GetComponent<RectTransform>().localPosition = Vector3.zero;
+
+        float total_height = combinedObjects[0].h + elementOffset;
+        for (int i = 1; i < combinedObjects.Count; ++i)
+        {
+            CombinedObject obj = combinedObjects[i];
+
+            obj.gameObject.transform.SetParent(pivot.transform);
+            RectTransform rect = obj.gameObject.GetComponent<RectTransform>();
+
+            rect.localPosition = new Vector3(0, total_height, 0);
+            rect.pivot = new Vector2(0.5f, 0);
+            total_height += obj.h + elementOffset;
+        }
+        float maxItemWidth = (resolution.x / 3.0f);
+        float maxItemHeight = (resolution.y / 3.0f);
+
+        float scaleFactor = (float)combined.itemScale / (float)Scale.VERY_BIG;
+        float combinedSizeX = maxItemWidth * scaleFactor;
+        float combinedSizeY = maxItemHeight * scaleFactor;
+
+        RectTransform rectCombain = pivot.GetComponent<RectTransform>();
+
+        float scaleRect = combinedSizeY / total_height;
+
+        rectCombain.localScale = new Vector3(scaleRect, scaleRect, 0f);
+        return new CombinedObject(pivot, combinedSizeY, combinedSizeX);
+    }
+
     /// <summary>
     /// Crea una lista de conjuntos donde cada conjunto contiene items con similaridad.
     /// </summary>
@@ -226,7 +283,7 @@ public class UIGenerator : MonoBehaviour
     /// </summary>
     /// <param name="hashList"></param>
     /// <returns></returns>
-    private List<CombinedObject> CreateCombinedObjects(ref List<HashSet<ItemSolution>> hashList)
+    private List<CombinedObject> CreateCombinedObjects(ref List<HashSet<ItemSolution>> hashList, Vector2 imagePivots)
     {
         List<CombinedObject> combinedObjects = new List<CombinedObject>();
 
@@ -251,6 +308,7 @@ public class UIGenerator : MonoBehaviour
                 GameObject g = Instantiate(_UIImage, co.gameObject.transform);
                 Image image = g.GetComponent<Image>();
                 image.sprite = imgs[item.image];
+                image.GetComponent<RectTransform>().pivot = imagePivots;
                 children.Add(g);
             }
 
@@ -376,5 +434,36 @@ public class UIGenerator : MonoBehaviour
                 itemRectTr.anchoredPosition = Vector2.zero;
             }
         }
+    }
+
+    private void ReverseBottomCombined(ref RectTransform rect)
+    {
+        Vector2 anchor = new Vector2(0.5f, 1f);
+        Vector2 anchoredPositionFactor = new Vector2(1f, -1f);
+
+        //Set del anchor del padre y su posicion a 0
+        rect.anchorMin = rect.anchorMax = anchor;
+        rect.anchoredPosition = Vector2.zero;
+
+        //Para cada hijo se asigna su posicion en x e y multiplicada por el factor correspondiente (1 o -1) determinados por la posicion de pantalla destino
+        for (int i = 0; i < rect.childCount; i++)
+        {
+            RectTransform groupRectTr = rect.GetChild(i).GetComponent<RectTransform>();
+            groupRectTr.anchorMin = groupRectTr.anchorMax = anchor;
+            groupRectTr.anchoredPosition = new Vector2(groupRectTr.anchoredPosition.x * anchoredPositionFactor.x, groupRectTr.anchoredPosition.y * anchoredPositionFactor.y);
+
+            //Set del anchor y posicion a 0 del UIImagePrefab
+            for (int j = 0; j < groupRectTr.childCount; j++)
+            {
+                RectTransform itemRectTr = groupRectTr.GetChild(j).GetComponent<RectTransform>();
+                itemRectTr.pivot = anchor;
+                itemRectTr.anchoredPosition = Vector2.zero;
+            }
+        }
+    }
+
+    private void ReverseLateralCombined(ref RectTransform rect)
+    {
+
     }
 }

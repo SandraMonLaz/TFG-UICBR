@@ -45,7 +45,7 @@
             "id": "SCORE"
           }
         ],
-        "screenPosition": "BOTTOM_LEFT",
+        "screenPosition": "TOP_CENTER",
         "itemScale": "VERY_BIG"
       },
       {
