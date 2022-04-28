@@ -304,7 +304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jsonFile: {fileID: 4900000, guid: 4c18868069991e0489c6bdaaa1bdb65d, type: 3}
-  elementOffset: 20
+  elementOffset: 0
   _UIParent: {fileID: 3795851695553185752, guid: 0e8c2f78ccef0c04686fc2dc650966de, type: 3}
   _UIImage: {fileID: 1939317350045175292, guid: 3c821ec6a4de94e428a48b21038ece55, type: 3}
   vidaDiscreta: {fileID: 21300000, guid: 54f6923f8c3649c4b83db8bf036f3442, type: 3}
