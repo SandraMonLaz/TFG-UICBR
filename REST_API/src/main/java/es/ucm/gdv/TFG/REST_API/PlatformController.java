@@ -23,11 +23,11 @@ import es.ucm.gdv.TFG.CBR.cbrEngine.SolCBR;
 import es.ucm.gdv.TFG.REST_API.platform2D.PlatformQuery;
 
 @RestController
-public class GreetingController {
+public class PlatformController {
 	private static int id = 0;
 	
 	@PostMapping("/platform")
-	public SolCBR prueba(@RequestBody PlatformQuery i) {
+	public SolCBR query(@RequestBody PlatformQuery i) {
 		CaseDescription caseDes = new CaseDescription();
 		caseDes.setId(id);
 		
