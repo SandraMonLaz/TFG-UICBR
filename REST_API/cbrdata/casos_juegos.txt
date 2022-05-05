@@ -1,0 +1,2090 @@
+--------------------------------------Ori and the blind forest
+		CBRCase _case = new CBRCase();
+		CaseDescription des = new CaseDescription();
+		
+		/*Time t = new Time();
+		t.setImportance(Importance.low);
+		t.setTimeUse(TimeUse.chrono);
+		des.setTime(t);*/
+		
+		Health h = new Health();
+		h.setImportance(Importance.high);
+		h.setType(RangeType.discrete);
+		des.setHealth(h);
+		
+		Shields s = new Shields();
+		s.setImportance(Importance.high);
+		s.setType(RangeType.discrete);
+		des.setShields(s);
+		
+		/*Score s = new Score();
+		s.setImportance(Importance.low);
+		des.setScore(s);*/
+		
+		/*Collectable c = new Collectable();
+		c.setImportance(Importance.high);
+		des.setCollectable(c);*/
+		
+		CharacterProgress cp = new CharacterProgress();
+		cp.setImportance(Importance.high);
+		cp.setRangeType(RangeType.continuous);
+		des.setCharacterProgress(cp);
+		
+		/*CharacterInfo ci = new CharacterInfo();
+		ci.setImportance(Importance.high);
+		des.setCharacterinfo(ci);*/
+		
+		/*Weapons w = new Weapons();
+		w.setImportance(Importance.high);
+		w.setUseType(UseType.infinite);
+		w.setnWeapons(2);
+		des.setWeapons(w);*/
+		
+		/*Abilities a = new Abilities();
+		a.setImportance(Importance.high);
+		a.setUseType(UseType.infinite);
+		a.setnWeapons(2);
+		des.setAbilities(a);*/
+		
+		/*LevelProgress lp = new LevelProgress();
+		lp.setImportance(Importance.high);
+		lp.setRangeType(RangeType.discrete);
+		lp.setProgressType(ProgressType.progressDone);
+		des.setLevelProgress(lp);*/
+		
+		_case.setDescription(des);
+		
+		
+		
+			
+		
+		CaseSolution sol = new CaseSolution();
+		
+		/*ItemSol time = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "tiempoChrono", ItemId.TIME);
+		sol.setSolItem(time, ItemId.TIME);*/
+		
+		ItemSol health = new ItemSol(ScreenPos.BOTTOM_LEFT, Scale.BIG, "vidaDiscreta", ItemId.HEALTH);
+		sol.setSolItem(health, ItemId.HEALTH);
+		
+		ItemSol shields = new ItemSol(ScreenPos.BOTTOM_CENTER, Scale.BIG, "escudosDiscretos", ItemId.SHIELDS);
+		sol.setSolItem(shields, ItemId.SHIELDS);
+		
+		/*ItemSol score = new ItemSol(ScreenPos.TOP_RIGHT, Scale.SMALL, "puntos", ItemId.SCORE);
+		sol.setSolItem(score, ItemId.SCORE);*/
+		
+		/*ItemSol collectable = new ItemSol(ScreenPos.TOP_RIGHT, Scale.BIG, "collectable", ItemId.COLLECTABLE);
+		sol.setSolItem(collectable, ItemId.COLLECTABLE);*/
+		
+		ItemSol characterProgress = new ItemSol(ScreenPos.BOTTOM_CENTER, Scale.BIG, "progresoPersonajeContinuo", ItemId.CHARACTER_PROGRESS);
+		sol.setSolItem(characterProgress, ItemId.CHARACTER_PROGRESS);
+		
+		/*ItemSol CharacterInfo = new ItemSol(ScreenPos.BOTTOM_CENTER, Scale.BIG, "informacionPersonaje", ItemId.CHARACTER_INFO);
+		sol.setSolItem(CharacterInfo, ItemId.CHARACTER_INFO);*/
+		
+		/*ItemSol weapons = new ItemSol(ScreenPos.BOTTOM_CENTER, Scale.BIG, "armaInfinita", ItemId.WEAPONS);
+		sol.setSolItem(weapons, ItemId.WEAPONS);*/
+			
+		/*ItemSol abilities = new ItemSol(ScreenPos.BOTTOM_CENTER, Scale.BIG, "habilidadInfinita", ItemId.ABILITIES);
+		sol.setSolItem(abilities, ItemId.ABILITIES);*/
+		
+		/*ItemSol levelProgress = new ItemSol(ScreenPos.BOTTOM_CENTER, Scale.BIG, "progresoNivelDiscreto", ItemId.LEVEL_PROGRESS);
+		sol.setSolItem(levelProgress, ItemId.LEVEL_PROGRESS);*/
+		
+		_case.setSolution(sol);
+		StoreCasesMethod.storeCase(caseBase, _case);
+		
+		--------------------------------------Blasphemous
+		CBRCase _case = new CBRCase();
+		CaseDescription des = new CaseDescription();
+		
+		/*Time t = new Time();
+		t.setImportance(Importance.low);
+		t.setTimeUse(TimeUse.chrono);
+		des.setTime(t);*/
+		
+		Health h = new Health();
+		h.setImportance(Importance.high);
+		h.setType(RangeType.continuous);
+		des.setHealth(h);
+		
+		Shields s = new Shields();
+		s.setImportance(Importance.high);
+		s.setType(RangeType.continuous);
+		des.setShields(s);
+		
+		Score sc = new Score();
+		sc.setImportance(Importance.high);
+		des.setScore(sc);
+		
+		Collectable c = new Collectable();
+		c.setImportance(Importance.low);
+		des.setCollectable(c);
+		
+		CharacterProgress cp = new CharacterProgress();
+		cp.setImportance(Importance.medium);
+		cp.setRangeType(RangeType.continuous);
+		des.setCharacterProgress(cp);
+		
+		/*CharacterInfo ci = new CharacterInfo();
+		ci.setImportance(Importance.high);
+		des.setCharacterinfo(ci);*/
+		
+		/*Weapons w = new Weapons();
+		w.setImportance(Importance.high);
+		w.setUseType(UseType.infinite);
+		w.setnWeapons(2);
+		des.setWeapons(w);*/
+		
+		/*Abilities a = new Abilities();
+		a.setImportance(Importance.high);
+		a.setUseType(UseType.infinite);
+		a.setnWeapons(2);
+		des.setAbilities(a);*/
+		
+		/*LevelProgress lp = new LevelProgress();
+		lp.setImportance(Importance.high);
+		lp.setRangeType(RangeType.discrete);
+		lp.setProgressType(ProgressType.progressDone);
+		des.setLevelProgress(lp);*/
+		
+		_case.setDescription(des);
+		
+		
+		
+			
+		
+		CaseSolution sol = new CaseSolution();
+		
+		/*ItemSol time = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "tiempoChrono", ItemId.TIME);
+		sol.setSolItem(time, ItemId.TIME);*/
+		
+		ItemSol health = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "vidaContinua", ItemId.HEALTH);
+		sol.setSolItem(health, ItemId.HEALTH);
+		
+		ItemSol shields = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "escudosContinuos", ItemId.SHIELDS);
+		sol.setSolItem(shields, ItemId.SHIELDS);
+		
+		ItemSol score = new ItemSol(ScreenPos.TOP_RIGHT, Scale.BIG, "puntos", ItemId.SCORE);
+		sol.setSolItem(score, ItemId.SCORE);
+		
+		ItemSol collectable = new ItemSol(ScreenPos.TOP_LEFT, Scale.SMALL, "collectable", ItemId.COLLECTABLE);
+		sol.setSolItem(collectable, ItemId.COLLECTABLE);
+	
+		ItemSol characterProgress = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "progresoPersonajeContinuo", ItemId.CHARACTER_PROGRESS);
+		sol.setSolItem(characterProgress, ItemId.CHARACTER_PROGRESS);
+		
+		/*ItemSol CharacterInfo = new ItemSol(ScreenPos.BOTTOM_CENTER, Scale.BIG, "informacionPersonaje", ItemId.CHARACTER_INFO);
+		sol.setSolItem(CharacterInfo, ItemId.CHARACTER_INFO);*/
+		
+		/*ItemSol weapons = new ItemSol(ScreenPos.BOTTOM_CENTER, Scale.BIG, "armaInfinita", ItemId.WEAPONS);
+		sol.setSolItem(weapons, ItemId.WEAPONS);*/
+			
+		/*ItemSol abilities = new ItemSol(ScreenPos.BOTTOM_CENTER, Scale.BIG, "habilidadInfinita", ItemId.ABILITIES);
+		sol.setSolItem(abilities, ItemId.ABILITIES);*/
+		
+		/*ItemSol levelProgress = new ItemSol(ScreenPos.BOTTOM_CENTER, Scale.BIG, "progresoNivelDiscreto", ItemId.LEVEL_PROGRESS);
+		sol.setSolItem(levelProgress, ItemId.LEVEL_PROGRESS);*/
+		
+		_case.setSolution(sol);
+		StoreCasesMethod.storeCase(caseBase, _case);
+		
+		--------------------------------------Cuphead
+		CBRCase _case = new CBRCase();
+		CaseDescription des = new CaseDescription();
+		
+		/*Time t = new Time();
+		t.setImportance(Importance.low);
+		t.setTimeUse(TimeUse.chrono);
+		des.setTime(t);*/
+		
+		Health h = new Health();
+		h.setImportance(Importance.low);
+		h.setType(RangeType.discrete);
+		des.setHealth(h);
+		
+		/*Shields s = new Shields();
+		s.setImportance(Importance.high);
+		s.setType(RangeType.continuous);
+		des.setShields(s);*/
+		
+		/*Score sc = new Score();
+		sc.setImportance(Importance.high);
+		des.setScore(sc);*/
+		
+		/*Collectable c = new Collectable();
+		c.setImportance(Importance.low);
+		des.setCollectable(c);*/
+		
+		/*CharacterProgress cp = new CharacterProgress();
+		cp.setImportance(Importance.medium);
+		cp.setRangeType(RangeType.continuous);
+		des.setCharacterProgress(cp);*/
+		
+		/*CharacterInfo ci = new CharacterInfo();
+		ci.setImportance(Importance.high);
+		des.setCharacterinfo(ci);*/
+		
+		/*Weapons w = new Weapons();
+		w.setImportance(Importance.high);
+		w.setUseType(UseType.infinite);
+		w.setnWeapons(2);
+		des.setWeapons(w);*/
+		
+		Abilities a = new Abilities();
+		a.setImportance(Importance.low);
+		a.setUseType(UseType.infinite);
+		a.setnWeapons(3);
+		des.setAbilities(a);
+		
+		/*LevelProgress lp = new LevelProgress();
+		lp.setImportance(Importance.high);
+		lp.setRangeType(RangeType.discrete);
+		lp.setProgressType(ProgressType.progressDone);
+		des.setLevelProgress(lp);*/
+		
+		_case.setDescription(des);
+		
+		
+		
+			
+		
+		CaseSolution sol = new CaseSolution();
+		
+		/*ItemSol time = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "tiempoChrono", ItemId.TIME);
+		sol.setSolItem(time, ItemId.TIME);*/
+		
+		ItemSol health = new ItemSol(ScreenPos.BOTTOM_LEFT, Scale.SMALL, "vidaDiscreta", ItemId.HEALTH);
+		sol.setSolItem(health, ItemId.HEALTH);
+		
+		/*ItemSol shields = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "escudosContinuos", ItemId.SHIELDS);
+		sol.setSolItem(shields, ItemId.SHIELDS);*/
+		
+		/*ItemSol score = new ItemSol(ScreenPos.TOP_RIGHT, Scale.BIG, "puntos", ItemId.SCORE);
+		sol.setSolItem(score, ItemId.SCORE);*/
+		
+		/*ItemSol collectable = new ItemSol(ScreenPos.TOP_LEFT, Scale.SMALL, "collectable", ItemId.COLLECTABLE);
+		sol.setSolItem(collectable, ItemId.COLLECTABLE);*/
+	
+		/*ItemSol characterProgress = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "progresoPersonajeContinuo", ItemId.CHARACTER_PROGRESS);
+		sol.setSolItem(characterProgress, ItemId.CHARACTER_PROGRESS);*/
+		
+		/*ItemSol CharacterInfo = new ItemSol(ScreenPos.BOTTOM_CENTER, Scale.BIG, "informacionPersonaje", ItemId.CHARACTER_INFO);
+		sol.setSolItem(CharacterInfo, ItemId.CHARACTER_INFO);*/
+		
+		/*ItemSol weapons = new ItemSol(ScreenPos.BOTTOM_CENTER, Scale.BIG, "armaInfinita", ItemId.WEAPONS);
+		sol.setSolItem(weapons, ItemId.WEAPONS);*/
+			
+		ItemSol abilities = new ItemSol(ScreenPos.BOTTOM_LEFT, Scale.SMALL, "habilidadInfinita", ItemId.ABILITIES);
+		sol.setSolItem(abilities, ItemId.ABILITIES);
+		
+		/*ItemSol levelProgress = new ItemSol(ScreenPos.BOTTOM_CENTER, Scale.BIG, "progresoNivelDiscreto", ItemId.LEVEL_PROGRESS);
+		sol.setSolItem(levelProgress, ItemId.LEVEL_PROGRESS);*/
+		
+		_case.setSolution(sol);
+		StoreCasesMethod.storeCase(caseBase, _case);
+		
+		--------------------------------------Guacamelee 2
+		CBRCase _case = new CBRCase();
+		CaseDescription des = new CaseDescription();
+		
+		/*Time t = new Time();
+		t.setImportance(Importance.low);
+		t.setTimeUse(TimeUse.chrono);
+		des.setTime(t);*/
+		
+		Health h = new Health();
+		h.setImportance(Importance.medium);
+		h.setType(RangeType.continuous);
+		des.setHealth(h);
+		
+		Shields s = new Shields();
+		s.setImportance(Importance.medium);
+		s.setType(RangeType.discrete);
+		des.setShields(s);
+		
+		/*Score sc = new Score();
+		sc.setImportance(Importance.high);
+		des.setScore(sc);*/
+		
+		/*Collectable c = new Collectable();
+		c.setImportance(Importance.low);
+		des.setCollectable(c);*/
+		
+		/*CharacterProgress cp = new CharacterProgress();
+		cp.setImportance(Importance.medium);
+		cp.setRangeType(RangeType.continuous);
+		des.setCharacterProgress(cp);*/
+		
+		CharacterInfo ci = new CharacterInfo();
+		ci.setImportance(Importance.medium);
+		des.setCharacterinfo(ci);
+		
+		/*Weapons w = new Weapons();
+		w.setImportance(Importance.high);
+		w.setUseType(UseType.infinite);
+		w.setnWeapons(2);
+		des.setWeapons(w);*/
+		
+		/*Abilities a = new Abilities();
+		a.setImportance(Importance.low);
+		a.setUseType(UseType.infinite);
+		a.setnWeapons(3);
+		des.setAbilities(a);*/
+		
+		/*LevelProgress lp = new LevelProgress();
+		lp.setImportance(Importance.high);
+		lp.setRangeType(RangeType.discrete);
+		lp.setProgressType(ProgressType.progressDone);
+		des.setLevelProgress(lp);*/
+		
+		_case.setDescription(des);
+		
+		
+		
+			
+		
+		CaseSolution sol = new CaseSolution();
+		
+		/*ItemSol time = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "tiempoChrono", ItemId.TIME);
+		sol.setSolItem(time, ItemId.TIME);*/
+		
+		ItemSol health = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "vidaContinua", ItemId.HEALTH);
+		sol.setSolItem(health, ItemId.HEALTH);
+		
+		ItemSol shields = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "escudosDiscretos", ItemId.SHIELDS);
+		sol.setSolItem(shields, ItemId.SHIELDS);
+		
+		/*ItemSol score = new ItemSol(ScreenPos.TOP_RIGHT, Scale.BIG, "puntos", ItemId.SCORE);
+		sol.setSolItem(score, ItemId.SCORE);*/
+		
+		/*ItemSol collectable = new ItemSol(ScreenPos.TOP_LEFT, Scale.SMALL, "collectable", ItemId.COLLECTABLE);
+		sol.setSolItem(collectable, ItemId.COLLECTABLE);*/
+	
+		/*ItemSol characterProgress = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "progresoPersonajeContinuo", ItemId.CHARACTER_PROGRESS);
+		sol.setSolItem(characterProgress, ItemId.CHARACTER_PROGRESS);*/
+		
+		ItemSol CharacterInfo = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "informacionPersonaje", ItemId.CHARACTER_INFO);
+		sol.setSolItem(CharacterInfo, ItemId.CHARACTER_INFO);
+		
+		/*ItemSol weapons = new ItemSol(ScreenPos.BOTTOM_CENTER, Scale.BIG, "armaInfinita", ItemId.WEAPONS);
+		sol.setSolItem(weapons, ItemId.WEAPONS);*/
+			
+		/*ItemSol abilities = new ItemSol(ScreenPos.BOTTOM_LEFT, Scale.SMALL, "habilidadInfinita", ItemId.ABILITIES);
+		sol.setSolItem(abilities, ItemId.ABILITIES);*/
+		
+		/*ItemSol levelProgress = new ItemSol(ScreenPos.BOTTOM_CENTER, Scale.BIG, "progresoNivelDiscreto", ItemId.LEVEL_PROGRESS);
+		sol.setSolItem(levelProgress, ItemId.LEVEL_PROGRESS);*/
+		
+		_case.setSolution(sol);
+		StoreCasesMethod.storeCase(caseBase, _case);
+		
+		--------------------------------------Monster boy and the cursed kingdom
+		CBRCase _case = new CBRCase();
+		CaseDescription des = new CaseDescription();
+		
+		/*Time t = new Time();
+		t.setImportance(Importance.low);
+		t.setTimeUse(TimeUse.chrono);
+		des.setTime(t);*/
+		
+		Health h = new Health();
+		h.setImportance(Importance.medium);
+		h.setType(RangeType.discrete);
+		des.setHealth(h);
+		
+		/*Shields s = new Shields();
+		s.setImportance(Importance.medium);
+		s.setType(RangeType.discrete);
+		des.setShields(s);*/
+		
+		Score sc = new Score();
+		sc.setImportance(Importance.high);
+		des.setScore(sc);
+		
+		/*Collectable c = new Collectable();
+		c.setImportance(Importance.low);
+		des.setCollectable(c);*/
+		
+		/*CharacterProgress cp = new CharacterProgress();
+		cp.setImportance(Importance.medium);
+		cp.setRangeType(RangeType.continuous);
+		des.setCharacterProgress(cp);*/
+		
+		CharacterInfo ci = new CharacterInfo();
+		ci.setImportance(Importance.high);
+		des.setCharacterinfo(ci);
+		
+		/*Weapons w = new Weapons();
+		w.setImportance(Importance.high);
+		w.setUseType(UseType.infinite);
+		w.setnWeapons(2);
+		des.setWeapons(w);*/
+		
+		Abilities a = new Abilities();
+		a.setImportance(Importance.high);
+		a.setUseType(UseType.limited);
+		a.setnWeapons(2);
+		des.setAbilities(a);
+		
+		/*LevelProgress lp = new LevelProgress();
+		lp.setImportance(Importance.high);
+		lp.setRangeType(RangeType.discrete);
+		lp.setProgressType(ProgressType.progressDone);
+		des.setLevelProgress(lp);*/
+		
+		_case.setDescription(des);
+		
+		
+		
+			
+		
+		CaseSolution sol = new CaseSolution();
+		
+		/*ItemSol time = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "tiempoChrono", ItemId.TIME);
+		sol.setSolItem(time, ItemId.TIME);*/
+		
+		ItemSol health = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "vidaDiscreta", ItemId.HEALTH);
+		sol.setSolItem(health, ItemId.HEALTH);
+		
+		/*ItemSol shields = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "escudosDiscretos", ItemId.SHIELDS);
+		sol.setSolItem(shields, ItemId.SHIELDS);*/
+		
+		ItemSol score = new ItemSol(ScreenPos.TOP_RIGHT, Scale.BIG, "puntos", ItemId.SCORE);
+		sol.setSolItem(score, ItemId.SCORE);
+		
+		/*ItemSol collectable = new ItemSol(ScreenPos.TOP_LEFT, Scale.SMALL, "collectable", ItemId.COLLECTABLE);
+		sol.setSolItem(collectable, ItemId.COLLECTABLE);*/
+	
+		/*ItemSol characterProgress = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "progresoPersonajeContinuo", ItemId.CHARACTER_PROGRESS);
+		sol.setSolItem(characterProgress, ItemId.CHARACTER_PROGRESS);*/
+		
+		ItemSol CharacterInfo = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "informacionPersonaje", ItemId.CHARACTER_INFO);
+		sol.setSolItem(CharacterInfo, ItemId.CHARACTER_INFO);
+		
+		/*ItemSol weapons = new ItemSol(ScreenPos.BOTTOM_CENTER, Scale.BIG, "armaInfinita", ItemId.WEAPONS);
+		sol.setSolItem(weapons, ItemId.WEAPONS);*/
+			
+		ItemSol abilities = new ItemSol(ScreenPos.BOTTOM_LEFT, Scale.BIG, "habilidadLimitada", ItemId.ABILITIES);
+		sol.setSolItem(abilities, ItemId.ABILITIES);
+		
+		/*ItemSol levelProgress = new ItemSol(ScreenPos.BOTTOM_CENTER, Scale.BIG, "progresoNivelDiscreto", ItemId.LEVEL_PROGRESS);
+		sol.setSolItem(levelProgress, ItemId.LEVEL_PROGRESS);*/
+		
+		_case.setSolution(sol);
+		StoreCasesMethod.storeCase(caseBase, _case);
+		
+		--------------------------------------Mad Rat Dead
+		CBRCase _case = new CBRCase();
+		CaseDescription des = new CaseDescription();
+		
+		Time t = new Time();
+		t.setImportance(Importance.high);
+		t.setTimeUse(TimeUse.countdown);
+		des.setTime(t);
+		
+		/*Health h = new Health();
+		h.setImportance(Importance.medium);
+		h.setType(RangeType.discrete);
+		des.setHealth(h);*/
+		
+		/*Shields s = new Shields();
+		s.setImportance(Importance.medium);
+		s.setType(RangeType.discrete);
+		des.setShields(s);*/
+		
+		Score sc = new Score();
+		sc.setImportance(Importance.high);
+		des.setScore(sc);
+		
+		/*Collectable c = new Collectable();
+		c.setImportance(Importance.low);
+		des.setCollectable(c);*/
+		
+		/*CharacterProgress cp = new CharacterProgress();
+		cp.setImportance(Importance.medium);
+		cp.setRangeType(RangeType.continuous);
+		des.setCharacterProgress(cp);*/
+		
+		CharacterInfo ci = new CharacterInfo();
+		ci.setImportance(Importance.high);
+		des.setCharacterinfo(ci);
+		
+		/*Weapons w = new Weapons();
+		w.setImportance(Importance.high);
+		w.setUseType(UseType.infinite);
+		w.setnWeapons(2);
+		des.setWeapons(w);*/
+		
+		/*Abilities a = new Abilities();
+		a.setImportance(Importance.high);
+		a.setUseType(UseType.limited);
+		a.setnWeapons(2);
+		des.setAbilities(a);*/
+		
+		LevelProgress lp = new LevelProgress();
+		lp.setImportance(Importance.medium);
+		lp.setRangeType(RangeType.discrete);
+		lp.setProgressType(ProgressType.progressDone);
+		des.setLevelProgress(lp);
+		
+		_case.setDescription(des);
+		
+		
+		
+			
+		
+		CaseSolution sol = new CaseSolution();
+		
+		ItemSol time = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "tiempoCountdown", ItemId.TIME);
+		sol.setSolItem(time, ItemId.TIME);
+		
+		/*ItemSol health = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "vidaDiscreta", ItemId.HEALTH);
+		sol.setSolItem(health, ItemId.HEALTH);*/
+		
+		/*ItemSol shields = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "escudosDiscretos", ItemId.SHIELDS);
+		sol.setSolItem(shields, ItemId.SHIELDS);*/
+		
+		ItemSol score = new ItemSol(ScreenPos.TOP_RIGHT, Scale.BIG, "puntos", ItemId.SCORE);
+		sol.setSolItem(score, ItemId.SCORE);
+		
+		/*ItemSol collectable = new ItemSol(ScreenPos.TOP_LEFT, Scale.SMALL, "collectable", ItemId.COLLECTABLE);
+		sol.setSolItem(collectable, ItemId.COLLECTABLE);*/
+	
+		/*ItemSol characterProgress = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "progresoPersonajeContinuo", ItemId.CHARACTER_PROGRESS);
+		sol.setSolItem(characterProgress, ItemId.CHARACTER_PROGRESS);*/
+		
+		/*ItemSol CharacterInfo = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "informacionPersonaje", ItemId.CHARACTER_INFO);
+		sol.setSolItem(CharacterInfo, ItemId.CHARACTER_INFO);*/
+		
+		/*ItemSol weapons = new ItemSol(ScreenPos.BOTTOM_CENTER, Scale.BIG, "armaInfinita", ItemId.WEAPONS);
+		sol.setSolItem(weapons, ItemId.WEAPONS);*/
+			
+		/*ItemSol abilities = new ItemSol(ScreenPos.BOTTOM_LEFT, Scale.BIG, "habilidadLimitada", ItemId.ABILITIES);
+		sol.setSolItem(abilities, ItemId.ABILITIES);*/
+		
+		ItemSol levelProgress = new ItemSol(ScreenPos.BOTTOM_CENTER, Scale.BIG, "progresoNivelDiscreto", ItemId.LEVEL_PROGRESS);
+		sol.setSolItem(levelProgress, ItemId.LEVEL_PROGRESS);
+		
+		_case.setSolution(sol);
+		StoreCasesMethod.storeCase(caseBase, _case);
+		
+		--------------------------------------New Super Mario Bros
+		CBRCase _case = new CBRCase();
+		CaseDescription des = new CaseDescription();
+		
+		Time t = new Time();
+		t.setImportance(Importance.medium);
+		t.setTimeUse(TimeUse.countdown);
+		des.setTime(t);
+		
+		Health h = new Health();
+		h.setImportance(Importance.medium);
+		h.setType(RangeType.discrete);
+		des.setHealth(h);
+		
+		/*Shields s = new Shields();
+		s.setImportance(Importance.medium);
+		s.setType(RangeType.discrete);
+		des.setShields(s);*/
+		
+		Score sc = new Score();
+		sc.setImportance(Importance.high);
+		des.setScore(sc);
+		
+		Collectable c = new Collectable();
+		c.setImportance(Importance.high);
+		des.setCollectable(c);
+		
+		/*CharacterProgress cp = new CharacterProgress();
+		cp.setImportance(Importance.medium);
+		cp.setRangeType(RangeType.continuous);
+		des.setCharacterProgress(cp);*/
+		
+		/*CharacterInfo ci = new CharacterInfo();
+		ci.setImportance(Importance.high);
+		des.setCharacterinfo(ci);*/
+		
+		/*Weapons w = new Weapons();
+		w.setImportance(Importance.high);
+		w.setUseType(UseType.infinite);
+		w.setnWeapons(2);
+		des.setWeapons(w);*/
+		
+		/*Abilities a = new Abilities();
+		a.setImportance(Importance.high);
+		a.setUseType(UseType.limited);
+		a.setnWeapons(2);
+		des.setAbilities(a);*/
+		
+		/*LevelProgress lp = new LevelProgress();
+		lp.setImportance(Importance.medium);
+		lp.setRangeType(RangeType.discrete);
+		lp.setProgressType(ProgressType.progressDone);
+		des.setLevelProgress(lp);*/
+		
+		_case.setDescription(des);
+		
+		
+		
+			
+		
+		CaseSolution sol = new CaseSolution();
+		
+		ItemSol time = new ItemSol(ScreenPos.TOP_RIGHT, Scale.MEDIUM, "tiempoCountdown", ItemId.TIME);
+		sol.setSolItem(time, ItemId.TIME);
+		
+		ItemSol health = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "vidaDiscreta", ItemId.HEALTH);
+		sol.setSolItem(health, ItemId.HEALTH);
+		
+		/*ItemSol shields = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "escudosDiscretos", ItemId.SHIELDS);
+		sol.setSolItem(shields, ItemId.SHIELDS);*/
+		
+		ItemSol score = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "puntos", ItemId.SCORE);
+		sol.setSolItem(score, ItemId.SCORE);
+		
+		ItemSol collectable = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "collectable", ItemId.COLLECTABLE);
+		sol.setSolItem(collectable, ItemId.COLLECTABLE);
+	
+		/*ItemSol characterProgress = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "progresoPersonajeContinuo", ItemId.CHARACTER_PROGRESS);
+		sol.setSolItem(characterProgress, ItemId.CHARACTER_PROGRESS);*/
+		
+		/*ItemSol CharacterInfo = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "informacionPersonaje", ItemId.CHARACTER_INFO);
+		sol.setSolItem(CharacterInfo, ItemId.CHARACTER_INFO);*/
+		
+		/*ItemSol weapons = new ItemSol(ScreenPos.BOTTOM_CENTER, Scale.BIG, "armaInfinita", ItemId.WEAPONS);
+		sol.setSolItem(weapons, ItemId.WEAPONS);*/
+			
+		/*ItemSol abilities = new ItemSol(ScreenPos.BOTTOM_LEFT, Scale.BIG, "habilidadLimitada", ItemId.ABILITIES);
+		sol.setSolItem(abilities, ItemId.ABILITIES);*/
+		
+		/*ItemSol levelProgress = new ItemSol(ScreenPos.BOTTOM_CENTER, Scale.BIG, "progresoNivelDiscreto", ItemId.LEVEL_PROGRESS);
+		sol.setSolItem(levelProgress, ItemId.LEVEL_PROGRESS);*/
+		
+		_case.setSolution(sol);
+		StoreCasesMethod.storeCase(caseBase, _case);
+		
+		--------------------------------------New Super Mario Bros 2
+		CBRCase _case = new CBRCase();
+		CaseDescription des = new CaseDescription();
+		
+		Time t = new Time();
+		t.setImportance(Importance.low);
+		t.setTimeUse(TimeUse.countdown);
+		des.setTime(t);
+		
+		/*Health h = new Health();
+		h.setImportance(Importance.medium);
+		h.setType(RangeType.discrete);
+		des.setHealth(h);*/
+		
+		/*Shields s = new Shields();
+		s.setImportance(Importance.medium);
+		s.setType(RangeType.discrete);
+		des.setShields(s);*/
+		
+		Score sc = new Score();
+		sc.setImportance(Importance.high);
+		des.setScore(sc);
+		
+		/*Collectable c = new Collectable();
+		c.setImportance(Importance.high);
+		des.setCollectable(c);*/
+		
+		/*CharacterProgress cp = new CharacterProgress();
+		cp.setImportance(Importance.medium);
+		cp.setRangeType(RangeType.continuous);
+		des.setCharacterProgress(cp);*/
+		
+		/*CharacterInfo ci = new CharacterInfo();
+		ci.setImportance(Importance.high);
+		des.setCharacterinfo(ci);*/
+		
+		/*Weapons w = new Weapons();
+		w.setImportance(Importance.high);
+		w.setUseType(UseType.infinite);
+		w.setnWeapons(2);
+		des.setWeapons(w);*/
+		
+		/*Abilities a = new Abilities();
+		a.setImportance(Importance.high);
+		a.setUseType(UseType.limited);
+		a.setnWeapons(2);
+		des.setAbilities(a);*/
+		
+		/*LevelProgress lp = new LevelProgress();
+		lp.setImportance(Importance.medium);
+		lp.setRangeType(RangeType.discrete);
+		lp.setProgressType(ProgressType.progressDone);
+		des.setLevelProgress(lp);*/
+		
+		_case.setDescription(des);
+		
+		
+		
+			
+		
+		CaseSolution sol = new CaseSolution();
+		
+		ItemSol time = new ItemSol(ScreenPos.TOP_RIGHT, Scale.SMALL, "tiempoCountdown", ItemId.TIME);
+		sol.setSolItem(time, ItemId.TIME);
+		
+		/*ItemSol health = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "vidaDiscreta", ItemId.HEALTH);
+		sol.setSolItem(health, ItemId.HEALTH);*/
+		
+		/*ItemSol shields = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "escudosDiscretos", ItemId.SHIELDS);
+		sol.setSolItem(shields, ItemId.SHIELDS);*/
+		
+		ItemSol score = new ItemSol(ScreenPos.TOP_LEFT, Scale.VERY_BIG, "puntos", ItemId.SCORE);
+		sol.setSolItem(score, ItemId.SCORE);
+		
+		/*ItemSol collectable = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "collectable", ItemId.COLLECTABLE);
+		sol.setSolItem(collectable, ItemId.COLLECTABLE);*/
+	
+		/*ItemSol characterProgress = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "progresoPersonajeContinuo", ItemId.CHARACTER_PROGRESS);
+		sol.setSolItem(characterProgress, ItemId.CHARACTER_PROGRESS);*/
+		
+		/*ItemSol CharacterInfo = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "informacionPersonaje", ItemId.CHARACTER_INFO);
+		sol.setSolItem(CharacterInfo, ItemId.CHARACTER_INFO);*/
+		
+		/*ItemSol weapons = new ItemSol(ScreenPos.BOTTOM_CENTER, Scale.BIG, "armaInfinita", ItemId.WEAPONS);
+		sol.setSolItem(weapons, ItemId.WEAPONS);*/
+			
+		/*ItemSol abilities = new ItemSol(ScreenPos.BOTTOM_LEFT, Scale.BIG, "habilidadLimitada", ItemId.ABILITIES);
+		sol.setSolItem(abilities, ItemId.ABILITIES);*/
+		
+		/*ItemSol levelProgress = new ItemSol(ScreenPos.BOTTOM_CENTER, Scale.BIG, "progresoNivelDiscreto", ItemId.LEVEL_PROGRESS);
+		sol.setSolItem(levelProgress, ItemId.LEVEL_PROGRESS);*/
+		
+		_case.setSolution(sol);
+		StoreCasesMethod.storeCase(caseBase, _case);
+		
+		--------------------------------------Super Meat Boy
+		CBRCase _case = new CBRCase();
+		CaseDescription des = new CaseDescription();
+		
+		Time t = new Time();
+		t.setImportance(Importance.low);
+		t.setTimeUse(TimeUse.chrono);
+		des.setTime(t);
+		
+		/*Health h = new Health();
+		h.setImportance(Importance.medium);
+		h.setType(RangeType.discrete);
+		des.setHealth(h);*/
+		
+		/*Shields s = new Shields();
+		s.setImportance(Importance.medium);
+		s.setType(RangeType.discrete);
+		des.setShields(s);*/
+		
+		/*Score sc = new Score();
+		sc.setImportance(Importance.high);
+		des.setScore(sc);*/
+		
+		/*Collectable c = new Collectable();
+		c.setImportance(Importance.high);
+		des.setCollectable(c);*/
+		
+		/*CharacterProgress cp = new CharacterProgress();
+		cp.setImportance(Importance.medium);
+		cp.setRangeType(RangeType.continuous);
+		des.setCharacterProgress(cp);*/
+		
+		/*CharacterInfo ci = new CharacterInfo();
+		ci.setImportance(Importance.high);
+		des.setCharacterinfo(ci);*/
+		
+		/*Weapons w = new Weapons();
+		w.setImportance(Importance.high);
+		w.setUseType(UseType.infinite);
+		w.setnWeapons(2);
+		des.setWeapons(w);*/
+		
+		/*Abilities a = new Abilities();
+		a.setImportance(Importance.high);
+		a.setUseType(UseType.limited);
+		a.setnWeapons(2);
+		des.setAbilities(a);*/
+		
+		/*LevelProgress lp = new LevelProgress();
+		lp.setImportance(Importance.medium);
+		lp.setRangeType(RangeType.discrete);
+		lp.setProgressType(ProgressType.progressDone);
+		des.setLevelProgress(lp);*/
+		
+		_case.setDescription(des);
+		
+		
+		
+			
+		
+		CaseSolution sol = new CaseSolution();
+		
+		ItemSol time = new ItemSol(ScreenPos.TOP_LEFT, Scale.SMALL, "tiempoChrono", ItemId.TIME);
+		sol.setSolItem(time, ItemId.TIME);
+		
+		/*ItemSol health = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "vidaDiscreta", ItemId.HEALTH);
+		sol.setSolItem(health, ItemId.HEALTH);*/
+		
+		/*ItemSol shields = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "escudosDiscretos", ItemId.SHIELDS);
+		sol.setSolItem(shields, ItemId.SHIELDS);*/
+		
+		/*ItemSol score = new ItemSol(ScreenPos.TOP_LEFT, Scale.VERY_BIG, "puntos", ItemId.SCORE);
+		sol.setSolItem(score, ItemId.SCORE);*/
+		
+		/*ItemSol collectable = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "collectable", ItemId.COLLECTABLE);
+		sol.setSolItem(collectable, ItemId.COLLECTABLE);*/
+	
+		/*ItemSol characterProgress = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "progresoPersonajeContinuo", ItemId.CHARACTER_PROGRESS);
+		sol.setSolItem(characterProgress, ItemId.CHARACTER_PROGRESS);*/
+		
+		/*ItemSol CharacterInfo = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "informacionPersonaje", ItemId.CHARACTER_INFO);
+		sol.setSolItem(CharacterInfo, ItemId.CHARACTER_INFO);*/
+		
+		/*ItemSol weapons = new ItemSol(ScreenPos.BOTTOM_CENTER, Scale.BIG, "armaInfinita", ItemId.WEAPONS);
+		sol.setSolItem(weapons, ItemId.WEAPONS);*/
+			
+		/*ItemSol abilities = new ItemSol(ScreenPos.BOTTOM_LEFT, Scale.BIG, "habilidadLimitada", ItemId.ABILITIES);
+		sol.setSolItem(abilities, ItemId.ABILITIES);*/
+		
+		/*ItemSol levelProgress = new ItemSol(ScreenPos.BOTTOM_CENTER, Scale.BIG, "progresoNivelDiscreto", ItemId.LEVEL_PROGRESS);
+		sol.setSolItem(levelProgress, ItemId.LEVEL_PROGRESS);*/
+		
+		_case.setSolution(sol);
+		StoreCasesMethod.storeCase(caseBase, _case);
+		
+		--------------------------------------Rayman Adventures
+		CBRCase _case = new CBRCase();
+		CaseDescription des = new CaseDescription();
+		
+		/*Time t = new Time();
+		t.setImportance(Importance.low);
+		t.setTimeUse(TimeUse.chrono);
+		des.setTime(t);*/
+		
+		/*Health h = new Health();
+		h.setImportance(Importance.medium);
+		h.setType(RangeType.discrete);
+		des.setHealth(h);*/
+		
+		/*Shields s = new Shields();
+		s.setImportance(Importance.medium);
+		s.setType(RangeType.discrete);
+		des.setShields(s);*/
+		
+		Score sc = new Score();
+		sc.setImportance(Importance.veryHigh);
+		des.setScore(sc);
+		
+		Collectable c = new Collectable();
+		c.setImportance(Importance.veryHigh);
+		des.setCollectable(c);
+		
+		/*CharacterProgress cp = new CharacterProgress();
+		cp.setImportance(Importance.medium);
+		cp.setRangeType(RangeType.continuous);
+		des.setCharacterProgress(cp);*/
+		
+		/*CharacterInfo ci = new CharacterInfo();
+		ci.setImportance(Importance.high);
+		des.setCharacterinfo(ci);*/
+		
+		/*Weapons w = new Weapons();
+		w.setImportance(Importance.high);
+		w.setUseType(UseType.infinite);
+		w.setnWeapons(2);
+		des.setWeapons(w);*/
+		
+		/*Abilities a = new Abilities();
+		a.setImportance(Importance.high);
+		a.setUseType(UseType.limited);
+		a.setnWeapons(2);
+		des.setAbilities(a);*/
+		
+		/*LevelProgress lp = new LevelProgress();
+		lp.setImportance(Importance.medium);
+		lp.setRangeType(RangeType.discrete);
+		lp.setProgressType(ProgressType.progressDone);
+		des.setLevelProgress(lp);*/
+		
+		_case.setDescription(des);
+		
+		
+		
+			
+		
+		CaseSolution sol = new CaseSolution();
+		
+		/*ItemSol time = new ItemSol(ScreenPos.TOP_LEFT, Scale.SMALL, "tiempoChrono", ItemId.TIME);
+		sol.setSolItem(time, ItemId.TIME);*/
+		
+		/*ItemSol health = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "vidaDiscreta", ItemId.HEALTH);
+		sol.setSolItem(health, ItemId.HEALTH);*/
+		
+		/*ItemSol shields = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "escudosDiscretos", ItemId.SHIELDS);
+		sol.setSolItem(shields, ItemId.SHIELDS);*/
+		
+		ItemSol score = new ItemSol(ScreenPos.TOP_CENTER, Scale.VERY_BIG, "puntos", ItemId.SCORE);
+		sol.setSolItem(score, ItemId.SCORE);
+		
+		ItemSol collectable = new ItemSol(ScreenPos.TOP_CENTER, Scale.VERY_BIG, "collectable", ItemId.COLLECTABLE);
+		sol.setSolItem(collectable, ItemId.COLLECTABLE);
+	
+		/*ItemSol characterProgress = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "progresoPersonajeContinuo", ItemId.CHARACTER_PROGRESS);
+		sol.setSolItem(characterProgress, ItemId.CHARACTER_PROGRESS);*/
+		
+		/*ItemSol CharacterInfo = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "informacionPersonaje", ItemId.CHARACTER_INFO);
+		sol.setSolItem(CharacterInfo, ItemId.CHARACTER_INFO);*/
+		
+		/*ItemSol weapons = new ItemSol(ScreenPos.BOTTOM_CENTER, Scale.BIG, "armaInfinita", ItemId.WEAPONS);
+		sol.setSolItem(weapons, ItemId.WEAPONS);*/
+			
+		/*ItemSol abilities = new ItemSol(ScreenPos.BOTTOM_LEFT, Scale.BIG, "habilidadLimitada", ItemId.ABILITIES);
+		sol.setSolItem(abilities, ItemId.ABILITIES);*/
+		
+		/*ItemSol levelProgress = new ItemSol(ScreenPos.BOTTOM_CENTER, Scale.BIG, "progresoNivelDiscreto", ItemId.LEVEL_PROGRESS);
+		sol.setSolItem(levelProgress, ItemId.LEVEL_PROGRESS);*/
+		
+		_case.setSolution(sol);
+		StoreCasesMethod.storeCase(caseBase, _case);
+		
+		--------------------------------------Gonner 2
+		CBRCase _case = new CBRCase();
+		CaseDescription des = new CaseDescription();
+		
+		/*Time t = new Time();
+		t.setImportance(Importance.low);
+		t.setTimeUse(TimeUse.chrono);
+		des.setTime(t);*/
+		
+		Health h = new Health();
+		h.setImportance(Importance.medium);
+		h.setType(RangeType.discrete);
+		des.setHealth(h);
+		
+		Shields s = new Shields();
+		s.setImportance(Importance.medium);
+		s.setType(RangeType.discrete);
+		des.setShields(s);
+		
+		/*Score sc = new Score();
+		sc.setImportance(Importance.veryHigh);
+		des.setScore(sc);*/
+		
+		Collectable c = new Collectable();
+		c.setImportance(Importance.low);
+		des.setCollectable(c);
+		
+		/*CharacterProgress cp = new CharacterProgress();
+		cp.setImportance(Importance.medium);
+		cp.setRangeType(RangeType.continuous);
+		des.setCharacterProgress(cp);*/
+		
+		/*CharacterInfo ci = new CharacterInfo();
+		ci.setImportance(Importance.high);
+		des.setCharacterinfo(ci);*/
+		
+		Weapons w = new Weapons();
+		w.setImportance(Importance.high);
+		w.setUseType(UseType.limited);
+		w.setnWeapons(1);
+		des.setWeapons(w);
+		
+		/*Abilities a = new Abilities();
+		a.setImportance(Importance.high);
+		a.setUseType(UseType.limited);
+		a.setnWeapons(2);
+		des.setAbilities(a);*/
+		
+		LevelProgress lp = new LevelProgress();
+		lp.setImportance(Importance.high);
+		lp.setRangeType(RangeType.discrete);
+		lp.setProgressType(ProgressType.progressDone);
+		des.setLevelProgress(lp);
+		
+		_case.setDescription(des);
+		
+		
+		
+			
+		
+		CaseSolution sol = new CaseSolution();
+		
+		/*ItemSol time = new ItemSol(ScreenPos.TOP_LEFT, Scale.SMALL, "tiempoChrono", ItemId.TIME);
+		sol.setSolItem(time, ItemId.TIME);*/
+		
+		ItemSol health = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "vidaDiscreta", ItemId.HEALTH);
+		sol.setSolItem(health, ItemId.HEALTH);
+		
+		ItemSol shields = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "escudosDiscretos", ItemId.SHIELDS);
+		sol.setSolItem(shields, ItemId.SHIELDS);
+		
+		/*ItemSol score = new ItemSol(ScreenPos.TOP_CENTER, Scale.VERY_BIG, "puntos", ItemId.SCORE);
+		sol.setSolItem(score, ItemId.SCORE);*/
+		
+		ItemSol collectable = new ItemSol(ScreenPos.TOP_LEFT, Scale.SMALL, "collectable", ItemId.COLLECTABLE);
+		sol.setSolItem(collectable, ItemId.COLLECTABLE);
+	
+		/*ItemSol characterProgress = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "progresoPersonajeContinuo", ItemId.CHARACTER_PROGRESS);
+		sol.setSolItem(characterProgress, ItemId.CHARACTER_PROGRESS);*/
+		
+		/*ItemSol CharacterInfo = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "informacionPersonaje", ItemId.CHARACTER_INFO);
+		sol.setSolItem(CharacterInfo, ItemId.CHARACTER_INFO);*/
+		
+		ItemSol weapons = new ItemSol(ScreenPos.TOP_LEFT, Scale.VERY_BIG, "armaInfinita", ItemId.WEAPONS);
+		sol.setSolItem(weapons, ItemId.WEAPONS);
+			
+		/*ItemSol abilities = new ItemSol(ScreenPos.BOTTOM_LEFT, Scale.BIG, "habilidadLimitada", ItemId.ABILITIES);
+		sol.setSolItem(abilities, ItemId.ABILITIES);*/
+		
+		ItemSol levelProgress = new ItemSol(ScreenPos.BOTTOM_LEFT, Scale.BIG, "progresoNivelDiscreto", ItemId.LEVEL_PROGRESS);
+		sol.setSolItem(levelProgress, ItemId.LEVEL_PROGRESS);
+		
+		_case.setSolution(sol);
+		StoreCasesMethod.storeCase(caseBase, _case);
+		
+		--------------------------------------Spelunky 2
+		CBRCase _case = new CBRCase();
+		CaseDescription des = new CaseDescription();
+		
+		Time t = new Time();
+		t.setImportance(Importance.veryLow);
+		t.setTimeUse(TimeUse.chrono);
+		des.setTime(t);
+		
+		Health h = new Health();
+		h.setImportance(Importance.high);
+		h.setType(RangeType.discrete);
+		des.setHealth(h);
+		
+		/*Shields s = new Shields();
+		s.setImportance(Importance.medium);
+		s.setType(RangeType.discrete);
+		des.setShields(s);*/
+		
+		Score sc = new Score();
+		sc.setImportance(Importance.low);
+		des.setScore(sc);
+		
+		Collectable c = new Collectable();
+		c.setImportance(Importance.low);
+		des.setCollectable(c);
+		
+		/*CharacterProgress cp = new CharacterProgress();
+		cp.setImportance(Importance.medium);
+		cp.setRangeType(RangeType.continuous);
+		des.setCharacterProgress(cp);*/
+		
+		/*CharacterInfo ci = new CharacterInfo();
+		ci.setImportance(Importance.high);
+		des.setCharacterinfo(ci);*/
+		
+		/*Weapons w = new Weapons();
+		w.setImportance(Importance.high);
+		w.setUseType(UseType.limited);
+		w.setnWeapons(1);
+		des.setWeapons(w);*/
+		
+		/*Abilities a = new Abilities();
+		a.setImportance(Importance.high);
+		a.setUseType(UseType.limited);
+		a.setnWeapons(2);
+		des.setAbilities(a);*/
+		
+		LevelProgress lp = new LevelProgress();
+		lp.setImportance(Importance.veryLow);
+		lp.setRangeType(RangeType.discrete);
+		lp.setProgressType(ProgressType.progressDone);
+		des.setLevelProgress(lp);
+		
+		_case.setDescription(des);
+		
+		
+		
+			
+		
+		CaseSolution sol = new CaseSolution();
+		
+		ItemSol time = new ItemSol(ScreenPos.TOP_RIGHT, Scale.VERY_SMALL, "tiempoChrono", ItemId.TIME);
+		sol.setSolItem(time, ItemId.TIME);
+		
+		ItemSol health = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "vidaDiscreta", ItemId.HEALTH);
+		sol.setSolItem(health, ItemId.HEALTH);
+		
+		/*ItemSol shields = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "escudosDiscretos", ItemId.SHIELDS);
+		sol.setSolItem(shields, ItemId.SHIELDS);*/
+		
+		ItemSol score = new ItemSol(ScreenPos.TOP_RIGHT, Scale.SMALL, "puntos", ItemId.SCORE);
+		sol.setSolItem(score, ItemId.SCORE);
+		
+		ItemSol collectable = new ItemSol(ScreenPos.TOP_LEFT, Scale.SMALL, "collectable", ItemId.COLLECTABLE);
+		sol.setSolItem(collectable, ItemId.COLLECTABLE);
+	
+		/*ItemSol characterProgress = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "progresoPersonajeContinuo", ItemId.CHARACTER_PROGRESS);
+		sol.setSolItem(characterProgress, ItemId.CHARACTER_PROGRESS);*/
+		
+		/*ItemSol CharacterInfo = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "informacionPersonaje", ItemId.CHARACTER_INFO);
+		sol.setSolItem(CharacterInfo, ItemId.CHARACTER_INFO);*/
+		
+		/*ItemSol weapons = new ItemSol(ScreenPos.TOP_LEFT, Scale.VERY_BIG, "armaInfinita", ItemId.WEAPONS);
+		sol.setSolItem(weapons, ItemId.WEAPONS);*/
+			
+		/*ItemSol abilities = new ItemSol(ScreenPos.BOTTOM_LEFT, Scale.BIG, "habilidadLimitada", ItemId.ABILITIES);
+		sol.setSolItem(abilities, ItemId.ABILITIES);*/
+		
+		ItemSol levelProgress = new ItemSol(ScreenPos.TOP_RIGHT, Scale.VERY_SMALL, "progresoNivelDiscreto", ItemId.LEVEL_PROGRESS);
+		sol.setSolItem(levelProgress, ItemId.LEVEL_PROGRESS);
+		
+		_case.setSolution(sol);
+		StoreCasesMethod.storeCase(caseBase, _case);
+		
+		--------------------------------------The End is Nigh
+		CBRCase _case = new CBRCase();
+		CaseDescription des = new CaseDescription();
+		
+		/*Time t = new Time();
+		t.setImportance(Importance.veryLow);
+		t.setTimeUse(TimeUse.chrono);
+		des.setTime(t);*/
+		
+		/*Health h = new Health();
+		h.setImportance(Importance.high);
+		h.setType(RangeType.discrete);
+		des.setHealth(h);*/
+		
+		/*Shields s = new Shields();
+		s.setImportance(Importance.medium);
+		s.setType(RangeType.discrete);
+		des.setShields(s);*/
+		
+		/*Score sc = new Score();
+		sc.setImportance(Importance.low);
+		des.setScore(sc);*/
+		
+		Collectable c = new Collectable();
+		c.setImportance(Importance.low);
+		des.setCollectable(c);
+		
+		/*CharacterProgress cp = new CharacterProgress();
+		cp.setImportance(Importance.medium);
+		cp.setRangeType(RangeType.continuous);
+		des.setCharacterProgress(cp);*/
+		
+		/*CharacterInfo ci = new CharacterInfo();
+		ci.setImportance(Importance.high);
+		des.setCharacterinfo(ci);*/
+		
+		/*Weapons w = new Weapons();
+		w.setImportance(Importance.high);
+		w.setUseType(UseType.limited);
+		w.setnWeapons(1);
+		des.setWeapons(w);*/
+		
+		/*Abilities a = new Abilities();
+		a.setImportance(Importance.high);
+		a.setUseType(UseType.limited);
+		a.setnWeapons(2);
+		des.setAbilities(a);*/
+		
+		/*LevelProgress lp = new LevelProgress();
+		lp.setImportance(Importance.veryLow);
+		lp.setRangeType(RangeType.discrete);
+		lp.setProgressType(ProgressType.progressDone);
+		des.setLevelProgress(lp);*/
+		
+		_case.setDescription(des);
+		
+		
+		
+			
+		
+		CaseSolution sol = new CaseSolution();
+		
+		/*ItemSol time = new ItemSol(ScreenPos.TOP_RIGHT, Scale.VERY_SMALL, "tiempoChrono", ItemId.TIME);
+		sol.setSolItem(time, ItemId.TIME);*/
+		
+		/*ItemSol health = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "vidaDiscreta", ItemId.HEALTH);
+		sol.setSolItem(health, ItemId.HEALTH);*/
+		
+		/*ItemSol shields = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "escudosDiscretos", ItemId.SHIELDS);
+		sol.setSolItem(shields, ItemId.SHIELDS);*/
+		
+		/*ItemSol score = new ItemSol(ScreenPos.TOP_RIGHT, Scale.SMALL, "puntos", ItemId.SCORE);
+		sol.setSolItem(score, ItemId.SCORE);*/
+		
+		ItemSol collectable = new ItemSol(ScreenPos.TOP_LEFT, Scale.SMALL, "collectable", ItemId.COLLECTABLE);
+		sol.setSolItem(collectable, ItemId.COLLECTABLE);
+	
+		/*ItemSol characterProgress = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "progresoPersonajeContinuo", ItemId.CHARACTER_PROGRESS);
+		sol.setSolItem(characterProgress, ItemId.CHARACTER_PROGRESS);*/
+		
+		/*ItemSol CharacterInfo = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "informacionPersonaje", ItemId.CHARACTER_INFO);
+		sol.setSolItem(CharacterInfo, ItemId.CHARACTER_INFO);*/
+		
+		/*ItemSol weapons = new ItemSol(ScreenPos.TOP_LEFT, Scale.VERY_BIG, "armaInfinita", ItemId.WEAPONS);
+		sol.setSolItem(weapons, ItemId.WEAPONS);*/
+			
+		/*ItemSol abilities = new ItemSol(ScreenPos.BOTTOM_LEFT, Scale.BIG, "habilidadLimitada", ItemId.ABILITIES);
+		sol.setSolItem(abilities, ItemId.ABILITIES);*/
+		
+		/*ItemSol levelProgress = new ItemSol(ScreenPos.TOP_RIGHT, Scale.VERY_SMALL, "progresoNivelDiscreto", ItemId.LEVEL_PROGRESS);
+		sol.setSolItem(levelProgress, ItemId.LEVEL_PROGRESS);*/
+		
+		_case.setSolution(sol);
+		StoreCasesMethod.storeCase(caseBase, _case);
+		
+		--------------------------------------Tembo the Badass Elephant
+				CBRCase _case = new CBRCase();
+		CaseDescription des = new CaseDescription();
+		
+		/*Time t = new Time();
+		t.setImportance(Importance.veryLow);
+		t.setTimeUse(TimeUse.chrono);
+		des.setTime(t);*/
+		
+		Health h = new Health();
+		h.setImportance(Importance.high);
+		h.setType(RangeType.continuous);
+		des.setHealth(h);
+		
+		Shields s = new Shields();
+		s.setImportance(Importance.high);
+		s.setType(RangeType.continuous);
+		des.setShields(s);
+		
+		Score sc = new Score();
+		sc.setImportance(Importance.low);
+		des.setScore(sc);
+		
+		/*Collectable c = new Collectable();
+		c.setImportance(Importance.low);
+		des.setCollectable(c);*/
+		
+		/*CharacterProgress cp = new CharacterProgress();
+		cp.setImportance(Importance.medium);
+		cp.setRangeType(RangeType.continuous);
+		des.setCharacterProgress(cp);*/
+		
+		/*CharacterInfo ci = new CharacterInfo();
+		ci.setImportance(Importance.high);
+		des.setCharacterinfo(ci);*/
+		
+		/*Weapons w = new Weapons();
+		w.setImportance(Importance.high);
+		w.setUseType(UseType.limited);
+		w.setnWeapons(1);
+		des.setWeapons(w);*/
+		
+		/*Abilities a = new Abilities();
+		a.setImportance(Importance.high);
+		a.setUseType(UseType.limited);
+		a.setnWeapons(2);
+		des.setAbilities(a);*/
+		
+		/*LevelProgress lp = new LevelProgress();
+		lp.setImportance(Importance.veryLow);
+		lp.setRangeType(RangeType.discrete);
+		lp.setProgressType(ProgressType.progressDone);
+		des.setLevelProgress(lp);*/
+		
+		_case.setDescription(des);
+		
+		
+		
+			
+		
+		CaseSolution sol = new CaseSolution();
+		
+		/*ItemSol time = new ItemSol(ScreenPos.TOP_RIGHT, Scale.VERY_SMALL, "tiempoChrono", ItemId.TIME);
+		sol.setSolItem(time, ItemId.TIME);*/
+		
+		ItemSol health = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "vidaContinua", ItemId.HEALTH);
+		sol.setSolItem(health, ItemId.HEALTH);
+		
+		ItemSol shields = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "escudosContinuos", ItemId.SHIELDS);
+		sol.setSolItem(shields, ItemId.SHIELDS);
+		
+		ItemSol score = new ItemSol(ScreenPos.TOP_LEFT, Scale.SMALL, "puntos", ItemId.SCORE);
+		sol.setSolItem(score, ItemId.SCORE);
+		
+		/*ItemSol collectable = new ItemSol(ScreenPos.TOP_LEFT, Scale.SMALL, "collectable", ItemId.COLLECTABLE);
+		sol.setSolItem(collectable, ItemId.COLLECTABLE);*/
+	
+		/*ItemSol characterProgress = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "progresoPersonajeContinuo", ItemId.CHARACTER_PROGRESS);
+		sol.setSolItem(characterProgress, ItemId.CHARACTER_PROGRESS);*/
+		
+		/*ItemSol CharacterInfo = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "informacionPersonaje", ItemId.CHARACTER_INFO);
+		sol.setSolItem(CharacterInfo, ItemId.CHARACTER_INFO);*/
+		
+		/*ItemSol weapons = new ItemSol(ScreenPos.TOP_LEFT, Scale.VERY_BIG, "armaInfinita", ItemId.WEAPONS);
+		sol.setSolItem(weapons, ItemId.WEAPONS);*/
+			
+		/*ItemSol abilities = new ItemSol(ScreenPos.BOTTOM_LEFT, Scale.BIG, "habilidadLimitada", ItemId.ABILITIES);
+		sol.setSolItem(abilities, ItemId.ABILITIES);*/
+		
+		/*ItemSol levelProgress = new ItemSol(ScreenPos.TOP_RIGHT, Scale.VERY_SMALL, "progresoNivelDiscreto", ItemId.LEVEL_PROGRESS);
+		sol.setSolItem(levelProgress, ItemId.LEVEL_PROGRESS);*/
+		
+		_case.setSolution(sol);
+		StoreCasesMethod.storeCase(caseBase, _case);
+		
+		--------------------------------------Velocity 2X
+		CBRCase _case = new CBRCase();
+		CaseDescription des = new CaseDescription();
+		
+		Time t = new Time();
+		t.setImportance(Importance.medium);
+		t.setTimeUse(TimeUse.countdown);
+		des.setTime(t);
+		
+		Health h = new Health();
+		h.setImportance(Importance.high);
+		h.setType(RangeType.continuous);
+		des.setHealth(h);
+		
+		Shields s = new Shields();
+		s.setImportance(Importance.high);
+		s.setType(RangeType.continuous);
+		des.setShields(s);
+		
+		Score sc = new Score();
+		sc.setImportance(Importance.low);
+		des.setScore(sc);
+		
+		Collectable c = new Collectable();
+		c.setImportance(Importance.low);
+		des.setCollectable(c);
+		
+		/*CharacterProgress cp = new CharacterProgress();
+		cp.setImportance(Importance.medium);
+		cp.setRangeType(RangeType.continuous);
+		des.setCharacterProgress(cp);*/
+		
+		/*CharacterInfo ci = new CharacterInfo();
+		ci.setImportance(Importance.high);
+		des.setCharacterinfo(ci);*/
+		
+		/*Weapons w = new Weapons();
+		w.setImportance(Importance.high);
+		w.setUseType(UseType.limited);
+		w.setnWeapons(1);
+		des.setWeapons(w);*/
+		
+		/*Abilities a = new Abilities();
+		a.setImportance(Importance.high);
+		a.setUseType(UseType.limited);
+		a.setnWeapons(2);
+		des.setAbilities(a);*/
+		
+		/*LevelProgress lp = new LevelProgress();
+		lp.setImportance(Importance.veryLow);
+		lp.setRangeType(RangeType.discrete);
+		lp.setProgressType(ProgressType.progressDone);
+		des.setLevelProgress(lp);*/
+		
+		_case.setDescription(des);
+		
+		
+		
+			
+		
+		CaseSolution sol = new CaseSolution();
+		
+		ItemSol time = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "tiempoCountdown", ItemId.TIME);
+		sol.setSolItem(time, ItemId.TIME);
+		
+		ItemSol health = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "vidaContinua", ItemId.HEALTH);
+		sol.setSolItem(health, ItemId.HEALTH);
+		
+		ItemSol shields = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "escudosContinuos", ItemId.SHIELDS);
+		sol.setSolItem(shields, ItemId.SHIELDS);
+		
+		ItemSol score = new ItemSol(ScreenPos.BOTTOM_RIGHT, Scale.SMALL, "puntos", ItemId.SCORE);
+		sol.setSolItem(score, ItemId.SCORE);
+		
+		ItemSol collectable = new ItemSol(ScreenPos.BOTTOM_RIGHT, Scale.SMALL, "collectable", ItemId.COLLECTABLE);
+		sol.setSolItem(collectable, ItemId.COLLECTABLE);
+	
+		/*ItemSol characterProgress = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "progresoPersonajeContinuo", ItemId.CHARACTER_PROGRESS);
+		sol.setSolItem(characterProgress, ItemId.CHARACTER_PROGRESS);*/
+		
+		/*ItemSol CharacterInfo = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "informacionPersonaje", ItemId.CHARACTER_INFO);
+		sol.setSolItem(CharacterInfo, ItemId.CHARACTER_INFO);*/
+		
+		/*ItemSol weapons = new ItemSol(ScreenPos.TOP_LEFT, Scale.VERY_BIG, "armaInfinita", ItemId.WEAPONS);
+		sol.setSolItem(weapons, ItemId.WEAPONS);*/
+			
+		/*ItemSol abilities = new ItemSol(ScreenPos.BOTTOM_LEFT, Scale.BIG, "habilidadLimitada", ItemId.ABILITIES);
+		sol.setSolItem(abilities, ItemId.ABILITIES);*/
+		
+		/*ItemSol levelProgress = new ItemSol(ScreenPos.TOP_RIGHT, Scale.VERY_SMALL, "progresoNivelDiscreto", ItemId.LEVEL_PROGRESS);
+		sol.setSolItem(levelProgress, ItemId.LEVEL_PROGRESS);*/
+		
+		_case.setSolution(sol);
+		StoreCasesMethod.storeCase(caseBase, _case);
+		
+		--------------------------------------Alex Kid in Miracle World DX
+		CBRCase _case = new CBRCase();
+		CaseDescription des = new CaseDescription();
+		
+		/*Time t = new Time();
+		t.setImportance(Importance.medium);
+		t.setTimeUse(TimeUse.countdown);
+		des.setTime(t);*/
+		
+		/*Health h = new Health();
+		h.setImportance(Importance.high);
+		h.setType(RangeType.continuous);
+		des.setHealth(h);*/
+		
+		/*Shields s = new Shields();
+		s.setImportance(Importance.high);
+		s.setType(RangeType.continuous);
+		des.setShields(s);*/
+		
+		Score sc = new Score();
+		sc.setImportance(Importance.high);
+		des.setScore(sc);
+		
+		/*Collectable c = new Collectable();
+		c.setImportance(Importance.low);
+		des.setCollectable(c);*/
+		
+		/*CharacterProgress cp = new CharacterProgress();
+		cp.setImportance(Importance.medium);
+		cp.setRangeType(RangeType.continuous);
+		des.setCharacterProgress(cp);*/
+		
+		/*CharacterInfo ci = new CharacterInfo();
+		ci.setImportance(Importance.high);
+		des.setCharacterinfo(ci);*/
+		
+		/*Weapons w = new Weapons();
+		w.setImportance(Importance.high);
+		w.setUseType(UseType.limited);
+		w.setnWeapons(1);
+		des.setWeapons(w);*/
+		
+		Abilities a = new Abilities();
+		a.setImportance(Importance.veryHigh);
+		a.setUseType(UseType.infinite);
+		a.setnWeapons(2);
+		des.setAbilities(a);
+		
+		/*LevelProgress lp = new LevelProgress();
+		lp.setImportance(Importance.veryLow);
+		lp.setRangeType(RangeType.discrete);
+		lp.setProgressType(ProgressType.progressDone);
+		des.setLevelProgress(lp);*/
+		
+		_case.setDescription(des);
+		
+		
+		
+			
+		
+		CaseSolution sol = new CaseSolution();
+		
+		/*ItemSol time = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "tiempoCountdown", ItemId.TIME);
+		sol.setSolItem(time, ItemId.TIME);*/
+		
+		/*ItemSol health = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "vidaContinua", ItemId.HEALTH);
+		sol.setSolItem(health, ItemId.HEALTH);*/
+		
+		/*ItemSol shields = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "escudosContinuos", ItemId.SHIELDS);
+		sol.setSolItem(shields, ItemId.SHIELDS);*/
+		
+		ItemSol score = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "puntos", ItemId.SCORE);
+		sol.setSolItem(score, ItemId.SCORE);
+		
+		/*ItemSol collectable = new ItemSol(ScreenPos.BOTTOM_RIGHT, Scale.SMALL, "collectable", ItemId.COLLECTABLE);
+		sol.setSolItem(collectable, ItemId.COLLECTABLE);*/
+	
+		/*ItemSol characterProgress = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "progresoPersonajeContinuo", ItemId.CHARACTER_PROGRESS);
+		sol.setSolItem(characterProgress, ItemId.CHARACTER_PROGRESS);*/
+		
+		/*ItemSol CharacterInfo = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "informacionPersonaje", ItemId.CHARACTER_INFO);
+		sol.setSolItem(CharacterInfo, ItemId.CHARACTER_INFO);*/
+		
+		/*ItemSol weapons = new ItemSol(ScreenPos.TOP_LEFT, Scale.VERY_BIG, "armaInfinita", ItemId.WEAPONS);
+		sol.setSolItem(weapons, ItemId.WEAPONS);*/
+			
+		ItemSol abilities = new ItemSol(ScreenPos.TOP_RIGHT, Scale.VERY_BIG, "habilidadInfinita", ItemId.ABILITIES);
+		sol.setSolItem(abilities, ItemId.ABILITIES);
+		
+		/*ItemSol levelProgress = new ItemSol(ScreenPos.TOP_RIGHT, Scale.VERY_SMALL, "progresoNivelDiscreto", ItemId.LEVEL_PROGRESS);
+		sol.setSolItem(levelProgress, ItemId.LEVEL_PROGRESS);*/
+		
+		_case.setSolution(sol);
+		StoreCasesMethod.storeCase(caseBase, _case);
+		
+		--------------------------------------Apotheon
+		CBRCase _case = new CBRCase();
+		CaseDescription des = new CaseDescription();
+		
+		/*Time t = new Time();
+		t.setImportance(Importance.medium);
+		t.setTimeUse(TimeUse.countdown);
+		des.setTime(t);*/
+		
+		Health h = new Health();
+		h.setImportance(Importance.low);
+		h.setType(RangeType.discrete);
+		des.setHealth(h);
+		
+		Shields s = new Shields();
+		s.setImportance(Importance.low);
+		s.setType(RangeType.discrete);
+		des.setShields(s);
+		
+		/*Score sc = new Score();
+		sc.setImportance(Importance.high);
+		des.setScore(sc);*/
+		
+		/*Collectable c = new Collectable();
+		c.setImportance(Importance.low);
+		des.setCollectable(c);*/
+		
+		/*CharacterProgress cp = new CharacterProgress();
+		cp.setImportance(Importance.medium);
+		cp.setRangeType(RangeType.continuous);
+		des.setCharacterProgress(cp);*/
+		
+		/*CharacterInfo ci = new CharacterInfo();
+		ci.setImportance(Importance.high);
+		des.setCharacterinfo(ci);*/
+		
+		/*Weapons w = new Weapons();
+		w.setImportance(Importance.high);
+		w.setUseType(UseType.limited);
+		w.setnWeapons(1);
+		des.setWeapons(w);*/
+		
+		Abilities a = new Abilities();
+		a.setImportance(Importance.veryHigh);
+		a.setUseType(UseType.infinite);
+		a.setnWeapons(2);
+		des.setAbilities(a);
+		
+		/*LevelProgress lp = new LevelProgress();
+		lp.setImportance(Importance.veryLow);
+		lp.setRangeType(RangeType.discrete);
+		lp.setProgressType(ProgressType.progressDone);
+		des.setLevelProgress(lp);*/
+		
+		_case.setDescription(des);
+		
+		
+		
+			
+		
+		CaseSolution sol = new CaseSolution();
+		
+		/*ItemSol time = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "tiempoCountdown", ItemId.TIME);
+		sol.setSolItem(time, ItemId.TIME);*/
+		
+		ItemSol health = new ItemSol(ScreenPos.BOTTOM_CENTER, Scale.SMALL, "vidaDiscreta", ItemId.HEALTH);
+		sol.setSolItem(health, ItemId.HEALTH);
+		
+		ItemSol shields = new ItemSol(ScreenPos.BOTTOM_CENTER, Scale.SMALL, "escudosDiscretos", ItemId.SHIELDS);
+		sol.setSolItem(shields, ItemId.SHIELDS);
+		
+		/*ItemSol score = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "puntos", ItemId.SCORE);
+		sol.setSolItem(score, ItemId.SCORE);*/
+		
+		/*ItemSol collectable = new ItemSol(ScreenPos.BOTTOM_RIGHT, Scale.SMALL, "collectable", ItemId.COLLECTABLE);
+		sol.setSolItem(collectable, ItemId.COLLECTABLE);*/
+	
+		/*ItemSol characterProgress = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "progresoPersonajeContinuo", ItemId.CHARACTER_PROGRESS);
+		sol.setSolItem(characterProgress, ItemId.CHARACTER_PROGRESS);*/
+		
+		/*ItemSol CharacterInfo = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "informacionPersonaje", ItemId.CHARACTER_INFO);
+		sol.setSolItem(CharacterInfo, ItemId.CHARACTER_INFO);*/
+		
+		/*ItemSol weapons = new ItemSol(ScreenPos.TOP_LEFT, Scale.VERY_BIG, "armaInfinita", ItemId.WEAPONS);
+		sol.setSolItem(weapons, ItemId.WEAPONS);*/
+			
+		ItemSol abilities = new ItemSol(ScreenPos.BOTTOM_RIGHT, Scale.BIG, "habilidadInfinita", ItemId.ABILITIES);
+		sol.setSolItem(abilities, ItemId.ABILITIES);
+		
+		/*ItemSol levelProgress = new ItemSol(ScreenPos.TOP_RIGHT, Scale.VERY_SMALL, "progresoNivelDiscreto", ItemId.LEVEL_PROGRESS);
+		sol.setSolItem(levelProgress, ItemId.LEVEL_PROGRESS);*/
+		
+		_case.setSolution(sol);
+		StoreCasesMethod.storeCase(caseBase, _case);
+		
+		--------------------------------------Hollow Knight
+		CBRCase _case = new CBRCase();
+		CaseDescription des = new CaseDescription();
+		
+		/*Time t = new Time();
+		t.setImportance(Importance.medium);
+		t.setTimeUse(TimeUse.countdown);
+		des.setTime(t);*/
+		
+		Health h = new Health();
+		h.setImportance(Importance.high);
+		h.setType(RangeType.discrete);
+		des.setHealth(h);
+		
+		Shields s = new Shields();
+		s.setImportance(Importance.low);
+		s.setType(RangeType.discrete);
+		des.setShields(s);
+		
+		/*Score sc = new Score();
+		sc.setImportance(Importance.high);
+		des.setScore(sc);*/
+		
+		/*Collectable c = new Collectable();
+		c.setImportance(Importance.low);
+		des.setCollectable(c);*/
+		
+		/*CharacterProgress cp = new CharacterProgress();
+		cp.setImportance(Importance.medium);
+		cp.setRangeType(RangeType.continuous);
+		des.setCharacterProgress(cp);*/
+		
+		/*CharacterInfo ci = new CharacterInfo();
+		ci.setImportance(Importance.high);
+		des.setCharacterinfo(ci);*/
+		
+		/*Weapons w = new Weapons();
+		w.setImportance(Importance.high);
+		w.setUseType(UseType.limited);
+		w.setnWeapons(1);
+		des.setWeapons(w);*/
+		
+		Abilities a = new Abilities();
+		a.setImportance(Importance.veryHigh);
+		a.setUseType(UseType.infinite);
+		a.setnWeapons(2);
+		des.setAbilities(a);
+		
+		/*LevelProgress lp = new LevelProgress();
+		lp.setImportance(Importance.veryLow);
+		lp.setRangeType(RangeType.discrete);
+		lp.setProgressType(ProgressType.progressDone);
+		des.setLevelProgress(lp);*/
+		
+		_case.setDescription(des);
+		
+		
+		
+			
+		
+		CaseSolution sol = new CaseSolution();
+		
+		/*ItemSol time = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "tiempoCountdown", ItemId.TIME);
+		sol.setSolItem(time, ItemId.TIME);*/
+		
+		ItemSol health = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "vidaDiscreta", ItemId.HEALTH);
+		sol.setSolItem(health, ItemId.HEALTH);
+		
+		ItemSol shields = new ItemSol(ScreenPos.TOP_LEFT, Scale.VERY_BIG, "escudosContinuos", ItemId.SHIELDS);
+		sol.setSolItem(shields, ItemId.SHIELDS);
+		
+		ItemSol score = new ItemSol(ScreenPos.TOP_LEFT, Scale.SMALL, "puntos", ItemId.SCORE);
+		sol.setSolItem(score, ItemId.SCORE);
+		
+		/*ItemSol collectable = new ItemSol(ScreenPos.BOTTOM_RIGHT, Scale.SMALL, "collectable", ItemId.COLLECTABLE);
+		sol.setSolItem(collectable, ItemId.COLLECTABLE);*/
+	
+		/*ItemSol characterProgress = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "progresoPersonajeContinuo", ItemId.CHARACTER_PROGRESS);
+		sol.setSolItem(characterProgress, ItemId.CHARACTER_PROGRESS);*/
+		
+		/*ItemSol CharacterInfo = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "informacionPersonaje", ItemId.CHARACTER_INFO);
+		sol.setSolItem(CharacterInfo, ItemId.CHARACTER_INFO);*/
+		
+		/*ItemSol weapons = new ItemSol(ScreenPos.TOP_LEFT, Scale.VERY_BIG, "armaInfinita", ItemId.WEAPONS);
+		sol.setSolItem(weapons, ItemId.WEAPONS);*/
+			
+		ItemSol abilities = new ItemSol(ScreenPos.BOTTOM_RIGHT, Scale.BIG, "habilidadInfinita", ItemId.ABILITIES);
+		sol.setSolItem(abilities, ItemId.ABILITIES);
+		
+		/*ItemSol levelProgress = new ItemSol(ScreenPos.TOP_RIGHT, Scale.VERY_SMALL, "progresoNivelDiscreto", ItemId.LEVEL_PROGRESS);
+		sol.setSolItem(levelProgress, ItemId.LEVEL_PROGRESS);*/
+		
+		_case.setSolution(sol);
+		StoreCasesMethod.storeCase(caseBase, _case);
+		
+		--------------------------------------Wonderboy: The Dragons Trap
+		CBRCase _case = new CBRCase();
+		CaseDescription des = new CaseDescription();
+		
+		/*Time t = new Time();
+		t.setImportance(Importance.medium);
+		t.setTimeUse(TimeUse.countdown);
+		des.setTime(t);*/
+		
+		Health h = new Health();
+		h.setImportance(Importance.high);
+		h.setType(RangeType.discrete);
+		des.setHealth(h);
+		
+		/*Shields s = new Shields();
+		s.setImportance(Importance.low);
+		s.setType(RangeType.discrete);
+		des.setShields(s);*/
+		
+		Score sc = new Score();
+		sc.setImportance(Importance.high);
+		des.setScore(sc);
+		
+		/*Collectable c = new Collectable();
+		c.setImportance(Importance.low);
+		des.setCollectable(c);*/
+		
+		/*CharacterProgress cp = new CharacterProgress();
+		cp.setImportance(Importance.medium);
+		cp.setRangeType(RangeType.continuous);
+		des.setCharacterProgress(cp);*/
+		
+		/*CharacterInfo ci = new CharacterInfo();
+		ci.setImportance(Importance.high);
+		des.setCharacterinfo(ci);*/
+		
+		/*Weapons w = new Weapons();
+		w.setImportance(Importance.high);
+		w.setUseType(UseType.limited);
+		w.setnWeapons(1);
+		des.setWeapons(w);*/
+		
+		Abilities a = new Abilities();
+		a.setImportance(Importance.high);
+		a.setUseType(UseType.limited);
+		a.setnWeapons(2);
+		des.setAbilities(a);
+		
+		/*LevelProgress lp = new LevelProgress();
+		lp.setImportance(Importance.veryLow);
+		lp.setRangeType(RangeType.discrete);
+		lp.setProgressType(ProgressType.progressDone);
+		des.setLevelProgress(lp);*/
+		
+		_case.setDescription(des);
+		
+		
+		
+			
+		
+		CaseSolution sol = new CaseSolution();
+		
+		/*ItemSol time = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "tiempoCountdown", ItemId.TIME);
+		sol.setSolItem(time, ItemId.TIME);*/
+		
+		ItemSol health = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "vidaDiscreta", ItemId.HEALTH);
+		sol.setSolItem(health, ItemId.HEALTH);
+		
+		/*ItemSol shields = new ItemSol(ScreenPos.TOP_LEFT, Scale.VERY_BIG, "escudosContinuos", ItemId.SHIELDS);
+		sol.setSolItem(shields, ItemId.SHIELDS);*/
+		
+		ItemSol score = new ItemSol(ScreenPos.TOP_RIGHT, Scale.BIG, "puntos", ItemId.SCORE);
+		sol.setSolItem(score, ItemId.SCORE);
+		
+		/*ItemSol collectable = new ItemSol(ScreenPos.BOTTOM_RIGHT, Scale.SMALL, "collectable", ItemId.COLLECTABLE);
+		sol.setSolItem(collectable, ItemId.COLLECTABLE);*/
+	
+		/*ItemSol characterProgress = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "progresoPersonajeContinuo", ItemId.CHARACTER_PROGRESS);
+		sol.setSolItem(characterProgress, ItemId.CHARACTER_PROGRESS);*/
+		
+		/*ItemSol CharacterInfo = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "informacionPersonaje", ItemId.CHARACTER_INFO);
+		sol.setSolItem(CharacterInfo, ItemId.CHARACTER_INFO);*/
+		
+		/*ItemSol weapons = new ItemSol(ScreenPos.TOP_LEFT, Scale.VERY_BIG, "armaInfinita", ItemId.WEAPONS);
+		sol.setSolItem(weapons, ItemId.WEAPONS);*/
+			
+		ItemSol abilities = new ItemSol(ScreenPos.TOP_RIGHT, Scale.BIG, "habilidadLimitada", ItemId.ABILITIES);
+		sol.setSolItem(abilities, ItemId.ABILITIES);
+		
+		/*ItemSol levelProgress = new ItemSol(ScreenPos.TOP_RIGHT, Scale.VERY_SMALL, "progresoNivelDiscreto", ItemId.LEVEL_PROGRESS);
+		sol.setSolItem(levelProgress, ItemId.LEVEL_PROGRESS);*/
+		
+		_case.setSolution(sol);
+		StoreCasesMethod.storeCase(caseBase, _case);
+		
+		--------------------------------------SpongeBob: Patty Pursuit
+		CBRCase _case = new CBRCase();
+		CaseDescription des = new CaseDescription();
+		
+		/*Time t = new Time();
+		t.setImportance(Importance.medium);
+		t.setTimeUse(TimeUse.countdown);
+		des.setTime(t);*/
+		
+		/*Health h = new Health();
+		h.setImportance(Importance.high);
+		h.setType(RangeType.discrete);
+		des.setHealth(h);*/
+		
+		/*Shields s = new Shields();
+		s.setImportance(Importance.low);
+		s.setType(RangeType.discrete);
+		des.setShields(s);*/
+		
+		Score sc = new Score();
+		sc.setImportance(Importance.high);
+		des.setScore(sc);
+		
+		Collectable c = new Collectable();
+		c.setImportance(Importance.high);
+		des.setCollectable(c);
+		
+		/*CharacterProgress cp = new CharacterProgress();
+		cp.setImportance(Importance.medium);
+		cp.setRangeType(RangeType.continuous);
+		des.setCharacterProgress(cp);*/
+		
+		/*CharacterInfo ci = new CharacterInfo();
+		ci.setImportance(Importance.high);
+		des.setCharacterinfo(ci);*/
+		
+		/*Weapons w = new Weapons();
+		w.setImportance(Importance.high);
+		w.setUseType(UseType.limited);
+		w.setnWeapons(1);
+		des.setWeapons(w);*/
+		
+		/*Abilities a = new Abilities();
+		a.setImportance(Importance.high);
+		a.setUseType(UseType.limited);
+		a.setnWeapons(2);
+		des.setAbilities(a);*/
+		
+		/*LevelProgress lp = new LevelProgress();
+		lp.setImportance(Importance.veryLow);
+		lp.setRangeType(RangeType.discrete);
+		lp.setProgressType(ProgressType.progressDone);
+		des.setLevelProgress(lp);*/
+		
+		_case.setDescription(des);
+		
+		
+		
+			
+		
+		CaseSolution sol = new CaseSolution();
+		
+		/*ItemSol time = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "tiempoCountdown", ItemId.TIME);
+		sol.setSolItem(time, ItemId.TIME);*/
+		
+		/*ItemSol health = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "vidaDiscreta", ItemId.HEALTH);
+		sol.setSolItem(health, ItemId.HEALTH);*/
+		
+		/*ItemSol shields = new ItemSol(ScreenPos.TOP_LEFT, Scale.VERY_BIG, "escudosContinuos", ItemId.SHIELDS);
+		sol.setSolItem(shields, ItemId.SHIELDS);*/
+		
+		ItemSol score = new ItemSol(ScreenPos.TOP_RIGHT, Scale.BIG, "puntos", ItemId.SCORE);
+		sol.setSolItem(score, ItemId.SCORE);
+		
+		ItemSol collectable = new ItemSol(ScreenPos.TOP_RIGHT, Scale.SMALL, "collectable", ItemId.COLLECTABLE);
+		sol.setSolItem(collectable, ItemId.COLLECTABLE);
+	
+		/*ItemSol characterProgress = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "progresoPersonajeContinuo", ItemId.CHARACTER_PROGRESS);
+		sol.setSolItem(characterProgress, ItemId.CHARACTER_PROGRESS);*/
+		
+		/*ItemSol CharacterInfo = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "informacionPersonaje", ItemId.CHARACTER_INFO);
+		sol.setSolItem(CharacterInfo, ItemId.CHARACTER_INFO);*/
+		
+		/*ItemSol weapons = new ItemSol(ScreenPos.TOP_LEFT, Scale.VERY_BIG, "armaInfinita", ItemId.WEAPONS);
+		sol.setSolItem(weapons, ItemId.WEAPONS);*/
+			
+		/*ItemSol abilities = new ItemSol(ScreenPos.TOP_RIGHT, Scale.BIG, "habilidadLimitada", ItemId.ABILITIES);
+		sol.setSolItem(abilities, ItemId.ABILITIES);*/
+		
+		/*ItemSol levelProgress = new ItemSol(ScreenPos.TOP_RIGHT, Scale.VERY_SMALL, "progresoNivelDiscreto", ItemId.LEVEL_PROGRESS);
+		sol.setSolItem(levelProgress, ItemId.LEVEL_PROGRESS);*/
+		
+		_case.setSolution(sol);
+		StoreCasesMethod.storeCase(caseBase, _case);
+		
+		--------------------------------------10 Second Ninja X
+		CBRCase _case = new CBRCase();
+		CaseDescription des = new CaseDescription();
+		
+		Time t = new Time();
+		t.setImportance(Importance.veryHigh);
+		t.setTimeUse(TimeUse.countdown);
+		des.setTime(t);
+		
+		/*Health h = new Health();
+		h.setImportance(Importance.high);
+		h.setType(RangeType.discrete);
+		des.setHealth(h);*/
+		
+		/*Shields s = new Shields();
+		s.setImportance(Importance.low);
+		s.setType(RangeType.discrete);
+		des.setShields(s);*/
+		
+		/*Score sc = new Score();
+		sc.setImportance(Importance.high);
+		des.setScore(sc);*/
+		
+		Collectable c = new Collectable();
+		c.setImportance(Importance.medium);
+		des.setCollectable(c);
+		
+		/*CharacterProgress cp = new CharacterProgress();
+		cp.setImportance(Importance.medium);
+		cp.setRangeType(RangeType.continuous);
+		des.setCharacterProgress(cp);*/
+		
+		/*CharacterInfo ci = new CharacterInfo();
+		ci.setImportance(Importance.high);
+		des.setCharacterinfo(ci);*/
+		
+		/*Weapons w = new Weapons();
+		w.setImportance(Importance.high);
+		w.setUseType(UseType.limited);
+		w.setnWeapons(1);
+		des.setWeapons(w);*/
+		
+		Abilities a = new Abilities();
+		a.setImportance(Importance.high);
+		a.setUseType(UseType.limited);
+		a.setnWeapons(3);
+		des.setAbilities(a);
+		
+		/*LevelProgress lp = new LevelProgress();
+		lp.setImportance(Importance.veryLow);
+		lp.setRangeType(RangeType.discrete);
+		lp.setProgressType(ProgressType.progressDone);
+		des.setLevelProgress(lp);*/
+		
+		_case.setDescription(des);
+		
+		
+		
+			
+		
+		CaseSolution sol = new CaseSolution();
+		
+		ItemSol time = new ItemSol(ScreenPos.TOP_CENTER, Scale.VERY_BIG, "tiempoCountdown", ItemId.TIME);
+		sol.setSolItem(time, ItemId.TIME);
+		
+		/*ItemSol health = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "vidaDiscreta", ItemId.HEALTH);
+		sol.setSolItem(health, ItemId.HEALTH);*/
+		
+		/*ItemSol shields = new ItemSol(ScreenPos.TOP_LEFT, Scale.VERY_BIG, "escudosContinuos", ItemId.SHIELDS);
+		sol.setSolItem(shields, ItemId.SHIELDS);*/
+		
+		/*ItemSol score = new ItemSol(ScreenPos.TOP_RIGHT, Scale.BIG, "puntos", ItemId.SCORE);
+		sol.setSolItem(score, ItemId.SCORE);*/
+		
+		ItemSol collectable = new ItemSol(ScreenPos.TOP_RIGHT, Scale.MEDIUM, "collectable", ItemId.COLLECTABLE);
+		sol.setSolItem(collectable, ItemId.COLLECTABLE);
+	
+		/*ItemSol characterProgress = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "progresoPersonajeContinuo", ItemId.CHARACTER_PROGRESS);
+		sol.setSolItem(characterProgress, ItemId.CHARACTER_PROGRESS);*/
+		
+		/*ItemSol CharacterInfo = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "informacionPersonaje", ItemId.CHARACTER_INFO);
+		sol.setSolItem(CharacterInfo, ItemId.CHARACTER_INFO);*/
+		
+		/*ItemSol weapons = new ItemSol(ScreenPos.TOP_LEFT, Scale.VERY_BIG, "armaInfinita", ItemId.WEAPONS);
+		sol.setSolItem(weapons, ItemId.WEAPONS);*/
+			
+		ItemSol abilities = new ItemSol(ScreenPos.TOP_CENTER, Scale.BIG, "habilidadLimitada", ItemId.ABILITIES);
+		sol.setSolItem(abilities, ItemId.ABILITIES);
+		
+		/*ItemSol levelProgress = new ItemSol(ScreenPos.TOP_RIGHT, Scale.VERY_SMALL, "progresoNivelDiscreto", ItemId.LEVEL_PROGRESS);
+		sol.setSolItem(levelProgress, ItemId.LEVEL_PROGRESS);*/
+		
+		_case.setSolution(sol);
+		StoreCasesMethod.storeCase(caseBase, _case);
+		
+		--------------------------------------Rogue Legacy
+		CBRCase _case = new CBRCase();
+		CaseDescription des = new CaseDescription();
+		
+		/*Time t = new Time();
+		t.setImportance(Importance.veryHigh);
+		t.setTimeUse(TimeUse.countdown);
+		des.setTime(t);*/
+		
+		Health h = new Health();
+		h.setImportance(Importance.veryHigh);
+		h.setType(RangeType.continuous);
+		des.setHealth(h);
+		
+		Shields s = new Shields();
+		s.setImportance(Importance.high);
+		s.setType(RangeType.continuous);
+		des.setShields(s);
+		
+		Score sc = new Score();
+		sc.setImportance(Importance.low);
+		des.setScore(sc);
+		
+		/*Collectable c = new Collectable();
+		c.setImportance(Importance.medium);
+		des.setCollectable(c);*/
+		
+		/*CharacterProgress cp = new CharacterProgress();
+		cp.setImportance(Importance.medium);
+		cp.setRangeType(RangeType.continuous);
+		des.setCharacterProgress(cp);*/
+		
+		/*CharacterInfo ci = new CharacterInfo();
+		ci.setImportance(Importance.high);
+		des.setCharacterinfo(ci);*/
+		
+		/*Weapons w = new Weapons();
+		w.setImportance(Importance.high);
+		w.setUseType(UseType.limited);
+		w.setnWeapons(1);
+		des.setWeapons(w);*/
+		
+		Abilities a = new Abilities();
+		a.setImportance(Importance.high);
+		a.setUseType(UseType.limited);
+		a.setnWeapons(2);
+		des.setAbilities(a);
+		
+		/*LevelProgress lp = new LevelProgress();
+		lp.setImportance(Importance.veryLow);
+		lp.setRangeType(RangeType.discrete);
+		lp.setProgressType(ProgressType.progressDone);
+		des.setLevelProgress(lp);*/
+		
+		_case.setDescription(des);
+		
+		
+		
+			
+		
+		CaseSolution sol = new CaseSolution();
+		
+		/*ItemSol time = new ItemSol(ScreenPos.TOP_CENTER, Scale.VERY_BIG, "tiempoCountdown", ItemId.TIME);
+		sol.setSolItem(time, ItemId.TIME);*/
+		
+		ItemSol health = new ItemSol(ScreenPos.TOP_LEFT, Scale.VERY_BIG, "vidaContinua", ItemId.HEALTH);
+		sol.setSolItem(health, ItemId.HEALTH);
+		
+		ItemSol shields = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "escudosContinuos", ItemId.SHIELDS);
+		sol.setSolItem(shields, ItemId.SHIELDS);
+		
+		ItemSol score = new ItemSol(ScreenPos.TOP_LEFT, Scale.SMALL, "puntos", ItemId.SCORE);
+		sol.setSolItem(score, ItemId.SCORE);
+		
+		/*ItemSol collectable = new ItemSol(ScreenPos.TOP_RIGHT, Scale.MEDIUM, "collectable", ItemId.COLLECTABLE);
+		sol.setSolItem(collectable, ItemId.COLLECTABLE);*/
+	
+		/*ItemSol characterProgress = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "progresoPersonajeContinuo", ItemId.CHARACTER_PROGRESS);
+		sol.setSolItem(characterProgress, ItemId.CHARACTER_PROGRESS);*/
+		
+		/*ItemSol CharacterInfo = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "informacionPersonaje", ItemId.CHARACTER_INFO);
+		sol.setSolItem(CharacterInfo, ItemId.CHARACTER_INFO);*/
+		
+		/*ItemSol weapons = new ItemSol(ScreenPos.TOP_LEFT, Scale.VERY_BIG, "armaInfinita", ItemId.WEAPONS);
+		sol.setSolItem(weapons, ItemId.WEAPONS);*/
+			
+		ItemSol abilities = new ItemSol(ScreenPos.TOP_RIGHT, Scale.BIG, "habilidadLimitada", ItemId.ABILITIES);
+		sol.setSolItem(abilities, ItemId.ABILITIES);
+		
+		/*ItemSol levelProgress = new ItemSol(ScreenPos.TOP_RIGHT, Scale.VERY_SMALL, "progresoNivelDiscreto", ItemId.LEVEL_PROGRESS);
+		sol.setSolItem(levelProgress, ItemId.LEVEL_PROGRESS);*/
+		
+		_case.setSolution(sol);
+		StoreCasesMethod.storeCase(caseBase, _case);
+		

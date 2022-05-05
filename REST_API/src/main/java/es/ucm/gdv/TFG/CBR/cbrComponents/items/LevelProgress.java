@@ -21,6 +21,14 @@ public class LevelProgress extends Item {
 	}
 	
 	@Override
+	public void fromString(String content) throws Exception {
+		String[] splited = content.split("\\|");
+		super.fromString(splited[0]);
+		this.rangeType = RangeType.valueOf(splited[1]);
+		this.progressType = ProgressType.valueOf(splited[2]);
+	}
+	
+	@Override
 	public String toString() {
 		String s = super.toString();
 		return s + "|" + this.rangeType.toString() + "|" + this.progressType;

@@ -23,12 +23,21 @@ import es.ucm.gdv.TFG.CBR.cbrComponents.CaseSolution;
 import es.ucm.gdv.TFG.CBR.cbrComponents.ItemSol;
 import es.ucm.gdv.TFG.CBR.cbrComponents.ItemSol.Scale;
 import es.ucm.gdv.TFG.CBR.cbrComponents.ItemSol.ScreenPos;
+import es.ucm.gdv.TFG.CBR.cbrComponents.items.Abilities;
+import es.ucm.gdv.TFG.CBR.cbrComponents.items.CharacterInfo;
+import es.ucm.gdv.TFG.CBR.cbrComponents.items.Collectable;
 import es.ucm.gdv.TFG.CBR.cbrComponents.items.Health;
-import es.ucm.gdv.TFG.CBR.cbrComponents.items.Item;
 import es.ucm.gdv.TFG.CBR.cbrComponents.items.ItemId;
+import es.ucm.gdv.TFG.CBR.cbrComponents.items.LevelProgress;
 import es.ucm.gdv.TFG.CBR.cbrComponents.items.Score;
+import es.ucm.gdv.TFG.CBR.cbrComponents.items.Shields;
+import es.ucm.gdv.TFG.CBR.cbrComponents.items.Time;
+import es.ucm.gdv.TFG.CBR.cbrComponents.items.Weapons;
 import es.ucm.gdv.TFG.REST_API.Importance;
 import es.ucm.gdv.TFG.REST_API.RangeType;
+import es.ucm.gdv.TFG.REST_API.UseType;
+import es.ucm.gdv.TFG.REST_API.platform2D.LevelProgress.ProgressType;
+import es.ucm.gdv.TFG.REST_API.platform2D.Time.TimeUse;
 
 public class CBREngine implements StandardCBRApplication  {
 
@@ -82,32 +91,99 @@ public class CBREngine implements StandardCBRApplication  {
 		caseBase.init(connector);
 		
 		//----------------------- CASO DE PRUEBA -----------------------------
-		CBRCase _case = new CBRCase();
+		//CBRCase _case = new CBRCase();
+		//CaseDescription des = new CaseDescription();
 		
-		CaseDescription des = new CaseDescription();
-		Health h = new Health();
-		h.setImportance(Importance.low);
+		/*Time t = new Time();
+		t.setImportance(Importance.veryHigh);
+		t.setTimeUse(TimeUse.countdown);
+		des.setTime(t);*/
+		
+		/*Health h = new Health();
+		h.setImportance(Importance.veryHigh);
 		h.setType(RangeType.continuous);
-		des.setHealth(h);
+		des.setHealth(h);*/
 		
-		/*Score s = new Score();
-		s.setImportance(Importance.low);
-		des.setScore(s);*/
+		/*Shields s = new Shields();
+		s.setImportance(Importance.high);
+		s.setType(RangeType.continuous);
+		des.setShields(s);
 		
-		_case.setDescription(des);
+		Score sc = new Score();
+		sc.setImportance(Importance.low);
+		des.setScore(sc);*/
 		
-		CaseSolution sol = new CaseSolution();
+		/*Collectable c = new Collectable();
+		c.setImportance(Importance.medium);
+		des.setCollectable(c);*/
 		
-		ItemSol health = new ItemSol(ScreenPos.TOP_LEFT, Scale.SMALL, "vidaContinua", ItemId.HEALTH);
-		sol.setSolItem(health, ItemId.HEALTH);
+		/*CharacterProgress cp = new CharacterProgress();
+		cp.setImportance(Importance.medium);
+		cp.setRangeType(RangeType.continuous);
+		des.setCharacterProgress(cp);*/
 		
-		/*ItemSol score = new ItemSol(ScreenPos.TOP_RIGHT, Scale.SMALL, "puntos", ItemId.SCORE);
+		/*CharacterInfo ci = new CharacterInfo();
+		ci.setImportance(Importance.high);
+		des.setCharacterinfo(ci);*/
+		
+		/*Weapons w = new Weapons();
+		w.setImportance(Importance.high);
+		w.setUseType(UseType.limited);
+		w.setnWeapons(1);
+		des.setWeapons(w);*/
+		
+		/*Abilities a = new Abilities();
+		a.setImportance(Importance.high);
+		a.setUseType(UseType.limited);
+		a.setnWeapons(2);
+		des.setAbilities(a);*/
+		
+		/*LevelProgress lp = new LevelProgress();
+		lp.setImportance(Importance.veryLow);
+		lp.setRangeType(RangeType.discrete);
+		lp.setProgressType(ProgressType.progressDone);
+		des.setLevelProgress(lp);*/
+		
+		//_case.setDescription(des);
+		
+		
+		
+			
+		
+		//CaseSolution sol = new CaseSolution();
+		
+		/*ItemSol time = new ItemSol(ScreenPos.TOP_CENTER, Scale.VERY_BIG, "tiempoCountdown", ItemId.TIME);
+		sol.setSolItem(time, ItemId.TIME);*/
+		
+		/*ItemSol health = new ItemSol(ScreenPos.TOP_LEFT, Scale.VERY_BIG, "vidaContinua", ItemId.HEALTH);
+		sol.setSolItem(health, ItemId.HEALTH);*/
+		
+		/*ItemSol shields = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "escudosContinuos", ItemId.SHIELDS);
+		sol.setSolItem(shields, ItemId.SHIELDS);*/
+		
+		/*ItemSol score = new ItemSol(ScreenPos.TOP_LEFT, Scale.SMALL, "puntos", ItemId.SCORE);
 		sol.setSolItem(score, ItemId.SCORE);*/
 		
-		_case.setSolution(sol);
+		/*ItemSol collectable = new ItemSol(ScreenPos.TOP_RIGHT, Scale.MEDIUM, "collectable", ItemId.COLLECTABLE);
+		sol.setSolItem(collectable, ItemId.COLLECTABLE);*/
+	
+		/*ItemSol characterProgress = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "progresoPersonajeContinuo", ItemId.CHARACTER_PROGRESS);
+		sol.setSolItem(characterProgress, ItemId.CHARACTER_PROGRESS);*/
 		
-		StoreCasesMethod.storeCase(caseBase, _case);
+		/*ItemSol CharacterInfo = new ItemSol(ScreenPos.TOP_LEFT, Scale.BIG, "informacionPersonaje", ItemId.CHARACTER_INFO);
+		sol.setSolItem(CharacterInfo, ItemId.CHARACTER_INFO);*/
+		
+		/*ItemSol weapons = new ItemSol(ScreenPos.TOP_LEFT, Scale.VERY_BIG, "armaInfinita", ItemId.WEAPONS);
+		sol.setSolItem(weapons, ItemId.WEAPONS);*/
 			
+		/*ItemSol abilities = new ItemSol(ScreenPos.TOP_RIGHT, Scale.BIG, "habilidadLimitada", ItemId.ABILITIES);
+		sol.setSolItem(abilities, ItemId.ABILITIES);*/
+		
+		/*ItemSol levelProgress = new ItemSol(ScreenPos.TOP_RIGHT, Scale.VERY_SMALL, "progresoNivelDiscreto", ItemId.LEVEL_PROGRESS);
+		sol.setSolItem(levelProgress, ItemId.LEVEL_PROGRESS);*/
+		
+		/*_case.setSolution(sol);
+		StoreCasesMethod.storeCase(caseBase, _case);*/
 		//---------------------------------------------------------------------
 		
 		return caseBase;

@@ -47,7 +47,7 @@ public class PlatformController {
 		}
 		caseDes.setScore(score);
 		
-		/*Shields shield = null;
+		Shields shield = null;
 		if(i.getShields() != null){
 			shield = new Shields();
 			shield.setImportance(i.getShields().getImportance());
@@ -99,7 +99,7 @@ public class PlatformController {
 			characterInfo = new CharacterInfo();
 			characterInfo.setImportance(i.getCharacterinfo().getImportance());
 		}
-		caseDes.setCharacterInfo(characterInfo);
+		caseDes.setCharacterinfo(characterInfo);
 		
 		Abilities abilities = null;
 		if(i.getAbilities() != null){
@@ -108,7 +108,7 @@ public class PlatformController {
 			abilities.setnWeapons(i.getAbilities().getnWeapons());
 			abilities.setUseType(i.getAbilities().getUse());
 		}
-		caseDes.setAbilities(abilities);*/
+		caseDes.setAbilities(abilities);
 		
 		CBRQuery query = new CBRQuery();
 		query.setDescription(caseDes);
