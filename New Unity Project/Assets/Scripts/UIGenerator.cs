@@ -19,18 +19,18 @@ public class UIGenerator : MonoBehaviour
     private GameObject _UIImage;
 
     //Imágenes
-    public Sprite vidaDiscreta;
-    public Sprite vidaContinua;
-    public Sprite puntuacion;
+    public Sprite discreteLife;
+    public Sprite continuousLife;
+    public Sprite score;
     private Dictionary<string, Sprite> imgs;
 
     public void generateUI()
     {
         imgs = new Dictionary<string, Sprite>
         {
-            {"vidaContinua", vidaContinua},
-            {"vidaDiscreta", vidaDiscreta},
-            {"puntos", puntuacion}
+            {"vidaContinua", continuousLife},
+            {"vidaDiscreta", discreteLife},
+            {"puntos", score}
         };
 
         foreach (Transform child in transform)
