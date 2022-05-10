@@ -23,11 +23,11 @@ import es.ucm.gdv.TFG.CBR.cbrEngine.SolCBR;
 import es.ucm.gdv.TFG.REST_API.platform2D.PlatformQuery;
 
 @RestController
-public class GreetingController {
+public class PlatformController {
 	private static int id = 0;
 	
 	@PostMapping("/platform")
-	public SolCBR prueba(@RequestBody PlatformQuery i) {
+	public SolCBR query(@RequestBody PlatformQuery i) {
 		CaseDescription caseDes = new CaseDescription();
 		caseDes.setId(id);
 		
@@ -47,7 +47,7 @@ public class GreetingController {
 		}
 		caseDes.setScore(score);
 		
-		/*Shields shield = null;
+		Shields shield = null;
 		if(i.getShields() != null){
 			shield = new Shields();
 			shield.setImportance(i.getShields().getImportance());
@@ -99,7 +99,7 @@ public class GreetingController {
 			characterInfo = new CharacterInfo();
 			characterInfo.setImportance(i.getCharacterinfo().getImportance());
 		}
-		caseDes.setCharacterInfo(characterInfo);
+		caseDes.setCharacterinfo(characterInfo);
 		
 		Abilities abilities = null;
 		if(i.getAbilities() != null){
@@ -108,7 +108,7 @@ public class GreetingController {
 			abilities.setnWeapons(i.getAbilities().getnWeapons());
 			abilities.setUseType(i.getAbilities().getUse());
 		}
-		caseDes.setAbilities(abilities);*/
+		caseDes.setAbilities(abilities);
 		
 		CBRQuery query = new CBRQuery();
 		query.setDescription(caseDes);
