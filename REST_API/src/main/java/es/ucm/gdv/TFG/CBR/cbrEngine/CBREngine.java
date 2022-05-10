@@ -16,28 +16,9 @@ import es.ucm.fdi.gaia.jcolibri.method.retrieve.NNretrieval.NNScoringMethod;
 import es.ucm.fdi.gaia.jcolibri.method.retrieve.NNretrieval.similarity.global.Average;
 import es.ucm.fdi.gaia.jcolibri.method.retrieve.selection.SelectCases;
 import es.ucm.fdi.gaia.jcolibri.util.FileIO;
-import es.ucm.gdv.TFG.CBR.cbrComparators.HealthComparator;
-import es.ucm.gdv.TFG.CBR.cbrComparators.ScoreComparator;
+import es.ucm.gdv.TFG.CBR.cbrComparators.*;
 import es.ucm.gdv.TFG.CBR.cbrComponents.CaseDescription;
 import es.ucm.gdv.TFG.CBR.cbrComponents.CaseSolution;
-import es.ucm.gdv.TFG.CBR.cbrComponents.ItemSol;
-import es.ucm.gdv.TFG.CBR.cbrComponents.ItemSol.Scale;
-import es.ucm.gdv.TFG.CBR.cbrComponents.ItemSol.ScreenPos;
-import es.ucm.gdv.TFG.CBR.cbrComponents.items.Abilities;
-import es.ucm.gdv.TFG.CBR.cbrComponents.items.CharacterInfo;
-import es.ucm.gdv.TFG.CBR.cbrComponents.items.Collectable;
-import es.ucm.gdv.TFG.CBR.cbrComponents.items.Health;
-import es.ucm.gdv.TFG.CBR.cbrComponents.items.ItemId;
-import es.ucm.gdv.TFG.CBR.cbrComponents.items.LevelProgress;
-import es.ucm.gdv.TFG.CBR.cbrComponents.items.Score;
-import es.ucm.gdv.TFG.CBR.cbrComponents.items.Shields;
-import es.ucm.gdv.TFG.CBR.cbrComponents.items.Time;
-import es.ucm.gdv.TFG.CBR.cbrComponents.items.Weapons;
-import es.ucm.gdv.TFG.REST_API.Importance;
-import es.ucm.gdv.TFG.REST_API.RangeType;
-import es.ucm.gdv.TFG.REST_API.UseType;
-import es.ucm.gdv.TFG.REST_API.platform2D.LevelProgress.ProgressType;
-import es.ucm.gdv.TFG.REST_API.platform2D.Time.TimeUse;
 
 public class CBREngine implements StandardCBRApplication  {
 
@@ -84,6 +65,14 @@ public class CBREngine implements StandardCBRApplication  {
 		simConfig.setDescriptionSimFunction(new Average());
 		simConfig.addMapping(new Attribute("health",CaseDescription.class), new HealthComparator());	
 		simConfig.addMapping(new Attribute("score",CaseDescription.class), new ScoreComparator());
+		simConfig.addMapping(new Attribute("abilities", CaseDescription.class), new AbilitiesComparator());
+		simConfig.addMapping(new Attribute("characterInfo", CaseDescription.class), new CharacterInfoComparator());
+		simConfig.addMapping(new Attribute("characterProgress", CaseDescription.class), new CharacterProgressComparator());
+		simConfig.addMapping(new Attribute("collectable", CaseDescription.class), new CollectableComparator());
+		simConfig.addMapping(new Attribute("levelProgress", CaseDescription.class), new LevelProgressComparator());
+		simConfig.addMapping(new Attribute("shields", CaseDescription.class), new ShieldsComparator());
+		simConfig.addMapping(new Attribute("time", CaseDescription.class), new TimeComparator());
+		simConfig.addMapping(new Attribute("weapons", CaseDescription.class), new WeaponsComparator());
 	}
 
 	@Override
