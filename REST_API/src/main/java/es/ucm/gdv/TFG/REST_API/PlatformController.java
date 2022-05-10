@@ -55,11 +55,13 @@ public class PlatformController {
 		}
 		caseDes.setShields(shield);
 		
-		Time time = new Time();
-		time.setImportance(i.getTime().getImportance());
-		time.setTimeUse(i.getTime().getUse());
+		Time time = null;
+		if(i.getTime() != null) {
+			time = new Time();
+			time.setImportance(i.getTime().getImportance());
+			time.setTimeUse(i.getTime().getUse());
+		}
 		caseDes.setTime(time);
-		
 		
 		Weapons weapons = null;
 		if(i.getWeapons() != null){

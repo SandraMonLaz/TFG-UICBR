@@ -116,6 +116,7 @@ function checkPlatfrom(){
       })
     .then(function (response) {
           //handle success
+          download(JSON.stringify(response.data,undefined,2), "yourfile.json", "text/plain");
           console.log(response);
     })
     .catch(function (response) {
@@ -137,3 +138,11 @@ window.onload = function (){
         headers: {'X-Custom-Header': 'foobar'}
       });
 }
+
+function download(content, fileName, contentType) {
+    const a = document.createElement("a");
+    const file = new Blob([content], { type: contentType });
+    a.href = URL.createObjectURL(file);
+    a.download = fileName;
+    a.click();
+  }
