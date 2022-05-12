@@ -66,7 +66,7 @@ public class CBREngine implements StandardCBRApplication  {
 		simConfig.addMapping(new Attribute("health",CaseDescription.class), new HealthComparator());	
 		simConfig.addMapping(new Attribute("score",CaseDescription.class), new ScoreComparator());
 		simConfig.addMapping(new Attribute("abilities", CaseDescription.class), new AbilitiesComparator());
-		simConfig.addMapping(new Attribute("characterInfo", CaseDescription.class), new CharacterInfoComparator());
+		simConfig.addMapping(new Attribute("characterinfo", CaseDescription.class), new CharacterInfoComparator());
 		simConfig.addMapping(new Attribute("characterProgress", CaseDescription.class), new CharacterProgressComparator());
 		simConfig.addMapping(new Attribute("collectable", CaseDescription.class), new CollectableComparator());
 		simConfig.addMapping(new Attribute("levelProgress", CaseDescription.class), new LevelProgressComparator());
