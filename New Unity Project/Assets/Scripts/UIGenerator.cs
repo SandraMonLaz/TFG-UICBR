@@ -513,7 +513,7 @@ public class UIGenerator : MonoBehaviour
             {
                 RectTransform itemRectTr = groupRectTr.GetChild(j).GetComponent<RectTransform>();
                 itemRectTr.pivot = anchor;
-                itemRectTr.anchoredPosition = Vector2.zero;
+                itemRectTr.anchoredPosition *= -1f;
             }
         }
     }
@@ -543,7 +543,7 @@ public class UIGenerator : MonoBehaviour
             {
                 RectTransform itemRectTr = groupRectTr.GetChild(j).GetComponent<RectTransform>();
                 itemRectTr.pivot = anchor;
-                itemRectTr.anchoredPosition = Vector2.zero;
+                itemRectTr.anchoredPosition *= -1f;
             }
         }
     }
@@ -573,7 +573,7 @@ public class UIGenerator : MonoBehaviour
             {
                 RectTransform itemRectTr = groupRectTr.GetChild(j).GetComponent<RectTransform>();
                 itemRectTr.pivot = anchor;
-                itemRectTr.anchoredPosition = Vector2.zero;
+                itemRectTr.anchoredPosition *= -1f;
             }
         }
     }
