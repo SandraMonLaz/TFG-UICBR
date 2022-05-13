@@ -22,6 +22,21 @@ public class UIGenerator : MonoBehaviour
     public Sprite discreteLife;
     public Sprite continuousLife;
     public Sprite score;
+    public Sprite discreteShieldsMana;
+    public Sprite continuousShieldsMana;
+    public Sprite infiniteWeapon;
+    public Sprite limitedWeapon;
+    public Sprite collectable;
+    public Sprite infiniteAbility;
+    public Sprite limitedAbility;
+    public Sprite characterInfo;
+    public Sprite levelProgressContinuous;
+    public Sprite levelProgressDiscrete;
+    public Sprite characterProgressContinuous;
+    public Sprite characterProgressDiscrete;
+    public Sprite timeChrono;
+    public Sprite timeCountdown;
+
     private Dictionary<string, Sprite> imgs;
 
     public void generateUI()
@@ -30,7 +45,21 @@ public class UIGenerator : MonoBehaviour
         {
             {"vidaContinua", continuousLife},
             {"vidaDiscreta", discreteLife},
-            {"puntos", score}
+            {"puntos", score},
+            {"escudosDiscretos", discreteShieldsMana},
+            {"escudosContinuos", continuousShieldsMana},
+            {"armaInfinita", infiniteWeapon},
+            {"armaLimitada", limitedWeapon},
+            {"collectable", collectable},
+            {"habilidadInfinita", infiniteAbility},
+            {"habilidadLimitada", limitedAbility},
+            {"informacionPersonaje", characterInfo},
+            {"progresoNivelContinuo", levelProgressContinuous},
+            {"progresoNivelDiscreto", levelProgressDiscrete},
+            {"progresoPersonajeContinuo", characterProgressContinuous},
+            {"progresoPersonajeDiscreto", characterProgressDiscrete},
+            {"tiempoChrono", timeChrono},
+            {"tiempoCountdown", timeCountdown}
         };
 
         foreach (Transform child in transform)
@@ -45,7 +74,7 @@ public class UIGenerator : MonoBehaviour
             //Clean all childs before adding more GO
             for(int i = 0; i < canvas.gameObject.transform.childCount; ++i)
             {
-                Destroy(canvas.gameObject.transform.GetChild(0));
+                DestroyImmediate(canvas.gameObject.transform.GetChild(0).gameObject);
             }
             DestroyImmediate(canvas);
         }

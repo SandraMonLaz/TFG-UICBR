@@ -1,0 +1,82 @@
+{
+  "sol": [
+    {
+      "items": [
+        {
+          "screenPosition": "TOP_LEFT",
+          "itemScale": "VERY_BIG",
+          "image": "vidaContinua",
+          "id": "HEALTH"
+        },
+        {
+          "screenPosition": "TOP_LEFT",
+          "itemScale": "VERY_BIG",
+          "image": "escudosDiscretos",
+          "id": "SHIELDS"
+        }
+      ],
+      "screenPosition": "TOP_LEFT",
+      "itemScale": "MEDIUM"
+    },
+    {
+      "items": [],
+      "screenPosition": "TOP_CENTER",
+      "itemScale": "MEDIUM"
+    },
+    {
+      "items": [
+        {
+          "screenPosition": "TOP_RIGHT",
+          "itemScale": "MEDIUM",
+          "image": "puntos",
+          "id": "SCORE"
+        },
+        {
+          "screenPosition": "TOP_RIGHT",
+          "itemScale": "SMALL",
+          "image": "collectable",
+          "id": "COLLECTABLE"
+        }
+      ],
+      "screenPosition": "TOP_RIGHT",
+      "itemScale": "MEDIUM"
+    },
+    {
+      "items": [],
+      "screenPosition": "MIDDLE_LEFT",
+      "itemScale": "MEDIUM"
+    },
+    {
+      "items": [],
+      "screenPosition": "MIDDLE_CENTER",
+      "itemScale": "MEDIUM"
+    },
+    {
+      "items": [],
+      "screenPosition": "MIDDLE_RIGHT",
+      "itemScale": "MEDIUM"
+    },
+    {
+      "items": [],
+      "screenPosition": "BOTTOM_LEFT",
+      "itemScale": "MEDIUM"
+    },
+    {
+      "items": [],
+      "screenPosition": "BOTTOM_CENTER",
+      "itemScale": "MEDIUM"
+    },
+    {
+      "items": [
+        {
+          "screenPosition": "BOTTOM_RIGHT",
+          "itemScale": "SMALL",
+          "image": "progresoPersonajeContinuo",
+          "id": "CHARACTER_PROGRESS"
+        }
+      ],
+      "screenPosition": "BOTTOM_RIGHT",
+      "itemScale": "MEDIUM"
+    }
+  ]
+}
