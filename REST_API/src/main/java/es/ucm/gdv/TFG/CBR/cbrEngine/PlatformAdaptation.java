@@ -74,7 +74,7 @@ public class PlatformAdaptation {
 		
 		
 		
-		return createSol(solution);		
+		return createSol(solution, queryDescription);		
 	}
 	
 	/*
@@ -132,7 +132,7 @@ public class PlatformAdaptation {
 	/*
 	 * Crea una solucion combinando los items por posicion
 	 * */
-	private SolCBR createSol(CaseSolution solution){
+	private SolCBR createSol(CaseSolution solution,  CaseDescription queryDescription){
 		// Se usa la solucion modificada para crear la solucion del CBR		
 		SolCBR CBR = new SolCBR();
 		CombinedItem combinedTL = new CombinedItem();
@@ -166,17 +166,23 @@ public class PlatformAdaptation {
 		
 		for(ItemSol itemSol: solution.getSolutionItems().getValues()) {
 			if(itemSol != null) {
-				switch(itemSol.getScreenPosition()) {
-				case TOP_LEFT:		combinedTL.getItems().add(itemSol); break;
-				case TOP_CENTER:	combinedTC.getItems().add(itemSol);	break;
-				case TOP_RIGHT: 	combinedTR.getItems().add(itemSol); break;
-				case MIDDLE_LEFT:	combinedCL.getItems().add(itemSol); break;
-				case MIDDLE_CENTER:	combinedCC.getItems().add(itemSol); break;
-				case MIDDLE_RIGHT:	combinedCR.getItems().add(itemSol); break;
-				case BOTTOM_LEFT:	combinedBL.getItems().add(itemSol); break;
-				case BOTTOM_CENTER:	combinedBC.getItems().add(itemSol); break;
-				case BOTTOM_RIGHT:	combinedBR.getItems().add(itemSol); break;
-				}			
+				int n = 1;
+				if(itemSol.getId() == ItemId.ABILITIES || itemSol.getId() == ItemId.WEAPONS)
+					n = (itemSol.getId() == ItemId.ABILITIES)? queryDescription.getAbilities().getnWeapons(): queryDescription.getWeapons().getnWeapons();
+				
+				for(int i = 0; i < n; i++){				
+					switch(itemSol.getScreenPosition()) {
+					case TOP_LEFT:		combinedTL.getItems().add(itemSol); break;
+					case TOP_CENTER:	combinedTC.getItems().add(itemSol);	break;
+					case TOP_RIGHT: 	combinedTR.getItems().add(itemSol); break;
+					case MIDDLE_LEFT:	combinedCL.getItems().add(itemSol); break;
+					case MIDDLE_CENTER:	combinedCC.getItems().add(itemSol); break;
+					case MIDDLE_RIGHT:	combinedCR.getItems().add(itemSol); break;
+					case BOTTOM_LEFT:	combinedBL.getItems().add(itemSol); break;
+					case BOTTOM_CENTER:	combinedBC.getItems().add(itemSol); break;
+					case BOTTOM_RIGHT:	combinedBR.getItems().add(itemSol); break;
+					}			
+				}
 			}
 		}
 			

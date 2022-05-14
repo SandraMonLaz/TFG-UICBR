@@ -51,31 +51,6 @@ public class Weapons extends Item {
 		if(this.useType == UseType.infinite)		solutionWeapons.setImage("armaInfinita");
 		else if(this.useType == UseType.limited) 	solutionWeapons.setImage("armaLimitada");
 		
-		ItemSol weapons = solution.getSolutionItems().getValues()[ItemId.WEAPONS.ordinal()];
-		
-		//Dependiendo de donde se encuentra la vida se colocan las habilidades
-		if(weapons == null) {
-			solutionWeapons.setScreenPosition(ScreenPos.TOP_RIGHT);
-		}
-		else {
-			if(weapons.getScreenPosition() == ScreenPos.TOP_LEFT 
-			|| weapons.getScreenPosition() == ScreenPos.BOTTOM_LEFT
-			|| weapons.getScreenPosition() == ScreenPos.MIDDLE_LEFT) 
-			{
-				solutionWeapons.setScreenPosition(ScreenPos.TOP_RIGHT);
-			}
-			else if(weapons.getScreenPosition() == ScreenPos.TOP_RIGHT
-				 || weapons.getScreenPosition() == ScreenPos.BOTTOM_RIGHT
-				 || weapons.getScreenPosition() == ScreenPos.MIDDLE_RIGHT) 
-			{
-				solutionWeapons.setScreenPosition(ScreenPos.TOP_LEFT);
-			}
-			else 
-			{
-				solutionWeapons.setScreenPosition(ScreenPos.TOP_RIGHT);
-			}
-		}
-		
 		if(this.importance.ordinal() >= Importance.high.ordinal()) {
 			solutionWeapons.setItemScale(Scale.MEDIUM);
 		}

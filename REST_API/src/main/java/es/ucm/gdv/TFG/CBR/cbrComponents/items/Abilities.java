@@ -50,32 +50,7 @@ public class Abilities extends Item {
 		
 		if(this.useType == UseType.infinite)		solutionAbilities.setImage("habilidadInfinita");
 		else if(this.useType == UseType.limited) 	solutionAbilities.setImage("habilidadLimitada");
-		
-		ItemSol abilities = solution.getSolutionItems().getValues()[ItemId.ABILITIES.ordinal()];
-		
-		//Dependiendo de donde se encuentra la vida se colocan las habilidades
-		if(abilities == null) {
-			solutionAbilities.setScreenPosition(ScreenPos.TOP_RIGHT);
-		}
-		else {
-			if(abilities.getScreenPosition() == ScreenPos.TOP_LEFT 
-			|| abilities.getScreenPosition() == ScreenPos.BOTTOM_LEFT
-			|| abilities.getScreenPosition() == ScreenPos.MIDDLE_LEFT) 
-			{
-				solutionAbilities.setScreenPosition(ScreenPos.TOP_RIGHT);
-			}
-			else if(abilities.getScreenPosition() == ScreenPos.TOP_RIGHT
-				 || abilities.getScreenPosition() == ScreenPos.BOTTOM_RIGHT
-				 || abilities.getScreenPosition() == ScreenPos.MIDDLE_RIGHT) 
-			{
-				solutionAbilities.setScreenPosition(ScreenPos.TOP_LEFT);
-			}
-			else 
-			{
-				solutionAbilities.setScreenPosition(ScreenPos.TOP_RIGHT);
-			}
-		}
-		
+			
 		if(this.importance.ordinal() >= Importance.high.ordinal()) {
 			solutionAbilities.setItemScale(Scale.MEDIUM);
 		}
