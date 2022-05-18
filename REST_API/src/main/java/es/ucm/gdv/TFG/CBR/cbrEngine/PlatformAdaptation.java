@@ -97,36 +97,43 @@ public class PlatformAdaptation {
 		Item item;
 		item = queryDescription.getHealth();
 		if(item != null)	item.adapt(health, solution);
+		else solution.setSolItem(null, ItemId.HEALTH);
 		
 		item = queryDescription.getScore();
 		if(item != null)	item.adapt(score, solution); 
+		else solution.setSolItem(null, ItemId.SCORE);
 		
 		item = queryDescription.getAbilities();
 		if(item != null)	item.adapt(abilities, solution);
-		
-		item = queryDescription.getAbilities();
-		if(item != null)	item.adapt(abilities, solution);
-		
+		else solution.setSolItem(null, ItemId.ABILITIES);
+			
 		item = queryDescription.getCharacterinfo();
 		if(item != null)	item.adapt(characterinfo, solution);
+		else solution.setSolItem(null, ItemId.CHARACTER_INFO);
 		
 		item = queryDescription.getCharacterProgress();
 		if(item != null)	item.adapt(characterProgress, solution);
+		else solution.setSolItem(null, ItemId.CHARACTER_PROGRESS);
 		
 		item = queryDescription.getCollectable();
 		if(item != null)	item.adapt(collectable, solution);
+		else solution.setSolItem(null, ItemId.COLLECTABLE);
 		
 		item = queryDescription.getLevelProgress();
 		if(item != null)	item.adapt(levelProgress, solution);
+		else solution.setSolItem(null, ItemId.LEVEL_PROGRESS);
 		
 		item = queryDescription.getShields();
 		if(item != null)	item.adapt(shields, solution);
+		else solution.setSolItem(null, ItemId.SHIELDS);
 		
 		item = queryDescription.getTime();
 		if(item != null)	item.adapt(time, solution);
+		else solution.setSolItem(null, ItemId.TIME);
 		
 		item = queryDescription.getWeapons();
 		if(item != null)	item.adapt(weapons, solution);
+		else solution.setSolItem(null, ItemId.WEAPONS);
 	}
 	
 	/*
