@@ -108,18 +108,18 @@ public class CBREngine implements StandardCBRApplication  {
 		caseBase.init(connector);
 		
 		//----------------------- CASO DE PRUEBA -----------------------------
-		CBRCase _case = new CBRCase();
-		CaseDescription des = new CaseDescription();
+		/*CBRCase _case = new CBRCase();
+		CaseDescription des = new CaseDescription();*/
 		
-		Time t = new Time();
+		/*Time t = new Time();
 		t.setImportance(Importance.veryHigh);
 		t.setTimeUse(TimeUse.chrono);
-		des.setTime(t);
+		des.setTime(t);*/
 		
-		Health h = new Health();
+		/*Health h = new Health();
 		h.setImportance(Importance.veryHigh);
 		h.setType(RangeType.continuous);
-		des.setHealth(h);
+		des.setHealth(h);*/
 		
 		/*Shields s = new Shields();
 		s.setImportance(Importance.veryHigh);
@@ -134,14 +134,14 @@ public class CBREngine implements StandardCBRApplication  {
 		c.setImportance(Importance.veryHigh);
 		des.setCollectable(c);*/
 		
-		CharacterProgress cp = new CharacterProgress();
+		/*CharacterProgress cp = new CharacterProgress();
 		cp.setImportance(Importance.veryHigh);
 		cp.setRangeType(RangeType.continuous);
-		des.setCharacterProgress(cp);
+		des.setCharacterProgress(cp);*/
 		
-		CharacterInfo ci = new CharacterInfo();
+		/*CharacterInfo ci = new CharacterInfo();
 		ci.setImportance(Importance.veryHigh);
-		des.setCharacterinfo(ci);
+		des.setCharacterinfo(ci);*/
 		
 		/*Weapons w = new Weapons();
 		w.setImportance(Importance.veryHigh);
@@ -149,27 +149,27 @@ public class CBREngine implements StandardCBRApplication  {
 		w.setnWeapons(1);
 		des.setWeapons(w);*/
 		
-		Abilities a = new Abilities();
+		/*Abilities a = new Abilities();
 		a.setImportance(Importance.veryHigh);
 		a.setUseType(UseType.infinite);
 		a.setnWeapons(2);
-		des.setAbilities(a);
+		des.setAbilities(a);*/
 		
-		LevelProgress lp = new LevelProgress();
+		/*LevelProgress lp = new LevelProgress();
 		lp.setImportance(Importance.veryHigh);
 		lp.setRangeType(RangeType.continuous);
 		lp.setProgressType(ProgressType.progressDone);
-		des.setLevelProgress(lp);
+		des.setLevelProgress(lp);*/
 		
-		_case.setDescription(des);
+		/*_case.setDescription(des);*/
 					
-		CaseSolution sol = new CaseSolution();
+		/*CaseSolution sol = new CaseSolution();*/
 		
-		ItemSol time = new ItemSol(ScreenPos.TOP_RIGHT, Scale.VERY_BIG, "tiempoCountdown", ItemId.TIME);
-		sol.setSolItem(time, ItemId.TIME);
+		/*ItemSol time = new ItemSol(ScreenPos.TOP_RIGHT, Scale.VERY_BIG, "tiempoCountdown", ItemId.TIME);
+		sol.setSolItem(time, ItemId.TIME);*/
 		
-		ItemSol health = new ItemSol(ScreenPos.TOP_LEFT, Scale.VERY_BIG, "vidaContinua", ItemId.HEALTH);
-		sol.setSolItem(health, ItemId.HEALTH);
+		/*ItemSol health = new ItemSol(ScreenPos.TOP_LEFT, Scale.VERY_BIG, "vidaContinua", ItemId.HEALTH);
+		sol.setSolItem(health, ItemId.HEALTH);*/
 		
 		/*ItemSol shields = new ItemSol(ScreenPos.TOP_LEFT, Scale.VERY_BIG, "escudosContinuos", ItemId.SHIELDS);
 		sol.setSolItem(shields, ItemId.SHIELDS);*/
@@ -180,23 +180,23 @@ public class CBREngine implements StandardCBRApplication  {
 		/*ItemSol collectable = new ItemSol(ScreenPos.TOP_RIGHT, Scale.VERY_BIG, "collectable", ItemId.COLLECTABLE);
 		sol.setSolItem(collectable, ItemId.COLLECTABLE);*/
 	
-		ItemSol characterProgress = new ItemSol(ScreenPos.TOP_LEFT, Scale.VERY_BIG, "progresoPersonajeContinuo", ItemId.CHARACTER_PROGRESS);
-		sol.setSolItem(characterProgress, ItemId.CHARACTER_PROGRESS);
+		/*ItemSol characterProgress = new ItemSol(ScreenPos.TOP_LEFT, Scale.VERY_BIG, "progresoPersonajeContinuo", ItemId.CHARACTER_PROGRESS);
+		sol.setSolItem(characterProgress, ItemId.CHARACTER_PROGRESS);*/
 		
-		ItemSol CharacterInfo = new ItemSol(ScreenPos.TOP_LEFT, Scale.VERY_BIG, "informacionPersonaje", ItemId.CHARACTER_INFO);
-		sol.setSolItem(CharacterInfo, ItemId.CHARACTER_INFO);
+		/*ItemSol CharacterInfo = new ItemSol(ScreenPos.TOP_LEFT, Scale.VERY_BIG, "informacionPersonaje", ItemId.CHARACTER_INFO);
+		sol.setSolItem(CharacterInfo, ItemId.CHARACTER_INFO);*/
 		
 		/*ItemSol weapons = new ItemSol(ScreenPos.BOTTOM_RIGHT, Scale.VERY_BIG, "armaInfinita", ItemId.WEAPONS);
 		sol.setSolItem(weapons, ItemId.WEAPONS);*/
 			
-		ItemSol abilities = new ItemSol(ScreenPos.BOTTOM_RIGHT, Scale.VERY_BIG, "habilidadInfinita", ItemId.ABILITIES);
-		sol.setSolItem(abilities, ItemId.ABILITIES);
+		/*ItemSol abilities = new ItemSol(ScreenPos.BOTTOM_RIGHT, Scale.VERY_BIG, "habilidadInfinita", ItemId.ABILITIES);
+		sol.setSolItem(abilities, ItemId.ABILITIES);*/
 		
-		ItemSol levelProgress = new ItemSol(ScreenPos.BOTTOM_CENTER, Scale.VERY_BIG, "progresoNivelContinuo", ItemId.LEVEL_PROGRESS);
-		sol.setSolItem(levelProgress, ItemId.LEVEL_PROGRESS);
+		/*ItemSol levelProgress = new ItemSol(ScreenPos.BOTTOM_CENTER, Scale.VERY_BIG, "progresoNivelContinuo", ItemId.LEVEL_PROGRESS);
+		sol.setSolItem(levelProgress, ItemId.LEVEL_PROGRESS);*/
 		
-		_case.setSolution(sol);
-		StoreCasesMethod.storeCase(caseBase, _case);
+		/*_case.setSolution(sol);
+		StoreCasesMethod.storeCase(caseBase, _case);*/
 		//---------------------------------------------------------------------
 		
 		return caseBase;
