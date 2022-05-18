@@ -19,6 +19,10 @@ import es.ucm.fdi.gaia.jcolibri.util.FileIO;
 import es.ucm.gdv.TFG.CBR.cbrComparators.*;
 import es.ucm.gdv.TFG.CBR.cbrComponents.CaseDescription;
 import es.ucm.gdv.TFG.CBR.cbrComponents.CaseSolution;
+import es.ucm.gdv.TFG.CBR.cbrComponents.items.Time;
+import es.ucm.gdv.TFG.REST_API.Importance;
+import es.ucm.gdv.TFG.REST_API.UseType;
+import es.ucm.gdv.TFG.REST_API.platform2D.Time.TimeUse;
 
 public class CBREngine implements StandardCBRApplication  {
 
@@ -58,7 +62,7 @@ public class CBREngine implements StandardCBRApplication  {
 		
 		connector.initFromXMLfile(FileIO.findFile(CONNECTOR_FILE_PATH));
 		
-		connector.setCaseBaseFile(CASE_BASE_PATH, "casos.csv");
+		connector.setCaseBaseFile(CASE_BASE_PATH, "casosMano.csv");
 		
 		
 		simConfig = new NNConfig();
@@ -80,46 +84,46 @@ public class CBREngine implements StandardCBRApplication  {
 		caseBase.init(connector);
 		
 		//----------------------- CASO DE PRUEBA -----------------------------
-		//CBRCase _case = new CBRCase();
-		//CaseDescription des = new CaseDescription();
+		CBRCase _case = new CBRCase();
+		CaseDescription des = new CaseDescription();
 		
-		/*Time t = new Time();
+		Time t = new Time();
 		t.setImportance(Importance.veryHigh);
 		t.setTimeUse(TimeUse.countdown);
-		des.setTime(t);*/
+		des.setTime(t);
 		
-		/*Health h = new Health();
+		Health h = new Health();
 		h.setImportance(Importance.veryHigh);
-		h.setType(RangeType.continuous);
-		des.setHealth(h);*/
+		h.setType(RangeType.discrete);
+		des.setHealth(h);
 		
-		/*Shields s = new Shields();
-		s.setImportance(Importance.high);
-		s.setType(RangeType.continuous);
+		Shields s = new Shields();
+		s.setImportance(Importance.veryHigh);
+		s.setType(RangeType.discrete);
 		des.setShields(s);
 		
 		Score sc = new Score();
-		sc.setImportance(Importance.low);
-		des.setScore(sc);*/
+		sc.setImportance(Importance.veryHigh);
+		des.setScore(sc);
 		
-		/*Collectable c = new Collectable();
-		c.setImportance(Importance.medium);
-		des.setCollectable(c);*/
+		Collectable c = new Collectable();
+		c.setImportance(Importance.veryHigh);
+		des.setCollectable(c);
 		
-		/*CharacterProgress cp = new CharacterProgress();
-		cp.setImportance(Importance.medium);
-		cp.setRangeType(RangeType.continuous);
-		des.setCharacterProgress(cp);*/
+		CharacterProgress cp = new CharacterProgress();
+		cp.setImportance(Importance.veryHigh);
+		cp.setRangeType(RangeType.discrete);
+		des.setCharacterProgress(cp);
 		
-		/*CharacterInfo ci = new CharacterInfo();
-		ci.setImportance(Importance.high);
-		des.setCharacterinfo(ci);*/
+		CharacterInfo ci = new CharacterInfo();
+		ci.setImportance(Importance.veryHigh);
+		des.setCharacterinfo(ci);
 		
-		/*Weapons w = new Weapons();
-		w.setImportance(Importance.high);
-		w.setUseType(UseType.limited);
+		Weapons w = new Weapons();
+		w.setImportance(Importance.veryHigh);
+		w.setUseType(UseType.infinite);
 		w.setnWeapons(1);
-		des.setWeapons(w);*/
+		des.setWeapons(w);
 		
 		/*Abilities a = new Abilities();
 		a.setImportance(Importance.high);
