@@ -132,12 +132,12 @@ public class UIGenerator : MonoBehaviour
         GameObject pivot = Instantiate(_UIParent, canvas.transform);
 
         //Creamos  una lista de conjuntos para los items y la ordenamos por importancia
-        List<HashSet<ItemSolution>> hashList = Adaptation(ref combined);
-        hashList.Sort(new HashItemSolutionComparerInOrder());
+        List<List<ItemSolution>> combinedList = Adaptation(ref combined);
+        combinedList.Sort(new HashItemSolutionComparerInOrder());
 
 
         //Para cada conjunto creamos los combinados asignandoles la informacion necesaria
-        List<CombinedObject> combinedObjects = CreateCombinedObjects(ref hashList, Vector2.zero);
+        List<CombinedObject> combinedObjects = CreateCombinedObjects(ref combinedList, Vector2.zero);
 
         //Asignamos al primero el padre
         combinedObjects[0].gameObject.transform.SetParent(pivot.transform);
@@ -191,11 +191,11 @@ public class UIGenerator : MonoBehaviour
         pivotRect.anchoredPosition = Vector2.zero;
 
         //Creamos  una lista de conjuntos para los items y la ordenamos por importancia
-        List<HashSet<ItemSolution>> hashList = Adaptation(ref combined);
-        hashList.Sort(new HashItemSolutionComparerInOrder());
+        List<List<ItemSolution>> combinedList = Adaptation(ref combined);
+        combinedList.Sort(new HashItemSolutionComparerInOrder());
 
         //Para cada conjunto creamos los combinados asignandoles la informacion necesaria
-        List<CombinedObject> combinedObjects = CreateCombinedObjects(ref hashList, new Vector2(0.5f, 0f));
+        List<CombinedObject> combinedObjects = CreateCombinedObjects(ref combinedList, new Vector2(0.5f, 0f));
 
         //Asignamos al primero el padre
         combinedObjects[0].gameObject.transform.SetParent(pivot.transform);
@@ -241,12 +241,12 @@ public class UIGenerator : MonoBehaviour
         pivotRect.anchoredPosition = Vector2.zero;
 
         //Creamos  una lista de conjuntos para los items y la ordenamos por importancia
-        List<HashSet<ItemSolution>> hashList = Adaptation(ref combined);
-        hashList.Sort(new HashItemSolutionComparerInOrder());
+        List<List<ItemSolution>> combinedList = Adaptation(ref combined);
+        combinedList.Sort(new HashItemSolutionComparerInOrder());
 
 
         //Para cada conjunto creamos los combinados asignandoles la informacion necesaria
-        List<CombinedObject> combinedObjects = CreateCombinedObjects(ref hashList, new Vector2(0f, 0.5f));
+        List<CombinedObject> combinedObjects = CreateCombinedObjects(ref combinedList, new Vector2(0f, 0.5f));
 
         //Asignamos al primero el padre
         combinedObjects[0].gameObject.transform.SetParent(pivot.transform);
@@ -283,21 +283,22 @@ public class UIGenerator : MonoBehaviour
     /// </summary>
     /// <param name="combined"></param>
     /// <returns></returns>
-    private List<HashSet<ItemSolution>> Adaptation(ref Combined combined)
+    private List<List<ItemSolution>> Adaptation(ref Combined combined)
     {
-        List<HashSet<ItemSolution>> combinedGroup = new List<HashSet<ItemSolution>>();
+        List<List<ItemSolution>> combinedGroup = new List<List<ItemSolution>>();
 
         //Se recorre cada item comparandolo con el resto
         foreach(ItemSolution item in combined.items)
         {
             foreach (ItemSolution otherItem in combined.items)
             {
-                //En caso de ser muy similares se añaden a un hash
+                //En caso de ser muy similares se añaden a una lista
                 if (SimilarityTable.getInstance().GetTable()[(int)item.itemId, (int)otherItem.itemId] >= 0.8f && 
-                    item.itemId != otherItem.itemId)
+                    item != otherItem)
                 {
-                    //Buscamos si alguno de los dos se encuentra en otro hash
-                    HashSet<ItemSolution> set = SearchHash(ref combinedGroup, item, otherItem);
+                    //Buscamos si alguno de los dos se encuentra en otra lista
+                    List<ItemSolution> set = SearchList(ref combinedGroup, item, otherItem);
+
                     //Los añadimos
                     if(!set.Contains(item))
                         set.Add(item);
@@ -309,13 +310,19 @@ public class UIGenerator : MonoBehaviour
                 }
             }
         }
-        //Añadimos los items que no estén en ningun hash para no perderlos
+
+        foreach(List<ItemSolution> combinedList in combinedGroup)
+        {
+            combinedList.Sort(new ItemSolutionComparer());
+        }
+
+        //Añadimos los items que no estén en ninguna lista para no perderlos
         foreach(ItemSolution item in combined.items)
         {
-            HashSet<ItemSolution> hash = SearchHash(ref combinedGroup, item);
+            List<ItemSolution> hash = SearchList(ref combinedGroup, item);
             if(hash == null)
             {
-                hash = new HashSet<ItemSolution>();
+                hash = new List<ItemSolution>();
                 hash.Add(item);
                 combinedGroup.Add(hash);
             }
@@ -325,21 +332,21 @@ public class UIGenerator : MonoBehaviour
     }
 
     /// <summary>
-    /// Devuelve el hash asignado a alguno de los dos items entrantes, en caso de no haberlo se devuelve un hash vacio
+    /// Devuelve la lista asignada a alguno de los dos items entrantes, en caso de no haberlo se devuelve una lista vacio
     /// </summary>
     /// <param name="combinedGroup"></param>
     /// <param name="item"></param>
     /// <param name="other"></param>
     /// <returns></returns>
-    private HashSet<ItemSolution> SearchHash(ref List<HashSet<ItemSolution>> combinedGroup, ItemSolution item, ItemSolution other)
+    private List<ItemSolution> SearchList(ref List<List<ItemSolution>> combinedGroup, ItemSolution item, ItemSolution other)
     {
-        foreach(HashSet<ItemSolution> hash in combinedGroup)
+        foreach(List<ItemSolution> list in combinedGroup)
         {
-            if((hash.Contains(item)) || hash.Contains(other))
-                return hash;
+            if((list.Contains(item)) || list.Contains(other))
+                return list;
         }
 
-        return new HashSet<ItemSolution>();
+        return new List<ItemSolution>();
     }
 
     /// <summary>
@@ -349,12 +356,12 @@ public class UIGenerator : MonoBehaviour
     /// <param name="item"></param>
     /// <param name="other"></param>
     /// <returns></returns>
-    private HashSet<ItemSolution> SearchHash(ref List<HashSet<ItemSolution>> combinedGroup, ItemSolution item)
+    private List<ItemSolution> SearchList(ref List<List<ItemSolution>> combinedGroup, ItemSolution item)
     {
-        foreach (HashSet<ItemSolution> hash in combinedGroup)
+        foreach (List<ItemSolution> list in combinedGroup)
         {
-            if ((hash.Contains(item)))
-                return hash;
+            if ((list.Contains(item)))
+                return list;
         }
 
         return null;
@@ -365,13 +372,13 @@ public class UIGenerator : MonoBehaviour
     /// </summary>
     /// <param name="hashList"></param>
     /// <returns></returns>
-    private List<CombinedObject> CreateCombinedObjects(ref List<HashSet<ItemSolution>> hashList, Vector2 imagePivots)
+    private List<CombinedObject> CreateCombinedObjects(ref List<List<ItemSolution>> hashList, Vector2 imagePivots)
     {
         List<CombinedObject> combinedObjects = new List<CombinedObject>();
 
         //para cada conjunto se coje los items del mismo
         //y se añaden a un padre verticalmente y horizontalmente
-        foreach (HashSet<ItemSolution> hash in hashList)
+        foreach (List<ItemSolution> list in hashList)
         {
             //Creamos el padre
             CombinedObject co = new CombinedObject();
@@ -382,7 +389,7 @@ public class UIGenerator : MonoBehaviour
             List<GameObject> children = new List<GameObject>();
             //Hallamos la suma del ancho y alto total de los items dentro
             //del set y ya de paso inicializamos cada item
-            foreach(ItemSolution item in hash)
+            foreach(ItemSolution item in list)
             {
                 h += imgs[item.image].texture.height;
                 w += imgs[item.image].texture.width;
@@ -400,7 +407,7 @@ public class UIGenerator : MonoBehaviour
             {
                 int i = 0;
                 //Para cada item se haya la posicion nueva en vertical y se asigna
-                foreach(ItemSolution item in hash)
+                foreach(ItemSolution item in list)
                 {
                     RectTransform rect = children[i].GetComponent<RectTransform>();
                     rect.position = new Vector3(0f, acc_height, 0f);
@@ -420,7 +427,7 @@ public class UIGenerator : MonoBehaviour
             {
                 int i = 0;
                 //Para cada item se haya la posicion nueva en horizontal y se asigna
-                foreach (ItemSolution item in hash)
+                foreach (ItemSolution item in list)
                 {
                     RectTransform rect = children[i].GetComponent<RectTransform>();
                     rect.position = new Vector3(acc_width, 0f, 0f);
@@ -513,7 +520,7 @@ public class UIGenerator : MonoBehaviour
             {
                 RectTransform itemRectTr = groupRectTr.GetChild(j).GetComponent<RectTransform>();
                 itemRectTr.pivot = anchor;
-                itemRectTr.anchoredPosition *= -1f;
+                itemRectTr.anchoredPosition *= anchoredPositionFactor.y;
             }
         }
     }

@@ -54,9 +54,9 @@ public class ItemSolution
     }
 }
 
-public class HashItemSolutionComparer : Comparer<HashSet<ItemSolution>>
+public class HashItemSolutionComparer : Comparer<List<ItemSolution>>
 {
-    public override int Compare(HashSet<ItemSolution> x, HashSet<ItemSolution> y)
+    public override int Compare(List<ItemSolution> x, List<ItemSolution> y)
     {
         int a = 0;
         foreach(ItemSolution item in x)
@@ -77,9 +77,9 @@ public class HashItemSolutionComparer : Comparer<HashSet<ItemSolution>>
     }
 };
 //Compara al reves que el de arriba
-public class HashItemSolutionComparerInOrder : Comparer<HashSet<ItemSolution>>
+public class HashItemSolutionComparerInOrder : Comparer<List<ItemSolution>>
 {
-    public override int Compare(HashSet<ItemSolution> x, HashSet<ItemSolution> y)
+    public override int Compare(List<ItemSolution> x, List<ItemSolution> y)
     {
         int a = 0;
         foreach (ItemSolution item in x)
@@ -99,3 +99,13 @@ public class HashItemSolutionComparerInOrder : Comparer<HashSet<ItemSolution>>
         else return 1;
     }
 };
+
+public class ItemSolutionComparer : Comparer<ItemSolution>
+{
+    public override int Compare(ItemSolution x, ItemSolution y)
+    {
+        if ((int)x.itemScale > (int)y.itemScale) return -1;
+        else if ((int)x.itemScale < (int)y.itemScale) return 1;
+        else return 0;
+    }
+}
