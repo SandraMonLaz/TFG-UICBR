@@ -34,6 +34,7 @@ public class CachedLinearCaseBase implements CBRCaseBase {
 		casesToStore.removeAll(originalCases);
 
 		connector.storeCases(casesToStore);
+		originalCases.addAll(casesToStore);
 		connector.close();
 	}
 

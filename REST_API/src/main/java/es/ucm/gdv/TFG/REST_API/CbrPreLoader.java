@@ -18,12 +18,5 @@ public class CbrPreLoader {
 	
 	public void closeCbr() {
 		
-		try {
-			CBREngine.getInstance().postCycle();
-			log.info("Cerrando cbr");
-		} catch (ExecutionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
     }
 }
