@@ -1,0 +1,5 @@
+0,0,veryHigh|discrete,medium,null,veryHigh,null,null,veryHigh|continuous|progressDone,null,medium|countdown,null,,1,HEALTH-TOP_LEFT-VERY_BIG-vidaDiscreta-|SCORE-TOP_RIGHT-MEDIUM-puntos-|null|null|null|null|TIME-TOP_RIGHT-MEDIUM-tiempoCountdown-|LEVEL_PROGRESS-BOTTOM_CENTER-VERY_BIG-progresoNivelContinuo-|CHARACTER_INFO-TOP_LEFT-VERY_BIG-informacionPersonaje-|null
+0,0,veryHigh|discrete,high,null,null,null,high,null,null,null,null,,1,HEALTH-TOP_LEFT-VERY_BIG-vidaContinua-|SCORE-TOP_LEFT-BIG-puntos-|null|COLLECTABLE-TOP_LEFT-BIG-collectable-|null|null|null|null|null|null
+0,0,null,veryHigh,null,null,null,null,null,null,null,null,,1,null|SCORE-TOP_CENTER-VERY_BIG-puntos-|null|null|null|null|null|null|null|null
+0,0,high|discrete,high,null,null,null,high,null,null,high|chrono,null,,1,HEALTH-TOP_RIGHT-BIG-vidaDiscreta-|SCORE-TOP_RIGHT-MEDIUM-puntos-|null|COLLECTABLE-TOP_RIGHT-MEDIUM-collectable-|null|null|TIME-TOP_CENTER-MEDIUM-tiempoChrono-|null|null|null
+0,0,null,high,null,null,null,high,null,null,null,null,,1,null|SCORE-TOP_RIGHT-BIG-puntos-|null|COLLECTABLE-TOP_RIGHT-BIG-collectable-|null|null|null|null|null|null
