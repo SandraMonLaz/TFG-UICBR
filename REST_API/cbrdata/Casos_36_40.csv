@@ -1,5 +1,0 @@
-0,0,veryHigh|discrete,high,null,null,null,high,null,null,null,null,,1,HEALTH-TOP_LEFT-VERY_BIG-vidaContinua-|SCORE-TOP_LEFT-BIG-puntos-|null|COLLECTABLE-TOP_LEFT-BIG-collectable-|null|null|null|null|null|null
-0,0,null,veryHigh,null,null,null,null,null,null,null,null,,1,null|SCORE-TOP_CENTER-VERY_BIG-puntos-|null|null|null|null|null|null|null|null
-0,0,high|discrete,high,null,null,null,high,null,null,high|chrono,null,,1,HEALTH-TOP_RIGHT-BIG-vidaDiscreta-|SCORE-TOP_RIGHT-MEDIUM-puntos-|null|COLLECTABLE-TOP_RIGHT-MEDIUM-collectable-|null|null|TIME-TOP_CENTER-MEDIUM-tiempoChrono-|null|null|null
-0,0,high|discrete,null,null,null,null,null,null,null,veryHigh|chrono,null,,1,HEALTH-BOTTOM_RIGHT-BIG-vidaDiscreta-|null|null|null|null|null|TIME-TOP_CENTER-BIG-tiempoChrono-|null|null|null
-0,0,null,high,null,null,null,high,null,null,null,null,,1,null|SCORE-TOP_RIGHT-BIG-puntos-|null|COLLECTABLE-TOP_RIGHT-BIG-collectable-|null|null|null|null|null|null

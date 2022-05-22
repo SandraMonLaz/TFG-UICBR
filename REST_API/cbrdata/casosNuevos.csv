@@ -1,6 +1,0 @@
-
-0,0,null,veryHigh,null,veryHigh,null,high,high|continuous|progressDone,null,null,null,,1,null|SCORE-TOP_LEFT-BIG-puntos-|null|COLLECTABLE-MIDDLE_CENTER-VERY_BIG-collectable-|null|null|null|LEVEL_PROGRESS-BOTTOM_CENTER-BIG-progresoNivelContinuo-|CHARACTER_INFO-TOP_LEFT-VERY_BIG-informacionPersonaje-|null
-0,0,medium|discrete,low,null,null,null,low,null,medium|discrete,null,null,,1,HEALTH-TOP_LEFT-MEDIUM-vidaDiscreta-|SCORE-BOTTOM_LEFT-SMALL-puntos-|SHIELDS-TOP_LEFT-MEDIUM-escudosDiscretos-|COLLECTABLE-BOTTOM_LEFT-SMALL-collectable-|null|null|null|null|null|null
-0,0,null,low,null,null,null,low,high|continuous|progressDone,null,medium|countdown,null,,1,null|SCORE-TOP_LEFT-SMALL-puntos-|null|COLLECTABLE-TOP_LEFT-SMALL-collectable-|null|null|TIME-TOP_RIGHT-MEDIUM-tiempoCountdown-|LEVEL_PROGRESS-BOTTOM_CENTER-BIG-progresoNivelContinuo-|null|null
-0,0,high|discrete,low,null,null,null,null,null,high|discrete,null,null,,1,HEALTH-TOP_LEFT-BIG-vidaDiscreta-|SCORE-TOP_LEFT-SMALL-puntos-|SHIELDS-TOP_LEFT-BIG-escudosDiscretos-|null|null|null|null|null|null|null
-0,0,null,veryHigh,null,null,null,null,null,null,null,null,,1,null|SCORE-TOP_LEFT-VERY_BIG-puntos-|null|null|null|null|null|null|null|null
