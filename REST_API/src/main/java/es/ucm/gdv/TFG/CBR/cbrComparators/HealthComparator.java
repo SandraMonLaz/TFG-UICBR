@@ -27,7 +27,7 @@ public class HealthComparator implements LocalSimilarityFunction {
 		Importance imp1 = i1.getImportance();
 		Importance imp2 = i2.getImportance();
 		
-		int maxDist = Importance.values().length;
+		int maxDist = Math.max(imp1.ordinal(), imp2.ordinal());
 		Interval interval = new Interval(maxDist);
 			
 		RangeType v1 = i1.getType();

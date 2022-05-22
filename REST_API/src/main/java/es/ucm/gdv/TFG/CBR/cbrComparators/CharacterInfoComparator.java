@@ -25,8 +25,10 @@ public class CharacterInfoComparator implements LocalSimilarityFunction {
 
 		Importance i1 = c1.getImportance();
 		Importance i2 = c2.getImportance();
-		Interval interval = new Interval(Importance.values().length);
+		int maxDist = Math.max(i1.ordinal(), i2.ordinal());
+		Interval interval = new Interval(maxDist);
 		
+		Double a = interval.compute(i1.ordinal(), i2.ordinal());
 		return interval.compute(i1.ordinal(), i2.ordinal());
 	}
 

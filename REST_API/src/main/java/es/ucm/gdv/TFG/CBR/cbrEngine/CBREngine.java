@@ -18,6 +18,7 @@ import es.ucm.fdi.gaia.jcolibri.method.retrieve.NNretrieval.similarity.global.Av
 import es.ucm.fdi.gaia.jcolibri.method.retrieve.selection.SelectCases;
 import es.ucm.fdi.gaia.jcolibri.util.FileIO;
 import es.ucm.gdv.TFG.CBR.cbrComparators.AbilitiesComparator;
+import es.ucm.gdv.TFG.CBR.cbrComparators.AverageGlobal;
 import es.ucm.gdv.TFG.CBR.cbrComparators.CharacterInfoComparator;
 import es.ucm.gdv.TFG.CBR.cbrComparators.CharacterProgressComparator;
 import es.ucm.gdv.TFG.CBR.cbrComparators.CollectableComparator;
@@ -91,7 +92,7 @@ public class CBREngine implements StandardCBRApplication  {
 		
 		
 		simConfig = new NNConfig();
-		simConfig.setDescriptionSimFunction(new Average());
+		simConfig.setDescriptionSimFunction(new AverageGlobal());
 		simConfig.addMapping(new Attribute("health",CaseDescription.class), new HealthComparator());	
 		simConfig.addMapping(new Attribute("score",CaseDescription.class), new ScoreComparator());
 		simConfig.addMapping(new Attribute("abilities", CaseDescription.class), new AbilitiesComparator());

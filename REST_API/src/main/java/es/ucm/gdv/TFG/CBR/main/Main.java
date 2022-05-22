@@ -1,6 +1,8 @@
 package es.ucm.gdv.TFG.CBR.main;
 
 import es.ucm.fdi.gaia.jcolibri.cbrcore.CBRQuery;
+import es.ucm.fdi.gaia.jcolibri.evaluation.EvaluationReport;
+import es.ucm.fdi.gaia.jcolibri.evaluation.evaluators.LeaveOneOutEvaluator;
 import es.ucm.fdi.gaia.jcolibri.exception.ExecutionException;
 import es.ucm.gdv.TFG.CBR.cbrComponents.CaseDescription;
 import es.ucm.gdv.TFG.CBR.cbrComponents.items.Health;
@@ -38,14 +40,25 @@ public class Main {
 			e.printStackTrace();
 		 }*/
 		 
-		 cbrEngine.getSolution();
-		 System.out.println(cbrEngine.evaluate());
+		// cbrEngine.getSolution();
 		 
-		 try {
+		 LeaveOneOutEvaluator leave = new LeaveOneOutEvaluator();
+		 leave.init(cbrEngine);
+		 leave.LeaveOneOut();
+		 EvaluationReport ev = leave.getEvaluationReport();
+		 
+		 System.out.println("Correcto: " + ev.checkData());
+		 System.out.println("Tiempo por Ciclo: " +ev.getTimePerCycle());
+		 System.out.println("Número de Ciclo: " +ev.getNumberOfCycles());
+		 System.out.println("Tiempo Total: " +ev.getTotalTime());
+		 
+		 //System.out.println(cbrEngine.evaluate());
+		 
+		 /*try {
 			 cbrEngine.postCycle();			 
 		 }
 		 catch (ExecutionException e) {
 			 e.printStackTrace();
-		 }		 
+		 }		 */
 	 }
 }

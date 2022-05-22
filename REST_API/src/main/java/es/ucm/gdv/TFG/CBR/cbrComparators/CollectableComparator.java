@@ -24,7 +24,7 @@ public class CollectableComparator implements LocalSimilarityFunction{
 
 		Importance i1 = c1.getImportance();
 		Importance i2 = c2.getImportance();
-		Interval interval = new Interval(Importance.values().length);
+		Interval interval = new Interval(Math.max(i1.ordinal(), i2.ordinal()));
 		
 		return interval.compute(i1.ordinal(), i2.ordinal());
 	}
