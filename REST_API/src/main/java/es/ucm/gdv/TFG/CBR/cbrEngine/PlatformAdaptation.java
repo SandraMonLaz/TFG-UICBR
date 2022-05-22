@@ -174,8 +174,10 @@ public class PlatformAdaptation {
 		for(ItemSol itemSol: solution.getSolutionItems().getValues()) {
 			if(itemSol != null) {
 				int n = 1;
-				if(itemSol.getId() == ItemId.ABILITIES || itemSol.getId() == ItemId.WEAPONS)
-					n = (itemSol.getId() == ItemId.ABILITIES)? queryDescription.getAbilities().getnWeapons(): queryDescription.getWeapons().getnWeapons();
+				if(itemSol.getId() == ItemId.ABILITIES && queryDescription.getAbilities() != null)
+					n =  queryDescription.getAbilities().getnWeapons();
+				if(itemSol.getId() == ItemId.WEAPONS && queryDescription.getWeapons() != null)
+					n =  queryDescription.getWeapons().getnWeapons();
 				
 				for(int i = 0; i < n; i++){				
 					switch(itemSol.getScreenPosition()) {

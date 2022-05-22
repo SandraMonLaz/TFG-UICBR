@@ -1,6 +1,7 @@
 package es.ucm.gdv.TFG.CBR.cbrEngine;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Collection;
 
 import es.ucm.fdi.gaia.jcolibri.cbraplications.StandardCBRApplication;
@@ -86,7 +87,7 @@ public class CBREngine implements StandardCBRApplication  {
 		
 		connector.initFromXMLfile(FileIO.findFile(CONNECTOR_FILE_PATH));
 		
-		connector.setCaseBaseFile(CASE_BASE_PATH, "casosMano.csv");
+		connector.setCaseBaseFile(CASE_BASE_PATH, "casos.csv");
 		
 		
 		simConfig = new NNConfig();
@@ -253,6 +254,22 @@ public class CBREngine implements StandardCBRApplication  {
 	
 	public SolCBR getSolution() {
 		return this.solCBR;
+	}
+	
+	public float evaluate(){
+		float result = 0;
+		for(CBRCase caso: this.caseBase.getCases()){
+			CBRQuery query = new CBRQuery();
+			query.setDescription(caso.getDescription());
+			
+			Collection<RetrievalResult> eval = NNScoringMethod.evaluateSimilarity(caseBase.getCases(), caso, simConfig);
+			ArrayList<RetrievalResult> list = (ArrayList<RetrievalResult>) SelectCases.selectTopKRR(eval, 2);
+			RetrievalResult second = list.get(1);
+			System.out.println(second.getEval());
+			result +=second.getEval();
+		}
+		result /= (float)this.caseBase.getCases().size();
+		return result;
 	}
 
 }

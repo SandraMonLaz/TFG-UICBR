@@ -18,7 +18,7 @@ public class Main {
 		 cbrEngine = new CBREngine();
 		 cbrEngine.init();
 		 
-		 Health health = new Health();
+		 /*Health health = new Health();
 		 health.setImportance(Importance.high);
 		 health.setType(RangeType.discrete);
 		 
@@ -36,17 +36,16 @@ public class Main {
 		 } catch (ExecutionException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		 }
+		 }*/
 		 
 		 cbrEngine.getSolution();
-		 
+		 System.out.println(cbrEngine.evaluate());
 		 
 		 try {
 			 cbrEngine.postCycle();			 
 		 }
 		 catch (ExecutionException e) {
 			 e.printStackTrace();
-		 }
-		 
+		 }		 
 	 }
 }
