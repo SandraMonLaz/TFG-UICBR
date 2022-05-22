@@ -262,7 +262,7 @@ public class CBREngine implements StandardCBRApplication  {
 			CBRQuery query = new CBRQuery();
 			query.setDescription(caso.getDescription());
 			
-			Collection<RetrievalResult> eval = NNScoringMethod.evaluateSimilarity(caseBase.getCases(), caso, simConfig);
+			Collection<RetrievalResult> eval = NNScoringMethod.evaluateSimilarity(caseBase.getCases(), query, simConfig);
 			ArrayList<RetrievalResult> list = (ArrayList<RetrievalResult>) SelectCases.selectTopKRR(eval, 2);
 			RetrievalResult second = list.get(1);
 			System.out.println(second.getEval());

@@ -10,6 +10,8 @@ public class ScoreComparator implements LocalSimilarityFunction{
 
 	@Override
 	public double compute(Object o1, Object o2) throws NoApplicableSimilarityFunctionException {
+		if ((o1 == null) && (o2 == null))
+			return 0.5;
 		if ((o1 == null) || (o2 == null))
 			return 0;
 		if (!(o1 instanceof Score))
