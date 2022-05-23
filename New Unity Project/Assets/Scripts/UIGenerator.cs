@@ -8,7 +8,6 @@ public class UIGenerator : MonoBehaviour
 {
     public TextAsset jsonFile;
     public int elementOffset = 20;
-    private SolCBRParser solCBR;
     private Vector2 resolution = new Vector2(1920, 1080);
 
     //Prefabs
@@ -87,6 +86,7 @@ public class UIGenerator : MonoBehaviour
         scaler.referenceResolution = resolution;
         scaler.screenMatchMode = CanvasScaler.ScreenMatchMode.Expand;
 
+        SolCBRParser solCBR = new SolCBRParser();
         solCBR = JsonUtility.FromJson<SolCBRParser>(jsonFile.text);
         SolCBR solEnums = new SolCBR(solCBR);
         foreach(Combined combined in solEnums.sol)
