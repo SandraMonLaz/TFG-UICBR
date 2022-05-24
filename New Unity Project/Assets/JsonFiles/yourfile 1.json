@@ -4,13 +4,13 @@
       "items": [
         {
           "screenPosition": "TOP_LEFT",
-          "itemScale": "SMALL",
+          "itemScale": "BIG",
           "image": "vidaDiscreta",
           "id": "HEALTH"
         },
         {
           "screenPosition": "TOP_LEFT",
-          "itemScale": "SMALL",
+          "itemScale": "BIG",
           "image": "escudosContinuos",
           "id": "SHIELDS"
         }
@@ -58,7 +58,7 @@
         },
         {
           "screenPosition": "BOTTOM_CENTER",
-          "itemScale": "VERY_BIG",
+          "itemScale": "BIG",
           "image": "progresoNivelDiscreto",
           "id": "LEVEL_PROGRESS"
         }
@@ -70,25 +70,25 @@
       "items": [
         {
           "screenPosition": "BOTTOM_RIGHT",
-          "itemScale": "SMALL",
+          "itemScale": "MEDIUM",
           "image": "armaLimitada",
           "id": "WEAPONS"
         },
         {
           "screenPosition": "BOTTOM_RIGHT",
-          "itemScale": "SMALL",
+          "itemScale": "MEDIUM",
           "image": "armaLimitada",
           "id": "WEAPONS"
         },
         {
           "screenPosition": "BOTTOM_RIGHT",
-          "itemScale": "SMALL",
+          "itemScale": "MEDIUM",
           "image": "armaLimitada",
           "id": "WEAPONS"
         },
         {
           "screenPosition": "BOTTOM_RIGHT",
-          "itemScale": "SMALL",
+          "itemScale": "MEDIUM",
           "image": "armaLimitada",
           "id": "WEAPONS"
         }

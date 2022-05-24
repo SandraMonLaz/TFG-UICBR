@@ -6,15 +6,16 @@ using UnityEngine.UI;
 
 public class UIGenerator : MonoBehaviour
 {
+    [Tooltip("Json file with the interface data")]
     public TextAsset jsonFile;
+    [Tooltip("Offset between each element set and the screen limits")]
+    public int marginOffset = 10;
+    [Tooltip("Offset between each element in the HUD")]
     public int elementOffset = 20;
-    private Vector2 resolution = new Vector2(1920, 1080);
+    private Vector2 screenResolution = new Vector2(1920, 1080);
 
     //Prefabs
-    [SerializeField]
     private GameObject _UIParent;
-
-    [SerializeField]
     private GameObject _UIImage;
 
     //Imágenes
@@ -40,6 +41,9 @@ public class UIGenerator : MonoBehaviour
 
     public void generateUI()
     {
+        _UIParent = UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/UIParent.prefab");
+        _UIImage = UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/UIImagePrefab.prefab");
+
         imgs = new Dictionary<string, Sprite>
         {
             {"vidaContinua", continuousLife},
@@ -83,7 +87,7 @@ public class UIGenerator : MonoBehaviour
 
         scaler = this.gameObject.AddComponent<CanvasScaler>();
         scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
-        scaler.referenceResolution = resolution;
+        scaler.referenceResolution = screenResolution;
         scaler.screenMatchMode = CanvasScaler.ScreenMatchMode.Expand;
 
         SolCBRParser solCBR = new SolCBRParser();
@@ -93,11 +97,12 @@ public class UIGenerator : MonoBehaviour
         {
             if (combined.items.Length > 0)
             {
+                CombinedObject pivot;
                 //Esquinas
-                if(combined.screenPosition == ScreenPos.TOP_LEFT || combined.screenPosition == ScreenPos.TOP_RIGHT ||
+                if (combined.screenPosition == ScreenPos.TOP_LEFT || combined.screenPosition == ScreenPos.TOP_RIGHT ||
                    combined.screenPosition == ScreenPos.BOTTOM_LEFT || combined.screenPosition == ScreenPos.BOTTOM_RIGHT)
                 {
-                    CombinedObject pivot = BuildCornerCombined(combined, canvas);
+                    pivot = BuildCornerCombined(combined, canvas);
                     RectTransform rect = pivot.gameObject.GetComponent<RectTransform>();
 
                     LocateCombinedInCorner(ref rect, combined.screenPosition);
@@ -105,7 +110,7 @@ public class UIGenerator : MonoBehaviour
                 //Forzar alineacion horizontal
                 else if(combined.screenPosition == ScreenPos.MIDDLE_LEFT || combined.screenPosition == ScreenPos.MIDDLE_RIGHT)
                 {
-                    CombinedObject pivot = BuildHorizontalCombined(combined, canvas);
+                    pivot = BuildHorizontalCombined(combined, canvas);
                     RectTransform rect = pivot.gameObject.GetComponent<RectTransform>();
                     if (combined.screenPosition == ScreenPos.MIDDLE_RIGHT)
                         ReverseLateralCombined(ref rect);
@@ -113,13 +118,40 @@ public class UIGenerator : MonoBehaviour
                 //Forzar alineacion vertical
                 else
                 {
-                    CombinedObject pivot = BuildVerticalCombined(combined, canvas);
+                    pivot = BuildVerticalCombined(combined, canvas);
                     RectTransform rect = pivot.gameObject.GetComponent<RectTransform>();
                     if(combined.screenPosition == ScreenPos.TOP_CENTER)
                         ReverseBottomCombined(ref rect);
                 }
+
+                ApplyMargins(combined.screenPosition, pivot);
             }
         }
+    }
+
+    private float GetItemScaleFactor(Scale scale)
+    {
+        float result = 1f;
+        switch (scale)
+        {
+            case Scale.VERY_BIG:
+                result = 1f;
+                break;
+            case Scale.BIG:
+                result = 0.9f;
+                break;
+            case Scale.MEDIUM:
+                result = 0.8f;
+                break;
+            case Scale.SMALL:
+                result = 0.7f;
+                break;
+            case Scale.VERY_SMALL:
+                result = 0.6f;
+                break;
+        }
+
+        return result;
     }
 
     /// <summary>
@@ -150,7 +182,7 @@ public class UIGenerator : MonoBehaviour
             obj.gameObject.transform.SetParent(pivot.transform);
             RectTransform rect = obj.gameObject.GetComponent<RectTransform>();
 
-            if(total_width > total_height)
+            if (total_width > total_height)
             {
                 rect.position = new Vector3(0, total_height, 0);
                 total_height += obj.h + elementOffset;
@@ -161,21 +193,21 @@ public class UIGenerator : MonoBehaviour
                 total_width += obj.w + elementOffset;
             }
         }
-        float maxItemWidth = (resolution.x / 3.0f);
-        float maxItemHeight = (resolution.y / 3.0f);
+        float maxItemWidth = (screenResolution.x / 3.0f);
+        float maxItemHeight = (screenResolution.y / 3.0f);
 
-        float scaleFactor = (float)combined.itemScale / (float)Scale.VERY_BIG;
+        float scaleFactor = GetItemScaleFactor(combined.itemScale);
         float combinedSizeX = maxItemWidth * scaleFactor;
         float combinedSizeY = maxItemHeight * scaleFactor;
 
         float scaleRect = 0;
-        RectTransform rectCombain = pivot.GetComponent<RectTransform>();
+        RectTransform rectCombined = pivot.GetComponent<RectTransform>();
         if (total_width > total_height)
             scaleRect = combinedSizeX / total_width;
         else
             scaleRect = combinedSizeY / total_height;
 
-        rectCombain.localScale = new Vector3(scaleRect, scaleRect, 0f);
+        rectCombined.localScale = new Vector3(scaleRect, scaleRect, 0f);
         return new CombinedObject(pivot, combinedSizeY, combinedSizeX);
     }
 
@@ -213,10 +245,10 @@ public class UIGenerator : MonoBehaviour
             rect.pivot = new Vector2(0.5f, 0);
             total_height += obj.h + elementOffset;
         }
-        float maxItemWidth = (resolution.x / 3.0f);
-        float maxItemHeight = (resolution.y / 3.0f);
+        float maxItemWidth = (screenResolution.x / 3.0f);
+        float maxItemHeight = (screenResolution.y / 3.0f);
 
-        float scaleFactor = (float)combined.itemScale / (float)Scale.VERY_BIG;
+        float scaleFactor = GetItemScaleFactor(combined.itemScale);
         float combinedSizeX = maxItemWidth * scaleFactor;
         float combinedSizeY = maxItemHeight * scaleFactor;
 
@@ -263,10 +295,10 @@ public class UIGenerator : MonoBehaviour
             rect.localPosition = new Vector3(total_width, 0f, 0f);
             total_width += obj.w + elementOffset;
         }
-        float maxItemWidth = (resolution.x / 3.0f);
-        float maxItemHeight = (resolution.y / 3.0f);
+        float maxItemWidth = (screenResolution.x / 3.0f);
+        float maxItemHeight = (screenResolution.y / 3.0f);
 
-        float scaleFactor = (float)combined.itemScale / (float)Scale.VERY_BIG;
+        float scaleFactor = GetItemScaleFactor(combined.itemScale);
         float combinedSizeX = maxItemWidth * scaleFactor;
         float combinedSizeY = maxItemHeight * scaleFactor;
 
@@ -397,7 +429,8 @@ public class UIGenerator : MonoBehaviour
                 GameObject g = Instantiate(_UIImage, co.gameObject.transform);
                 Image image = g.GetComponent<Image>();
                 image.sprite = imgs[item.image];
-                image.GetComponent<RectTransform>().pivot = imagePivots;
+                RectTransform rect = image.GetComponent<RectTransform>();
+                rect.pivot = imagePivots;
                 children.Add(g);
             }
 
@@ -406,7 +439,7 @@ public class UIGenerator : MonoBehaviour
             if(w > h)   //si el ancho total es mayor se pone en vertical
             {
                 int i = 0;
-                //Para cada item se haya la posicion nueva en vertical y se asigna
+                //Para cada item se obtiene su posicion nueva en vertical y se asigna
                 foreach(ItemSolution item in list)
                 {
                     RectTransform rect = children[i].GetComponent<RectTransform>();
@@ -426,7 +459,7 @@ public class UIGenerator : MonoBehaviour
             else  //sino se pone en horizontal
             {
                 int i = 0;
-                //Para cada item se haya la posicion nueva en horizontal y se asigna
+                //Para cada item se obtiene su posicion nueva en horizontal y se asigna
                 foreach (ItemSolution item in list)
                 {
                     RectTransform rect = children[i].GetComponent<RectTransform>();
@@ -520,7 +553,7 @@ public class UIGenerator : MonoBehaviour
             {
                 RectTransform itemRectTr = groupRectTr.GetChild(j).GetComponent<RectTransform>();
                 itemRectTr.pivot = anchor;
-                itemRectTr.anchoredPosition *= anchoredPositionFactor.y;
+                itemRectTr.anchoredPosition = itemRectTr.anchoredPosition * anchoredPositionFactor;
             }
         }
     }
@@ -582,6 +615,48 @@ public class UIGenerator : MonoBehaviour
                 itemRectTr.pivot = anchor;
                 itemRectTr.anchoredPosition *= -1f;
             }
+        }
+    }
+
+    private void ApplyMargins(ScreenPos screenPos, CombinedObject combined)
+    {
+        Vector2 margin = Vector2.zero;
+
+        switch (screenPos)
+        {
+            case ScreenPos.TOP_LEFT:
+                margin = new Vector2(marginOffset, -marginOffset);
+                break;
+            case ScreenPos.TOP_CENTER:
+                margin = new Vector2(0f, -marginOffset);
+                break;
+            case ScreenPos.TOP_RIGHT:
+                margin = new Vector2(-marginOffset, -marginOffset);
+                break;
+            case ScreenPos.MIDDLE_LEFT:
+                margin = new Vector2(marginOffset, 0f);
+                break;
+            case ScreenPos.MIDDLE_CENTER:
+                margin = new Vector2(0f, 0f);
+                break;
+            case ScreenPos.MIDDLE_RIGHT:
+                margin = new Vector2(-marginOffset, 0f);
+                break;
+            case ScreenPos.BOTTOM_LEFT:
+                margin = new Vector2(marginOffset, marginOffset);
+                break;
+            case ScreenPos.BOTTOM_CENTER:
+                margin = new Vector2(0f, marginOffset);
+                break;
+            case ScreenPos.BOTTOM_RIGHT:
+                margin = new Vector2(-marginOffset, marginOffset);
+                break;
+        }
+
+        for (int i = 0; i < combined.gameObject.transform.childCount; ++i)
+        {
+            RectTransform parent = combined.gameObject.transform.GetChild(i).gameObject.GetComponent<RectTransform>();
+            parent.anchoredPosition = margin;
         }
     }
 }

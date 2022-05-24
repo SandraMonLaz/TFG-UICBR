@@ -70,7 +70,7 @@
       "items": [
         {
           "screenPosition": "BOTTOM_RIGHT",
-          "itemScale": "SMALL",
+          "itemScale": "BIG",
           "image": "progresoPersonajeContinuo",
           "id": "CHARACTER_PROGRESS"
         }

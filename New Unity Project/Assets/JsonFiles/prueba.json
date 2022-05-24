@@ -33,13 +33,13 @@
       {
         "items": [
           {
-            "screenPosition": "BOTTOM_LEFT",
+            "screenPosition": "TOP_RIGHT",
             "itemScale": "BIG",
             "image": "vidaContinua",
             "id": "HEALTH"
           },
           {
-            "screenPosition": "BOTTOM_LEFT",
+            "screenPosition": "TOP_RIGHT",
             "itemScale": "MEDIUM",
             "image": "puntos",
             "id": "SCORE"
