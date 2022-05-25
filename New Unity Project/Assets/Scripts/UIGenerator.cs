@@ -17,6 +17,7 @@ public class UIGenerator : MonoBehaviour
     //Prefabs
     private GameObject _UIParent;
     private GameObject _UIImage;
+    private GameObject _UIBackground;
 
     //Imágenes
     public Sprite discreteLife;
@@ -43,6 +44,7 @@ public class UIGenerator : MonoBehaviour
     {
         _UIParent = UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/UIParent.prefab");
         _UIImage = UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/UIImagePrefab.prefab");
+        _UIBackground = UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/UIBackground.prefab");
 
         imgs = new Dictionary<string, Sprite>
         {
@@ -74,14 +76,14 @@ public class UIGenerator : MonoBehaviour
         Canvas canvas = this.gameObject.GetComponent<Canvas>();
         if (canvas != null)
         {
-            //Clean all childs before adding more GO
+            //Limpiamos todos los hijos antes de añadir cualquier objeto
             for(int i = 0; i < canvas.gameObject.transform.childCount; ++i)
             {
                 DestroyImmediate(canvas.gameObject.transform.GetChild(0).gameObject);
             }
+            //Destruimos el canvas
             DestroyImmediate(canvas);
         }
-
         canvas = this.gameObject.AddComponent<Canvas>();
         canvas.renderMode = RenderMode.ScreenSpaceOverlay;
 
@@ -89,6 +91,9 @@ public class UIGenerator : MonoBehaviour
         scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
         scaler.referenceResolution = screenResolution;
         scaler.screenMatchMode = CanvasScaler.ScreenMatchMode.Expand;
+
+        //Instanciamos la imagen de fondo
+        Instantiate(_UIBackground, canvas.transform);
 
         SolCBRParser solCBR = new SolCBRParser();
         solCBR = JsonUtility.FromJson<SolCBRParser>(jsonFile.text);
@@ -138,16 +143,16 @@ public class UIGenerator : MonoBehaviour
                 result = 1f;
                 break;
             case Scale.BIG:
-                result = 0.9f;
+                result = 0.85f;
                 break;
             case Scale.MEDIUM:
-                result = 0.8f;
-                break;
-            case Scale.SMALL:
                 result = 0.7f;
                 break;
-            case Scale.VERY_SMALL:
+            case Scale.SMALL:
                 result = 0.6f;
+                break;
+            case Scale.VERY_SMALL:
+                result = 0.5f;
                 break;
         }
 
@@ -200,14 +205,14 @@ public class UIGenerator : MonoBehaviour
         float combinedSizeX = maxItemWidth * scaleFactor;
         float combinedSizeY = maxItemHeight * scaleFactor;
 
-        float scaleRect = 0;
+        /*float scaleRect = 0;
         RectTransform rectCombined = pivot.GetComponent<RectTransform>();
         if (total_width > total_height)
             scaleRect = combinedSizeX / total_width;
         else
             scaleRect = combinedSizeY / total_height;
-
-        rectCombined.localScale = new Vector3(scaleRect, scaleRect, 0f);
+        */
+        //rectCombined.localScale = new Vector3(scaleRect, scaleRect, 0f);
         return new CombinedObject(pivot, combinedSizeY, combinedSizeX);
     }
 
@@ -553,7 +558,7 @@ public class UIGenerator : MonoBehaviour
             {
                 RectTransform itemRectTr = groupRectTr.GetChild(j).GetComponent<RectTransform>();
                 itemRectTr.pivot = anchor;
-                itemRectTr.anchoredPosition = itemRectTr.anchoredPosition * anchoredPositionFactor;
+                itemRectTr.anchoredPosition *= anchoredPositionFactor.y;
             }
         }
     }
@@ -653,10 +658,9 @@ public class UIGenerator : MonoBehaviour
                 break;
         }
 
-        for (int i = 0; i < combined.gameObject.transform.childCount; ++i)
-        {
-            RectTransform parent = combined.gameObject.transform.GetChild(i).gameObject.GetComponent<RectTransform>();
-            parent.anchoredPosition = margin;
-        }
+
+        RectTransform parent = combined.gameObject.GetComponent<RectTransform>();
+        parent.anchoredPosition = margin;
+        
     }
 }

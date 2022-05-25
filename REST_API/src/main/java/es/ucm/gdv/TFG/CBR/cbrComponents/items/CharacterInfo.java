@@ -28,12 +28,8 @@ public class CharacterInfo extends Item {
 		
 		characterInfoSolution.setScreenPosition(ScreenPos.TOP_LEFT);
 		
-		if(this.importance.ordinal() >= Importance.high.ordinal()) {
-			characterInfoSolution.setItemScale(Scale.MEDIUM);
-		}
-		else {
-			characterInfoSolution.setItemScale(Scale.SMALL);
-		}
+		characterInfoSolution.setItemScale(Scale.values()[this.importance.ordinal()]);
+		
 		solution.setSolItem(characterInfoSolution, ItemId.CHARACTER_INFO);
 		return characterInfoSolution;
 	}

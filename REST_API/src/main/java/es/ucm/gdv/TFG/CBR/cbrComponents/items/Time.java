@@ -37,21 +37,19 @@ public class Time extends Item {
 		//Si la solucion que nos ofrece no tiene CHARACTER_PROGRESS lo creamos
 		if(solutionTime == null) {
 			solutionTime = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "tiempoChrono", ItemId.TIME);
+			if(this.importance.ordinal() >= Importance.high.ordinal()) {
+				solutionTime.setItemScale(Scale.MEDIUM);
+			}
+			else {
+				solutionTime.setItemScale(Scale.SMALL);
+			}
 		}
-		
-		solutionTime.setScreenPosition(ScreenPos.TOP_CENTER);
 		
 		if(this.timeUse == TimeUse.countdown) solutionTime.setImage("tiempoCountdown");
 		else solutionTime.setImage("tiempoChrono");
 		
-		if(this.importance.ordinal() >= Importance.high.ordinal()) {
-			solutionTime.setItemScale(Scale.MEDIUM);
-		}
-		else {
-			solutionTime.setItemScale(Scale.SMALL);
-		}
 		
-		solution.setSolItem(solutionTime, ItemId.TIME);
+		solutionTime.setItemScale(Scale.values()[this.importance.ordinal()]);
 		return solutionTime;
 	}
 }

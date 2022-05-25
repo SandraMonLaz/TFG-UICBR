@@ -5,9 +5,6 @@ function EnviarFormulario() {
     if(document.getElementById("tipo-juego-plat").checked){
         query =  checkPlatfrom();
     }
-    else{
-        query = checkShooter();
-    }
 }
 
 function checkPlatfrom(){

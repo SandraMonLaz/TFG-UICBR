@@ -36,19 +36,18 @@ public class Shields extends Item {
 		//Si la solucion que nos ofrece no tiene shields lo creamos
 		if(shields == null) {
 			shields = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "escudosContinuos", ItemId.SHIELDS);
+			if(this.importance.ordinal() >= Importance.high.ordinal()) {
+				shields.setScreenPosition(ScreenPos.TOP_LEFT); //Habría que hacer que coincida con la vida
+			}
+			else {
+				shields.setScreenPosition(ScreenPos.BOTTOM_CENTER);
+			}
 		}
 		
 		if(this.type == RangeType.discrete) 		shields.setImage("escudosDiscretos");
 		else if(this.type == RangeType.continuous)	shields.setImage("escudosContinuos");
 		
-		if(this.importance.ordinal() >= Importance.high.ordinal()) {
-			shields.setScreenPosition(ScreenPos.TOP_LEFT); //Habría que hacer que coincida con la vida
-			shields.setItemScale(Scale.VERY_BIG);
-		}
-		else {
-			shields.setScreenPosition(ScreenPos.BOTTOM_CENTER);
-			shields.setItemScale(Scale.SMALL);
-		}
+		shields.setItemScale(Scale.values()[this.importance.ordinal()]);
 		solution.setSolItem(shields, ItemId.SHIELDS);
 		return shields;
 	}

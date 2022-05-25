@@ -1,0 +1,84 @@
+{
+  "sol": [
+    {
+      "items": [
+        {
+          "screenPosition": "TOP_LEFT",
+          "itemScale": "MEDIUM",
+          "image": "vidaDiscreta",
+          "id": "HEALTH"
+        },
+        {
+          "screenPosition": "TOP_LEFT",
+          "itemScale": "BIG",
+          "image": "informacionPersonaje",
+          "id": "CHARACTER_INFO"
+        }
+      ],
+      "screenPosition": "TOP_LEFT",
+      "itemScale": "BIG"
+    },
+    {
+      "items": [],
+      "screenPosition": "TOP_CENTER",
+      "itemScale": "MEDIUM"
+    },
+    {
+      "items": [
+        {
+          "screenPosition": "TOP_RIGHT",
+          "itemScale": "BIG",
+          "image": "puntos",
+          "id": "SCORE"
+        }
+      ],
+      "screenPosition": "TOP_RIGHT",
+      "itemScale": "BIG"
+    },
+    {
+      "items": [],
+      "screenPosition": "MIDDLE_LEFT",
+      "itemScale": "MEDIUM"
+    },
+    {
+      "items": [],
+      "screenPosition": "MIDDLE_CENTER",
+      "itemScale": "MEDIUM"
+    },
+    {
+      "items": [],
+      "screenPosition": "MIDDLE_RIGHT",
+      "itemScale": "MEDIUM"
+    },
+    {
+      "items": [
+        {
+          "screenPosition": "BOTTOM_LEFT",
+          "itemScale": "BIG",
+          "image": "habilidadLimitada",
+          "id": "ABILITIES"
+        },
+        {
+          "screenPosition": "BOTTOM_LEFT",
+          "itemScale": "BIG",
+          "image": "habilidadLimitada",
+          "id": "ABILITIES"
+        }
+      ],
+      "screenPosition": "BOTTOM_LEFT",
+      "itemScale": "BIG"
+    },
+    {
+      "items": [],
+      "screenPosition": "BOTTOM_CENTER",
+      "itemScale": "MEDIUM"
+    },
+    {
+      "items": [],
+      "screenPosition": "BOTTOM_RIGHT",
+      "itemScale": "MEDIUM"
+    }
+  ],
+  "id": 5,
+  "sim": 1
+}

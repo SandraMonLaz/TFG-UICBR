@@ -51,12 +51,7 @@ public class Weapons extends Item {
 		if(this.useType == UseType.infinite)		solutionWeapons.setImage("armaInfinita");
 		else if(this.useType == UseType.limited) 	solutionWeapons.setImage("armaLimitada");
 		
-		if(this.importance.ordinal() >= Importance.high.ordinal()) {
-			solutionWeapons.setItemScale(Scale.MEDIUM);
-		}
-		else {
-			solutionWeapons.setItemScale(Scale.SMALL);
-		}
+		solutionWeapons.setItemScale(Scale.values()[this.importance.ordinal()]);
 		
 		solution.setSolItem(solutionWeapons, ItemId.ABILITIES);
 		return solutionWeapons;

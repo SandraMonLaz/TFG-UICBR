@@ -44,12 +44,7 @@ public class CharacterProgress extends Item {
 				
 		solutionCharProgress.setScreenPosition(ScreenPos.TOP_LEFT);
 		
-		if(this.importance.ordinal() >= Importance.high.ordinal()) {
-			solutionCharProgress.setItemScale(Scale.MEDIUM);
-		}
-		else {
-			solutionCharProgress.setItemScale(Scale.SMALL);
-		}
+		solutionCharProgress.setItemScale(Scale.values()[this.importance.ordinal()]);
 		
 		solution.setSolItem(solutionCharProgress, ItemId.CHARACTER_PROGRESS);
 		return solutionCharProgress;

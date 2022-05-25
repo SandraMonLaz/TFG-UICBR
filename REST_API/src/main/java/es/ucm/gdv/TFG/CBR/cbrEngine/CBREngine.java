@@ -225,6 +225,8 @@ public class CBREngine implements StandardCBRApplication  {
 		_case.setDescription(queryDescription);
 
 		RetrievalResult first = SelectCases.selectTopKRR(eval, 1).iterator().next();
+		this.solCBR.setId((Integer)first.get_case().getID());
+		this.solCBR.setSim(first.getEval());
 		if(first.getEval() < 0.8)
 			StoreCasesMethod.storeCase(caseBase, _case);
 	}
@@ -240,7 +242,7 @@ public class CBREngine implements StandardCBRApplication  {
 		// Consider using kNNs with majority voting
 		RetrievalResult first = SelectCases.selectTopKRR(eval, 1).iterator().next();
 		CBRCase mostSimilarCase = first.get_case();
-
+		
 		CaseSolution mostSimilarCaseSol = (CaseSolution) mostSimilarCase.getSolution();
 		CaseSolution sol = new CaseSolution(mostSimilarCaseSol);
 		

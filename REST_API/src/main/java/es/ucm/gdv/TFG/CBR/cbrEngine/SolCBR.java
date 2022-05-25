@@ -4,6 +4,25 @@ import java.util.ArrayList;
 
 public class SolCBR {
 	ArrayList<CombinedItem> sol;
+	int id;
+	double sim;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public double getSim() {
+		return sim;
+	}
+
+	public void setSim(double sim) {
+		this.sim = sim;
+	}
+
 	
 	public SolCBR() {
 		sol = new ArrayList<CombinedItem>();

@@ -40,4 +40,11 @@ public class CombinedItem {
 		this.itemScale = itemScale;
 	}
 	
+	public void Add(ItemSol sol){
+		if(sol.getItemScale().ordinal() > this.itemScale.ordinal()){
+			this.itemScale = sol.getItemScale();
+		}
+		items.add(sol);
+	}
+	
 }

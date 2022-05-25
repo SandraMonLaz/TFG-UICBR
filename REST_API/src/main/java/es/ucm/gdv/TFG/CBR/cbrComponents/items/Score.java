@@ -24,16 +24,16 @@ public class Score extends Item {
 		//Si la solucion que nos ofrece no tiene SCORE lo creamos
 		if(score == null) {
 			score = new ItemSol(ScreenPos.TOP_LEFT, Scale.MEDIUM, "puntos", ItemId.SCORE);
+		
+			if(this.importance.ordinal() >= Importance.high.ordinal()) {
+				score.setScreenPosition(ScreenPos.TOP_RIGHT); //Habría que evitar que coincida con la vida
+			}
+			else {
+				score.setScreenPosition(ScreenPos.BOTTOM_CENTER);
+			}
 		}
 		
-		if(this.importance.ordinal() >= Importance.high.ordinal()) {
-			score.setScreenPosition(ScreenPos.TOP_RIGHT); //Habría que evitar que coincida con la vida
-			score.setItemScale(Scale.MEDIUM);
-		}
-		else {
-			score.setScreenPosition(ScreenPos.BOTTOM_CENTER);
-			score.setItemScale(Scale.SMALL);
-		}
+		score.setItemScale(Scale.values()[this.importance.ordinal()]);
 		solution.setSolItem(score, ItemId.SCORE);
 		return score;
 	}

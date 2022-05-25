@@ -45,14 +45,8 @@ public class Health extends Item {
 				health.setImage("vidaContinua");
 		}
 		
-		if(this.importance.ordinal() >= Importance.medium.ordinal()) {
-			health.setScreenPosition(ScreenPos.TOP_LEFT);
-			health.setItemScale(Scale.VERY_BIG);
-		}
-		else {
-			health.setScreenPosition(ScreenPos.BOTTOM_CENTER);
-			health.setItemScale(Scale.SMALL);
-		}
+		health.setItemScale(Scale.values()[this.importance.ordinal()]);
+		
 		solution.setSolItem(health, ItemId.HEALTH);
 		return health;
 	}

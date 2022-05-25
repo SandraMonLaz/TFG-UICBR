@@ -51,13 +51,8 @@ public class Abilities extends Item {
 		if(this.useType == UseType.infinite)		solutionAbilities.setImage("habilidadInfinita");
 		else if(this.useType == UseType.limited) 	solutionAbilities.setImage("habilidadLimitada");
 			
-		if(this.importance.ordinal() >= Importance.high.ordinal()) {
-			solutionAbilities.setItemScale(Scale.MEDIUM);
-		}
-		else {
-			solutionAbilities.setItemScale(Scale.SMALL);
-		}
-		
+		solutionAbilities.setItemScale(Scale.values()[this.importance.ordinal()]);
+
 		solution.setSolItem(solutionAbilities, ItemId.ABILITIES);
 		return solutionAbilities;
 	}
