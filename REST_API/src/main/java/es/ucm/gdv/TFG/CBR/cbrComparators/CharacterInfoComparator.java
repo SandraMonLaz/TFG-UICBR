@@ -7,6 +7,9 @@ import es.ucm.fdi.gaia.jcolibri.method.retrieve.NNretrieval.similarity.local.Int
 import es.ucm.gdv.TFG.CBR.cbrComponents.items.CharacterInfo;
 import es.ucm.gdv.TFG.REST_API.Importance;
 
+/*
+ * Comparador para el elemento de información del personaje
+ * */
 public class CharacterInfoComparator implements LocalSimilarityFunction {
 
 	@Override

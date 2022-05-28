@@ -8,6 +8,9 @@ import es.ucm.gdv.TFG.CBR.cbrComponents.items.Shields;
 import es.ucm.gdv.TFG.REST_API.Importance;
 import es.ucm.gdv.TFG.REST_API.RangeType;
 
+/*
+ * Comparador para el elemento de escudo
+ * */
 public class ShieldsComparator implements LocalSimilarityFunction {
 
 	@Override

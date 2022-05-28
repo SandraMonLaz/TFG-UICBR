@@ -8,6 +8,9 @@ import es.ucm.gdv.TFG.CBR.cbrComponents.items.Weapons;
 import es.ucm.gdv.TFG.REST_API.Importance;
 import es.ucm.gdv.TFG.REST_API.UseType;
 
+/*
+ * Comparador para el elemento de armas
+ * */
 public class WeaponsComparator implements LocalSimilarityFunction {
 
 	@Override

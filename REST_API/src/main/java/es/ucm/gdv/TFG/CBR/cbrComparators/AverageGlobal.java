@@ -13,6 +13,10 @@ import es.ucm.fdi.gaia.jcolibri.method.retrieve.NNretrieval.similarity.LocalSimi
 import es.ucm.fdi.gaia.jcolibri.method.retrieve.NNretrieval.similarity.StandardGlobalSimilarityFunction;
 import es.ucm.fdi.gaia.jcolibri.util.AttributeUtils;
 
+/*
+ * Clase que realiza la similitud global. Para ello llama a cada uno de las similitud parciales(la de los
+ * elementos)salvo en el caso de que no existan ni en la consulta ni en el caso
+ * */
 public class AverageGlobal implements GlobalSimilarityFunction {
 
 

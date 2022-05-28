@@ -2,7 +2,9 @@ package es.ucm.gdv.TFG.CBR.cbrComponents;
 
 import es.ucm.gdv.TFG.CBR.cbrComponents.items.ItemId;
 
-//Clase que representa a un item como solucion en el CBR
+/*
+ * Clase que representa a un item como solucion en el CBR
+ */
 public class ItemSol {
 	
 	public ItemSol() {
@@ -46,10 +48,10 @@ public class ItemSol {
 	}
 	
 
-	private ScreenPos screenPosition;
-	private Scale itemScale;
-	private String image;
-	private ItemId id;
+	private ScreenPos screenPosition;	//poscion en la interfaz
+	private Scale itemScale;			//escala en la interfaz
+	private String image;				//cadena de texto con la imagen final
+	private ItemId id;					//id del elemento/item
 	
 	public String getImage() {
 		return image;

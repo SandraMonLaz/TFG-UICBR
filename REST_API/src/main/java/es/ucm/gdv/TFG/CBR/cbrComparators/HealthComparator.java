@@ -7,6 +7,9 @@ import es.ucm.fdi.gaia.jcolibri.method.retrieve.NNretrieval.similarity.local.Int
 import es.ucm.gdv.TFG.CBR.cbrComponents.items.Health;
 import es.ucm.gdv.TFG.REST_API.Importance;
 import es.ucm.gdv.TFG.REST_API.RangeType;
+/*
+ * Comparador para el elemento de vida
+ * */
 public class HealthComparator implements LocalSimilarityFunction {
 
 	@Override

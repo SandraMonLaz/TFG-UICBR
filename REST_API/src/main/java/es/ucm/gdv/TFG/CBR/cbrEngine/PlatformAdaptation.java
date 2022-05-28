@@ -140,39 +140,31 @@ public class PlatformAdaptation {
 	 * Crea una solucion combinando los items por posicion
 	 * */
 	private SolCBR createSol(CaseSolution solution,  CaseDescription queryDescription){
-		// Se usa la solucion modificada para crear la solucion del CBR		
-		SolCBR CBR = new SolCBR();
+		// Creamos un objeto combinado por posición en pantalla	
 		CombinedItem combinedTL = new CombinedItem();
 		combinedTL.setScreenPosition(ScreenPos.TOP_LEFT);
-		combinedTL.setItemScale(Scale.MEDIUM);
 		CombinedItem combinedTC = new CombinedItem();
 		combinedTC.setScreenPosition(ScreenPos.TOP_CENTER);
-		combinedTC.setItemScale(Scale.MEDIUM);
 		CombinedItem combinedTR = new CombinedItem();
 		combinedTR.setScreenPosition(ScreenPos.TOP_RIGHT);
-		combinedTR.setItemScale(Scale.MEDIUM);
 		CombinedItem combinedCL = new CombinedItem();
 		combinedCL.setScreenPosition(ScreenPos.MIDDLE_LEFT);
-		combinedCL.setItemScale(Scale.MEDIUM);
 		CombinedItem combinedCC = new CombinedItem();
 		combinedCC.setScreenPosition(ScreenPos.MIDDLE_CENTER);
-		combinedCC.setItemScale(Scale.MEDIUM);
 		CombinedItem combinedCR = new CombinedItem();
 		combinedCR.setScreenPosition(ScreenPos.MIDDLE_RIGHT);
-		combinedCR.setItemScale(Scale.MEDIUM);
 		CombinedItem combinedBL= new CombinedItem();
 		combinedBL.setScreenPosition(ScreenPos.BOTTOM_LEFT);
-		combinedBL.setItemScale(Scale.MEDIUM);
 		CombinedItem combinedBC= new CombinedItem();
 		combinedBC.setScreenPosition(ScreenPos.BOTTOM_CENTER);
-		combinedBC.setItemScale(Scale.MEDIUM);
 		CombinedItem combinedBR= new CombinedItem();
 		combinedBR.setScreenPosition(ScreenPos.BOTTOM_RIGHT);
-		combinedBR.setItemScale(Scale.MEDIUM);
-		
-		
+	
+		//PAra cada elemento de la solución se añade al objeto combinado que tenga su misma posición
 		for(ItemSol itemSol: solution.getSolutionItems().getValues()) {
 			if(itemSol != null) {
+				//En caso de ser armas o habilidades habrá que añadir cuantos haya querido incluir 
+				//el usuario en la petición
 				int n = 1;
 				if(itemSol.getId() == ItemId.ABILITIES && queryDescription.getAbilities() != null)
 					n =  queryDescription.getAbilities().getnWeapons();
@@ -182,7 +174,7 @@ public class PlatformAdaptation {
 				for(int i = 0; i < n; i++){				
 					switch(itemSol.getScreenPosition()) {
 					case TOP_LEFT:		combinedTL.Add(itemSol); break;
-					case TOP_CENTER:	combinedTC.Add(itemSol);	break;
+					case TOP_CENTER:	combinedTC.Add(itemSol); break;
 					case TOP_RIGHT: 	combinedTR.Add(itemSol); break;
 					case MIDDLE_LEFT:	combinedCL.Add(itemSol); break;
 					case MIDDLE_CENTER:	combinedCC.Add(itemSol); break;
@@ -194,6 +186,7 @@ public class PlatformAdaptation {
 				}
 			}
 		}
+		SolCBR CBR = new SolCBR();
 			
 		CBR.getSol().add(combinedTL);
 		CBR.getSol().add(combinedTC);

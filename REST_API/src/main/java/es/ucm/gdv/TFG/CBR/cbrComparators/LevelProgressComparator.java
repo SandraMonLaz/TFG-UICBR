@@ -9,6 +9,9 @@ import es.ucm.gdv.TFG.REST_API.Importance;
 import es.ucm.gdv.TFG.REST_API.RangeType;
 import es.ucm.gdv.TFG.REST_API.platform2D.LevelProgress.ProgressType;
 
+/*
+ * Comparador para el elemento de progreso de nivel
+ * */
 public class LevelProgressComparator implements LocalSimilarityFunction{
 	@Override
 	public double compute(Object o1, Object o2) throws NoApplicableSimilarityFunctionException {

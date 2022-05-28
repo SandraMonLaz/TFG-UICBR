@@ -8,6 +8,9 @@ import es.ucm.gdv.TFG.CBR.cbrComponents.items.Time;
 import es.ucm.gdv.TFG.REST_API.Importance;
 import es.ucm.gdv.TFG.REST_API.platform2D.Time.TimeUse;
 
+/*
+ * Comparador para el elemento de tiempo
+ * */
 public class TimeComparator implements LocalSimilarityFunction{
 	
 	@Override

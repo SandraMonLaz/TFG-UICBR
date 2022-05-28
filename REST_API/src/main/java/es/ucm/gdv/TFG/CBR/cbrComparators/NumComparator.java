@@ -3,6 +3,9 @@ package es.ucm.gdv.TFG.CBR.cbrComparators;
 import es.ucm.fdi.gaia.jcolibri.exception.NoApplicableSimilarityFunctionException;
 import es.ucm.fdi.gaia.jcolibri.method.retrieve.NNretrieval.similarity.LocalSimilarityFunction;
 
+/*
+ * Comparador que compara números usando un intervalo con un máximo limitado
+ * */
 public class NumComparator implements LocalSimilarityFunction {
 
 	public NumComparator(double maxValue) {

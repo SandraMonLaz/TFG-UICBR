@@ -6,6 +6,9 @@ import es.ucm.fdi.gaia.jcolibri.method.retrieve.NNretrieval.similarity.local.Int
 import es.ucm.gdv.TFG.CBR.cbrComponents.items.Collectable;
 import es.ucm.gdv.TFG.REST_API.Importance;
 
+/*
+ * Comparador para el elemento de coleccionables
+ * */
 public class CollectableComparator implements LocalSimilarityFunction{
 
 	@Override

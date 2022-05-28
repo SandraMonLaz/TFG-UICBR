@@ -8,6 +8,9 @@ import es.ucm.gdv.TFG.CBR.cbrComponents.items.CharacterProgress;
 import es.ucm.gdv.TFG.REST_API.Importance;
 import es.ucm.gdv.TFG.REST_API.RangeType;
 
+/*
+ * Comparador para el elemento progreso del jugador
+ * */
 public class CharacterProgressComparator implements LocalSimilarityFunction {
 
 	@Override

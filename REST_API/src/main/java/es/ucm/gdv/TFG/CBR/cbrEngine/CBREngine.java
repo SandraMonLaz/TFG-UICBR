@@ -82,15 +82,15 @@ public class CBREngine implements StandardCBRApplication  {
 	}
 	@Override
 	public void configure() throws ExecutionException {
-		// TODO Auto-generated method stub
+		//Configuramos para guardado tanto en memoria como a disco
 		connector = new CustomPlainTextConnector();
 		caseBase = new CachedLinearCaseBase();
-		
 		connector.initFromXMLfile(FileIO.findFile(CONNECTOR_FILE_PATH));
 		
+		//iniciamos base de casos 
 		connector.setCaseBaseFile(CASE_BASE_PATH, "casos.csv");
 		
-		
+		//configuramos el sistema con cada atributo
 		simConfig = new NNConfig();
 		simConfig.setDescriptionSimFunction(new AverageGlobal());
 		simConfig.addMapping(new Attribute("health",CaseDescription.class), new HealthComparator());	

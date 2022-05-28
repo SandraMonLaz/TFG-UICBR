@@ -6,6 +6,9 @@ import es.ucm.fdi.gaia.jcolibri.method.retrieve.NNretrieval.similarity.local.Int
 import es.ucm.gdv.TFG.CBR.cbrComponents.items.Score;
 import es.ucm.gdv.TFG.REST_API.Importance;
 
+/*
+ * Comparador para el elemento de puntuación
+ * */
 public class ScoreComparator implements LocalSimilarityFunction{
 
 	@Override
