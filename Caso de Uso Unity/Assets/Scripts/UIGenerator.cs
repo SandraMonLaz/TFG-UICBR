@@ -201,9 +201,9 @@ public class UIGenerator : MonoBehaviour
         float maxItemWidth = (screenResolution.x / 3.0f);
         float maxItemHeight = (screenResolution.y / 3.0f);
 
-        float scaleFactor = GetItemScaleFactor(combined.itemScale);
-        float combinedSizeX = maxItemWidth * scaleFactor;
-        float combinedSizeY = maxItemHeight * scaleFactor;
+        //float scaleFactor = GetItemScaleFactor(combined.itemScale);
+        float combinedSizeX = maxItemWidth; //* scaleFactor;
+        float combinedSizeY = maxItemHeight; //* scaleFactor;
 
         /*float scaleRect = 0;
         RectTransform rectCombined = pivot.GetComponent<RectTransform>();
@@ -253,9 +253,9 @@ public class UIGenerator : MonoBehaviour
         float maxItemWidth = (screenResolution.x / 3.0f);
         float maxItemHeight = (screenResolution.y / 3.0f);
 
-        float scaleFactor = GetItemScaleFactor(combined.itemScale);
-        float combinedSizeX = maxItemWidth * scaleFactor;
-        float combinedSizeY = maxItemHeight * scaleFactor;
+        //float scaleFactor = GetItemScaleFactor(combined.itemScale);
+        float combinedSizeX = maxItemWidth;     // * scaleFactor;
+        float combinedSizeY = maxItemHeight;    // * scaleFactor;
 
         RectTransform rectCombain = pivot.GetComponent<RectTransform>();
 
@@ -303,9 +303,9 @@ public class UIGenerator : MonoBehaviour
         float maxItemWidth = (screenResolution.x / 3.0f);
         float maxItemHeight = (screenResolution.y / 3.0f);
 
-        float scaleFactor = GetItemScaleFactor(combined.itemScale);
-        float combinedSizeX = maxItemWidth * scaleFactor;
-        float combinedSizeY = maxItemHeight * scaleFactor;
+        //float scaleFactor = GetItemScaleFactor(combined.itemScale);
+        float combinedSizeX = maxItemWidth;  // * scaleFactor;
+        float combinedSizeY = maxItemHeight; // * scaleFactor;
 
         RectTransform rectCombined = pivot.GetComponent<RectTransform>();
         

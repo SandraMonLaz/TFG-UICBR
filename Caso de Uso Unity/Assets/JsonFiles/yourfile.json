@@ -1,82 +1,49 @@
 {
   "sol": [
     {
-      "items": [
-        {
-          "screenPosition": "TOP_LEFT",
-          "itemScale": "VERY_BIG",
-          "image": "vidaContinua",
-          "id": "HEALTH"
-        },
-        {
-          "screenPosition": "TOP_LEFT",
-          "itemScale": "VERY_BIG",
-          "image": "escudosDiscretos",
-          "id": "SHIELDS"
-        }
-      ],
-      "screenPosition": "TOP_LEFT",
-      "itemScale": "MEDIUM"
+      "items": [],
+      "screenPosition": "TOP_LEFT"
     },
     {
       "items": [],
-      "screenPosition": "TOP_CENTER",
-      "itemScale": "MEDIUM"
-    },
-    {
-      "items": [
-        {
-          "screenPosition": "TOP_RIGHT",
-          "itemScale": "MEDIUM",
-          "image": "puntos",
-          "id": "SCORE"
-        },
-        {
-          "screenPosition": "TOP_RIGHT",
-          "itemScale": "SMALL",
-          "image": "collectable",
-          "id": "COLLECTABLE"
-        }
-      ],
-      "screenPosition": "TOP_RIGHT",
-      "itemScale": "MEDIUM"
+      "screenPosition": "TOP_CENTER"
     },
     {
       "items": [],
-      "screenPosition": "MIDDLE_LEFT",
-      "itemScale": "MEDIUM"
+      "screenPosition": "TOP_RIGHT"
     },
     {
       "items": [],
-      "screenPosition": "MIDDLE_CENTER",
-      "itemScale": "MEDIUM"
+      "screenPosition": "MIDDLE_LEFT"
     },
     {
       "items": [],
-      "screenPosition": "MIDDLE_RIGHT",
-      "itemScale": "MEDIUM"
+      "screenPosition": "MIDDLE_CENTER"
     },
     {
       "items": [],
-      "screenPosition": "BOTTOM_LEFT",
-      "itemScale": "MEDIUM"
+      "screenPosition": "MIDDLE_RIGHT"
     },
     {
       "items": [],
-      "screenPosition": "BOTTOM_CENTER",
-      "itemScale": "MEDIUM"
+      "screenPosition": "BOTTOM_LEFT"
+    },
+    {
+      "items": [],
+      "screenPosition": "BOTTOM_CENTER"
     },
     {
       "items": [
         {
           "screenPosition": "BOTTOM_RIGHT",
-          "itemScale": "BIG",
-          "image": "progresoPersonajeContinuo",
-          "id": "CHARACTER_PROGRESS"
+          "itemScale": "MEDIUM",
+          "image": "vidaDiscreta",
+          "id": "HEALTH"
         }
       ],
-      "screenPosition": "BOTTOM_RIGHT",
-      "itemScale": "MEDIUM"
+      "screenPosition": "BOTTOM_RIGHT"
     }
-  ]
+  ],
+  "id": 0,
+  "sim": 1
 }

@@ -1,0 +1,75 @@
+{
+  "sol": [
+    {
+      "items": [
+        {
+          "screenPosition": "TOP_LEFT",
+          "itemScale": "BIG",
+          "image": "vidaContinua",
+          "id": "HEALTH"
+        },
+        {
+          "screenPosition": "TOP_LEFT",
+          "itemScale": "SMALL",
+          "image": "escudosDiscretos",
+          "id": "SHIELDS"
+        }
+      ],
+      "screenPosition": "TOP_LEFT"
+    },
+    {
+      "items": [],
+      "screenPosition": "TOP_CENTER"
+    },
+    {
+      "items": [
+        {
+          "screenPosition": "TOP_RIGHT",
+          "itemScale": "BIG",
+          "image": "puntos",
+          "id": "SCORE"
+        },
+        {
+          "screenPosition": "TOP_RIGHT",
+          "itemScale": "VERY_BIG",
+          "image": "collectable",
+          "id": "COLLECTABLE"
+        }
+      ],
+      "screenPosition": "TOP_RIGHT"
+    },
+    {
+      "items": [],
+      "screenPosition": "MIDDLE_LEFT"
+    },
+    {
+      "items": [],
+      "screenPosition": "MIDDLE_CENTER"
+    },
+    {
+      "items": [],
+      "screenPosition": "MIDDLE_RIGHT"
+    },
+    {
+      "items": [
+        {
+          "screenPosition": "BOTTOM_LEFT",
+          "itemScale": "BIG",
+          "image": "habilidadInfinita",
+          "id": "ABILITIES"
+        }
+      ],
+      "screenPosition": "BOTTOM_LEFT"
+    },
+    {
+      "items": [],
+      "screenPosition": "BOTTOM_CENTER"
+    },
+    {
+      "items": [],
+      "screenPosition": "BOTTOM_RIGHT"
+    }
+  ],
+  "id": 30,
+  "sim": 0.5122222222222222
+}

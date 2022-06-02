@@ -23,12 +23,12 @@ public class Combined
 {
     public ItemSolution[] items;
     public ScreenPos screenPosition;
-    public Scale itemScale;
+    //public Scale itemScale;
 
     public Combined(CombinedItem comb)
     {
         screenPosition = (ScreenPos)Enum.Parse(typeof(ScreenPos), comb.screenPosition);
-        itemScale = (Scale)Enum.Parse(typeof(Scale), comb.itemScale);
+        //itemScale = (Scale)Enum.Parse(typeof(Scale), comb.itemScale);
         items = new ItemSolution[comb.items.Length];
 
         for(int i = 0; i < items.Length; i++)

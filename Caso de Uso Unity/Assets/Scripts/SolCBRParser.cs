@@ -9,7 +9,7 @@ public class CombinedItem
 {
     public ItemSol[] items;
     public string screenPosition;
-    public string itemScale;
+    //public string itemScale;
 }
 
 [System.Serializable]
